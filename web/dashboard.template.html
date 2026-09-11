@@ -7,11 +7,10 @@
   --ink:#1D1720; --ink-2:#6A5F68; --ink-3:#948A92;
   --accent:#6E1F35; --accent-ink:#6E1F35; --accent-soft:rgba(110,31,53,.09);
   --s-urgent:#A93226; --s-now:#A9701F; --s-peak:#3F6B46; --s-dh:#2F6A78; --s-hold:#46578A;
-  --band:.22; --today:#1D1720;
+  --band:.22; --today:#1D1720; --shadow:0 18px 50px rgba(29,23,32,.18);
   --sans:"IBM Plex Sans KR",system-ui,-apple-system,"Segoe UI",sans-serif;
   --mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",monospace;
   --display:"Bodoni Moda","IBM Plex Sans KR",Georgia,serif;
-  --r:10px;
 }
 @media (prefers-color-scheme:dark){
   :root:not([data-theme="light"]){
@@ -19,7 +18,7 @@
     --ink:#F0EAEE; --ink-2:#A2959F; --ink-3:#7A6E78;
     --accent:#D07E92; --accent-ink:#E0A0B0; --accent-soft:rgba(208,126,146,.13);
     --s-urgent:#E0705F; --s-now:#D6A353; --s-peak:#7BAE80; --s-dh:#6CB0BE; --s-hold:#8A9BCB;
-    --band:.30; --today:#F0EAEE;
+    --band:.30; --today:#F0EAEE; --shadow:0 18px 50px rgba(0,0,0,.55);
   }
 }
 :root[data-theme="dark"]{
@@ -27,7 +26,7 @@
   --ink:#F0EAEE; --ink-2:#A2959F; --ink-3:#7A6E78;
   --accent:#D07E92; --accent-ink:#E0A0B0; --accent-soft:rgba(208,126,146,.13);
   --s-urgent:#E0705F; --s-now:#D6A353; --s-peak:#7BAE80; --s-dh:#6CB0BE; --s-hold:#8A9BCB;
-  --band:.30; --today:#F0EAEE;
+  --band:.30; --today:#F0EAEE; --shadow:0 18px 50px rgba(0,0,0,.55);
 }
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);
@@ -36,8 +35,8 @@ body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);
 h1,h2,h3{margin:0;text-wrap:balance}
 a{color:var(--accent-ink)}
 :focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
+.num{font-variant-numeric:tabular-nums}
 
-/* ── header ───────────────────────────────── */
 .masthead{display:flex;flex-wrap:wrap;align-items:flex-end;gap:16px 28px;
           padding-bottom:22px;border-bottom:1px solid var(--line)}
 h1{font-family:var(--display);font-weight:400;font-size:clamp(30px,5.2vw,44px);
@@ -49,7 +48,6 @@ h1{font-family:var(--display);font-weight:400;font-size:clamp(30px,5.2vw,44px);
        font-variant-numeric:tabular-nums}
 .fig span{font-size:12px;color:var(--ink-2)}
 
-/* ── controls ─────────────────────────────── */
 .controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:22px}
 .chips{display:flex;flex-wrap:wrap;gap:7px}
 .chip{display:inline-flex;align-items:center;gap:7px;padding:6px 12px;cursor:pointer;
@@ -58,20 +56,17 @@ h1{font-family:var(--display);font-weight:400;font-size:clamp(30px,5.2vw,44px);
 .chip .dot{width:8px;height:8px;border-radius:50%;background:var(--c)}
 .chip .n{font-family:var(--mono);font-size:12px;color:var(--ink-3)}
 .chip:hover{border-color:var(--ink-3)}
-.chip[aria-pressed="true"]{border-color:var(--c);color:var(--ink);
-      box-shadow:inset 0 0 0 1px var(--c)}
-.chip[aria-pressed="true"] .n{color:var(--ink-2)}
-#q{flex:1;min-width:190px;padding:7px 12px;border:1px solid var(--line);border-radius:999px;
+.chip[aria-pressed="true"]{border-color:var(--c);color:var(--ink);box-shadow:inset 0 0 0 1px var(--c)}
+#q,#sort{padding:7px 12px;border:1px solid var(--line);border-radius:999px;
    background:var(--surface);color:var(--ink);font:inherit;font-size:13px}
+#q{flex:1;min-width:180px}
 #q::placeholder{color:var(--ink-3)}
 
-/* ── sections ─────────────────────────────── */
 section{margin-top:44px}
-.eyebrow{display:flex;align-items:baseline;gap:10px;margin-bottom:4px}
+.eyebrow{display:flex;align-items:baseline;gap:10px;margin-bottom:4px;flex-wrap:wrap}
 .eyebrow h2{font-size:13px;font-weight:600;letter-spacing:.09em;text-transform:uppercase}
 .eyebrow p{margin:0;font-size:13px;color:var(--ink-3)}
 
-/* ── timeline ─────────────────────────────── */
 .tl-scroll{overflow-x:auto;margin-top:18px}
 .tl{min-width:680px;--gutter:30px}
 .tl-axis{position:relative;height:17px;margin-left:var(--lane);margin-right:var(--gutter);
@@ -81,73 +76,113 @@ section{margin-top:44px}
 .tl-grid{position:absolute;inset:0 var(--gutter) 0 var(--lane);pointer-events:none}
 .tl-grid i{position:absolute;top:0;bottom:0;width:1px;background:var(--line-soft)}
 .tl-now{position:absolute;top:0;bottom:0;width:1px;background:var(--today);opacity:.4}
-.tl-now::after{content:"지금";position:absolute;top:-18px;left:4px;font-family:var(--sans);
-               font-size:11px;font-weight:600;color:var(--ink-2);letter-spacing:.04em;opacity:2.5}
-.row{display:grid;grid-template-columns:var(--lane) 1fr;align-items:center;
-     column-gap:0;height:23px;position:relative}
-.row:hover .rname{color:var(--ink)}
+.tl-now::after{content:"지금";position:absolute;top:-18px;left:4px;font-size:11px;
+               font-weight:600;color:var(--ink-2);letter-spacing:.04em}
+.row{display:grid;grid-template-columns:var(--lane) 1fr;align-items:center;height:23px}
 .rname{font-size:12.5px;color:var(--ink-2);white-space:nowrap;overflow:hidden;
        text-overflow:ellipsis;padding-right:12px}
 .rname em{font-family:var(--mono);font-style:normal;font-size:11px;color:var(--ink-3)}
 .track{position:relative;height:100%;margin-right:var(--gutter)}
-.bar{position:absolute;top:6px;height:11px;border-radius:3px;
+.bar{position:absolute;top:6px;height:11px;border-radius:3px;cursor:pointer;
      background:color-mix(in srgb,var(--c) calc(var(--band)*100%),transparent);
-     border-left:2.5px solid var(--c);cursor:pointer}
+     border-left:2.5px solid var(--c)}
 .bar::after{content:"";position:absolute;right:0;top:0;bottom:0;width:2.5px;
             background:var(--c);opacity:.45;border-radius:0 3px 3px 0}
-.bar:hover{background:color-mix(in srgb,var(--c) 34%,transparent)}
+.bar:hover{background:color-mix(in srgb,var(--c) 40%,transparent)}
 .legend{display:flex;flex-wrap:wrap;gap:6px 20px;margin-top:14px;font-size:12px;color:var(--ink-3)}
 .legend i{display:inline-block;width:22px;height:8px;border-radius:2px;vertical-align:middle;
           margin-right:6px;border-left:2.5px solid var(--c);
           background:color-mix(in srgb,var(--c) calc(var(--band)*100%),transparent)}
 
-/* ── list ─────────────────────────────────── */
 .list{margin-top:16px;border-top:1px solid var(--line)}
-details{border-bottom:1px solid var(--line-soft)}
-details[open]{background:var(--surface)}
-summary{display:grid;grid-template-columns:2.2fr 52px 1.3fr 96px 84px;gap:14px;align-items:center;
-        padding:11px 12px;cursor:pointer;list-style:none}
-summary::-webkit-details-marker{display:none}
-summary:hover{background:var(--accent-soft)}
-.nm{font-weight:500;display:flex;align-items:center;gap:8px;min-width:0}
+.item{display:grid;grid-template-columns:2.1fr 52px 1.15fr 84px 82px 74px;gap:12px;align-items:center;
+      width:100%;padding:11px 12px;border:0;border-bottom:1px solid var(--line-soft);
+      background:none;color:inherit;font:inherit;text-align:left;cursor:pointer}
+.item:hover{background:var(--accent-soft)}
+.nm{display:flex;align-items:center;gap:8px;min-width:0;font-weight:500}
 .nm span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .nm b{flex:none;font-family:var(--mono);font-size:10px;font-weight:500;color:var(--ink-3);
       border:1px solid var(--line);border-radius:4px;padding:0 4px}
-.vt,.win{font-family:var(--mono);font-size:12.5px;font-variant-numeric:tabular-nums;color:var(--ink-2)}
+.vt,.win,.pr{font-family:var(--mono);font-size:12.5px;font-variant-numeric:tabular-nums;color:var(--ink-2)}
+.pr{text-align:right}
+.pr i{font-style:normal;color:var(--ink-3)}
 .rg{font-size:12.5px;color:var(--ink-3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .pill{justify-self:start;font-size:11.5px;padding:2px 9px;border-radius:999px;white-space:nowrap;
       color:var(--c);background:color-mix(in srgb,var(--c) calc(var(--band)*100%),transparent)}
-.detail{padding:2px 12px 18px;display:grid;grid-template-columns:1fr;gap:12px}
-.detail p{margin:0;max-width:66ch;color:var(--ink-2);font-size:13.5px}
-.meta{display:flex;flex-wrap:wrap;gap:6px 22px;font-size:12px;color:var(--ink-3)}
-.meta b{font-weight:500;color:var(--ink-2)}
-.ws{justify-self:start;display:inline-flex;align-items:center;gap:6px;font-size:12.5px;
-    text-decoration:none;color:var(--accent-ink);border:1px solid var(--line);
-    border-radius:999px;padding:4px 11px;background:var(--surface)}
-.ws:hover{border-color:var(--accent);background:var(--accent-soft)}
 .empty{padding:28px 12px;color:var(--ink-3);font-size:13.5px}
 
-/* ── flags + mix ──────────────────────────── */
+.flag{margin-top:14px;padding:14px 16px;border-left:2.5px solid var(--s-now);
+      background:var(--sunken);border-radius:0 10px 10px 0}
+.flag h3{font-size:13.5px;font-weight:600;margin-bottom:3px}
+.flag h3 em{font-family:var(--mono);font-style:normal;font-size:11px;color:var(--ink-3);margin-right:7px}
+.flag p{margin:0;font-size:13px;color:var(--ink-2);max-width:60ch}
 .split{display:grid;grid-template-columns:1fr;gap:36px}
 @media (min-width:800px){.split{grid-template-columns:1.15fr .85fr;gap:44px}}
-.flag{margin-top:14px;padding:14px 16px;border-left:2.5px solid var(--s-now);
-      background:var(--sunken);border-radius:0 var(--r) var(--r) 0}
-.flag h3{font-size:13.5px;font-weight:600;margin-bottom:3px}
-.flag h3 em{font-family:var(--mono);font-style:normal;font-size:11px;color:var(--ink-3);
-            margin-right:7px}
-.flag p{margin:0;font-size:13px;color:var(--ink-2);max-width:60ch}
 .mix{margin-top:16px;display:grid;gap:9px}
 .mix div{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;font-size:13px}
 .mix .track2{grid-column:1/-1;height:5px;border-radius:3px;background:var(--sunken);overflow:hidden}
 .mix .track2 i{display:block;height:100%;background:var(--accent);opacity:.72;border-radius:3px}
 .mix em{font-family:var(--mono);font-style:normal;font-size:12px;color:var(--ink-3)}
 footer{margin-top:52px;padding-top:18px;border-top:1px solid var(--line);
-       font-size:12px;color:var(--ink-3)}
+       font-size:12px;color:var(--ink-3);max-width:76ch}
+
+/* ── 프로파일 패널 ─────────────────────── */
+#scrim{position:fixed;inset:0;background:rgba(20,16,22,.42);opacity:0;pointer-events:none;
+       transition:opacity .2s;z-index:40}
+#scrim.on{opacity:1;pointer-events:auto}
+#panel{position:fixed;top:0;right:0;bottom:0;width:min(470px,100%);z-index:50;
+       background:var(--surface);border-left:1px solid var(--line);box-shadow:var(--shadow);
+       transform:translateX(101%);transition:transform .24s cubic-bezier(.4,0,.2,1);
+       overflow-y:auto;overscroll-behavior:contain}
+#panel.on{transform:none}
+.p-head{position:sticky;top:0;background:var(--surface);border-bottom:1px solid var(--line);
+        padding:20px 24px 15px;display:grid;gap:7px}
+.p-head h2{font-family:var(--display);font-weight:400;font-size:24px;line-height:1.16}
+.p-sub{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;font-size:12.5px;color:var(--ink-3)}
+.p-sub .yr{font-family:var(--mono);color:var(--ink-2)}
+#close{position:absolute;top:16px;right:16px;width:30px;height:30px;border-radius:50%;
+       border:1px solid var(--line);background:var(--surface);color:var(--ink-2);
+       font-size:15px;line-height:1;cursor:pointer}
+#close:hover{border-color:var(--ink-3);color:var(--ink)}
+.p-body{padding:20px 24px 40px;display:grid;gap:22px}
+.p-price{display:grid;gap:8px;padding:15px 16px;background:var(--sunken);border-radius:10px}
+.p-price .amt{display:flex;align-items:baseline;gap:8px}
+.p-price .amt b{font-family:var(--display);font-weight:500;font-size:30px;line-height:1;
+                font-variant-numeric:tabular-nums}
+.p-price .amt span{font-size:12px;color:var(--ink-3)}
+.p-price .krw{font-size:12.5px;color:var(--ink-2)}
+.p-price .cf{font-size:12px;color:var(--ink-3)}
+.p-price .cf b{font-weight:600;color:var(--ink-2)}
+.ws{display:inline-flex;align-items:center;gap:6px;justify-self:start;font-size:12.5px;
+    text-decoration:none;color:var(--accent-ink);border:1px solid var(--line);
+    border-radius:999px;padding:5px 12px;background:var(--surface)}
+.ws:hover{border-color:var(--accent);background:var(--accent-soft)}
+.blk h3{font-size:11.5px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;
+        color:var(--ink-3);margin-bottom:6px}
+.blk p{margin:0;font-size:13.5px;color:var(--ink-2)}
+.blk p.lead{color:var(--ink);font-size:14px}
+.serve{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.serve div{padding:11px 12px;background:var(--sunken);border-radius:9px}
+.serve dt{font-size:11px;color:var(--ink-3);margin-bottom:3px}
+.serve dd{margin:0;font-size:13px;font-weight:500;line-height:1.45}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tags span{font-size:12.5px;padding:3px 10px;border-radius:999px;
+           border:1px solid var(--line);color:var(--ink-2)}
+.p-win{display:grid;gap:6px}
+.p-win .bararea{position:relative;height:10px;border-radius:5px;background:var(--sunken)}
+.p-win .fill{position:absolute;top:0;bottom:0;border-radius:5px;background:var(--c);opacity:.55}
+.p-win .mark{position:absolute;top:-3px;bottom:-3px;width:2px;background:var(--today);opacity:.65}
+.p-win .ends{display:flex;justify-content:space-between;font-family:var(--mono);
+             font-size:11px;color:var(--ink-3)}
+.p-meta{display:grid;gap:5px;font-size:12.5px;color:var(--ink-3)}
+.p-meta div{display:grid;grid-template-columns:76px 1fr;gap:10px}
+.p-meta b{font-weight:500;color:var(--ink-2)}
+
 @media (max-width:720px){
-  summary{grid-template-columns:1fr 50px 80px;row-gap:5px}
-  .rg{display:none} .win{grid-column:2/4;justify-self:end}
+  .item{grid-template-columns:1fr 50px 74px;row-gap:5px}
+  .rg{display:none} .win{grid-column:2/4;justify-self:end} .pr{grid-column:3;justify-self:end}
 }
-@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 
 <div class="wrap">
@@ -162,24 +197,25 @@ footer{margin-top:52px;padding-top:18px;border-top:1px solid var(--line);
   <div class="controls">
     <div class="chips" id="chips"></div>
     <input id="q" type="search" placeholder="와인 · 지역 · 품종 검색" autocomplete="off">
+    <select id="sort" aria-label="정렬">
+      <option value="close">마감 임박순</option>
+      <option value="price">가격 높은순</option>
+      <option value="vintage">빈티지 오래된순</option>
+      <option value="name">이름순</option>
+    </select>
   </div>
 
   <section>
     <div class="eyebrow">
       <h2>음용 창</h2>
-      <p>마감이 빠른 순. 막대 왼쪽 끝이 창이 열리는 해, 오른쪽 끝이 닫히는 해.</p>
+      <p>막대 왼쪽 끝이 창이 열리는 해, 오른쪽 끝이 닫히는 해. 클릭하면 프로파일이 열린다.</p>
     </div>
-    <div class="tl-scroll">
-      <div class="tl" id="tl"></div>
-    </div>
+    <div class="tl-scroll"><div class="tl" id="tl"></div></div>
     <div class="legend" id="legend"></div>
   </section>
 
   <section>
-    <div class="eyebrow">
-      <h2>전체 목록</h2>
-      <p id="count"></p>
-    </div>
+    <div class="eyebrow"><h2>전체 목록</h2><p id="count"></p></div>
     <div class="list" id="list"></div>
   </section>
 
@@ -197,63 +233,62 @@ footer{margin-top:52px;padding-top:18px;border-top:1px solid var(--line);
   <footer id="foot"></footer>
 </div>
 
+<div id="scrim"></div>
+<aside id="panel" role="dialog" aria-modal="true" aria-labelledby="p-title" hidden>
+  <button id="close" aria-label="닫기">✕</button>
+  <div id="panel-inner"></div>
+</aside>
+
 <script>
 const DATA = /*__DATA__*/;
 const YEAR = +DATA.updated.slice(0,4);
+const KRW = 1380, KR_MULT = 1.7;   // 한국 소매 환산: 환율 × 세금·유통 배수
 
 const S = {
-  urgent:{label:"긴급",    v:"--s-urgent", note:"음용 창이 곧 닫힘"},
-  drink_now:{label:"지금",  v:"--s-now",    note:"더 보관할 이유 없음"},
-  peak:{label:"피크",       v:"--s-peak",   note:"지금이 가장 좋은 구간"},
-  drink_or_hold:{label:"음용/홀드", v:"--s-dh", note:"열어도 되지만 더 좋아짐"},
-  hold:{label:"홀드",       v:"--s-hold",   note:"아직 열지 말 것"},
+  urgent:{label:"긴급",v:"--s-urgent",note:"음용 창이 곧 닫힘"},
+  drink_now:{label:"지금",v:"--s-now",note:"더 보관할 이유 없음"},
+  peak:{label:"피크",v:"--s-peak",note:"지금이 가장 좋은 구간"},
+  drink_or_hold:{label:"음용/홀드",v:"--s-dh",note:"열어도 되지만 더 좋아짐"},
+  hold:{label:"홀드",v:"--s-hold",note:"아직 열지 말 것"},
 };
-const ORDER = ["urgent","drink_now","peak","drink_or_hold","hold"];
-const bottles = [...DATA.bottles].sort((a,b)=>a.drink_to-b.drink_to || a.id-b.id);
-const qty = b => b.qty ?? 1;
-const vint = b => b.vintage ? String(b.vintage) : (b.vintage_label || "NV");
-const cvar = b => `var(${S[b.status].v})`;
+const ORDER=["urgent","drink_now","peak","drink_or_hold","hold"];
+const CONF={high:"높음",medium:"보통",low:"낮음",none:"데이터 없음"};
+const bottles=[...DATA.bottles];
+const qty=b=>b.qty??1;
+const vint=b=>b.vintage?String(b.vintage):(b.vintage_label||"NV");
+const cvar=b=>`var(${S[b.status].v})`;
+const half=b=>b.format_ml===375?.5:1;
+const value=b=>b.price.avg_usd*half(b)*qty(b);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const won=u=>Math.round(u*KRW*KR_MULT/1000)*1000;
 
-function wsUrl(b){
-  const parts = [b.producer, b.wine].join(" ")
-    .replace(/\(.*?\)/g," ").replace(/[^\p{L}\p{N}]+/gu," ").trim();
-  const u = "https://www.wine-searcher.com/find/" + encodeURIComponent(parts.replace(/\s+/g,"+"));
-  return b.vintage ? `${u}/${b.vintage}` : u;
-}
-
-/* ── figures ─────────────────────────────── */
-const total = bottles.reduce((s,b)=>s+qty(b),0);
-const soon  = bottles.filter(b=>["urgent","drink_now"].includes(b.status)).reduce((s,b)=>s+qty(b),0);
-const held  = bottles.filter(b=>b.status==="hold").reduce((s,b)=>s+qty(b),0);
-const years = bottles.filter(b=>b.vintage).map(b=>b.vintage);
+const total=bottles.reduce((s,b)=>s+qty(b),0);
+const worth=bottles.reduce((s,b)=>s+value(b),0);
+const soon=bottles.filter(b=>["urgent","drink_now"].includes(b.status)).reduce((s,b)=>s+qty(b),0);
+const years=bottles.filter(b=>b.vintage).map(b=>b.vintage);
 document.getElementById("asof").textContent =
-  `${DATA.updated} 기준 · ${bottles.length}종 · 빈티지 ${Math.min(...years)}–${Math.max(...years)}`;
-document.getElementById("figures").innerHTML = [
-  [total,"병 보유"], [soon,"병 2년 내 소비"], [held,"병 홀드"],
+  `${DATA.updated} 기준 · ${bottles.length}종 · 빈티지 ${Math.min(...years)}–${Math.max(...years)} · 셀러 ${DATA.storage.temp_c}°C`;
+document.getElementById("figures").innerHTML=[
+  [total,"병 보유"],["$"+worth.toLocaleString(),"추정 가치"],[soon,"병 2년 내 소비"],
 ].map(([n,l])=>`<div class="fig"><b>${n}</b><span>${l}</span></div>`).join("");
 
-/* ── chips ───────────────────────────────── */
-const active = new Set();
-document.getElementById("chips").innerHTML = ORDER.map(k=>{
-  const n = bottles.filter(b=>b.status===k).reduce((s,b)=>s+qty(b),0);
+document.getElementById("chips").innerHTML=ORDER.map(k=>{
+  const n=bottles.filter(b=>b.status===k).reduce((s,b)=>s+qty(b),0);
   return `<button class="chip" data-k="${k}" aria-pressed="false" style="--c:var(${S[k].v})"
-           title="${S[k].note}"><i class="dot"></i>${S[k].label}<span class="n">${n}</span></button>`;
+    title="${S[k].note}"><i class="dot"></i>${S[k].label}<span class="n">${n}</span></button>`;
 }).join("");
-document.getElementById("legend").innerHTML = ORDER.map(k=>
+document.getElementById("legend").innerHTML=ORDER.map(k=>
   `<span style="--c:var(${S[k].v})"><i></i>${S[k].label} — ${S[k].note}</span>`).join("");
 
-/* ── timeline ────────────────────────────── */
-const lo = Math.min(...bottles.map(b=>b.drink_from));
-const hi = Math.max(...bottles.map(b=>b.drink_to));
-const pct = y => (y-lo)/(hi-lo)*100;
-const LANE = 206;
+const lo=Math.min(...bottles.map(b=>b.drink_from));
+const hi=Math.max(...bottles.map(b=>b.drink_to));
+const pct=y=>(y-lo)/(hi-lo)*100;
 
 function renderTimeline(list){
-  const ticks = [];
-  for (let y=Math.ceil(lo/10)*10; y<=hi; y+=10) ticks.push(y);
-  const tl = document.getElementById("tl");
-  tl.style.setProperty("--lane", LANE+"px");
-  tl.innerHTML =
+  const ticks=[]; for(let y=Math.ceil(lo/10)*10;y<=hi;y+=10) ticks.push(y);
+  const tl=document.getElementById("tl");
+  tl.style.setProperty("--lane","206px");
+  tl.innerHTML=
     `<div class="tl-axis">${ticks.map(y=>`<span style="left:${pct(y)}%">${y}</span>`).join("")}</div>
      <div class="tl-body">
        <div class="tl-grid">
@@ -263,91 +298,152 @@ function renderTimeline(list){
        ${list.map(b=>`
          <div class="row">
            <div class="rname" title="${esc(b.display)}">${esc(b.display)} <em>${vint(b)}</em></div>
-           <div class="track"><a class="bar" href="#b${b.id}" style="--c:${cvar(b)};
+           <div class="track"><a class="bar" href="#" data-id="${b.id}" style="--c:${cvar(b)};
              left:${pct(b.drink_from)}%;width:${Math.max(pct(b.drink_to)-pct(b.drink_from),1.2)}%"
              title="${esc(b.display)} · ${b.drink_from}–${b.drink_to}"></a></div>
          </div>`).join("")}
      </div>`;
 }
 
-/* ── list ────────────────────────────────── */
-function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]))}
-
 function renderList(list){
-  const el = document.getElementById("list");
-  if(!list.length){ el.innerHTML = `<p class="empty">조건에 맞는 병이 없습니다.</p>`; return; }
-  el.innerHTML = list.map(b=>`
-    <details id="b${b.id}">
-      <summary>
-        <span class="nm">${qty(b)>1?`<b>×${qty(b)}</b>`:""}<span>${esc(b.display)}</span></span>
-        <span class="vt">${vint(b)}</span>
-        <span class="rg">${esc(b.region)}</span>
-        <span class="pill" style="--c:${cvar(b)}">${S[b.status].label}</span>
-        <span class="win">${b.drink_from}–${b.drink_to}</span>
-      </summary>
-      <div class="detail">
-        <div class="meta">
-          <span><b>${esc(b.producer)}</b></span>
-          ${b.classification?`<span>${esc(b.classification)}</span>`:""}
-          ${b.grapes?.length?`<span>${b.grapes.map(esc).join(" · ")}</span>`:""}
-          ${b.abv?`<span>${b.abv}%</span>`:""}
-          <span>${b.format_ml??750}ml</span>
-        </div>
-        <p>${esc(b.notes)}</p>
-        <a class="ws" href="${wsUrl(b)}" target="_blank" rel="noopener noreferrer">
-          Wine-Searcher에서 보기 ↗</a>
-      </div>
-    </details>`).join("");
+  const el=document.getElementById("list");
+  if(!list.length){el.innerHTML=`<p class="empty">조건에 맞는 병이 없습니다.</p>`;return;}
+  el.innerHTML=list.map(b=>`
+    <button class="item" data-id="${b.id}">
+      <span class="nm">${qty(b)>1?`<b>×${qty(b)}</b>`:""}<span>${esc(b.display)}</span></span>
+      <span class="vt">${vint(b)}</span>
+      <span class="rg">${esc(b.region)}</span>
+      <span class="pill" style="--c:${cvar(b)}">${S[b.status].label}</span>
+      <span class="win">${b.drink_from}–${b.drink_to}</span>
+      <span class="pr">$${b.price.avg_usd.toLocaleString()}${b.format_ml===375?"<i>/750</i>":""}</span>
+    </button>`).join("");
 }
 
-/* ── flags + mix ─────────────────────────── */
-const byId = Object.fromEntries(bottles.map(b=>[b.id,b]));
-document.getElementById("flags").innerHTML = (DATA.flags||[]).map(f=>`
-  <div class="flag">
-    <h3><em>#${f.id}</em>${esc(byId[f.id].display)} — ${esc(f.title)}</h3>
-    <p>${esc(f.text)}</p>
-  </div>`).join("") || `<p class="empty">확인이 필요한 병 없음.</p>`;
+/* ── 프로파일 패널 ─────────────────────── */
+const panel=document.getElementById("panel"), scrim=document.getElementById("scrim");
+let lastFocus=null;
 
-const mix = {};
-bottles.forEach(b=>mix[b.category]=(mix[b.category]||0)+qty(b));
-const mixMax = Math.max(...Object.values(mix));
-document.getElementById("mix").innerHTML = Object.entries(mix)
-  .sort((a,b)=>b[1]-a[1])
+function openPanel(id){
+  const b=bottles.find(x=>x.id===id); if(!b) return;
+  const pf=b.profile, pr=b.price;
+  document.getElementById("panel-inner").innerHTML=`
+    <div class="p-head">
+      <h2 id="p-title">${esc(b.display)}</h2>
+      <div class="p-sub">
+        <span class="yr">${vint(b)}</span><span>${esc(b.region)}</span>
+        <span class="pill" style="--c:${cvar(b)}">${S[b.status].label}</span>
+      </div>
+    </div>
+    <div class="p-body">
+      <div class="p-price">
+        <div class="amt"><b>$${pr.avg_usd.toLocaleString()}</b>
+          <span>${esc(pr.basis)}${qty(b)>1?` · ${qty(b)}병 보유`:""}</span></div>
+        <div class="krw">한국 소매 환산 약 ₩${won(pr.avg_usd).toLocaleString()}
+          <span style="color:var(--ink-3)">(환율 ${KRW}원 × ${KR_MULT}배 가정)</span></div>
+        <div class="cf">신뢰도 <b>${CONF[pr.confidence]}</b>${pr.note?` — ${esc(pr.note)}`:""}</div>
+        <a class="ws" href="${b.ws_url}" target="_blank" rel="noopener noreferrer">Wine-Searcher에서 확인 ↗</a>
+      </div>
+
+      <div class="p-win">
+        <div class="bararea">
+          <div class="fill" style="--c:${cvar(b)};left:${pct(b.drink_from)}%;
+               width:${Math.max(pct(b.drink_to)-pct(b.drink_from),1.5)}%"></div>
+          <div class="mark" style="left:${pct(YEAR)}%"></div>
+        </div>
+        <div class="ends"><span>${lo}</span>
+          <span style="color:var(--ink-2)">음용 창 ${b.drink_from}–${b.drink_to}</span>
+          <span>${hi}</span></div>
+      </div>
+
+      <div class="blk"><h3>스타일</h3><p class="lead">${esc(pf.style)}</p></div>
+      <div class="blk"><h3>시음 노트</h3><p>${esc(pf.tasting)}</p></div>
+      <div class="blk"><h3>배경</h3><p>${esc(pf.story)}</p></div>
+
+      <div class="blk"><h3>서빙</h3>
+        <dl class="serve">
+          <div><dt>온도</dt><dd>${esc(pf.serve.temp)}</dd></div>
+          <div><dt>디캔팅</dt><dd>${esc(pf.serve.decant)}</dd></div>
+          <div><dt>잔</dt><dd>${esc(pf.serve.glass)}</dd></div>
+        </dl>
+      </div>
+
+      <div class="blk"><h3>페어링</h3>
+        <div class="tags">${pf.pair.map(x=>`<span>${esc(x)}</span>`).join("")}</div></div>
+
+      <div class="blk"><h3>셀러 코멘트</h3><p>${esc(b.notes)}</p></div>
+
+      <div class="p-meta">
+        <div><b>생산자</b><span>${esc(b.producer)}</span></div>
+        ${b.classification?`<div><b>등급</b><span>${esc(b.classification)}</span></div>`:""}
+        ${b.grapes?.length?`<div><b>품종</b><span>${b.grapes.map(esc).join(" · ")}</span></div>`:""}
+        ${b.abv?`<div><b>도수</b><span>${b.abv}%</span></div>`:""}
+        <div><b>용량</b><span>${b.format_ml??750}ml</span></div>
+        <div><b>보유</b><span>${qty(b)}병</span></div>
+      </div>
+    </div>`;
+  lastFocus=document.activeElement;
+  panel.hidden=false;
+  requestAnimationFrame(()=>{panel.classList.add("on");scrim.classList.add("on");});
+  panel.scrollTop=0;
+  document.getElementById("close").focus();
+}
+function closePanel(){
+  panel.classList.remove("on");scrim.classList.remove("on");
+  setTimeout(()=>{panel.hidden=true;},240);
+  lastFocus?.focus();
+}
+scrim.addEventListener("click",closePanel);
+document.getElementById("close").addEventListener("click",closePanel);
+document.addEventListener("keydown",e=>{if(e.key==="Escape"&&!panel.hidden)closePanel();});
+document.addEventListener("click",e=>{
+  const t=e.target.closest("[data-id]"); if(!t) return;
+  e.preventDefault(); openPanel(+t.dataset.id);
+});
+
+/* ── 짚고 갈 것 · 구성 ─────────────────── */
+const byId=Object.fromEntries(bottles.map(b=>[b.id,b]));
+document.getElementById("flags").innerHTML=(DATA.flags||[]).map(f=>`
+  <div class="flag"><h3><em>#${f.id}</em>${esc(byId[f.id].display)} — ${esc(f.title)}</h3>
+  <p>${esc(f.text)}</p></div>`).join("")||`<p class="empty">확인이 필요한 병 없음.</p>`;
+
+const mix={}; bottles.forEach(b=>mix[b.category]=(mix[b.category]||0)+qty(b));
+const mixMax=Math.max(...Object.values(mix));
+document.getElementById("mix").innerHTML=Object.entries(mix).sort((a,b)=>b[1]-a[1])
   .map(([c,n])=>`<div><span>${esc(c)}</span><em>${n}</em>
     <span class="track2"><i style="width:${n/mixMax*100}%"></i></span></div>`).join("");
 
-document.getElementById("foot").textContent =
-  "음용 창은 일반적인 빈티지 평가 기준이며, 실제 보관 환경(12–14°C, 습도 70%, 진동·광 차단)에 따라 달라집니다.";
+document.getElementById("foot").textContent=DATA.price_note+" "+DATA.storage.note;
 
-/* ── filtering ───────────────────────────── */
-const q = document.getElementById("q");
+/* ── 필터 · 정렬 ───────────────────────── */
+const active=new Set(), q=document.getElementById("q"), sortEl=document.getElementById("sort");
+const SORTS={
+  close:(a,b)=>a.drink_to-b.drink_to||a.id-b.id,
+  price:(a,b)=>b.price.avg_usd-a.price.avg_usd,
+  vintage:(a,b)=>(a.vintage||9999)-(b.vintage||9999),
+  name:(a,b)=>a.display.localeCompare(b.display),
+};
 function apply(){
-  const t = q.value.trim().toLowerCase();
-  const list = bottles.filter(b=>{
-    if(active.size && !active.has(b.status)) return false;
+  const t=q.value.trim().toLowerCase();
+  const list=bottles.filter(b=>{
+    if(active.size&&!active.has(b.status)) return false;
     if(!t) return true;
-    return [b.display,b.producer,b.wine,b.region,b.category,vint(b),...(b.grapes||[])]
+    return [b.display,b.producer,b.wine,b.region,b.category,vint(b),b.profile.style,...(b.grapes||[])]
       .join(" ").toLowerCase().includes(t);
-  });
+  }).sort(SORTS[sortEl.value]);
   renderTimeline(list); renderList(list);
-  const n = list.reduce((s,b)=>s+qty(b),0);
-  document.getElementById("count").textContent =
-    list.length===bottles.length ? `${n}병 / ${list.length}종` : `${n}병 / ${list.length}종 표시 중`;
+  const n=list.reduce((s,b)=>s+qty(b),0);
+  const v=list.reduce((s,b)=>s+value(b),0);
+  document.getElementById("count").textContent=
+    `${n}병 / ${list.length}종 · 추정 $${v.toLocaleString()}`;
 }
-document.getElementById("chips").addEventListener("click", e=>{
-  const btn = e.target.closest(".chip"); if(!btn) return;
-  const k = btn.dataset.k;
-  active.has(k) ? active.delete(k) : active.add(k);
-  btn.setAttribute("aria-pressed", active.has(k));
+document.getElementById("chips").addEventListener("click",e=>{
+  const btn=e.target.closest(".chip"); if(!btn) return;
+  const k=btn.dataset.k;
+  active.has(k)?active.delete(k):active.add(k);
+  btn.setAttribute("aria-pressed",active.has(k));
   apply();
 });
-q.addEventListener("input", apply);
-document.addEventListener("click", e=>{
-  const bar = e.target.closest(".bar"); if(!bar) return;
-  e.preventDefault();
-  const d = document.querySelector(bar.getAttribute("href"));
-  if(d){ d.open = true; d.scrollIntoView({block:"center",
-    behavior: matchMedia("(prefers-reduced-motion:reduce)").matches ? "auto":"smooth"}); }
-});
+q.addEventListener("input",apply);
+sortEl.addEventListener("change",apply);
 apply();
 </script>
