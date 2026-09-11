@@ -446,6 +446,25 @@
       "drink_to": 2050,
       "status": "peak",
       "notes": "2002는 금세기 샴페인 최고 빈티지 중 하나. 크뤼그 2002는 전설급. 지금부터 20년 더 가능. 셀러의 하이라이트."
+    },
+    {
+      "id": 25,
+      "producer": "Marchesi Antinori",
+      "wine": "Solaia",
+      "vintage": 2021,
+      "country": "Italy",
+      "region": "Toscana IGT",
+      "type": "red",
+      "grapes": [
+        "Cabernet Sauvignon",
+        "Sangiovese",
+        "Cabernet Franc"
+      ],
+      "qty": 1,
+      "drink_from": 2029,
+      "drink_to": 2050,
+      "status": "hold",
+      "notes": "안티노리 최상위 큐베(티냐넬로 상위). 2021은 토스카나 최상급 빈티지로 평가됨. 구조와 타닌이 단단해 최소 2029년까지 홀드 권장, 2032~2045가 핵심 구간. 셀러 최장기 보관 대상 중 하나."
     }
   ]
 }
