@@ -28,6 +28,7 @@
 | 8 | Le Petit Mouton | 2013 | 약한 빈티지, 더 기다릴 이유 없음 |
 | 3 | Austin Hope Cabernet | 2020 | 데일리급, 지금이 제일 맛있음 |
 | 23 | Charles Noëllat Chassagne-Montrachet | 2022 | 네고시앙 빌라주급 + 저산도 빈티지, 장기 보관 부적합 |
+| 20 | Monial Libera Me Brut (Blanc de Noirs) | NV | 논빈티지 그로워 샴페인, 숙성 이득 없음 |
 
 ## 🟢 지금이 피크 (언제 열어도 좋음)
 
@@ -56,10 +57,6 @@
 | 6 | Antinori Tignanello | 2020 | 2028+ (지금 열려면 디캔팅 2시간) |
 | 18 | Dom Pérignon | 2013 | 지금도 가능, 2030 전후 더 좋음 |
 
-## ⚠️ 확인 필요
-
-- **#20 Monial Champagne Blanc de Noirs** — 생산자 식별 불가. 라벨 하단의 NM/RM/CM 번호와 데고르주망 표기 확인 필요.
-
 ---
 
 ## 전체 목록
@@ -85,7 +82,7 @@
 | 17 | Dom Pérignon | 2010 | Champagne | 피크 | 2020–2032 |
 | 18 | Dom Pérignon | 2013 | Champagne | 음용/홀드 | 2023–2036 |
 | 19 | Dom Pérignon | 2017 | Champagne | 홀드 | 2027–2040 |
-| 20 | Monial Champagne Blanc de Noirs | 미확인 | Champagne | 확인 필요 | — |
+| 20 | Monial Libera Me Brut (Blanc de Noirs) | NV | Côte des Bar, Champagne | 지금 | 2024–2029 |
 | 21 | Louis Roederer Cristal | 2016 | Champagne | 홀드 | 2028–2048 |
 | 22 | Pommery Cuvée Louise | 2006 | Champagne | 피크 | 2016–2032 |
 | 23 | Charles Noëllat Chassagne-Montrachet | 2022 | Chassagne-Montrachet (Village) | 지금 | 2024–2028 |

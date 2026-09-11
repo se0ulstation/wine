@@ -356,22 +356,23 @@
     },
     {
       "id": 20,
-      "producer": "Monial",
-      "wine": "Champagne Blanc de Noirs",
+      "producer": "Champagne Monial (Emmanuel & Agnès Calon)",
+      "wine": "Libera Me Brut — Blanc de Noirs",
       "vintage": null,
-      "vintage_label": "미확인",
+      "vintage_label": "NV",
       "country": "France",
-      "region": "Champagne",
+      "region": "Colombé-le-Sec, Côte des Bar (Aube), Champagne",
       "type": "sparkling",
       "grapes": [
-        "Pinot Noir",
-        "Pinot Meunier"
+        "Pinot Noir"
       ],
       "qty": 1,
       "drink_from": 2024,
       "drink_to": 2029,
-      "status": "verify",
-      "notes": "생산자 정보 부족. 라벨 확인 필요(NM/RM 번호, 데고르주망 일자). NV라면 3년 내 소비."
+      "status": "drink_now",
+      "notes": "신원 확인 완료. 2008년 설립된 소규모 가족 생산자, 오브(코트 데 바르) 콜롱베-르-섹 소재. 1194년부터 이 마을에 있던 클레르보 수도원 부속 건물에서 양조 — 라벨의 수도원 지하 아치 그림과 'Libera Me'(레퀴엠 전례문) 명칭이 여기서 옴. 점토석회질 토양, 피노 누아 2/3 + 샤르도네. Libera Me는 피노 누아 기반 블랑 드 누아. 리옹 국제와인콩쿠르 금상(2013, 2019). NV 논빈티지라 장기 보관 대상 아님 — 3년 내 소비. 같은 이름의 Brut Nature 버전이 따로 있으나 이 병은 Brut.",
+      "abv": 12.5,
+      "format_ml": 750
     },
     {
       "id": 21,
