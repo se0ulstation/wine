@@ -79,12 +79,12 @@
         "Cabernet Franc"
       ],
       "qty": 1,
-      "drink_from": 2025,
+      "drink_from": 2030,
       "drink_to": 2048,
       "status": "hold",
       "notes": "2005는 보르도 전설적 빈티지. 이제 막 창이 열림. 급할 것 없음.",
       "category": "보르도 (레드)",
-      "short": "2005 전설적 빈티지, 이제 창이 열림",
+      "short": "2005 전설적 빈티지, 창은 열렸지만 본령은 2030년대",
       "display": "Château Calon Ségur"
     },
     {
@@ -256,11 +256,11 @@
       "grapes": [
         "Cabernet Sauvignon"
       ],
-      "qty": 1,
+      "qty": 2,
       "drink_from": 2023,
       "drink_to": 2029,
       "status": "drink_now",
-      "notes": "멀티빈티지 블렌드. 숙성용 아님. 우선 소비 대상.",
+      "notes": "멀티빈티지 블렌드. 숙성용 아님. 우선 소비 대상. 2병 보유 — 한 병은 편하게 열고 다른 한 병으로 비교해볼 여지 있음.",
       "category": "나파 / 캘리포니아",
       "short": "멀티빈티지 블렌드, 숙성용 아님",
       "display": "Opus One Overture"

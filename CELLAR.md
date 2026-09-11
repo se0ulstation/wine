@@ -2,14 +2,14 @@
 
 # 셀러 인벤토리
 
-기준일: 2026-09-11 · 총 33병 / 32종
+기준일: 2026-09-11 · 총 34병 / 32종
 
 ## 구성 개요
 
 | 카테고리 | 병수 |
 |---|---|
 | 보르도 (레드) | 10 |
-| 나파 / 캘리포니아 | 7 |
+| 나파 / 캘리포니아 | 8 |
 | 샴페인 | 7 |
 | 이탈리아 (슈퍼 투스칸) | 4 |
 | 루아르 | 2 |
@@ -31,7 +31,7 @@
 | 8 | Le Petit Mouton de Mouton Rothschild | 2013 | 약한 빈티지, 더 기다릴 이유 없음 |
 | 13 | Ornellaia | 1996 | 30년차, 음용 창 끝자락 |
 | 23 | Charles Noëllat Chassagne-Montrachet | 2022 | 네고시앙 빌라주급 + 저산도 빈티지, 장기 보관 부적합 |
-| 12 | Opus One Overture | NV | 멀티빈티지 블렌드, 숙성용 아님 |
+| 12 | Opus One Overture ×2 | NV | 멀티빈티지 블렌드, 숙성용 아님 |
 | 20 | Monial Libera Me Brut (Blanc de Noirs) | NV | 논빈티지 그로워 샴페인, 숙성 이득 없음 |
 | 3 | Austin Hope Cabernet Sauvignon | 2020 | 데일리급, 지금이 제일 맛있음 |
 
@@ -65,13 +65,13 @@
 
 | # | 와인 | 빈티지 | 개봉 권장 | 코멘트 |
 |---|---|---|---|---|
-| 4 | Château Calon Ségur | 2005 | 지금 가능 | 2005 전설적 빈티지, 이제 창이 열림 |
 | 2 | Hardys Thomas Hardy Cabernet Sauvignon | 2017 | 2027+ | 아직 어림, 최소 2~3년 더 |
 | 5 | Shafer One Point Five Cabernet Sauvignon | 2021 | 2027+ | 2021 나파 초강세, 지금 열면 아까움 |
 | 16 | Sassicaia | 2019 | 2027+ | 역대급 빈티지, 지금 열면 손해 |
 | 19 | Dom Pérignon | 2017 | 2027+ | 가장 어린 DP |
 | 21 | Louis Roederer Cristal | 2016 | 2028+ | 셀러 샴페인 중 최장기 보관 대상 |
 | 25 | Antinori Solaia | 2021 | 2029+ | 핵심 구간 2032–2045 |
+| 4 | Château Calon Ségur | 2005 | 2030+ | 2005 전설적 빈티지, 창은 열렸지만 본령은 2030년대 |
 
 ---
 
@@ -82,7 +82,7 @@
 | 1 | Orin Swift Mercury Head Cabernet Sauvignon | 2018 | Napa Valley | 음용/홀드 | 2024–2035 |
 | 2 | Hardys Thomas Hardy Cabernet Sauvignon | 2017 | Coonawarra / Margaret River | 홀드 | 2027–2042 |
 | 3 | Austin Hope Cabernet Sauvignon | 2020 | Paso Robles | 지금 | 2023–2030 |
-| 4 | Château Calon Ségur | 2005 | Saint-Estèphe, Bordeaux | 홀드 | 2025–2048 |
+| 4 | Château Calon Ségur | 2005 | Saint-Estèphe, Bordeaux | 홀드 | 2030–2048 |
 | 5 | Shafer One Point Five Cabernet Sauvignon | 2021 | Stags Leap District, Napa Valley | 홀드 | 2027–2038 |
 | 6 | Antinori Tignanello | 2020 | Toscana IGT | 음용/홀드 | 2026–2038 |
 | 7 | Château Calon Ségur | 2000 | Saint-Estèphe, Bordeaux | 피크 | 2020–2040 |
@@ -90,7 +90,7 @@
 | 9 | Château Palmer | 2008 | Margaux, Bordeaux | 음용/홀드 | 2024–2045 |
 | 10 | Pavillon Rouge du Château Margaux | 2000 | Margaux, Bordeaux | 피크 | 2015–2032 |
 | 11 | Opus One ×2 | 2007 | Oakville, Napa Valley | 피크 | 2020–2038 |
-| 12 | Opus One Overture | NV | Napa Valley | 지금 | 2023–2029 |
+| 12 | Opus One Overture ×2 | NV | Napa Valley | 지금 | 2023–2029 |
 | 13 | Ornellaia | 1996 | Bolgheri Superiore DOC | 긴급 | 2005–2028 |
 | 14 | Château Haut-Brion | 1996 | Pessac-Léognan, Bordeaux | 피크 | 2015–2045 |
 | 15 | Silver Oak Napa Valley Cabernet Sauvignon | 1996 | Napa Valley | 긴급 | 2001–2027 |
