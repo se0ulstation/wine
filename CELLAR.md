@@ -11,9 +11,9 @@
 | 이탈리아 (슈퍼 투스칸) | 3 |
 | 샴페인 | 8 |
 | 호주 | 1 |
-| 부르고뉴 | 1 |
+| 부르고뉴 (화이트) | 1 |
 
-풀보디 카베르네 중심 + 프레스티지 샴페인. 부르고뉴 피노/화이트, 론, 리슬링, 디저트 와인은 사실상 공백.
+풀보디 카베르네 중심 + 프레스티지 샴페인. 화이트는 부르고뉴 빌라주 1병뿐이고 부르고뉴 피노, 론, 리슬링, 디저트 와인은 공백.
 
 ---
 
@@ -21,12 +21,12 @@
 
 | # | 와인 | 빈티지 | 이유 |
 |---|---|---|---|
-| 23 | Charles Noëllat Chassagne-Montrachet | 미확인 | 38년 이상 추정, 상태 리스크 최대. **먼저 병 확인 필요** |
 | 13 | Ornellaia | 1996 | 30년차, 음용 창 끝자락 |
 | 15 | Silver Oak Napa Cabernet | 1996 | 조기 음용형 스타일 + 30년차 |
 | 12 | Opus One Overture | NV | 숙성용 아님 |
 | 8 | Le Petit Mouton | 2013 | 약한 빈티지, 더 기다릴 이유 없음 |
 | 3 | Austin Hope Cabernet | 2020 | 데일리급, 지금이 제일 맛있음 |
+| 23 | Charles Noëllat Chassagne-Montrachet | 2022 | 네고시앙 빌라주급 + 저산도 빈티지, 장기 보관 부적합 |
 
 ## 🟢 지금이 피크 (언제 열어도 좋음)
 
@@ -56,7 +56,6 @@
 
 ## ⚠️ 확인 필요
 
-- **#23 Charles Noëllat Chassagne-Montrachet** — 도멘이 1988년 르로이에 매각되며 소멸했으므로 최소 38년 이상 된 병. 게다가 노엘라는 본래 본-로마네(코트 드 뉘) 생산자라 샤사뉴-몽라셰 표기는 네고시앙 병입일 가능성이 큼. 레드/화이트 여부, 빈티지, 코르크 상태와 액면 높이(ullage) 사진 필요.
 - **#20 Monial Champagne Blanc de Noirs** — 생산자 식별 불가. 라벨 하단의 NM/RM/CM 번호와 데고르주망 표기 확인 필요.
 
 ---
@@ -87,7 +86,7 @@
 | 20 | Monial Champagne Blanc de Noirs | 미확인 | Champagne | 확인 필요 | — |
 | 21 | Louis Roederer Cristal | 2016 | Champagne | 홀드 | 2028–2048 |
 | 22 | Pommery Cuvée Louise | 2006 | Champagne | 피크 | 2016–2032 |
-| 23 | Charles Noëllat Chassagne-Montrachet | 미확인 | Côte de Beaune | 긴급·확인 필요 | ~2027 |
+| 23 | Charles Noëllat Chassagne-Montrachet | 2022 | Chassagne-Montrachet (Village) | 지금 | 2024–2028 |
 | 24 | Krug Vintage | 2002 | Champagne | 피크 | 2020–2050 |
 
 > 음용 창은 일반적인 빈티지 평가 기준이며, 실제 보관 환경(온도 12–14°C, 습도 70%, 진동·광 차단)에 따라 달라집니다.
