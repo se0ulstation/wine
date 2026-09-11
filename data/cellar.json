@@ -18,7 +18,11 @@
       "drink_from": 2024,
       "drink_to": 2035,
       "status": "drink_or_hold",
-      "notes": "2018 나파 최상급 빈티지. 지금도 좋고 5년 더 가도 됨. 디캔팅 2시간."
+      "notes": "2018 나파 최상급 빈티지. 지금도 좋고 5년 더 가도 됨. 디캔팅 2시간.",
+      "category": "나파 / 캘리포니아",
+      "short": "2018 나파 최상급, 지금도 좋고 더 가도 됨",
+      "display": "Orin Swift Mercury Head Cabernet Sauvignon",
+      "peak_from": 2030
     },
     {
       "id": 2,
@@ -35,7 +39,10 @@
       "drink_from": 2027,
       "drink_to": 2042,
       "status": "hold",
-      "notes": "하디스 최상위 카베르네. 아직 어림. 최소 2~3년 더."
+      "notes": "하디스 최상위 카베르네. 아직 어림. 최소 2~3년 더.",
+      "category": "호주",
+      "short": "아직 어림, 최소 2~3년 더",
+      "display": "Hardys Thomas Hardy Cabernet Sauvignon"
     },
     {
       "id": 3,
@@ -52,7 +59,10 @@
       "drink_from": 2023,
       "drink_to": 2030,
       "status": "drink_now",
-      "notes": "셀러에서 가장 캐주얼한 데일리급. 장기 보관 이유 없음. 먼저 비울 것."
+      "notes": "셀러에서 가장 캐주얼한 데일리급. 장기 보관 이유 없음. 먼저 비울 것.",
+      "category": "나파 / 캘리포니아",
+      "short": "데일리급, 지금이 제일 맛있음",
+      "display": "Austin Hope Cabernet Sauvignon"
     },
     {
       "id": 4,
@@ -72,7 +82,10 @@
       "drink_from": 2025,
       "drink_to": 2048,
       "status": "hold",
-      "notes": "2005는 보르도 전설적 빈티지. 이제 막 창이 열림. 급할 것 없음."
+      "notes": "2005는 보르도 전설적 빈티지. 이제 막 창이 열림. 급할 것 없음.",
+      "category": "보르도 (레드)",
+      "short": "2005 전설적 빈티지, 이제 창이 열림",
+      "display": "Château Calon Ségur"
     },
     {
       "id": 5,
@@ -89,7 +102,10 @@
       "drink_from": 2027,
       "drink_to": 2038,
       "status": "hold",
-      "notes": "2021 나파 초강세 빈티지. 지금 열면 아까움."
+      "notes": "2021 나파 초강세 빈티지. 지금 열면 아까움.",
+      "category": "나파 / 캘리포니아",
+      "short": "2021 나파 초강세, 지금 열면 아까움",
+      "display": "Shafer One Point Five Cabernet Sauvignon"
     },
     {
       "id": 6,
@@ -108,7 +124,11 @@
       "drink_from": 2026,
       "drink_to": 2038,
       "status": "drink_or_hold",
-      "notes": "지금 열려면 디캔팅 2시간. 2028년 이후가 더 좋음."
+      "notes": "지금 열려면 디캔팅 2시간. 2028년 이후가 더 좋음.",
+      "category": "이탈리아 (슈퍼 투스칸)",
+      "short": "지금 열려면 디캔팅 2시간, 2028 이후가 더 좋음",
+      "display": "Antinori Tignanello",
+      "peak_from": 2029
     },
     {
       "id": 7,
@@ -128,7 +148,10 @@
       "drink_from": 2020,
       "drink_to": 2040,
       "status": "peak",
-      "notes": "밀레니엄 빈티지, 26년차. 지금이 정확히 피크 구간."
+      "notes": "밀레니엄 빈티지, 26년차. 지금이 정확히 피크 구간.",
+      "category": "보르도 (레드)",
+      "short": "밀레니엄 빈티지 26년차, 정확히 피크",
+      "display": "Château Calon Ségur"
     },
     {
       "id": 8,
@@ -147,7 +170,10 @@
       "drink_from": 2020,
       "drink_to": 2028,
       "status": "drink_now",
-      "notes": "2013은 보르도 약한 빈티지. 더 기다릴 이유 없음. 2년 내 소비 권장."
+      "notes": "2013은 보르도 약한 빈티지. 더 기다릴 이유 없음. 2년 내 소비 권장.",
+      "category": "보르도 (레드)",
+      "short": "약한 빈티지, 더 기다릴 이유 없음",
+      "display": "Le Petit Mouton de Mouton Rothschild"
     },
     {
       "id": 9,
@@ -167,7 +193,11 @@
       "drink_from": 2024,
       "drink_to": 2045,
       "status": "drink_or_hold",
-      "notes": "저평가 빈티지지만 팔머는 예외적으로 훌륭. 셀러 최상위권 중 하나."
+      "notes": "저평가 빈티지지만 팔머는 예외적으로 훌륭. 셀러 최상위권 중 하나.",
+      "category": "보르도 (레드)",
+      "short": "저평가 빈티지지만 팔머는 예외적으로 훌륭",
+      "display": "Château Palmer",
+      "peak_from": 2032
     },
     {
       "id": 10,
@@ -186,7 +216,10 @@
       "drink_from": 2015,
       "drink_to": 2032,
       "status": "peak",
-      "notes": "세컨 와인 26년차. 피크 후반부. 우선순위 높게 소비."
+      "notes": "세컨 와인 26년차. 피크 후반부. 우선순위 높게 소비.",
+      "category": "보르도 (레드)",
+      "short": "세컨 와인 26년차, 피크 후반부",
+      "display": "Pavillon Rouge du Château Margaux"
     },
     {
       "id": 11,
@@ -202,11 +235,14 @@
         "Petit Verdot",
         "Cabernet Franc"
       ],
-      "qty": 1,
+      "qty": 2,
       "drink_from": 2020,
       "drink_to": 2038,
       "status": "peak",
-      "notes": "2007은 오퍼스 원 역대 최고 빈티지 중 하나. 지금 완벽한 구간."
+      "notes": "2007은 오퍼스 원 역대 최고 빈티지 중 하나. 지금 완벽한 구간. 동일 빈티지 2병 보유.",
+      "category": "나파 / 캘리포니아",
+      "short": "오퍼스 원 역대 최고 빈티지 중 하나",
+      "display": "Opus One"
     },
     {
       "id": 12,
@@ -224,7 +260,10 @@
       "drink_from": 2023,
       "drink_to": 2029,
       "status": "drink_now",
-      "notes": "멀티빈티지 블렌드. 숙성용 아님. 우선 소비 대상."
+      "notes": "멀티빈티지 블렌드. 숙성용 아님. 우선 소비 대상.",
+      "category": "나파 / 캘리포니아",
+      "short": "멀티빈티지 블렌드, 숙성용 아님",
+      "display": "Opus One Overture"
     },
     {
       "id": 13,
@@ -243,7 +282,10 @@
       "drink_from": 2005,
       "drink_to": 2028,
       "status": "urgent",
-      "notes": "30년차. 보관 이력 좋아도 창 끝자락. 최우선 소비 대상. 디캔팅 짧게(30분), 침전물 주의."
+      "notes": "30년차. 보관 이력 좋아도 창 끝자락. 최우선 소비 대상. 디캔팅 짧게(30분), 침전물 주의.",
+      "category": "이탈리아 (슈퍼 투스칸)",
+      "short": "30년차, 음용 창 끝자락",
+      "display": "Ornellaia"
     },
     {
       "id": 14,
@@ -263,7 +305,10 @@
       "drink_from": 2015,
       "drink_to": 2045,
       "status": "peak",
-      "notes": "셀러 최고가·최고 등급. 1급 그랑크뤼 30년차, 지금이 클래식 피크. 특별한 자리용."
+      "notes": "셀러 최고가·최고 등급. 1급 그랑크뤼 30년차, 지금이 클래식 피크. 특별한 자리용.",
+      "category": "보르도 (레드)",
+      "short": "1급 그랑크뤼 30년차, 클래식 피크. 특별한 자리용",
+      "display": "Château Haut-Brion"
     },
     {
       "id": 15,
@@ -280,7 +325,10 @@
       "drink_from": 2001,
       "drink_to": 2027,
       "status": "urgent",
-      "notes": "실버오크는 출시 시점에 이미 마실 준비가 된 스타일. 30년은 한계치. 최우선 소비."
+      "notes": "실버오크는 출시 시점에 이미 마실 준비가 된 스타일. 30년은 한계치. 최우선 소비.",
+      "category": "나파 / 캘리포니아",
+      "short": "조기 음용형 스타일 + 30년차",
+      "display": "Silver Oak Napa Valley Cabernet Sauvignon"
     },
     {
       "id": 16,
@@ -298,7 +346,10 @@
       "drink_from": 2027,
       "drink_to": 2048,
       "status": "hold",
-      "notes": "2019는 사시카이아 역대급 빈티지. 지금 열면 손해. 최소 2030년까지 홀드."
+      "notes": "2019는 사시카이아 역대급 빈티지. 지금 열면 손해. 최소 2030년까지 홀드.",
+      "category": "이탈리아 (슈퍼 투스칸)",
+      "short": "역대급 빈티지, 지금 열면 손해",
+      "display": "Sassicaia"
     },
     {
       "id": 17,
@@ -316,7 +367,10 @@
       "drink_from": 2020,
       "drink_to": 2032,
       "status": "peak",
-      "notes": "DP 3병 중 가장 먼저 열 것. 지금 완숙."
+      "notes": "DP 3병 중 가장 먼저 열 것. 지금 완숙.",
+      "category": "샴페인",
+      "short": "DP 3병 중 가장 먼저 열 것",
+      "display": "Dom Pérignon"
     },
     {
       "id": 18,
@@ -334,7 +388,11 @@
       "drink_from": 2023,
       "drink_to": 2036,
       "status": "drink_or_hold",
-      "notes": "산도 높고 긴장감 있는 빈티지. 지금도 좋고 더 가도 좋음."
+      "notes": "산도 높고 긴장감 있는 빈티지. 지금도 좋고 더 가도 좋음.",
+      "category": "샴페인",
+      "short": "산도 높고 긴장감 있음, 지금도 좋고 더 가도 좋음",
+      "display": "Dom Pérignon",
+      "peak_from": 2030
     },
     {
       "id": 19,
@@ -352,7 +410,10 @@
       "drink_from": 2027,
       "drink_to": 2040,
       "status": "hold",
-      "notes": "가장 어린 DP. 홀드."
+      "notes": "가장 어린 DP. 홀드.",
+      "category": "샴페인",
+      "short": "가장 어린 DP",
+      "display": "Dom Pérignon"
     },
     {
       "id": 20,
@@ -372,7 +433,10 @@
       "status": "drink_now",
       "notes": "신원 확인 완료. 2008년 설립된 소규모 가족 생산자, 오브(코트 데 바르) 콜롱베-르-섹 소재. 1194년부터 이 마을에 있던 클레르보 수도원 부속 건물에서 양조 — 라벨의 수도원 지하 아치 그림과 'Libera Me'(레퀴엠 전례문) 명칭이 여기서 옴. 점토석회질 토양, 피노 누아 2/3 + 샤르도네. Libera Me는 피노 누아 기반 블랑 드 누아. 리옹 국제와인콩쿠르 금상(2013, 2019). NV 논빈티지라 장기 보관 대상 아님 — 3년 내 소비. 같은 이름의 Brut Nature 버전이 따로 있으나 이 병은 Brut.",
       "abv": 12.5,
-      "format_ml": 750
+      "format_ml": 750,
+      "category": "샴페인",
+      "short": "논빈티지 그로워 샴페인, 숙성 이득 없음",
+      "display": "Monial Libera Me Brut (Blanc de Noirs)"
     },
     {
       "id": 21,
@@ -390,7 +454,10 @@
       "drink_from": 2028,
       "drink_to": 2048,
       "status": "hold",
-      "notes": "크리스탈은 출시 후 5~10년 추가 숙성 시 진가. 셀러 샴페인 중 최장기 보관 대상."
+      "notes": "크리스탈은 출시 후 5~10년 추가 숙성 시 진가. 셀러 샴페인 중 최장기 보관 대상.",
+      "category": "샴페인",
+      "short": "셀러 샴페인 중 최장기 보관 대상",
+      "display": "Louis Roederer Cristal"
     },
     {
       "id": 22,
@@ -408,7 +475,10 @@
       "drink_from": 2016,
       "drink_to": 2032,
       "status": "peak",
-      "notes": "20년차 프레스티지 퀴베. 지금이 좋음."
+      "notes": "20년차 프레스티지 퀴베. 지금이 좋음.",
+      "category": "샴페인",
+      "short": "20년차 프레스티지 퀴베",
+      "display": "Pommery Cuvée Louise"
     },
     {
       "id": 23,
@@ -427,7 +497,10 @@
       "status": "drink_now",
       "notes": "라벨 확인 완료(2022, 화이트, 12.5%). 역사적 도멘 Charles Noëllat는 1988년 르로이에 매각되며 소멸했으나 이름은 네고시앙 브랜드로 존속 → 도멘 와인 아닌 네고시앙 병입 빌라주급. 2022는 더운 빈티지라 산도 낮고 과실 풍만. 장기 보관 부적합, 2027년 내 소비 권장. 12~13°C, 부르고뉴 화이트 잔.",
       "classification": "Village",
-      "abv": 12.5
+      "abv": 12.5,
+      "category": "부르고뉴 (화이트)",
+      "short": "네고시앙 빌라주급 + 저산도 빈티지, 장기 보관 부적합",
+      "display": "Charles Noëllat Chassagne-Montrachet"
     },
     {
       "id": 24,
@@ -446,7 +519,10 @@
       "drink_from": 2020,
       "drink_to": 2050,
       "status": "peak",
-      "notes": "2002는 금세기 샴페인 최고 빈티지 중 하나. 크뤼그 2002는 전설급. 지금부터 20년 더 가능. 셀러의 하이라이트."
+      "notes": "2002는 금세기 샴페인 최고 빈티지 중 하나. 크뤼그 2002는 전설급. 지금부터 20년 더 가능. 셀러의 하이라이트.",
+      "category": "샴페인",
+      "short": "금세기 최고 샴페인 빈티지 중 하나. 셀러의 하이라이트",
+      "display": "Krug Vintage"
     },
     {
       "id": 25,
@@ -465,7 +541,10 @@
       "drink_from": 2029,
       "drink_to": 2050,
       "status": "hold",
-      "notes": "안티노리 최상위 큐베(티냐넬로 상위). 2021은 토스카나 최상급 빈티지로 평가됨. 구조와 타닌이 단단해 최소 2029년까지 홀드 권장, 2032~2045가 핵심 구간. 셀러 최장기 보관 대상 중 하나."
+      "notes": "안티노리 최상위 큐베(티냐넬로 상위). 2021은 토스카나 최상급 빈티지로 평가됨. 구조와 타닌이 단단해 최소 2029년까지 홀드 권장, 2032~2045가 핵심 구간. 셀러 최장기 보관 대상 중 하나.",
+      "category": "이탈리아 (슈퍼 투스칸)",
+      "short": "핵심 구간 2032–2045",
+      "display": "Antinori Solaia"
     },
     {
       "id": 26,
@@ -485,7 +564,145 @@
       "drink_from": 2004,
       "drink_to": 2027,
       "status": "urgent",
-      "notes": "Castéja 소유, Borie-Manoux 독점 유통, 샤토 병입. 포므롤 소규모 중견 샤토(메를로 주도). 1996은 좌안(메독/카베르네)에 유리했던 해로 우안 메를로에는 어려운 빈티지 → 장기 숙성형이 아님. 30년차, 음용 창 끝자락이라 최우선 소비. 개봉 전 48시간 세워두고 아소(양날) 오프너로 코르크 조심스럽게, 디캔팅은 짧게(20~30분) 또는 병에서 바로. 16~17°C."
+      "notes": "Castéja 소유, Borie-Manoux 독점 유통, 샤토 병입. 포므롤 소규모 중견 샤토(메를로 주도). 1996은 좌안(메독/카베르네)에 유리했던 해로 우안 메를로에는 어려운 빈티지 → 장기 숙성형이 아님. 30년차, 음용 창 끝자락이라 최우선 소비. 개봉 전 48시간 세워두고 아소(양날) 오프너로 코르크 조심스럽게, 디캔팅은 짧게(20~30분) 또는 병에서 바로. 16~17°C.",
+      "category": "보르도 (레드)",
+      "short": "30년차 + 우안에 불리했던 빈티지, 숙성 여력 없음",
+      "display": "Château du Domaine de l'Église"
+    },
+    {
+      "id": 27,
+      "producer": "Château Palmer",
+      "wine": "Alter Ego de Palmer",
+      "vintage": 2019,
+      "country": "France",
+      "region": "Margaux, Bordeaux",
+      "classification": "Second Wine",
+      "category": "보르도 (레드)",
+      "type": "red",
+      "grapes": [
+        "Merlot",
+        "Cabernet Sauvignon",
+        "Petit Verdot"
+      ],
+      "qty": 1,
+      "drink_from": 2026,
+      "drink_to": 2040,
+      "status": "drink_or_hold",
+      "short": "2019 강세 빈티지, 지금도 가능하나 2029 이후가 본령",
+      "notes": "팔머의 세컨이지만 '작은 팔머'가 아니라 별도 스타일로 만드는 큐베 — 과실 표현이 앞서고 접근성이 빠름. 2019는 보르도 근래 최고 빈티지 중 하나라 구조가 단단함. 지금 열려면 디캔팅 2시간. #9 팔머 2008과 나란히 놓으면 그랑뱅/알테르 에고 대비가 명확.",
+      "display": "Alter Ego de Palmer",
+      "peak_from": 2030
+    },
+    {
+      "id": 28,
+      "producer": "Château Lynch-Bages",
+      "wine": "Château Lynch-Bages",
+      "vintage": 2011,
+      "country": "France",
+      "region": "Pauillac, Bordeaux",
+      "classification": "5ème Cru Classé",
+      "category": "보르도 (레드)",
+      "type": "red",
+      "grapes": [
+        "Cabernet Sauvignon",
+        "Merlot",
+        "Cabernet Franc",
+        "Petit Verdot"
+      ],
+      "qty": 1,
+      "drink_from": 2021,
+      "drink_to": 2035,
+      "status": "peak",
+      "short": "중간급 빈티지라 일찍 열림, 지금이 좋은 구간",
+      "notes": "'가난한 자의 무통'이라 불리는 포이약 5등급. 2011은 2009·2010 사이에 낀 중간급 빈티지로 숙성이 빨라 지금 접근하기 좋음. 15년차, 디캔팅 1~1.5시간. 등심·양갈비에 잘 맞음.",
+      "display": "Château Lynch-Bages"
+    },
+    {
+      "id": 29,
+      "producer": "Jean Pabiot (Domaine des Fines Caillottes)",
+      "wine": "Pouilly-Fumé",
+      "vintage": 2024,
+      "country": "France",
+      "region": "Pouilly-Fumé, Loire",
+      "category": "루아르",
+      "type": "white",
+      "grapes": [
+        "Sauvignon Blanc"
+      ],
+      "qty": 1,
+      "drink_from": 2025,
+      "drink_to": 2027,
+      "status": "drink_now",
+      "short": "소비뇽 블랑, 신선할 때가 전부. 1년 내 소비",
+      "notes": "라벨 표기 정정: Fines Caillions → Domaine des Fines Caillottes. 석회질 자갈(caillottes) 토양에서 오는 부싯돌·시트러스 계열. 2024는 아주 어림 = 지금이 정점. 보관 이득 전혀 없으니 1년 내 소비. 8~10°C, 굴·염소치즈·샐러드.",
+      "display": "Jean Pabiot Pouilly-Fumé (Fines Caillottes)"
+    },
+    {
+      "id": 30,
+      "producer": "Château Canon",
+      "wine": "Château Canon",
+      "vintage": 2000,
+      "country": "France",
+      "region": "Saint-Émilion, Bordeaux",
+      "classification": "1er Grand Cru Classé B",
+      "category": "보르도 (레드)",
+      "type": "red",
+      "grapes": [
+        "Merlot",
+        "Cabernet Franc"
+      ],
+      "qty": 1,
+      "drink_from": 2012,
+      "drink_to": 2032,
+      "status": "peak",
+      "short": "피크 구간이나 병차(bottle variation) 주의 — 아래 설명",
+      "notes": "주의할 점이 있음: 카농은 1990년대 셀러 목재의 TCA(코르크 냄새) 오염으로 심각한 문제를 겪었고, 1996년 샤넬 인수 후 대대적으로 셀러를 철거·재건했음. 품질이 확실히 궤도에 오른 건 2000년대 중후반 이후라 2000 빈티지는 과도기에 걸쳐 있음. 빈티지 자체는 훌륭하고 좋은 병은 지금 아주 좋지만, 병에 따른 편차 가능성을 감안할 것. 중요한 자리에 단독으로 올리기보다 예비 병이 있는 자리에서 여는 걸 권함. 디캔팅 1시간.",
+      "display": "Château Canon"
+    },
+    {
+      "id": 31,
+      "producer": "Château Coutet",
+      "wine": "Château Coutet",
+      "vintage": 2002,
+      "country": "France",
+      "region": "Barsac, Sauternes, Bordeaux",
+      "classification": "1er Cru Classé",
+      "category": "보르도 (스위트)",
+      "type": "sweet white",
+      "grapes": [
+        "Sémillon",
+        "Sauvignon Blanc",
+        "Muscadelle"
+      ],
+      "qty": 1,
+      "format_ml": 375,
+      "drink_from": 2010,
+      "drink_to": 2035,
+      "status": "peak",
+      "short": "하프보틀이라 숙성이 빠름, 지금이 좋음",
+      "notes": "용량 확인 필요: 350ml는 규격에 없음 — 소테른 하프보틀 표준인 375ml일 가능성이 높음. 바르삭의 1등급, 소테른 중 가장 산도가 높고 날렵한 스타일. 하프보틀은 750ml보다 산화가 2배 가까이 빨라 숙성 속도가 빠름 → 24년차면 충분히 무르익었고 더 기다릴 이유 없음. 8~10°C, 푸아그라·블루치즈·타르트 타탱. 개봉 후 냉장 1주일 가능.",
+      "display": "Château Coutet"
+    },
+    {
+      "id": 32,
+      "producer": "Moulin Touchais",
+      "wine": "Coteaux du Layon",
+      "vintage": 1981,
+      "country": "France",
+      "region": "Coteaux du Layon, Anjou, Loire",
+      "category": "루아르",
+      "type": "sweet white",
+      "grapes": [
+        "Chenin Blanc"
+      ],
+      "qty": 1,
+      "drink_from": 1995,
+      "drink_to": 2045,
+      "status": "peak",
+      "short": "45년차지만 정상 범위. 셀러에서 가장 오래 갈 병",
+      "notes": "물랭 투셰는 최소 10년 이상 자가 숙성 후 출시하는 것으로 유명한 집이라 45년차는 이 집 기준 이상 없음. 슈냉 블랑의 강한 산도 덕에 스위트 와인 중에서도 극단적으로 장수함 — 앞으로 20년 더 가능. 셀러에서 가장 여유 있는 병. 꿀·모과·카라멜 계열에 산도가 받쳐주는 구조. 10~12°C, 디캔팅 불필요. 단독 또는 과일 타르트.",
+      "display": "Moulin Touchais Coteaux du Layon"
     }
-  ]
+  ],
+  "summary": "풀보디 카베르네와 프레스티지 샴페인이 중심축. 최근 추가로 루아르 화이트·스위트와 보르도 우안이 보강되면서 균형이 나아졌다. 여전히 부르고뉴 피노 누아와 론은 공백."
 }
