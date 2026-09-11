@@ -465,6 +465,26 @@
       "drink_to": 2050,
       "status": "hold",
       "notes": "안티노리 최상위 큐베(티냐넬로 상위). 2021은 토스카나 최상급 빈티지로 평가됨. 구조와 타닌이 단단해 최소 2029년까지 홀드 권장, 2032~2045가 핵심 구간. 셀러 최장기 보관 대상 중 하나."
+    },
+    {
+      "id": 26,
+      "producer": "Château du Domaine de l'Église",
+      "wine": "Château du Domaine de l'Église",
+      "vintage": 1996,
+      "country": "France",
+      "region": "Pomerol, Bordeaux",
+      "classification": "Pomerol (등급 없음)",
+      "type": "red",
+      "grapes": [
+        "Merlot",
+        "Cabernet Franc"
+      ],
+      "abv": 12.5,
+      "qty": 1,
+      "drink_from": 2004,
+      "drink_to": 2027,
+      "status": "urgent",
+      "notes": "Castéja 소유, Borie-Manoux 독점 유통, 샤토 병입. 포므롤 소규모 중견 샤토(메를로 주도). 1996은 좌안(메독/카베르네)에 유리했던 해로 우안 메를로에는 어려운 빈티지 → 장기 숙성형이 아님. 30년차, 음용 창 끝자락이라 최우선 소비. 개봉 전 48시간 세워두고 아소(양날) 오프너로 코르크 조심스럽게, 디캔팅은 짧게(20~30분) 또는 병에서 바로. 16~17°C."
     }
   ]
 }
