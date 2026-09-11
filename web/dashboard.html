@@ -1,0 +1,353 @@
+<title>와인 셀러 타임라인</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+KR:wght@400;500;600&display=swap">
+<style>
+:root{
+  --bg:#F6F3F5; --surface:#FFFFFF; --sunken:#EEE9EC; --line:#E1D9DE; --line-soft:#EDE6EA;
+  --ink:#1D1720; --ink-2:#6A5F68; --ink-3:#948A92;
+  --accent:#6E1F35; --accent-ink:#6E1F35; --accent-soft:rgba(110,31,53,.09);
+  --s-urgent:#A93226; --s-now:#A9701F; --s-peak:#3F6B46; --s-dh:#2F6A78; --s-hold:#46578A;
+  --band:.22; --today:#1D1720;
+  --sans:"IBM Plex Sans KR",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",monospace;
+  --display:"Bodoni Moda","IBM Plex Sans KR",Georgia,serif;
+  --r:10px;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#141016; --surface:#1D181F; --sunken:#241E27; --line:#332B36; --line-soft:#2A232D;
+    --ink:#F0EAEE; --ink-2:#A2959F; --ink-3:#7A6E78;
+    --accent:#D07E92; --accent-ink:#E0A0B0; --accent-soft:rgba(208,126,146,.13);
+    --s-urgent:#E0705F; --s-now:#D6A353; --s-peak:#7BAE80; --s-dh:#6CB0BE; --s-hold:#8A9BCB;
+    --band:.30; --today:#F0EAEE;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#141016; --surface:#1D181F; --sunken:#241E27; --line:#332B36; --line-soft:#2A232D;
+  --ink:#F0EAEE; --ink-2:#A2959F; --ink-3:#7A6E78;
+  --accent:#D07E92; --accent-ink:#E0A0B0; --accent-soft:rgba(208,126,146,.13);
+  --s-urgent:#E0705F; --s-now:#D6A353; --s-peak:#7BAE80; --s-dh:#6CB0BE; --s-hold:#8A9BCB;
+  --band:.30; --today:#F0EAEE;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);
+     font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto;padding-inline:20px;padding-block:40px 72px}
+h1,h2,h3{margin:0;text-wrap:balance}
+a{color:var(--accent-ink)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
+
+/* ── header ───────────────────────────────── */
+.masthead{display:flex;flex-wrap:wrap;align-items:flex-end;gap:16px 28px;
+          padding-bottom:22px;border-bottom:1px solid var(--line)}
+h1{font-family:var(--display);font-weight:400;font-size:clamp(30px,5.2vw,44px);
+   line-height:1.08;letter-spacing:-.01em}
+.asof{font-family:var(--mono);font-size:12px;color:var(--ink-3);letter-spacing:.02em}
+.figures{display:flex;flex-wrap:wrap;gap:10px 26px;margin-left:auto}
+.fig{display:flex;align-items:baseline;gap:6px}
+.fig b{font-family:var(--display);font-weight:500;font-size:26px;line-height:1;
+       font-variant-numeric:tabular-nums}
+.fig span{font-size:12px;color:var(--ink-2)}
+
+/* ── controls ─────────────────────────────── */
+.controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:22px}
+.chips{display:flex;flex-wrap:wrap;gap:7px}
+.chip{display:inline-flex;align-items:center;gap:7px;padding:6px 12px;cursor:pointer;
+      border:1px solid var(--line);border-radius:999px;background:var(--surface);
+      color:var(--ink-2);font:inherit;font-size:13px;transition:border-color .15s,color .15s}
+.chip .dot{width:8px;height:8px;border-radius:50%;background:var(--c)}
+.chip .n{font-family:var(--mono);font-size:12px;color:var(--ink-3)}
+.chip:hover{border-color:var(--ink-3)}
+.chip[aria-pressed="true"]{border-color:var(--c);color:var(--ink);
+      box-shadow:inset 0 0 0 1px var(--c)}
+.chip[aria-pressed="true"] .n{color:var(--ink-2)}
+#q{flex:1;min-width:190px;padding:7px 12px;border:1px solid var(--line);border-radius:999px;
+   background:var(--surface);color:var(--ink);font:inherit;font-size:13px}
+#q::placeholder{color:var(--ink-3)}
+
+/* ── sections ─────────────────────────────── */
+section{margin-top:44px}
+.eyebrow{display:flex;align-items:baseline;gap:10px;margin-bottom:4px}
+.eyebrow h2{font-size:13px;font-weight:600;letter-spacing:.09em;text-transform:uppercase}
+.eyebrow p{margin:0;font-size:13px;color:var(--ink-3)}
+
+/* ── timeline ─────────────────────────────── */
+.tl-scroll{overflow-x:auto;margin-top:18px}
+.tl{min-width:680px;--gutter:30px}
+.tl-axis{position:relative;height:17px;margin-left:var(--lane);margin-right:var(--gutter);
+         font-family:var(--mono);font-size:11px;color:var(--ink-3)}
+.tl-axis span{position:absolute;transform:translateX(-50%);white-space:nowrap}
+.tl-body{position:relative;margin-top:2px}
+.tl-grid{position:absolute;inset:0 var(--gutter) 0 var(--lane);pointer-events:none}
+.tl-grid i{position:absolute;top:0;bottom:0;width:1px;background:var(--line-soft)}
+.tl-now{position:absolute;top:0;bottom:0;width:1px;background:var(--today);opacity:.4}
+.tl-now::after{content:"지금";position:absolute;top:-18px;left:4px;font-family:var(--sans);
+               font-size:11px;font-weight:600;color:var(--ink-2);letter-spacing:.04em;opacity:2.5}
+.row{display:grid;grid-template-columns:var(--lane) 1fr;align-items:center;
+     column-gap:0;height:23px;position:relative}
+.row:hover .rname{color:var(--ink)}
+.rname{font-size:12.5px;color:var(--ink-2);white-space:nowrap;overflow:hidden;
+       text-overflow:ellipsis;padding-right:12px}
+.rname em{font-family:var(--mono);font-style:normal;font-size:11px;color:var(--ink-3)}
+.track{position:relative;height:100%;margin-right:var(--gutter)}
+.bar{position:absolute;top:6px;height:11px;border-radius:3px;
+     background:color-mix(in srgb,var(--c) calc(var(--band)*100%),transparent);
+     border-left:2.5px solid var(--c);cursor:pointer}
+.bar::after{content:"";position:absolute;right:0;top:0;bottom:0;width:2.5px;
+            background:var(--c);opacity:.45;border-radius:0 3px 3px 0}
+.bar:hover{background:color-mix(in srgb,var(--c) 34%,transparent)}
+.legend{display:flex;flex-wrap:wrap;gap:6px 20px;margin-top:14px;font-size:12px;color:var(--ink-3)}
+.legend i{display:inline-block;width:22px;height:8px;border-radius:2px;vertical-align:middle;
+          margin-right:6px;border-left:2.5px solid var(--c);
+          background:color-mix(in srgb,var(--c) calc(var(--band)*100%),transparent)}
+
+/* ── list ─────────────────────────────────── */
+.list{margin-top:16px;border-top:1px solid var(--line)}
+details{border-bottom:1px solid var(--line-soft)}
+details[open]{background:var(--surface)}
+summary{display:grid;grid-template-columns:2.2fr 52px 1.3fr 96px 84px;gap:14px;align-items:center;
+        padding:11px 12px;cursor:pointer;list-style:none}
+summary::-webkit-details-marker{display:none}
+summary:hover{background:var(--accent-soft)}
+.nm{font-weight:500;display:flex;align-items:center;gap:8px;min-width:0}
+.nm span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.nm b{flex:none;font-family:var(--mono);font-size:10px;font-weight:500;color:var(--ink-3);
+      border:1px solid var(--line);border-radius:4px;padding:0 4px}
+.vt,.win{font-family:var(--mono);font-size:12.5px;font-variant-numeric:tabular-nums;color:var(--ink-2)}
+.rg{font-size:12.5px;color:var(--ink-3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pill{justify-self:start;font-size:11.5px;padding:2px 9px;border-radius:999px;white-space:nowrap;
+      color:var(--c);background:color-mix(in srgb,var(--c) calc(var(--band)*100%),transparent)}
+.detail{padding:2px 12px 18px;display:grid;grid-template-columns:1fr;gap:12px}
+.detail p{margin:0;max-width:66ch;color:var(--ink-2);font-size:13.5px}
+.meta{display:flex;flex-wrap:wrap;gap:6px 22px;font-size:12px;color:var(--ink-3)}
+.meta b{font-weight:500;color:var(--ink-2)}
+.ws{justify-self:start;display:inline-flex;align-items:center;gap:6px;font-size:12.5px;
+    text-decoration:none;color:var(--accent-ink);border:1px solid var(--line);
+    border-radius:999px;padding:4px 11px;background:var(--surface)}
+.ws:hover{border-color:var(--accent);background:var(--accent-soft)}
+.empty{padding:28px 12px;color:var(--ink-3);font-size:13.5px}
+
+/* ── flags + mix ──────────────────────────── */
+.split{display:grid;grid-template-columns:1fr;gap:36px}
+@media (min-width:800px){.split{grid-template-columns:1.15fr .85fr;gap:44px}}
+.flag{margin-top:14px;padding:14px 16px;border-left:2.5px solid var(--s-now);
+      background:var(--sunken);border-radius:0 var(--r) var(--r) 0}
+.flag h3{font-size:13.5px;font-weight:600;margin-bottom:3px}
+.flag h3 em{font-family:var(--mono);font-style:normal;font-size:11px;color:var(--ink-3);
+            margin-right:7px}
+.flag p{margin:0;font-size:13px;color:var(--ink-2);max-width:60ch}
+.mix{margin-top:16px;display:grid;gap:9px}
+.mix div{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;font-size:13px}
+.mix .track2{grid-column:1/-1;height:5px;border-radius:3px;background:var(--sunken);overflow:hidden}
+.mix .track2 i{display:block;height:100%;background:var(--accent);opacity:.72;border-radius:3px}
+.mix em{font-family:var(--mono);font-style:normal;font-size:12px;color:var(--ink-3)}
+footer{margin-top:52px;padding-top:18px;border-top:1px solid var(--line);
+       font-size:12px;color:var(--ink-3)}
+@media (max-width:720px){
+  summary{grid-template-columns:1fr 50px 80px;row-gap:5px}
+  .rg{display:none} .win{grid-column:2/4;justify-self:end}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+
+<div class="wrap">
+  <header class="masthead">
+    <div>
+      <h1>와인 셀러 타임라인</h1>
+      <div class="asof" id="asof"></div>
+    </div>
+    <div class="figures" id="figures"></div>
+  </header>
+
+  <div class="controls">
+    <div class="chips" id="chips"></div>
+    <input id="q" type="search" placeholder="와인 · 지역 · 품종 검색" autocomplete="off">
+  </div>
+
+  <section>
+    <div class="eyebrow">
+      <h2>음용 창</h2>
+      <p>마감이 빠른 순. 막대 왼쪽 끝이 창이 열리는 해, 오른쪽 끝이 닫히는 해.</p>
+    </div>
+    <div class="tl-scroll">
+      <div class="tl" id="tl"></div>
+    </div>
+    <div class="legend" id="legend"></div>
+  </section>
+
+  <section>
+    <div class="eyebrow">
+      <h2>전체 목록</h2>
+      <p id="count"></p>
+    </div>
+    <div class="list" id="list"></div>
+  </section>
+
+  <div class="split">
+    <section>
+      <div class="eyebrow"><h2>짚고 갈 것</h2></div>
+      <div id="flags"></div>
+    </section>
+    <section>
+      <div class="eyebrow"><h2>구성</h2></div>
+      <div class="mix" id="mix"></div>
+    </section>
+  </div>
+
+  <footer id="foot"></footer>
+</div>
+
+<script>
+const DATA = {"owner": "jungyoonkim96", "updated": "2026-09-11", "notes": "수량 미확인 항목은 qty=1로 가정. 구매가/구매처/입고일 추후 추가.", "bottles": [{"id": 1, "producer": "Orin Swift", "wine": "Mercury Head Cabernet Sauvignon", "vintage": 2018, "country": "USA", "region": "Napa Valley", "type": "red", "grapes": ["Cabernet Sauvignon"], "qty": 1, "drink_from": 2024, "drink_to": 2035, "status": "drink_or_hold", "notes": "2018 나파 최상급 빈티지. 지금도 좋고 5년 더 가도 됨. 디캔팅 2시간.", "category": "나파 / 캘리포니아", "short": "2018 나파 최상급, 지금도 좋고 더 가도 됨", "display": "Orin Swift Mercury Head Cabernet Sauvignon", "peak_from": 2030}, {"id": 2, "producer": "Hardys", "wine": "Thomas Hardy Cabernet Sauvignon", "vintage": 2017, "country": "Australia", "region": "Coonawarra / Margaret River", "type": "red", "grapes": ["Cabernet Sauvignon"], "qty": 1, "drink_from": 2027, "drink_to": 2042, "status": "hold", "notes": "하디스 최상위 카베르네. 아직 어림. 최소 2~3년 더.", "category": "호주", "short": "아직 어림, 최소 2~3년 더", "display": "Hardys Thomas Hardy Cabernet Sauvignon"}, {"id": 3, "producer": "Austin Hope", "wine": "Cabernet Sauvignon", "vintage": 2020, "country": "USA", "region": "Paso Robles", "type": "red", "grapes": ["Cabernet Sauvignon"], "qty": 1, "drink_from": 2023, "drink_to": 2030, "status": "drink_now", "notes": "셀러에서 가장 캐주얼한 데일리급. 장기 보관 이유 없음. 먼저 비울 것.", "category": "나파 / 캘리포니아", "short": "데일리급, 지금이 제일 맛있음", "display": "Austin Hope Cabernet Sauvignon"}, {"id": 4, "producer": "Château Calon Ségur", "wine": "Château Calon Ségur", "vintage": 2005, "country": "France", "region": "Saint-Estèphe, Bordeaux", "classification": "3ème Cru Classé", "type": "red", "grapes": ["Cabernet Sauvignon", "Merlot", "Cabernet Franc"], "qty": 1, "drink_from": 2030, "drink_to": 2048, "status": "hold", "notes": "2005는 보르도 전설적 빈티지. 이제 막 창이 열림. 급할 것 없음.", "category": "보르도 (레드)", "short": "2005 전설적 빈티지, 창은 열렸지만 본령은 2030년대", "display": "Château Calon Ségur"}, {"id": 5, "producer": "Shafer", "wine": "One Point Five Cabernet Sauvignon", "vintage": 2021, "country": "USA", "region": "Stags Leap District, Napa Valley", "type": "red", "grapes": ["Cabernet Sauvignon"], "qty": 1, "drink_from": 2027, "drink_to": 2038, "status": "hold", "notes": "2021 나파 초강세 빈티지. 지금 열면 아까움.", "category": "나파 / 캘리포니아", "short": "2021 나파 초강세, 지금 열면 아까움", "display": "Shafer One Point Five Cabernet Sauvignon"}, {"id": 6, "producer": "Marchesi Antinori", "wine": "Tignanello", "vintage": 2020, "country": "Italy", "region": "Toscana IGT", "type": "red", "grapes": ["Sangiovese", "Cabernet Sauvignon", "Cabernet Franc"], "qty": 1, "drink_from": 2026, "drink_to": 2038, "status": "drink_or_hold", "notes": "지금 열려면 디캔팅 2시간. 2028년 이후가 더 좋음.", "category": "이탈리아 (슈퍼 투스칸)", "short": "지금 열려면 디캔팅 2시간, 2028 이후가 더 좋음", "display": "Antinori Tignanello", "peak_from": 2029}, {"id": 7, "producer": "Château Calon Ségur", "wine": "Château Calon Ségur", "vintage": 2000, "country": "France", "region": "Saint-Estèphe, Bordeaux", "classification": "3ème Cru Classé", "type": "red", "grapes": ["Cabernet Sauvignon", "Merlot", "Cabernet Franc"], "qty": 1, "drink_from": 2020, "drink_to": 2040, "status": "peak", "notes": "밀레니엄 빈티지, 26년차. 지금이 정확히 피크 구간.", "category": "보르도 (레드)", "short": "밀레니엄 빈티지 26년차, 정확히 피크", "display": "Château Calon Ségur"}, {"id": 8, "producer": "Château Mouton Rothschild", "wine": "Le Petit Mouton de Mouton Rothschild", "vintage": 2013, "country": "France", "region": "Pauillac, Bordeaux", "classification": "Second Wine", "type": "red", "grapes": ["Cabernet Sauvignon", "Merlot"], "qty": 1, "drink_from": 2020, "drink_to": 2028, "status": "drink_now", "notes": "2013은 보르도 약한 빈티지. 더 기다릴 이유 없음. 2년 내 소비 권장.", "category": "보르도 (레드)", "short": "약한 빈티지, 더 기다릴 이유 없음", "display": "Le Petit Mouton de Mouton Rothschild"}, {"id": 9, "producer": "Château Palmer", "wine": "Château Palmer", "vintage": 2008, "country": "France", "region": "Margaux, Bordeaux", "classification": "3ème Cru Classé", "type": "red", "grapes": ["Merlot", "Cabernet Sauvignon", "Petit Verdot"], "qty": 1, "drink_from": 2024, "drink_to": 2045, "status": "drink_or_hold", "notes": "저평가 빈티지지만 팔머는 예외적으로 훌륭. 셀러 최상위권 중 하나.", "category": "보르도 (레드)", "short": "저평가 빈티지지만 팔머는 예외적으로 훌륭", "display": "Château Palmer", "peak_from": 2032}, {"id": 10, "producer": "Château Margaux", "wine": "Pavillon Rouge du Château Margaux", "vintage": 2000, "country": "France", "region": "Margaux, Bordeaux", "classification": "Second Wine", "type": "red", "grapes": ["Cabernet Sauvignon", "Merlot"], "qty": 1, "drink_from": 2015, "drink_to": 2032, "status": "peak", "notes": "세컨 와인 26년차. 피크 후반부. 우선순위 높게 소비.", "category": "보르도 (레드)", "short": "세컨 와인 26년차, 피크 후반부", "display": "Pavillon Rouge du Château Margaux"}, {"id": 11, "producer": "Opus One", "wine": "Opus One", "vintage": 2007, "country": "USA", "region": "Oakville, Napa Valley", "type": "red", "grapes": ["Cabernet Sauvignon", "Merlot", "Petit Verdot", "Cabernet Franc"], "qty": 2, "drink_from": 2020, "drink_to": 2038, "status": "peak", "notes": "2007은 오퍼스 원 역대 최고 빈티지 중 하나. 지금 완벽한 구간. 동일 빈티지 2병 보유.", "category": "나파 / 캘리포니아", "short": "오퍼스 원 역대 최고 빈티지 중 하나", "display": "Opus One"}, {"id": 12, "producer": "Opus One", "wine": "Overture", "vintage": null, "vintage_label": "NV", "country": "USA", "region": "Napa Valley", "type": "red", "grapes": ["Cabernet Sauvignon"], "qty": 2, "drink_from": 2023, "drink_to": 2029, "status": "drink_now", "notes": "멀티빈티지 블렌드. 숙성용 아님. 우선 소비 대상. 2병 보유 — 한 병은 편하게 열고 다른 한 병으로 비교해볼 여지 있음.", "category": "나파 / 캘리포니아", "short": "멀티빈티지 블렌드, 숙성용 아님", "display": "Opus One Overture"}, {"id": 13, "producer": "Tenuta dell'Ornellaia", "wine": "Ornellaia", "vintage": 1996, "country": "Italy", "region": "Bolgheri Superiore DOC", "type": "red", "grapes": ["Cabernet Sauvignon", "Merlot", "Cabernet Franc"], "qty": 1, "drink_from": 2005, "drink_to": 2028, "status": "urgent", "notes": "30년차. 보관 이력 좋아도 창 끝자락. 최우선 소비 대상. 디캔팅 짧게(30분), 침전물 주의.", "category": "이탈리아 (슈퍼 투스칸)", "short": "30년차, 음용 창 끝자락", "display": "Ornellaia"}, {"id": 14, "producer": "Château Haut-Brion", "wine": "Château Haut-Brion", "vintage": 1996, "country": "France", "region": "Pessac-Léognan, Bordeaux", "classification": "1er Cru Classé", "type": "red", "grapes": ["Cabernet Sauvignon", "Merlot", "Cabernet Franc"], "qty": 1, "drink_from": 2015, "drink_to": 2045, "status": "peak", "notes": "셀러 최고가·최고 등급. 1급 그랑크뤼 30년차, 지금이 클래식 피크. 특별한 자리용.", "category": "보르도 (레드)", "short": "1급 그랑크뤼 30년차, 클래식 피크. 특별한 자리용", "display": "Château Haut-Brion"}, {"id": 15, "producer": "Silver Oak", "wine": "Napa Valley Cabernet Sauvignon", "vintage": 1996, "country": "USA", "region": "Napa Valley", "type": "red", "grapes": ["Cabernet Sauvignon"], "qty": 1, "drink_from": 2001, "drink_to": 2027, "status": "urgent", "notes": "실버오크는 출시 시점에 이미 마실 준비가 된 스타일. 30년은 한계치. 최우선 소비.", "category": "나파 / 캘리포니아", "short": "조기 음용형 스타일 + 30년차", "display": "Silver Oak Napa Valley Cabernet Sauvignon"}, {"id": 16, "producer": "Tenuta San Guido", "wine": "Sassicaia", "vintage": 2019, "country": "Italy", "region": "Bolgheri Sassicaia DOC", "type": "red", "grapes": ["Cabernet Sauvignon", "Cabernet Franc"], "qty": 1, "drink_from": 2027, "drink_to": 2048, "status": "hold", "notes": "2019는 사시카이아 역대급 빈티지. 지금 열면 손해. 최소 2030년까지 홀드.", "category": "이탈리아 (슈퍼 투스칸)", "short": "역대급 빈티지, 지금 열면 손해", "display": "Sassicaia"}, {"id": 17, "producer": "Moët & Chandon", "wine": "Dom Pérignon", "vintage": 2010, "country": "France", "region": "Champagne", "type": "sparkling", "grapes": ["Chardonnay", "Pinot Noir"], "qty": 1, "drink_from": 2020, "drink_to": 2032, "status": "peak", "notes": "DP 3병 중 가장 먼저 열 것. 지금 완숙.", "category": "샴페인", "short": "DP 3병 중 가장 먼저 열 것", "display": "Dom Pérignon"}, {"id": 18, "producer": "Moët & Chandon", "wine": "Dom Pérignon", "vintage": 2013, "country": "France", "region": "Champagne", "type": "sparkling", "grapes": ["Chardonnay", "Pinot Noir"], "qty": 1, "drink_from": 2023, "drink_to": 2036, "status": "drink_or_hold", "notes": "산도 높고 긴장감 있는 빈티지. 지금도 좋고 더 가도 좋음.", "category": "샴페인", "short": "산도 높고 긴장감 있음, 지금도 좋고 더 가도 좋음", "display": "Dom Pérignon", "peak_from": 2030}, {"id": 19, "producer": "Moët & Chandon", "wine": "Dom Pérignon", "vintage": 2017, "country": "France", "region": "Champagne", "type": "sparkling", "grapes": ["Chardonnay", "Pinot Noir"], "qty": 1, "drink_from": 2027, "drink_to": 2040, "status": "hold", "notes": "가장 어린 DP. 홀드.", "category": "샴페인", "short": "가장 어린 DP", "display": "Dom Pérignon"}, {"id": 20, "producer": "Champagne Monial (Emmanuel & Agnès Calon)", "wine": "Libera Me Brut — Blanc de Noirs", "vintage": null, "vintage_label": "NV", "country": "France", "region": "Colombé-le-Sec, Côte des Bar (Aube), Champagne", "type": "sparkling", "grapes": ["Pinot Noir"], "qty": 1, "drink_from": 2024, "drink_to": 2029, "status": "drink_now", "notes": "신원 확인 완료. 2008년 설립된 소규모 가족 생산자, 오브(코트 데 바르) 콜롱베-르-섹 소재. 1194년부터 이 마을에 있던 클레르보 수도원 부속 건물에서 양조 — 라벨의 수도원 지하 아치 그림과 'Libera Me'(레퀴엠 전례문) 명칭이 여기서 옴. 점토석회질 토양, 피노 누아 2/3 + 샤르도네. Libera Me는 피노 누아 기반 블랑 드 누아. 리옹 국제와인콩쿠르 금상(2013, 2019). NV 논빈티지라 장기 보관 대상 아님 — 3년 내 소비. 같은 이름의 Brut Nature 버전이 따로 있으나 이 병은 Brut.", "abv": 12.5, "format_ml": 750, "category": "샴페인", "short": "논빈티지 그로워 샴페인, 숙성 이득 없음", "display": "Monial Libera Me Brut (Blanc de Noirs)"}, {"id": 21, "producer": "Louis Roederer", "wine": "Cristal", "vintage": 2016, "country": "France", "region": "Champagne", "type": "sparkling", "grapes": ["Pinot Noir", "Chardonnay"], "qty": 1, "drink_from": 2028, "drink_to": 2048, "status": "hold", "notes": "크리스탈은 출시 후 5~10년 추가 숙성 시 진가. 셀러 샴페인 중 최장기 보관 대상.", "category": "샴페인", "short": "셀러 샴페인 중 최장기 보관 대상", "display": "Louis Roederer Cristal"}, {"id": 22, "producer": "Pommery", "wine": "Cuvée Louise", "vintage": 2006, "country": "France", "region": "Champagne", "type": "sparkling", "grapes": ["Chardonnay", "Pinot Noir"], "qty": 1, "drink_from": 2016, "drink_to": 2032, "status": "peak", "notes": "20년차 프레스티지 퀴베. 지금이 좋음.", "category": "샴페인", "short": "20년차 프레스티지 퀴베", "display": "Pommery Cuvée Louise"}, {"id": 23, "producer": "Charles Noëllat (négociant)", "wine": "Chassagne-Montrachet", "vintage": 2022, "country": "France", "region": "Chassagne-Montrachet, Côte de Beaune, Burgundy", "type": "white", "grapes": ["Chardonnay"], "qty": 1, "drink_from": 2024, "drink_to": 2028, "status": "drink_now", "notes": "라벨 확인 완료(2022, 화이트, 12.5%). 역사적 도멘 Charles Noëllat는 1988년 르로이에 매각되며 소멸했으나 이름은 네고시앙 브랜드로 존속 → 도멘 와인 아닌 네고시앙 병입 빌라주급. 2022는 더운 빈티지라 산도 낮고 과실 풍만. 장기 보관 부적합, 2027년 내 소비 권장. 12~13°C, 부르고뉴 화이트 잔.", "classification": "Village", "abv": 12.5, "category": "부르고뉴 (화이트)", "short": "네고시앙 빌라주급 + 저산도 빈티지, 장기 보관 부적합", "display": "Charles Noëllat Chassagne-Montrachet"}, {"id": 24, "producer": "Krug", "wine": "Krug Vintage", "vintage": 2002, "country": "France", "region": "Champagne", "type": "sparkling", "grapes": ["Pinot Noir", "Chardonnay", "Pinot Meunier"], "qty": 1, "drink_from": 2020, "drink_to": 2050, "status": "peak", "notes": "2002는 금세기 샴페인 최고 빈티지 중 하나. 크뤼그 2002는 전설급. 지금부터 20년 더 가능. 셀러의 하이라이트.", "category": "샴페인", "short": "금세기 최고 샴페인 빈티지 중 하나. 셀러의 하이라이트", "display": "Krug Vintage"}, {"id": 25, "producer": "Marchesi Antinori", "wine": "Solaia", "vintage": 2021, "country": "Italy", "region": "Toscana IGT", "type": "red", "grapes": ["Cabernet Sauvignon", "Sangiovese", "Cabernet Franc"], "qty": 1, "drink_from": 2029, "drink_to": 2050, "status": "hold", "notes": "안티노리 최상위 큐베(티냐넬로 상위). 2021은 토스카나 최상급 빈티지로 평가됨. 구조와 타닌이 단단해 최소 2029년까지 홀드 권장, 2032~2045가 핵심 구간. 셀러 최장기 보관 대상 중 하나.", "category": "이탈리아 (슈퍼 투스칸)", "short": "핵심 구간 2032–2045", "display": "Antinori Solaia"}, {"id": 26, "producer": "Château du Domaine de l'Église", "wine": "Château du Domaine de l'Église", "vintage": 1996, "country": "France", "region": "Pomerol, Bordeaux", "classification": "Pomerol (등급 없음)", "type": "red", "grapes": ["Merlot", "Cabernet Franc"], "abv": 12.5, "qty": 1, "drink_from": 2004, "drink_to": 2027, "status": "urgent", "notes": "Castéja 소유, Borie-Manoux 독점 유통, 샤토 병입. 포므롤 소규모 중견 샤토(메를로 주도). 1996은 좌안(메독/카베르네)에 유리했던 해로 우안 메를로에는 어려운 빈티지 → 장기 숙성형이 아님. 30년차, 음용 창 끝자락이라 최우선 소비. 개봉 전 48시간 세워두고 아소(양날) 오프너로 코르크 조심스럽게, 디캔팅은 짧게(20~30분) 또는 병에서 바로. 16~17°C.", "category": "보르도 (레드)", "short": "30년차 + 우안에 불리했던 빈티지, 숙성 여력 없음", "display": "Château du Domaine de l'Église"}, {"id": 27, "producer": "Château Palmer", "wine": "Alter Ego de Palmer", "vintage": 2019, "country": "France", "region": "Margaux, Bordeaux", "classification": "Second Wine", "category": "보르도 (레드)", "type": "red", "grapes": ["Merlot", "Cabernet Sauvignon", "Petit Verdot"], "qty": 1, "drink_from": 2026, "drink_to": 2040, "status": "drink_or_hold", "short": "2019 강세 빈티지, 지금도 가능하나 2029 이후가 본령", "notes": "팔머의 세컨이지만 '작은 팔머'가 아니라 별도 스타일로 만드는 큐베 — 과실 표현이 앞서고 접근성이 빠름. 2019는 보르도 근래 최고 빈티지 중 하나라 구조가 단단함. 지금 열려면 디캔팅 2시간. #9 팔머 2008과 나란히 놓으면 그랑뱅/알테르 에고 대비가 명확.", "display": "Alter Ego de Palmer", "peak_from": 2030}, {"id": 28, "producer": "Château Lynch-Bages", "wine": "Château Lynch-Bages", "vintage": 2011, "country": "France", "region": "Pauillac, Bordeaux", "classification": "5ème Cru Classé", "category": "보르도 (레드)", "type": "red", "grapes": ["Cabernet Sauvignon", "Merlot", "Cabernet Franc", "Petit Verdot"], "qty": 1, "drink_from": 2021, "drink_to": 2035, "status": "peak", "short": "중간급 빈티지라 일찍 열림, 지금이 좋은 구간", "notes": "'가난한 자의 무통'이라 불리는 포이약 5등급. 2011은 2009·2010 사이에 낀 중간급 빈티지로 숙성이 빨라 지금 접근하기 좋음. 15년차, 디캔팅 1~1.5시간. 등심·양갈비에 잘 맞음.", "display": "Château Lynch-Bages"}, {"id": 29, "producer": "Jean Pabiot (Domaine des Fines Caillottes)", "wine": "Pouilly-Fumé", "vintage": 2024, "country": "France", "region": "Pouilly-Fumé, Loire", "category": "루아르", "type": "white", "grapes": ["Sauvignon Blanc"], "qty": 1, "drink_from": 2025, "drink_to": 2027, "status": "drink_now", "short": "소비뇽 블랑, 신선할 때가 전부. 1년 내 소비", "notes": "라벨 표기 정정: Fines Caillions → Domaine des Fines Caillottes. 석회질 자갈(caillottes) 토양에서 오는 부싯돌·시트러스 계열. 2024는 아주 어림 = 지금이 정점. 보관 이득 전혀 없으니 1년 내 소비. 8~10°C, 굴·염소치즈·샐러드.", "display": "Jean Pabiot Pouilly-Fumé (Fines Caillottes)"}, {"id": 30, "producer": "Château Canon", "wine": "Château Canon", "vintage": 2000, "country": "France", "region": "Saint-Émilion, Bordeaux", "classification": "1er Grand Cru Classé B", "category": "보르도 (레드)", "type": "red", "grapes": ["Merlot", "Cabernet Franc"], "qty": 1, "drink_from": 2012, "drink_to": 2032, "status": "peak", "short": "피크 구간이나 병차(bottle variation) 주의 — 아래 설명", "notes": "주의할 점이 있음: 카농은 1990년대 셀러 목재의 TCA(코르크 냄새) 오염으로 심각한 문제를 겪었고, 1996년 샤넬 인수 후 대대적으로 셀러를 철거·재건했음. 품질이 확실히 궤도에 오른 건 2000년대 중후반 이후라 2000 빈티지는 과도기에 걸쳐 있음. 빈티지 자체는 훌륭하고 좋은 병은 지금 아주 좋지만, 병에 따른 편차 가능성을 감안할 것. 중요한 자리에 단독으로 올리기보다 예비 병이 있는 자리에서 여는 걸 권함. 디캔팅 1시간.", "display": "Château Canon"}, {"id": 31, "producer": "Château Coutet", "wine": "Château Coutet", "vintage": 2002, "country": "France", "region": "Barsac, Sauternes, Bordeaux", "classification": "1er Cru Classé", "category": "보르도 (스위트)", "type": "sweet white", "grapes": ["Sémillon", "Sauvignon Blanc", "Muscadelle"], "qty": 1, "format_ml": 375, "drink_from": 2010, "drink_to": 2035, "status": "peak", "short": "하프보틀이라 숙성이 빠름, 지금이 좋음", "notes": "375ml 하프보틀(확인됨). 바르삭의 1등급, 소테른 중 가장 산도가 높고 날렵한 스타일. 하프보틀은 750ml보다 산화가 2배 가까이 빨라 숙성 속도가 빠름 → 24년차면 충분히 무르익었고 더 기다릴 이유 없음. 8~10°C, 푸아그라·블루치즈·타르트 타탱. 개봉 후 냉장 1주일 가능.", "display": "Château Coutet"}, {"id": 32, "producer": "Moulin Touchais", "wine": "Coteaux du Layon", "vintage": 1981, "country": "France", "region": "Coteaux du Layon, Anjou, Loire", "category": "루아르", "type": "sweet white", "grapes": ["Chenin Blanc"], "qty": 1, "drink_from": 1995, "drink_to": 2045, "status": "peak", "short": "45년차지만 정상 범위. 셀러에서 가장 오래 갈 병", "notes": "물랭 투셰는 최소 10년 이상 자가 숙성 후 출시하는 것으로 유명한 집이라 45년차는 이 집 기준 이상 없음. 슈냉 블랑의 강한 산도 덕에 스위트 와인 중에서도 극단적으로 장수함 — 앞으로 20년 더 가능. 셀러에서 가장 여유 있는 병. 꿀·모과·카라멜 계열에 산도가 받쳐주는 구조. 10~12°C, 디캔팅 불필요. 단독 또는 과일 타르트.", "display": "Moulin Touchais Coteaux du Layon"}], "summary": "풀보디 카베르네와 프레스티지 샴페인이 중심축. 최근 추가로 루아르 화이트·스위트와 보르도 우안이 보강되면서 균형이 나아졌다. 여전히 부르고뉴 피노 누아와 론은 공백.", "flags": [{"id": 30, "title": "병차(bottle variation) 가능성", "text": "카농은 1990년대 셀러 목재의 TCA 오염으로 고생했고 1996년 샤넬 인수 후 셀러를 재건했다. 품질이 궤도에 오른 건 2000년대 중후반이라 2000 빈티지는 과도기. 중요한 자리에 단독으로 올리지 말 것."}]};
+const YEAR = +DATA.updated.slice(0,4);
+
+const S = {
+  urgent:{label:"긴급",    v:"--s-urgent", note:"음용 창이 곧 닫힘"},
+  drink_now:{label:"지금",  v:"--s-now",    note:"더 보관할 이유 없음"},
+  peak:{label:"피크",       v:"--s-peak",   note:"지금이 가장 좋은 구간"},
+  drink_or_hold:{label:"음용/홀드", v:"--s-dh", note:"열어도 되지만 더 좋아짐"},
+  hold:{label:"홀드",       v:"--s-hold",   note:"아직 열지 말 것"},
+};
+const ORDER = ["urgent","drink_now","peak","drink_or_hold","hold"];
+const bottles = [...DATA.bottles].sort((a,b)=>a.drink_to-b.drink_to || a.id-b.id);
+const qty = b => b.qty ?? 1;
+const vint = b => b.vintage ? String(b.vintage) : (b.vintage_label || "NV");
+const cvar = b => `var(${S[b.status].v})`;
+
+function wsUrl(b){
+  const parts = [b.producer, b.wine].join(" ")
+    .replace(/\(.*?\)/g," ").replace(/[^\p{L}\p{N}]+/gu," ").trim();
+  const u = "https://www.wine-searcher.com/find/" + encodeURIComponent(parts.replace(/\s+/g,"+"));
+  return b.vintage ? `${u}/${b.vintage}` : u;
+}
+
+/* ── figures ─────────────────────────────── */
+const total = bottles.reduce((s,b)=>s+qty(b),0);
+const soon  = bottles.filter(b=>["urgent","drink_now"].includes(b.status)).reduce((s,b)=>s+qty(b),0);
+const held  = bottles.filter(b=>b.status==="hold").reduce((s,b)=>s+qty(b),0);
+const years = bottles.filter(b=>b.vintage).map(b=>b.vintage);
+document.getElementById("asof").textContent =
+  `${DATA.updated} 기준 · ${bottles.length}종 · 빈티지 ${Math.min(...years)}–${Math.max(...years)}`;
+document.getElementById("figures").innerHTML = [
+  [total,"병 보유"], [soon,"병 2년 내 소비"], [held,"병 홀드"],
+].map(([n,l])=>`<div class="fig"><b>${n}</b><span>${l}</span></div>`).join("");
+
+/* ── chips ───────────────────────────────── */
+const active = new Set();
+document.getElementById("chips").innerHTML = ORDER.map(k=>{
+  const n = bottles.filter(b=>b.status===k).reduce((s,b)=>s+qty(b),0);
+  return `<button class="chip" data-k="${k}" aria-pressed="false" style="--c:var(${S[k].v})"
+           title="${S[k].note}"><i class="dot"></i>${S[k].label}<span class="n">${n}</span></button>`;
+}).join("");
+document.getElementById("legend").innerHTML = ORDER.map(k=>
+  `<span style="--c:var(${S[k].v})"><i></i>${S[k].label} — ${S[k].note}</span>`).join("");
+
+/* ── timeline ────────────────────────────── */
+const lo = Math.min(...bottles.map(b=>b.drink_from));
+const hi = Math.max(...bottles.map(b=>b.drink_to));
+const pct = y => (y-lo)/(hi-lo)*100;
+const LANE = 206;
+
+function renderTimeline(list){
+  const ticks = [];
+  for (let y=Math.ceil(lo/10)*10; y<=hi; y+=10) ticks.push(y);
+  const tl = document.getElementById("tl");
+  tl.style.setProperty("--lane", LANE+"px");
+  tl.innerHTML =
+    `<div class="tl-axis">${ticks.map(y=>`<span style="left:${pct(y)}%">${y}</span>`).join("")}</div>
+     <div class="tl-body">
+       <div class="tl-grid">
+         ${ticks.map(y=>`<i style="left:${pct(y)}%"></i>`).join("")}
+         <div class="tl-now" style="left:${pct(YEAR)}%"></div>
+       </div>
+       ${list.map(b=>`
+         <div class="row">
+           <div class="rname" title="${esc(b.display)}">${esc(b.display)} <em>${vint(b)}</em></div>
+           <div class="track"><a class="bar" href="#b${b.id}" style="--c:${cvar(b)};
+             left:${pct(b.drink_from)}%;width:${Math.max(pct(b.drink_to)-pct(b.drink_from),1.2)}%"
+             title="${esc(b.display)} · ${b.drink_from}–${b.drink_to}"></a></div>
+         </div>`).join("")}
+     </div>`;
+}
+
+/* ── list ────────────────────────────────── */
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]))}
+
+function renderList(list){
+  const el = document.getElementById("list");
+  if(!list.length){ el.innerHTML = `<p class="empty">조건에 맞는 병이 없습니다.</p>`; return; }
+  el.innerHTML = list.map(b=>`
+    <details id="b${b.id}">
+      <summary>
+        <span class="nm">${qty(b)>1?`<b>×${qty(b)}</b>`:""}<span>${esc(b.display)}</span></span>
+        <span class="vt">${vint(b)}</span>
+        <span class="rg">${esc(b.region)}</span>
+        <span class="pill" style="--c:${cvar(b)}">${S[b.status].label}</span>
+        <span class="win">${b.drink_from}–${b.drink_to}</span>
+      </summary>
+      <div class="detail">
+        <div class="meta">
+          <span><b>${esc(b.producer)}</b></span>
+          ${b.classification?`<span>${esc(b.classification)}</span>`:""}
+          ${b.grapes?.length?`<span>${b.grapes.map(esc).join(" · ")}</span>`:""}
+          ${b.abv?`<span>${b.abv}%</span>`:""}
+          <span>${b.format_ml??750}ml</span>
+        </div>
+        <p>${esc(b.notes)}</p>
+        <a class="ws" href="${wsUrl(b)}" target="_blank" rel="noopener noreferrer">
+          Wine-Searcher에서 보기 ↗</a>
+      </div>
+    </details>`).join("");
+}
+
+/* ── flags + mix ─────────────────────────── */
+const byId = Object.fromEntries(bottles.map(b=>[b.id,b]));
+document.getElementById("flags").innerHTML = (DATA.flags||[]).map(f=>`
+  <div class="flag">
+    <h3><em>#${f.id}</em>${esc(byId[f.id].display)} — ${esc(f.title)}</h3>
+    <p>${esc(f.text)}</p>
+  </div>`).join("") || `<p class="empty">확인이 필요한 병 없음.</p>`;
+
+const mix = {};
+bottles.forEach(b=>mix[b.category]=(mix[b.category]||0)+qty(b));
+const mixMax = Math.max(...Object.values(mix));
+document.getElementById("mix").innerHTML = Object.entries(mix)
+  .sort((a,b)=>b[1]-a[1])
+  .map(([c,n])=>`<div><span>${esc(c)}</span><em>${n}</em>
+    <span class="track2"><i style="width:${n/mixMax*100}%"></i></span></div>`).join("");
+
+document.getElementById("foot").textContent =
+  "음용 창은 일반적인 빈티지 평가 기준이며, 실제 보관 환경(12–14°C, 습도 70%, 진동·광 차단)에 따라 달라집니다.";
+
+/* ── filtering ───────────────────────────── */
+const q = document.getElementById("q");
+function apply(){
+  const t = q.value.trim().toLowerCase();
+  const list = bottles.filter(b=>{
+    if(active.size && !active.has(b.status)) return false;
+    if(!t) return true;
+    return [b.display,b.producer,b.wine,b.region,b.category,vint(b),...(b.grapes||[])]
+      .join(" ").toLowerCase().includes(t);
+  });
+  renderTimeline(list); renderList(list);
+  const n = list.reduce((s,b)=>s+qty(b),0);
+  document.getElementById("count").textContent =
+    list.length===bottles.length ? `${n}병 / ${list.length}종` : `${n}병 / ${list.length}종 표시 중`;
+}
+document.getElementById("chips").addEventListener("click", e=>{
+  const btn = e.target.closest(".chip"); if(!btn) return;
+  const k = btn.dataset.k;
+  active.has(k) ? active.delete(k) : active.add(k);
+  btn.setAttribute("aria-pressed", active.has(k));
+  apply();
+});
+q.addEventListener("input", apply);
+document.addEventListener("click", e=>{
+  const bar = e.target.closest(".bar"); if(!bar) return;
+  e.preventDefault();
+  const d = document.querySelector(bar.getAttribute("href"));
+  if(d){ d.open = true; d.scrollIntoView({block:"center",
+    behavior: matchMedia("(prefers-reduced-motion:reduce)").matches ? "auto":"smooth"}); }
+});
+apply();
+</script>

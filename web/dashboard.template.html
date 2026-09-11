@@ -1,0 +1,353 @@
+<title>와인 셀러 타임라인</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+KR:wght@400;500;600&display=swap">
+<style>
+:root{
+  --bg:#F6F3F5; --surface:#FFFFFF; --sunken:#EEE9EC; --line:#E1D9DE; --line-soft:#EDE6EA;
+  --ink:#1D1720; --ink-2:#6A5F68; --ink-3:#948A92;
+  --accent:#6E1F35; --accent-ink:#6E1F35; --accent-soft:rgba(110,31,53,.09);
+  --s-urgent:#A93226; --s-now:#A9701F; --s-peak:#3F6B46; --s-dh:#2F6A78; --s-hold:#46578A;
+  --band:.22; --today:#1D1720;
+  --sans:"IBM Plex Sans KR",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",monospace;
+  --display:"Bodoni Moda","IBM Plex Sans KR",Georgia,serif;
+  --r:10px;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#141016; --surface:#1D181F; --sunken:#241E27; --line:#332B36; --line-soft:#2A232D;
+    --ink:#F0EAEE; --ink-2:#A2959F; --ink-3:#7A6E78;
+    --accent:#D07E92; --accent-ink:#E0A0B0; --accent-soft:rgba(208,126,146,.13);
+    --s-urgent:#E0705F; --s-now:#D6A353; --s-peak:#7BAE80; --s-dh:#6CB0BE; --s-hold:#8A9BCB;
+    --band:.30; --today:#F0EAEE;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#141016; --surface:#1D181F; --sunken:#241E27; --line:#332B36; --line-soft:#2A232D;
+  --ink:#F0EAEE; --ink-2:#A2959F; --ink-3:#7A6E78;
+  --accent:#D07E92; --accent-ink:#E0A0B0; --accent-soft:rgba(208,126,146,.13);
+  --s-urgent:#E0705F; --s-now:#D6A353; --s-peak:#7BAE80; --s-dh:#6CB0BE; --s-hold:#8A9BCB;
+  --band:.30; --today:#F0EAEE;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);
+     font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto;padding-inline:20px;padding-block:40px 72px}
+h1,h2,h3{margin:0;text-wrap:balance}
+a{color:var(--accent-ink)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
+
+/* ── header ───────────────────────────────── */
+.masthead{display:flex;flex-wrap:wrap;align-items:flex-end;gap:16px 28px;
+          padding-bottom:22px;border-bottom:1px solid var(--line)}
+h1{font-family:var(--display);font-weight:400;font-size:clamp(30px,5.2vw,44px);
+   line-height:1.08;letter-spacing:-.01em}
+.asof{font-family:var(--mono);font-size:12px;color:var(--ink-3);letter-spacing:.02em}
+.figures{display:flex;flex-wrap:wrap;gap:10px 26px;margin-left:auto}
+.fig{display:flex;align-items:baseline;gap:6px}
+.fig b{font-family:var(--display);font-weight:500;font-size:26px;line-height:1;
+       font-variant-numeric:tabular-nums}
+.fig span{font-size:12px;color:var(--ink-2)}
+
+/* ── controls ─────────────────────────────── */
+.controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:22px}
+.chips{display:flex;flex-wrap:wrap;gap:7px}
+.chip{display:inline-flex;align-items:center;gap:7px;padding:6px 12px;cursor:pointer;
+      border:1px solid var(--line);border-radius:999px;background:var(--surface);
+      color:var(--ink-2);font:inherit;font-size:13px;transition:border-color .15s,color .15s}
+.chip .dot{width:8px;height:8px;border-radius:50%;background:var(--c)}
+.chip .n{font-family:var(--mono);font-size:12px;color:var(--ink-3)}
+.chip:hover{border-color:var(--ink-3)}
+.chip[aria-pressed="true"]{border-color:var(--c);color:var(--ink);
+      box-shadow:inset 0 0 0 1px var(--c)}
+.chip[aria-pressed="true"] .n{color:var(--ink-2)}
+#q{flex:1;min-width:190px;padding:7px 12px;border:1px solid var(--line);border-radius:999px;
+   background:var(--surface);color:var(--ink);font:inherit;font-size:13px}
+#q::placeholder{color:var(--ink-3)}
+
+/* ── sections ─────────────────────────────── */
+section{margin-top:44px}
+.eyebrow{display:flex;align-items:baseline;gap:10px;margin-bottom:4px}
+.eyebrow h2{font-size:13px;font-weight:600;letter-spacing:.09em;text-transform:uppercase}
+.eyebrow p{margin:0;font-size:13px;color:var(--ink-3)}
+
+/* ── timeline ─────────────────────────────── */
+.tl-scroll{overflow-x:auto;margin-top:18px}
+.tl{min-width:680px;--gutter:30px}
+.tl-axis{position:relative;height:17px;margin-left:var(--lane);margin-right:var(--gutter);
+         font-family:var(--mono);font-size:11px;color:var(--ink-3)}
+.tl-axis span{position:absolute;transform:translateX(-50%);white-space:nowrap}
+.tl-body{position:relative;margin-top:2px}
+.tl-grid{position:absolute;inset:0 var(--gutter) 0 var(--lane);pointer-events:none}
+.tl-grid i{position:absolute;top:0;bottom:0;width:1px;background:var(--line-soft)}
+.tl-now{position:absolute;top:0;bottom:0;width:1px;background:var(--today);opacity:.4}
+.tl-now::after{content:"지금";position:absolute;top:-18px;left:4px;font-family:var(--sans);
+               font-size:11px;font-weight:600;color:var(--ink-2);letter-spacing:.04em;opacity:2.5}
+.row{display:grid;grid-template-columns:var(--lane) 1fr;align-items:center;
+     column-gap:0;height:23px;position:relative}
+.row:hover .rname{color:var(--ink)}
+.rname{font-size:12.5px;color:var(--ink-2);white-space:nowrap;overflow:hidden;
+       text-overflow:ellipsis;padding-right:12px}
+.rname em{font-family:var(--mono);font-style:normal;font-size:11px;color:var(--ink-3)}
+.track{position:relative;height:100%;margin-right:var(--gutter)}
+.bar{position:absolute;top:6px;height:11px;border-radius:3px;
+     background:color-mix(in srgb,var(--c) calc(var(--band)*100%),transparent);
+     border-left:2.5px solid var(--c);cursor:pointer}
+.bar::after{content:"";position:absolute;right:0;top:0;bottom:0;width:2.5px;
+            background:var(--c);opacity:.45;border-radius:0 3px 3px 0}
+.bar:hover{background:color-mix(in srgb,var(--c) 34%,transparent)}
+.legend{display:flex;flex-wrap:wrap;gap:6px 20px;margin-top:14px;font-size:12px;color:var(--ink-3)}
+.legend i{display:inline-block;width:22px;height:8px;border-radius:2px;vertical-align:middle;
+          margin-right:6px;border-left:2.5px solid var(--c);
+          background:color-mix(in srgb,var(--c) calc(var(--band)*100%),transparent)}
+
+/* ── list ─────────────────────────────────── */
+.list{margin-top:16px;border-top:1px solid var(--line)}
+details{border-bottom:1px solid var(--line-soft)}
+details[open]{background:var(--surface)}
+summary{display:grid;grid-template-columns:2.2fr 52px 1.3fr 96px 84px;gap:14px;align-items:center;
+        padding:11px 12px;cursor:pointer;list-style:none}
+summary::-webkit-details-marker{display:none}
+summary:hover{background:var(--accent-soft)}
+.nm{font-weight:500;display:flex;align-items:center;gap:8px;min-width:0}
+.nm span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.nm b{flex:none;font-family:var(--mono);font-size:10px;font-weight:500;color:var(--ink-3);
+      border:1px solid var(--line);border-radius:4px;padding:0 4px}
+.vt,.win{font-family:var(--mono);font-size:12.5px;font-variant-numeric:tabular-nums;color:var(--ink-2)}
+.rg{font-size:12.5px;color:var(--ink-3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pill{justify-self:start;font-size:11.5px;padding:2px 9px;border-radius:999px;white-space:nowrap;
+      color:var(--c);background:color-mix(in srgb,var(--c) calc(var(--band)*100%),transparent)}
+.detail{padding:2px 12px 18px;display:grid;grid-template-columns:1fr;gap:12px}
+.detail p{margin:0;max-width:66ch;color:var(--ink-2);font-size:13.5px}
+.meta{display:flex;flex-wrap:wrap;gap:6px 22px;font-size:12px;color:var(--ink-3)}
+.meta b{font-weight:500;color:var(--ink-2)}
+.ws{justify-self:start;display:inline-flex;align-items:center;gap:6px;font-size:12.5px;
+    text-decoration:none;color:var(--accent-ink);border:1px solid var(--line);
+    border-radius:999px;padding:4px 11px;background:var(--surface)}
+.ws:hover{border-color:var(--accent);background:var(--accent-soft)}
+.empty{padding:28px 12px;color:var(--ink-3);font-size:13.5px}
+
+/* ── flags + mix ──────────────────────────── */
+.split{display:grid;grid-template-columns:1fr;gap:36px}
+@media (min-width:800px){.split{grid-template-columns:1.15fr .85fr;gap:44px}}
+.flag{margin-top:14px;padding:14px 16px;border-left:2.5px solid var(--s-now);
+      background:var(--sunken);border-radius:0 var(--r) var(--r) 0}
+.flag h3{font-size:13.5px;font-weight:600;margin-bottom:3px}
+.flag h3 em{font-family:var(--mono);font-style:normal;font-size:11px;color:var(--ink-3);
+            margin-right:7px}
+.flag p{margin:0;font-size:13px;color:var(--ink-2);max-width:60ch}
+.mix{margin-top:16px;display:grid;gap:9px}
+.mix div{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;font-size:13px}
+.mix .track2{grid-column:1/-1;height:5px;border-radius:3px;background:var(--sunken);overflow:hidden}
+.mix .track2 i{display:block;height:100%;background:var(--accent);opacity:.72;border-radius:3px}
+.mix em{font-family:var(--mono);font-style:normal;font-size:12px;color:var(--ink-3)}
+footer{margin-top:52px;padding-top:18px;border-top:1px solid var(--line);
+       font-size:12px;color:var(--ink-3)}
+@media (max-width:720px){
+  summary{grid-template-columns:1fr 50px 80px;row-gap:5px}
+  .rg{display:none} .win{grid-column:2/4;justify-self:end}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+
+<div class="wrap">
+  <header class="masthead">
+    <div>
+      <h1>와인 셀러 타임라인</h1>
+      <div class="asof" id="asof"></div>
+    </div>
+    <div class="figures" id="figures"></div>
+  </header>
+
+  <div class="controls">
+    <div class="chips" id="chips"></div>
+    <input id="q" type="search" placeholder="와인 · 지역 · 품종 검색" autocomplete="off">
+  </div>
+
+  <section>
+    <div class="eyebrow">
+      <h2>음용 창</h2>
+      <p>마감이 빠른 순. 막대 왼쪽 끝이 창이 열리는 해, 오른쪽 끝이 닫히는 해.</p>
+    </div>
+    <div class="tl-scroll">
+      <div class="tl" id="tl"></div>
+    </div>
+    <div class="legend" id="legend"></div>
+  </section>
+
+  <section>
+    <div class="eyebrow">
+      <h2>전체 목록</h2>
+      <p id="count"></p>
+    </div>
+    <div class="list" id="list"></div>
+  </section>
+
+  <div class="split">
+    <section>
+      <div class="eyebrow"><h2>짚고 갈 것</h2></div>
+      <div id="flags"></div>
+    </section>
+    <section>
+      <div class="eyebrow"><h2>구성</h2></div>
+      <div class="mix" id="mix"></div>
+    </section>
+  </div>
+
+  <footer id="foot"></footer>
+</div>
+
+<script>
+const DATA = /*__DATA__*/;
+const YEAR = +DATA.updated.slice(0,4);
+
+const S = {
+  urgent:{label:"긴급",    v:"--s-urgent", note:"음용 창이 곧 닫힘"},
+  drink_now:{label:"지금",  v:"--s-now",    note:"더 보관할 이유 없음"},
+  peak:{label:"피크",       v:"--s-peak",   note:"지금이 가장 좋은 구간"},
+  drink_or_hold:{label:"음용/홀드", v:"--s-dh", note:"열어도 되지만 더 좋아짐"},
+  hold:{label:"홀드",       v:"--s-hold",   note:"아직 열지 말 것"},
+};
+const ORDER = ["urgent","drink_now","peak","drink_or_hold","hold"];
+const bottles = [...DATA.bottles].sort((a,b)=>a.drink_to-b.drink_to || a.id-b.id);
+const qty = b => b.qty ?? 1;
+const vint = b => b.vintage ? String(b.vintage) : (b.vintage_label || "NV");
+const cvar = b => `var(${S[b.status].v})`;
+
+function wsUrl(b){
+  const parts = [b.producer, b.wine].join(" ")
+    .replace(/\(.*?\)/g," ").replace(/[^\p{L}\p{N}]+/gu," ").trim();
+  const u = "https://www.wine-searcher.com/find/" + encodeURIComponent(parts.replace(/\s+/g,"+"));
+  return b.vintage ? `${u}/${b.vintage}` : u;
+}
+
+/* ── figures ─────────────────────────────── */
+const total = bottles.reduce((s,b)=>s+qty(b),0);
+const soon  = bottles.filter(b=>["urgent","drink_now"].includes(b.status)).reduce((s,b)=>s+qty(b),0);
+const held  = bottles.filter(b=>b.status==="hold").reduce((s,b)=>s+qty(b),0);
+const years = bottles.filter(b=>b.vintage).map(b=>b.vintage);
+document.getElementById("asof").textContent =
+  `${DATA.updated} 기준 · ${bottles.length}종 · 빈티지 ${Math.min(...years)}–${Math.max(...years)}`;
+document.getElementById("figures").innerHTML = [
+  [total,"병 보유"], [soon,"병 2년 내 소비"], [held,"병 홀드"],
+].map(([n,l])=>`<div class="fig"><b>${n}</b><span>${l}</span></div>`).join("");
+
+/* ── chips ───────────────────────────────── */
+const active = new Set();
+document.getElementById("chips").innerHTML = ORDER.map(k=>{
+  const n = bottles.filter(b=>b.status===k).reduce((s,b)=>s+qty(b),0);
+  return `<button class="chip" data-k="${k}" aria-pressed="false" style="--c:var(${S[k].v})"
+           title="${S[k].note}"><i class="dot"></i>${S[k].label}<span class="n">${n}</span></button>`;
+}).join("");
+document.getElementById("legend").innerHTML = ORDER.map(k=>
+  `<span style="--c:var(${S[k].v})"><i></i>${S[k].label} — ${S[k].note}</span>`).join("");
+
+/* ── timeline ────────────────────────────── */
+const lo = Math.min(...bottles.map(b=>b.drink_from));
+const hi = Math.max(...bottles.map(b=>b.drink_to));
+const pct = y => (y-lo)/(hi-lo)*100;
+const LANE = 206;
+
+function renderTimeline(list){
+  const ticks = [];
+  for (let y=Math.ceil(lo/10)*10; y<=hi; y+=10) ticks.push(y);
+  const tl = document.getElementById("tl");
+  tl.style.setProperty("--lane", LANE+"px");
+  tl.innerHTML =
+    `<div class="tl-axis">${ticks.map(y=>`<span style="left:${pct(y)}%">${y}</span>`).join("")}</div>
+     <div class="tl-body">
+       <div class="tl-grid">
+         ${ticks.map(y=>`<i style="left:${pct(y)}%"></i>`).join("")}
+         <div class="tl-now" style="left:${pct(YEAR)}%"></div>
+       </div>
+       ${list.map(b=>`
+         <div class="row">
+           <div class="rname" title="${esc(b.display)}">${esc(b.display)} <em>${vint(b)}</em></div>
+           <div class="track"><a class="bar" href="#b${b.id}" style="--c:${cvar(b)};
+             left:${pct(b.drink_from)}%;width:${Math.max(pct(b.drink_to)-pct(b.drink_from),1.2)}%"
+             title="${esc(b.display)} · ${b.drink_from}–${b.drink_to}"></a></div>
+         </div>`).join("")}
+     </div>`;
+}
+
+/* ── list ────────────────────────────────── */
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]))}
+
+function renderList(list){
+  const el = document.getElementById("list");
+  if(!list.length){ el.innerHTML = `<p class="empty">조건에 맞는 병이 없습니다.</p>`; return; }
+  el.innerHTML = list.map(b=>`
+    <details id="b${b.id}">
+      <summary>
+        <span class="nm">${qty(b)>1?`<b>×${qty(b)}</b>`:""}<span>${esc(b.display)}</span></span>
+        <span class="vt">${vint(b)}</span>
+        <span class="rg">${esc(b.region)}</span>
+        <span class="pill" style="--c:${cvar(b)}">${S[b.status].label}</span>
+        <span class="win">${b.drink_from}–${b.drink_to}</span>
+      </summary>
+      <div class="detail">
+        <div class="meta">
+          <span><b>${esc(b.producer)}</b></span>
+          ${b.classification?`<span>${esc(b.classification)}</span>`:""}
+          ${b.grapes?.length?`<span>${b.grapes.map(esc).join(" · ")}</span>`:""}
+          ${b.abv?`<span>${b.abv}%</span>`:""}
+          <span>${b.format_ml??750}ml</span>
+        </div>
+        <p>${esc(b.notes)}</p>
+        <a class="ws" href="${wsUrl(b)}" target="_blank" rel="noopener noreferrer">
+          Wine-Searcher에서 보기 ↗</a>
+      </div>
+    </details>`).join("");
+}
+
+/* ── flags + mix ─────────────────────────── */
+const byId = Object.fromEntries(bottles.map(b=>[b.id,b]));
+document.getElementById("flags").innerHTML = (DATA.flags||[]).map(f=>`
+  <div class="flag">
+    <h3><em>#${f.id}</em>${esc(byId[f.id].display)} — ${esc(f.title)}</h3>
+    <p>${esc(f.text)}</p>
+  </div>`).join("") || `<p class="empty">확인이 필요한 병 없음.</p>`;
+
+const mix = {};
+bottles.forEach(b=>mix[b.category]=(mix[b.category]||0)+qty(b));
+const mixMax = Math.max(...Object.values(mix));
+document.getElementById("mix").innerHTML = Object.entries(mix)
+  .sort((a,b)=>b[1]-a[1])
+  .map(([c,n])=>`<div><span>${esc(c)}</span><em>${n}</em>
+    <span class="track2"><i style="width:${n/mixMax*100}%"></i></span></div>`).join("");
+
+document.getElementById("foot").textContent =
+  "음용 창은 일반적인 빈티지 평가 기준이며, 실제 보관 환경(12–14°C, 습도 70%, 진동·광 차단)에 따라 달라집니다.";
+
+/* ── filtering ───────────────────────────── */
+const q = document.getElementById("q");
+function apply(){
+  const t = q.value.trim().toLowerCase();
+  const list = bottles.filter(b=>{
+    if(active.size && !active.has(b.status)) return false;
+    if(!t) return true;
+    return [b.display,b.producer,b.wine,b.region,b.category,vint(b),...(b.grapes||[])]
+      .join(" ").toLowerCase().includes(t);
+  });
+  renderTimeline(list); renderList(list);
+  const n = list.reduce((s,b)=>s+qty(b),0);
+  document.getElementById("count").textContent =
+    list.length===bottles.length ? `${n}병 / ${list.length}종` : `${n}병 / ${list.length}종 표시 중`;
+}
+document.getElementById("chips").addEventListener("click", e=>{
+  const btn = e.target.closest(".chip"); if(!btn) return;
+  const k = btn.dataset.k;
+  active.has(k) ? active.delete(k) : active.add(k);
+  btn.setAttribute("aria-pressed", active.has(k));
+  apply();
+});
+q.addEventListener("input", apply);
+document.addEventListener("click", e=>{
+  const bar = e.target.closest(".bar"); if(!bar) return;
+  e.preventDefault();
+  const d = document.querySelector(bar.getAttribute("href"));
+  if(d){ d.open = true; d.scrollIntoView({block:"center",
+    behavior: matchMedia("(prefers-reduced-motion:reduce)").matches ? "auto":"smooth"}); }
+});
+apply();
+</script>

@@ -4,11 +4,15 @@
 
 - [`data/cellar.json`](data/cellar.json) — **원본 데이터.** 인벤토리는 여기서만 수정한다.
 - [`CELLAR.md`](CELLAR.md) — 셀러 현황, 음용 우선순위, 홀드 목록. **자동 생성물이므로 직접 수정하지 말 것.**
-- [`scripts/build_cellar.py`](scripts/build_cellar.py) — JSON → CELLAR.md 생성기
+- [`web/dashboard.html`](web/dashboard.html) — 대시보드. **자동 생성물.** ([`web/dashboard.template.html`](web/dashboard.template.html) 을 수정할 것)
+- `scripts/build_cellar.py`, `scripts/build_dashboard.py` — 생성기
 
 ```
-python3 scripts/build_cellar.py
+python3 scripts/build_cellar.py     # → CELLAR.md
+python3 scripts/build_dashboard.py  # → web/dashboard.html
 ```
+
+대시보드는 Artifact 로 배포되어 있다. 데이터를 고친 뒤 두 스크립트를 돌리고 같은 경로로 재배포하면 링크가 유지된다.
 
 ## 데이터 스키마
 
