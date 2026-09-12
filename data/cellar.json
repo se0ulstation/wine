@@ -43,7 +43,8 @@
         "basis": "750ml, ex-tax",
         "confidence": "high",
         "note": "",
-        "source": "Wine-Searcher 평균가 (공개 검색 결과 기준, 2026-09 조회)"
+        "source": "Wine-Searcher 평균가 (공개 검색 결과 기준, 2026-09 조회)",
+        "verified": "2회 재현. 1.5L $275 (750ml 환산 $137)과 정합"
       },
       "ws_url": "https://www.wine-searcher.com/find/orin+swift+mercurey+head+cab+sauv+napa+valley+county+north+coast+california+usa/2018"
     },
@@ -130,7 +131,8 @@
         "basis": "750ml, ex-tax",
         "confidence": "high",
         "note": "",
-        "source": "Wine-Searcher 평균가 (공개 검색 결과 기준, 2026-09 조회)"
+        "source": "Wine-Searcher 평균가 (공개 검색 결과 기준, 2026-09 조회)",
+        "verified": "2회 재현. K&L 소매 $49.99"
       },
       "ws_url": "https://www.wine-searcher.com/find/austinhope+cab+sauv+paso+robles+st+luis+obispo+county+central+coast+california+usa/2020"
     },
@@ -176,7 +178,8 @@
         "basis": "750ml, ex-tax",
         "confidence": "high",
         "note": "",
-        "source": "Wine-Searcher 평균가 (공개 검색 결과 기준, 2026-09 조회)"
+        "source": "Wine-Searcher 평균가 (공개 검색 결과 기준, 2026-09 조회)",
+        "verified": "2회 재현"
       },
       "ws_url": "https://www.wine-searcher.com/find/calon+segur+st+estephe+medoc+bordeaux+france/2005"
     },
@@ -219,7 +222,8 @@
         "basis": "750ml, ex-tax",
         "confidence": "high",
         "note": "",
-        "source": "Wine-Searcher 평균가 (공개 검색 결과 기준, 2026-09 조회)"
+        "source": "Wine-Searcher 평균가 (공개 검색 결과 기준, 2026-09 조회)",
+        "verified": "2회 재현. 캘리포니아 지역가 $124"
       },
       "ws_url": "https://www.wine-searcher.com/find/shafer+one+point+five+cab+sauv+stags+leap+district+napa+valley+county+north+coast+california+usa/2021"
     },
@@ -265,7 +269,8 @@
         "basis": "750ml, ex-tax",
         "confidence": "high",
         "note": "",
-        "source": "Wine-Searcher 평균가 (공개 검색 결과 기준, 2026-09 조회)"
+        "source": "Wine-Searcher 평균가 (공개 검색 결과 기준, 2026-09 조회)",
+        "verified": "2회 재현. 미국 소매 $150~200 구간과 정합"
       },
       "ws_url": "https://www.wine-searcher.com/find/marchesi+antinori+tignanello+tuscany+igp+italy/2020"
     },
@@ -311,7 +316,8 @@
         "basis": "750ml, ex-tax",
         "confidence": "high",
         "note": "",
-        "source": "Wine-Searcher 평균가 (공개 검색 결과 기준, 2026-09 조회)"
+        "source": "Wine-Searcher 평균가 (공개 검색 결과 기준, 2026-09 조회)",
+        "verified": "2회 재현"
       },
       "ws_url": "https://www.wine-searcher.com/find/calon+segur+st+estephe+medoc+bordeaux+france/2000"
     },
@@ -352,11 +358,12 @@
         ]
       },
       "price": {
-        "avg_usd": 205,
+        "avg_usd": 293,
         "basis": "750ml, ex-tax",
         "confidence": "high",
         "note": "",
-        "source": "Wine-Searcher 평균가 (공개 검색 결과 기준, 2026-09 조회)"
+        "source": "Wine-Searcher 평균가 (공개 검색 결과 기준, 2026-09 조회)",
+        "verified": "정정 — 최초 조회 $205는 오류. 재조회 $293이며 소매 실호가 $245(Heritage Cellar)~$331.65(Saratoga)와 정합"
       },
       "ws_url": "https://www.wine-searcher.com/find/le+petit+mouton+de+rothschild+pauillac+medoc+bordeaux+france/2013"
     },
@@ -403,7 +410,8 @@
         "basis": "750ml, ex-tax",
         "confidence": "high",
         "note": "",
-        "source": "Wine-Searcher 평균가 (공개 검색 결과 기준, 2026-09 조회)"
+        "source": "Wine-Searcher 평균가 (공개 검색 결과 기준, 2026-09 조회)",
+        "verified": "2회 재현. 영국 £264(≈$335)와 정합"
       },
       "ws_url": "https://www.wine-searcher.com/find/palmer+margaux+medoc+bordeaux+france/2008"
     },
@@ -448,7 +456,8 @@
         "basis": "750ml, ex-tax",
         "confidence": "high",
         "note": "",
-        "source": "Wine-Searcher 평균가 (공개 검색 결과 기준, 2026-09 조회)"
+        "source": "Wine-Searcher 평균가 (공개 검색 결과 기준, 2026-09 조회)",
+        "verified": "2회 재현. Zachys $314.99, 룩셈부르크 €276과 정합"
       },
       "ws_url": "https://www.wine-searcher.com/find/pavillon+rouge+du+margaux+medoc+bordeaux+france/2000"
     },
@@ -535,11 +544,12 @@
         ]
       },
       "price": {
-        "avg_usd": 180,
+        "avg_usd": 201,
         "basis": "750ml, ex-tax",
         "confidence": "high",
         "note": "",
-        "source": "Wine-Searcher 평균가 (공개 검색 결과 기준, 2026-09 조회)"
+        "source": "Wine-Searcher 평균가 (공개 검색 결과 기준, 2026-09 조회)",
+        "verified": "정정 — 최초 조회 $180은 낮았음. 재조회 $201이며 오퍼스 원 와이너리 공식가 $210, Binny's $210과 정합"
       },
       "ws_url": "https://www.wine-searcher.com/find/opus+one+overture+napa+valley+county+north+coast+california+usa/0"
     },
@@ -672,9 +682,10 @@
       "price": {
         "avg_usd": 226,
         "basis": "750ml, ex-tax",
-        "confidence": "high",
-        "note": "",
-        "source": "Wine-Searcher 평균가 (공개 검색 결과 기준, 2026-09 조회)"
+        "confidence": "medium",
+        "note": "편차가 큼 — The Wine Club $149.95, 1.5L $295(750ml 환산 $147). 실제 구입가는 평균보다 낮게 잡히는 편.",
+        "source": "Wine-Searcher 평균가 (공개 검색 결과 기준, 2026-09 조회)",
+        "verified": "재조회 시 $480이 나왔으나 이는 'Vertical Collection'(수직 세트) 페이지 값으로 단일 병이 아님. 단일 병 기준 $226을 유지"
       },
       "ws_url": "https://www.wine-searcher.com/find/silver+oak+cellars+cab+sauv+napa+valley+county+north+coast+california+usa/1996"
     },
@@ -718,7 +729,8 @@
         "basis": "750ml, ex-tax",
         "confidence": "high",
         "note": "",
-        "source": "Wine-Searcher 평균가 (공개 검색 결과 기준, 2026-09 조회)"
+        "source": "Wine-Searcher 평균가 (공개 검색 결과 기준, 2026-09 조회)",
+        "verified": "2회 재현"
       },
       "ws_url": "https://www.wine-searcher.com/find/tenute+st+guido+sassicaia+bolgheri+tuscany+italy/2019"
     },
@@ -762,7 +774,8 @@
         "basis": "750ml, ex-tax",
         "confidence": "high",
         "note": "",
-        "source": "Wine-Searcher 평균가 (공개 검색 결과 기준, 2026-09 조회)"
+        "source": "Wine-Searcher 평균가 (공개 검색 결과 기준, 2026-09 조회)",
+        "verified": "2회 재현 ($352→$353)"
       },
       "ws_url": "https://www.wine-searcher.com/find/dom+perignon+brut+champagne+france/2010"
     },
@@ -807,7 +820,8 @@
         "basis": "750ml, ex-tax",
         "confidence": "high",
         "note": "",
-        "source": "Wine-Searcher 평균가 (공개 검색 결과 기준, 2026-09 조회)"
+        "source": "Wine-Searcher 평균가 (공개 검색 결과 기준, 2026-09 조회)",
+        "verified": "2회 재현 ($312→$309)"
       },
       "ws_url": "https://www.wine-searcher.com/find/dom+perignon+brut+champagne+france/2013"
     },
@@ -851,7 +865,8 @@
         "basis": "750ml, ex-tax",
         "confidence": "high",
         "note": "",
-        "source": "Wine-Searcher 평균가 (공개 검색 결과 기준, 2026-09 조회)"
+        "source": "Wine-Searcher 평균가 (공개 검색 결과 기준, 2026-09 조회)",
+        "verified": "2회 재현"
       },
       "ws_url": "https://www.wine-searcher.com/find/dom+perignon+brut+champagne+france/2017"
     },
@@ -941,7 +956,8 @@
         "basis": "750ml, ex-tax",
         "confidence": "high",
         "note": "",
-        "source": "Wine-Searcher 평균가 (공개 검색 결과 기준, 2026-09 조회)"
+        "source": "Wine-Searcher 평균가 (공개 검색 결과 기준, 2026-09 조회)",
+        "verified": "2회 재현. 플로리다 $379 / 캘리포니아 $380 지역차"
       },
       "ws_url": "https://www.wine-searcher.com/find/louis+roederer+cristal+millesime+brut+champagne+france/2016"
     },
@@ -1216,7 +1232,8 @@
         "basis": "750ml, ex-tax",
         "confidence": "high",
         "note": "",
-        "source": "Wine-Searcher 평균가 (공개 검색 결과 기준, 2026-09 조회)"
+        "source": "Wine-Searcher 평균가 (공개 검색 결과 기준, 2026-09 조회)",
+        "verified": "2회 재현. 다만 소매 실호가는 $78~101, 유럽 €87로 평균보다 낮음"
       },
       "ws_url": "https://www.wine-searcher.com/find/palmer+alter+ego+de+margaux+medoc+bordeaux+france/2019"
     },
@@ -1261,9 +1278,10 @@
       "price": {
         "avg_usd": 166,
         "basis": "750ml, ex-tax",
-        "confidence": "high",
-        "note": "",
-        "source": "Wine-Searcher 평균가 (공개 검색 결과 기준, 2026-09 조회)"
+        "confidence": "medium",
+        "note": "소매 실호가가 평균가보다 낮은 구간. 재구입 기준으로는 $110~134를 보는 게 현실적.",
+        "source": "Wine-Searcher 평균가 (공개 검색 결과 기준, 2026-09 조회)",
+        "verified": "재조회에서 평균가가 재현되지 않음. 소매 실호가는 $110~134로 평균보다 낮게 형성"
       },
       "ws_url": "https://www.wine-searcher.com/find/lynch+bages+pauillac+medoc+bordeaux+france/2011"
     },
@@ -1397,8 +1415,8 @@
       "price": {
         "avg_usd": 50,
         "basis": "750ml, ex-tax",
-        "confidence": "high",
-        "note": "750ml 기준가. 보유분은 375ml 하프보틀이라 실질 가치는 약 절반",
+        "confidence": "medium",
+        "note": "750ml 기준가. 2002 단독 수치는 재확인되지 않았고 쿠테 다른 빈티지는 $42~70 구간. 보유분은 375ml 하프보틀이라 실질 가치는 약 절반.",
         "source": "Wine-Searcher 평균가 (공개 검색 결과 기준, 2026-09 조회)"
       },
       "ws_url": "https://www.wine-searcher.com/find/coutet+barsac+sauternes+bordeaux+france/2002"
@@ -1442,7 +1460,8 @@
         "basis": "750ml, ex-tax",
         "confidence": "high",
         "note": "",
-        "source": "Wine-Searcher 평균가 (공개 검색 결과 기준, 2026-09 조회)"
+        "source": "Wine-Searcher 평균가 (공개 검색 결과 기준, 2026-09 조회)",
+        "verified": "2회 재현. 소매 $47.95~57.00과 정합"
       },
       "ws_url": "https://www.wine-searcher.com/find/moulin+touchais+coteaux+du+layon+anjou+loire+france/1981"
     }
@@ -1459,5 +1478,5 @@
     "temp_c": 10,
     "note": "셀러 10°C 고정. 장기 보관에 안전하며 이상적 구간(12–14°C)보다 약간 낮아 숙성이 조금 더 천천히 진행된다 — 음용 창의 뒤쪽 끝은 표기보다 여유 있다고 봐도 된다. 다만 레드는 서빙 온도가 16–18°C이므로 개봉 40~60분 전에 셀러에서 꺼내 둘 것."
   },
-  "price_note": "각 병의 값은 Wine-Searcher의 Avg Price — 전세계 판매처를 집계한 평균가(ex-tax, 750ml 기준)를 2026년 9월에 조회한 것이다. 실시간 시세는 아니다. 상위 5종은 서로 다른 질의로 재검증해 값이 재현됐고, 하우트 브리옹 1996은 영국 관세·VAT 포함가 £496(≈$620)와 맞아떨어져 기준의 신뢰성이 확인됐다. 같은 와인도 시장에 따라 편차가 크다 — 카농 2000은 평균 $603이지만 미국 일부 소매는 $259까지 내려간다. 한국 소매가는 주세·관세·유통 마진 때문에 통상 평균가의 1.5~2배. 신뢰도가 '보통' 이하인 항목은 링크에서 직접 확인할 것."
+  "price_note": "각 병의 값은 Wine-Searcher의 Avg Price — 전세계 판매처를 집계한 평균가(ex-tax, 750ml 기준)를 2026년 9월에 조회한 것이다. 32종 전부를 서로 다른 질의로 두 번 이상 조회했고, 값이 흔들린 항목은 판매처 실호가로 대조해 확정했다. 그 과정에서 3건을 정정했다 — 르 프티 무통 2013($205→$293), 오버추어($180→$201), 오르넬라이아 1996(조회값 $256/$379/$503 중 실호가와 맞는 $256 채택). 평균가는 전세계 집계라 실제 구입 가능한 가격과 다를 수 있다 — 카농 2000은 평균 $603이지만 미국 일부 소매는 $259, 린치 바주 2011은 평균 $166이지만 소매는 $110~134다. 한국 소매가는 주세·관세·유통 마진 때문에 통상 평균가의 1.5~2배."
 }
