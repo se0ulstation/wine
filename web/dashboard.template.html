@@ -336,11 +336,13 @@ function openPanel(id){
     </div>
     <div class="p-body">
       <div class="p-price">
+        <div class="cf" style="margin-bottom:-2px">Wine-Searcher 전세계 평균가</div>
         <div class="amt"><b>$${pr.avg_usd.toLocaleString()}</b>
           <span>${esc(pr.basis)}${qty(b)>1?` · ${qty(b)}병 보유`:""}</span></div>
         <div class="krw">한국 소매 환산 약 ₩${won(pr.avg_usd).toLocaleString()}
           <span style="color:var(--ink-3)">(환율 ${KRW}원 × ${KR_MULT}배 가정)</span></div>
-        <div class="cf">신뢰도 <b>${CONF[pr.confidence]}</b>${pr.note?` — ${esc(pr.note)}`:""}</div>
+        <div class="cf">신뢰도 <b>${CONF[pr.confidence]}</b>${pr.verified?" · 재검증됨":""}${pr.note?` — ${esc(pr.note)}`:""}</div>
+        ${pr.verified?`<div class="cf" style="color:var(--s-peak)">✓ ${esc(pr.verified)}</div>`:""}
         <a class="ws" href="${b.ws_url}" target="_blank" rel="noopener noreferrer">Wine-Searcher에서 확인 ↗</a>
       </div>
 
