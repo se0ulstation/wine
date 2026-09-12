@@ -1,271 +1,307 @@
 <title>셀러 인텔리전스</title>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+KR:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+KR:wght@400;500;600&display=swap">
 <style>
 :root{
-  --bg:#F6F3F5; --surface:#FFFFFF; --sunken:#EEE9EC; --line:#E1D9DE; --line-soft:#EDE6EA;
-  --ink:#1D1720; --ink-2:#6A5F68; --ink-3:#948A92;
-  --accent:#6E1F35; --accent-ink:#6E1F35; --accent-soft:rgba(110,31,53,.09);
+  --bg:#F1EFF1; --panel:#FBFAFB; --sunken:#E8E4E8; --line:#D5CED5; --grid:#E3DDE3;
+  --ink:#141017; --ink-2:#5B5261; --ink-3:#8A8190;
+  --accent:#96223F; --accent-soft:rgba(150,34,63,.08);
   --s-urgent:#A93226; --s-now:#A9701F; --s-peak:#3F6B46; --s-dh:#2F6A78; --s-hold:#46578A;
-  /* 성숙 곡선 3밴드 — 검증 통과 팔레트 (CVD ΔE 13.3 / 정상 22.7) */
   --c-past:#B85708; --c-ready:#00897B; --c-hold:#5344E0;
-  --band:.22; --today:#1D1720; --shadow:0 18px 50px rgba(29,23,32,.18);
-  --sans:"IBM Plex Sans KR",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --band:.20; --today:#141017; --shadow:0 20px 60px rgba(20,16,23,.22);
+  --sans:"IBM Plex Sans KR",system-ui,-apple-system,sans-serif;
   --mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",monospace;
   --display:"Bodoni Moda","IBM Plex Sans KR",Georgia,serif;
+  --r:3px;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --bg:#141016; --surface:#1D181F; --sunken:#241E27; --line:#332B36; --line-soft:#2A232D;
-  --ink:#F0EAEE; --ink-2:#A2959F; --ink-3:#7A6E78;
-  --accent:#D07E92; --accent-ink:#E0A0B0; --accent-soft:rgba(208,126,146,.13);
+  --bg:#100D13; --panel:#191520; --sunken:#221C29; --line:#2F2836; --grid:#241E2B;
+  --ink:#EDE7EC; --ink-2:#9C909B; --ink-3:#6B6270;
+  --accent:#E2657F; --accent-soft:rgba(226,101,127,.11);
   --s-urgent:#E0705F; --s-now:#D6A353; --s-peak:#7BAE80; --s-dh:#6CB0BE; --s-hold:#8A9BCB;
   --c-past:#D07C1E; --c-ready:#12A892; --c-hold:#8474EE;
-  --band:.30; --today:#F0EAEE; --shadow:0 18px 50px rgba(0,0,0,.55);
+  --band:.28; --today:#EDE7EC; --shadow:0 20px 60px rgba(0,0,0,.6);
 }}
 :root[data-theme="dark"]{
-  --bg:#141016; --surface:#1D181F; --sunken:#241E27; --line:#332B36; --line-soft:#2A232D;
-  --ink:#F0EAEE; --ink-2:#A2959F; --ink-3:#7A6E78;
-  --accent:#D07E92; --accent-ink:#E0A0B0; --accent-soft:rgba(208,126,146,.13);
+  --bg:#100D13; --panel:#191520; --sunken:#221C29; --line:#2F2836; --grid:#241E2B;
+  --ink:#EDE7EC; --ink-2:#9C909B; --ink-3:#6B6270;
+  --accent:#E2657F; --accent-soft:rgba(226,101,127,.11);
   --s-urgent:#E0705F; --s-now:#D6A353; --s-peak:#7BAE80; --s-dh:#6CB0BE; --s-hold:#8A9BCB;
   --c-past:#D07C1E; --c-ready:#12A892; --c-hold:#8474EE;
-  --band:.30; --today:#F0EAEE; --shadow:0 18px 50px rgba(0,0,0,.55);
+  --band:.28; --today:#EDE7EC; --shadow:0 20px 60px rgba(0,0,0,.6);
 }
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);
-     font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
-.wrap{max-width:1080px;margin:0 auto;padding-inline:20px;padding-block:38px 80px}
-h1,h2,h3,h4{margin:0;text-wrap:balance}
-a{color:var(--accent-ink)}
-:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
+     font-size:14px;line-height:1.58;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1120px;margin:0 auto;padding-inline:18px;padding-block:30px 76px}
+h1,h2,h3{margin:0;text-wrap:balance}
+a{color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
 
 /* ── masthead ─────────────────────────── */
-.masthead{display:flex;flex-wrap:wrap;align-items:flex-end;gap:14px 28px;padding-bottom:20px}
-h1{font-family:var(--display);font-weight:400;font-size:clamp(30px,5.2vw,44px);
-   line-height:1.08;letter-spacing:-.01em}
-.asof{font-family:var(--mono);font-size:12px;color:var(--ink-3);letter-spacing:.02em}
-.figures{display:flex;flex-wrap:wrap;gap:10px 26px;margin-left:auto}
-.fig{display:flex;align-items:baseline;gap:6px}
-.fig b{font-family:var(--display);font-weight:500;font-size:26px;line-height:1;
-       font-variant-numeric:tabular-nums}
-.fig span{font-size:12px;color:var(--ink-2)}
+.masthead{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 16px}
+h1{font-family:var(--display);font-weight:400;font-size:clamp(26px,4.4vw,36px);
+   line-height:1;letter-spacing:.01em}
+.sysline{font-family:var(--mono);font-size:11px;color:var(--ink-3);letter-spacing:.04em;
+         text-transform:uppercase}
+.kbd{margin-left:auto;font-family:var(--mono);font-size:11px;color:var(--ink-3)}
+.kbd b{border:1px solid var(--line);border-radius:2px;padding:1px 5px;font-weight:500;color:var(--ink-2)}
 
-/* ── section nav ──────────────────────── */
-nav{position:sticky;top:0;z-index:20;display:flex;gap:2px;overflow-x:auto;
-    background:var(--bg);border-bottom:1px solid var(--line);margin-bottom:6px}
-nav a{padding:11px 13px;font-size:12.5px;text-decoration:none;color:var(--ink-3);
-      white-space:nowrap;border-bottom:2px solid transparent}
+/* ── readout ──────────────────────────── */
+.readout{display:grid;grid-template-columns:repeat(2,1fr);margin-top:16px;
+         border:1px solid var(--line);border-radius:var(--r);background:var(--panel);overflow:hidden}
+@media (min-width:620px){.readout{grid-template-columns:repeat(3,1fr)}}
+@media (min-width:900px){.readout{grid-template-columns:repeat(6,1fr)}}
+.readout div{padding:11px 13px;border-right:1px solid var(--line);border-top:1px solid var(--line)}
+.readout div:nth-child(-n+2){border-top:0}
+@media (min-width:620px){.readout div:nth-child(-n+3){border-top:0}}
+@media (min-width:900px){.readout div{border-top:0}}
+.readout dt{font-family:var(--mono);font-size:10px;letter-spacing:.07em;text-transform:uppercase;
+            color:var(--ink-3);margin-bottom:3px}
+.readout dd{margin:0;font-family:var(--mono);font-size:19px;font-weight:500;line-height:1.1;
+            font-variant-numeric:tabular-nums}
+.readout dd small{font-size:11px;font-weight:400;color:var(--ink-3);margin-left:3px}
+
+/* ── nav ──────────────────────────────── */
+nav{position:sticky;top:0;z-index:20;display:flex;gap:0;overflow-x:auto;margin-top:22px;
+    background:var(--bg);border-bottom:1px solid var(--line)}
+nav a{padding:9px 12px;font-family:var(--mono);font-size:11px;letter-spacing:.05em;
+      text-transform:uppercase;text-decoration:none;color:var(--ink-3);white-space:nowrap;
+      border-bottom:2px solid transparent}
 nav a:hover{color:var(--ink)}
-nav a.on{color:var(--ink);border-bottom-color:var(--accent)}
+nav a.on{color:var(--accent);border-bottom-color:var(--accent)}
 
-section{margin-top:46px;scroll-margin-top:56px}
-.eyebrow{display:flex;align-items:baseline;gap:10px;margin-bottom:4px;flex-wrap:wrap}
-.eyebrow h2{font-size:13px;font-weight:600;letter-spacing:.09em;text-transform:uppercase}
-.eyebrow p{margin:0;font-size:13px;color:var(--ink-3)}
-.lede{margin:10px 0 0;font-size:14px;color:var(--ink-2);max-width:70ch}
-.lede b{font-weight:600;color:var(--ink)}
+/* ── section header ───────────────────── */
+section{margin-top:40px;scroll-margin-top:48px}
+.sec-h{display:flex;align-items:center;gap:11px;margin-bottom:12px}
+.sec-h .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;color:var(--accent);
+          text-transform:uppercase;font-weight:600}
+.sec-h h2{font-size:14px;font-weight:600;white-space:nowrap}
+.sec-h .rule{flex:1;height:1px;background:var(--line)}
+.sec-h .n{font-family:var(--mono);font-size:11px;color:var(--ink-3)}
+.note{margin:0 0 14px;font-size:13px;color:var(--ink-3);max-width:74ch}
 
-/* ── pace ─────────────────────────────── */
-.pace{display:grid;gap:14px;margin-top:16px;
-      grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}
-.pace div{padding:15px 16px;background:var(--surface);border:1px solid var(--line);border-radius:11px}
-.pace dt{font-size:11.5px;color:var(--ink-3);margin-bottom:5px}
-.pace dd{margin:0;font-family:var(--display);font-weight:500;font-size:27px;line-height:1.05;
-         font-variant-numeric:tabular-nums}
-.pace small{display:block;margin-top:5px;font-size:12px;color:var(--ink-2);line-height:1.5}
+/* ── insights ─────────────────────────── */
+.ins{display:grid;gap:0;border:1px solid var(--line);border-radius:var(--r);
+     background:var(--panel);overflow:hidden}
+.ins-row{display:grid;grid-template-columns:auto 1fr;gap:0;border-top:1px solid var(--line)}
+.ins-row:first-child{border-top:0}
+.ins-rail{width:3px;background:var(--c)}
+.ins-body{padding:14px 16px;display:grid;gap:6px}
+.ins-top{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 12px}
+.ins-tag{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.08em;
+         color:var(--c);border:1px solid var(--c);border-radius:2px;padding:1px 5px}
+.ins-top h3{font-size:15px;font-weight:600;flex:1;min-width:220px}
+.ins-metric{font-family:var(--mono);font-size:12.5px;font-weight:500;color:var(--ink);
+            font-variant-numeric:tabular-nums;white-space:nowrap}
+.ins-body p{margin:0;font-size:13.2px;color:var(--ink-2);max-width:82ch}
 
 /* ── charts ───────────────────────────── */
-.chart{position:relative;margin-top:16px}
+.chart{position:relative;border:1px solid var(--line);border-radius:var(--r);
+       background:var(--panel);padding:12px 14px 8px}
 .chart svg{display:block;width:100%;height:auto;overflow:visible}
-.gridline{stroke:var(--line-soft);stroke-width:1}
-.axis{fill:var(--ink-3);font-family:var(--mono);font-size:10.5px}
-.axis-title{fill:var(--ink-3);font-size:10.5px}
-.band{stroke:var(--surface);stroke-width:2;stroke-linejoin:round}
-.dlabel{font-size:11px;font-weight:500;dominant-baseline:middle}
-.nowline{stroke:var(--today);stroke-width:1;opacity:.4;stroke-dasharray:3 3}
-.cross{stroke:var(--ink-3);stroke-width:1;opacity:.55}
-.bar-mark{rx:3}
-.tip{position:absolute;pointer-events:none;opacity:0;transition:opacity .12s;
-     background:var(--surface);border:1px solid var(--line);border-radius:9px;
-     box-shadow:0 8px 24px rgba(0,0,0,.14);padding:9px 11px;font-size:12.5px;
-     min-width:150px;z-index:5}
+.gridline{stroke:var(--grid);stroke-width:1}
+.axis{fill:var(--ink-3);font-family:var(--mono);font-size:10px}
+.band{stroke:var(--panel);stroke-width:2;stroke-linejoin:round}
+.dlabel{font-family:var(--mono);font-size:10.5px;font-weight:500;dominant-baseline:middle}
+.qlabel{fill:var(--ink-3);font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;
+        paint-order:stroke fill;stroke:var(--panel);stroke-width:3.5px;stroke-linejoin:round}
+.cross{stroke:var(--ink-3);stroke-width:1;opacity:.5}
+.quadline{stroke:var(--ink-3);stroke-width:1;stroke-dasharray:2 4;opacity:.5}
+.dot{cursor:pointer;stroke:var(--panel);stroke-width:2}
+.dot:hover{stroke:var(--ink)}
+.tip{position:absolute;pointer-events:none;opacity:0;transition:opacity .1s;
+     background:var(--bg);border:1px solid var(--line);border-radius:var(--r);
+     box-shadow:var(--shadow);padding:8px 10px;font-size:12px;min-width:150px;z-index:5}
 .tip.on{opacity:1}
-.tip h4{font-family:var(--mono);font-size:12px;font-weight:500;margin-bottom:5px;color:var(--ink-2)}
-.tip .r{display:flex;align-items:center;gap:7px;justify-content:space-between}
-.tip .r i{width:8px;height:8px;border-radius:2px;background:var(--c);flex:none}
+.tip h4{font-family:var(--mono);font-size:11.5px;font-weight:600;margin-bottom:5px}
+.tip .r{display:flex;align-items:center;gap:7px;justify-content:space-between;
+        font-size:11.8px;line-height:1.7}
+.tip .r i{width:7px;height:7px;border-radius:1px;background:var(--c);flex:none}
 .tip .r span{flex:1;color:var(--ink-2)}
 .tip .r b{font-family:var(--mono);font-weight:500;font-variant-numeric:tabular-nums}
-.legend{display:flex;flex-wrap:wrap;gap:6px 20px;margin-top:12px;font-size:12px;color:var(--ink-2)}
-.legend i{display:inline-block;width:20px;height:8px;border-radius:2px;
+.legend{display:flex;flex-wrap:wrap;gap:5px 18px;margin-top:10px;font-family:var(--mono);
+        font-size:11px;color:var(--ink-2)}
+.legend i{display:inline-block;width:16px;height:7px;border-radius:1px;
           vertical-align:middle;margin-right:6px;background:var(--c)}
 
 /* ── timeline ─────────────────────────── */
-.tl-scroll{overflow-x:auto;margin-top:16px}
-.tl{min-width:680px;--gutter:30px}
-.tl-axis{position:relative;height:17px;margin-left:var(--lane);margin-right:var(--gutter);
-         font-family:var(--mono);font-size:11px;color:var(--ink-3)}
-.tl-axis span{position:absolute;transform:translateX(-50%);white-space:nowrap}
+.tl-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:var(--r);
+           background:var(--panel);padding:12px 14px}
+.tl{min-width:700px;--gutter:28px}
+.tl-axis{position:relative;height:16px;margin-left:var(--lane);margin-right:var(--gutter);
+         font-family:var(--mono);font-size:10px;color:var(--ink-3)}
+.tl-axis span{position:absolute;transform:translateX(-50%)}
 .tl-body{position:relative;margin-top:2px}
 .tl-grid{position:absolute;inset:0 var(--gutter) 0 var(--lane);pointer-events:none}
-.tl-grid i{position:absolute;top:0;bottom:0;width:1px;background:var(--line-soft)}
-.tl-now{position:absolute;top:0;bottom:0;width:1px;background:var(--today);opacity:.4}
-.tl-now::after{content:"지금";position:absolute;top:-18px;left:4px;font-size:11px;white-space:nowrap;
-               font-weight:600;color:var(--ink-2);letter-spacing:.04em}
-.row{display:grid;grid-template-columns:var(--lane) 1fr;align-items:center;height:23px}
-.rname{font-size:12.5px;color:var(--ink-2);white-space:nowrap;overflow:hidden;
-       text-overflow:ellipsis;padding-right:12px}
-.rname em{font-family:var(--mono);font-style:normal;font-size:11px;color:var(--ink-3)}
+.tl-grid i{position:absolute;top:0;bottom:0;width:1px;background:var(--grid)}
+.tl-now{position:absolute;top:0;bottom:0;width:1px;background:var(--accent);opacity:.7}
+.tl-now::after{content:"NOW";position:absolute;top:-16px;left:3px;font-family:var(--mono);
+               font-size:9.5px;font-weight:600;letter-spacing:.08em;color:var(--accent);white-space:nowrap}
+.row{display:grid;grid-template-columns:var(--lane) 1fr;align-items:center;height:21px}
+.rname{font-size:11.8px;color:var(--ink-2);white-space:nowrap;overflow:hidden;
+       text-overflow:ellipsis;padding-right:10px}
+.rname em{font-family:var(--mono);font-style:normal;font-size:10.5px;color:var(--ink-3)}
 .track{position:relative;height:100%;margin-right:var(--gutter)}
-.bar{position:absolute;top:6px;height:11px;border-radius:3px;cursor:pointer;
+.bar{position:absolute;top:6px;height:9px;border-radius:1px;cursor:pointer;
      background:color-mix(in srgb,var(--c) calc(var(--band)*100%),transparent);
-     border-left:2.5px solid var(--c)}
-.bar::after{content:"";position:absolute;right:0;top:0;bottom:0;width:2.5px;
-            background:var(--c);opacity:.45;border-radius:0 3px 3px 0}
-.bar:hover{background:color-mix(in srgb,var(--c) 40%,transparent)}
+     border-left:2px solid var(--c)}
+.bar::after{content:"";position:absolute;right:0;top:0;bottom:0;width:2px;
+            background:var(--c);opacity:.5}
+.bar:hover{background:color-mix(in srgb,var(--c) 45%,transparent)}
 
-/* ── cards ────────────────────────────── */
-.cards{display:grid;gap:14px;margin-top:16px}
-@media (min-width:760px){.cards{grid-template-columns:1fr 1fr;align-items:start}}
-.card{padding:17px 18px;background:var(--surface);border:1px solid var(--line);
-      border-radius:12px;display:grid;gap:9px;align-content:start}
-.card-h{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap}
-.card-h h3{font-size:15px;font-weight:600}
-.tag{font-size:11px;padding:2px 8px;border-radius:999px;white-space:nowrap;
-     color:var(--c);background:color-mix(in srgb,var(--c) calc(var(--band)*100%),transparent)}
-.card p{margin:0;font-size:13.3px;color:var(--ink-2)}
-.card .members{display:flex;flex-wrap:wrap;gap:6px}
-.member{font-size:12.5px;padding:3px 10px;border-radius:999px;cursor:pointer;
+/* ── flights ──────────────────────────── */
+.cards{display:grid;gap:12px}
+@media (min-width:820px){.cards{grid-template-columns:1fr 1fr;align-items:start}}
+.card{padding:15px 16px;background:var(--panel);border:1px solid var(--line);
+      border-radius:var(--r);display:grid;gap:9px;align-content:start}
+.card-h{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.card-h h3{font-size:14.5px;font-weight:600}
+.tag{font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:.04em;
+     padding:1px 6px;border-radius:2px;white-space:nowrap;
+     color:var(--c);border:1px solid color-mix(in srgb,var(--c) 45%,transparent)}
+.card p{margin:0;font-size:12.8px;color:var(--ink-2)}
+.members{display:flex;flex-wrap:wrap;gap:5px}
+.member{font-size:11.8px;padding:2px 8px;border-radius:2px;cursor:pointer;
         border:1px solid var(--line);background:var(--sunken);color:var(--ink-2);font-family:inherit}
 .member:hover{border-color:var(--accent);color:var(--ink)}
-.member em{font-style:normal;font-family:var(--mono);font-size:11px;color:var(--ink-3);margin-left:5px}
-.card .foot{font-size:12.5px;color:var(--ink-3);border-top:1px solid var(--line-soft);padding-top:9px}
+.member em{font-style:normal;font-family:var(--mono);font-size:10px;color:var(--ink-3);margin-left:4px}
+.card .foot{font-size:12.2px;color:var(--ink-3);border-top:1px solid var(--line);padding-top:8px}
 
 /* ── occasion ─────────────────────────── */
-.occ-tabs{display:flex;flex-wrap:wrap;gap:7px;margin-top:16px}
-.occ-tabs button{padding:7px 14px;border:1px solid var(--line);border-radius:999px;
-  background:var(--surface);color:var(--ink-2);font:inherit;font-size:13px;cursor:pointer}
-.occ-tabs button:hover{border-color:var(--ink-3)}
-.occ-tabs button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
-:root[data-theme="dark"] .occ-tabs button[aria-pressed="true"],
-:root:not([data-theme="light"]) .occ-tabs button[aria-pressed="true"]{color:#1D1720}
-@media (prefers-color-scheme:light){:root:not([data-theme="dark"]) .occ-tabs button[aria-pressed="true"]{color:#fff}}
-.occ-rule{margin-top:11px;font-size:12.5px;color:var(--ink-3)}
-.occ-list{margin-top:12px;display:grid;gap:9px}
-.occ-item{display:grid;grid-template-columns:1fr auto;gap:4px 14px;align-items:baseline;
-  width:100%;padding:11px 13px;border:1px solid var(--line);border-radius:10px;
-  background:var(--surface);color:inherit;font:inherit;text-align:left;cursor:pointer}
-.occ-item:hover{border-color:var(--accent);background:var(--accent-soft)}
+.occ-tabs{display:flex;flex-wrap:wrap;gap:0;border:1px solid var(--line);
+          border-radius:var(--r);overflow:hidden;background:var(--panel);width:fit-content;max-width:100%}
+.occ-tabs button{padding:7px 13px;border:0;border-right:1px solid var(--line);background:none;
+  color:var(--ink-3);font-family:var(--mono);font-size:11.5px;cursor:pointer;white-space:nowrap}
+.occ-tabs button:last-child{border-right:0}
+.occ-tabs button:hover{color:var(--ink)}
+.occ-tabs button[aria-pressed="true"]{background:var(--accent);color:var(--bg)}
+.occ-rule{margin-top:9px;font-family:var(--mono);font-size:11.5px;color:var(--ink-3)}
+.occ-list{margin-top:10px;border:1px solid var(--line);border-radius:var(--r);
+          background:var(--panel);overflow:hidden}
+.occ-item{display:grid;grid-template-columns:1fr auto;gap:3px 14px;align-items:baseline;
+  width:100%;padding:10px 13px;border:0;border-top:1px solid var(--line);
+  background:none;color:inherit;font:inherit;text-align:left;cursor:pointer}
+.occ-item:first-child{border-top:0}
+.occ-item:hover{background:var(--accent-soft)}
 .occ-item b{font-weight:500}
-.occ-item .why{grid-column:1/-1;font-size:12.5px;color:var(--ink-3)}
-.occ-item .p{font-family:var(--mono);font-size:12.5px;color:var(--ink-2)}
+.occ-item .why{grid-column:1/-1;font-size:12px;color:var(--ink-3)}
+.occ-item .p{font-family:var(--mono);font-size:12px;color:var(--ink-2)}
 
 /* ── list ─────────────────────────────── */
-.controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:16px}
-.chips{display:flex;flex-wrap:wrap;gap:7px}
-.chip{display:inline-flex;align-items:center;gap:7px;padding:6px 12px;cursor:pointer;
-      border:1px solid var(--line);border-radius:999px;background:var(--surface);
-      color:var(--ink-2);font:inherit;font-size:13px}
-.chip .dot{width:8px;height:8px;border-radius:50%;background:var(--c)}
-.chip .n{font-family:var(--mono);font-size:12px;color:var(--ink-3)}
-.chip:hover{border-color:var(--ink-3)}
-.chip[aria-pressed="true"]{border-color:var(--c);color:var(--ink);box-shadow:inset 0 0 0 1px var(--c)}
-#q,#sort{padding:7px 12px;border:1px solid var(--line);border-radius:999px;
-   background:var(--surface);color:var(--ink);font:inherit;font-size:13px}
-#q{flex:1;min-width:180px}
-.list{margin-top:14px;border-top:1px solid var(--line)}
-.item{display:grid;grid-template-columns:2.1fr 52px 1.15fr 84px 82px 74px;gap:12px;align-items:center;
-      width:100%;padding:11px 12px;border:0;border-bottom:1px solid var(--line-soft);
+.controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:10px}
+.chips{display:flex;flex-wrap:wrap;gap:0;border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.chip{display:inline-flex;align-items:center;gap:6px;padding:6px 11px;cursor:pointer;
+      border:0;border-right:1px solid var(--line);background:var(--panel);
+      color:var(--ink-3);font-family:var(--mono);font-size:11.5px}
+.chip:last-child{border-right:0}
+.chip .dot2{width:7px;height:7px;border-radius:1px;background:var(--c)}
+.chip:hover{color:var(--ink)}
+.chip[aria-pressed="true"]{background:var(--sunken);color:var(--ink)}
+#q,#sort{padding:6px 11px;border:1px solid var(--line);border-radius:var(--r);
+   background:var(--panel);color:var(--ink);font-family:var(--mono);font-size:11.5px}
+#q{flex:1;min-width:170px}
+.list{border:1px solid var(--line);border-radius:var(--r);background:var(--panel);overflow:hidden}
+.item{display:grid;grid-template-columns:34px 2fr 48px 1.05fr 74px 78px 68px;gap:10px;align-items:center;
+      width:100%;padding:9px 13px;border:0;border-top:1px solid var(--line);
       background:none;color:inherit;font:inherit;text-align:left;cursor:pointer}
+.item:first-child{border-top:0}
 .item:hover{background:var(--accent-soft)}
-.nm{display:flex;align-items:center;gap:8px;min-width:0;font-weight:500}
+.id{font-family:var(--mono);font-size:10.5px;color:var(--ink-3)}
+.nm{display:flex;align-items:center;gap:7px;min-width:0;font-weight:500;font-size:13.4px}
 .nm span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.nm b{flex:none;font-family:var(--mono);font-size:10px;font-weight:500;color:var(--ink-3);
-      border:1px solid var(--line);border-radius:4px;padding:0 4px}
-.vt,.win,.pr{font-family:var(--mono);font-size:12.5px;font-variant-numeric:tabular-nums;color:var(--ink-2)}
+.nm b{flex:none;font-family:var(--mono);font-size:9.5px;font-weight:500;color:var(--ink-3);
+      border:1px solid var(--line);border-radius:2px;padding:0 3px}
+.vt,.win,.pr{font-family:var(--mono);font-size:11.8px;font-variant-numeric:tabular-nums;color:var(--ink-2)}
 .pr{text-align:right}
 .pr i{font-style:normal;color:var(--ink-3)}
-.rg{font-size:12.5px;color:var(--ink-3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.pill{justify-self:start;font-size:11.5px;padding:2px 9px;border-radius:999px;white-space:nowrap;
-      color:var(--c);background:color-mix(in srgb,var(--c) calc(var(--band)*100%),transparent)}
-.empty{padding:26px 12px;color:var(--ink-3);font-size:13.5px}
+.rg{font-size:11.8px;color:var(--ink-3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pill{justify-self:start;font-family:var(--mono);font-size:10.5px;color:var(--c);white-space:nowrap}
+.empty{padding:24px 13px;color:var(--ink-3);font-size:13px}
 
-/* ── gaps / flags / mix ───────────────── */
-.split{display:grid;grid-template-columns:1fr;gap:34px}
-@media (min-width:800px){.split{grid-template-columns:1.1fr .9fr;gap:44px}}
-.gap-item{padding:15px 0;border-top:1px solid var(--line-soft)}
-.gap-item:first-child{border-top:0;padding-top:6px}
-.gap-item h3{font-size:14.5px;font-weight:600;display:flex;align-items:baseline;gap:9px}
-.gap-item p{margin:5px 0 9px;font-size:13.3px;color:var(--ink-2);max-width:66ch}
-.picks{display:flex;flex-wrap:wrap;gap:6px}
-.picks span{font-size:12.5px;padding:3px 10px;border-radius:6px;
-            background:var(--sunken);color:var(--ink-2);font-family:var(--mono)}
-.flag{margin-top:13px;padding:13px 15px;border-left:2.5px solid var(--s-now);
-      background:var(--sunken);border-radius:0 10px 10px 0}
-.flag h3{font-size:13.5px;font-weight:600;margin-bottom:3px}
-.flag h3 em{font-family:var(--mono);font-style:normal;font-size:11px;color:var(--ink-3);margin-right:7px}
-.flag p{margin:0;font-size:13px;color:var(--ink-2);max-width:60ch}
-.mix{margin-top:14px;display:grid;gap:9px}
-.mix div{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;font-size:13px}
-.mix .track2{grid-column:1/-1;height:5px;border-radius:3px;background:var(--sunken);overflow:hidden}
-.mix .track2 i{display:block;height:100%;background:var(--accent);opacity:.72;border-radius:3px}
-.mix em{font-family:var(--mono);font-style:normal;font-size:12px;color:var(--ink-3)}
-footer{margin-top:54px;padding-top:18px;border-top:1px solid var(--line);
-       font-size:12px;color:var(--ink-3);max-width:78ch}
+/* ── gaps ─────────────────────────────── */
+.split{display:grid;grid-template-columns:1fr;gap:30px}
+@media (min-width:860px){.split{grid-template-columns:1.15fr .85fr;gap:40px}}
+.gap-item{padding:13px 0;border-top:1px solid var(--line)}
+.gap-item:first-child{border-top:0;padding-top:2px}
+.gap-item h3{font-size:13.8px;font-weight:600;display:flex;align-items:baseline;gap:8px}
+.gap-item p{margin:4px 0 8px;font-size:12.8px;color:var(--ink-2);max-width:68ch}
+.picks{display:flex;flex-wrap:wrap;gap:5px}
+.picks span{font-family:var(--mono);font-size:11.3px;padding:2px 8px;border-radius:2px;
+            background:var(--sunken);color:var(--ink-2)}
+.flag{padding:12px 14px;border:1px solid var(--line);border-left:3px solid var(--s-now);
+      background:var(--panel);border-radius:var(--r);margin-bottom:10px}
+.flag h3{font-size:13px;font-weight:600;margin-bottom:3px}
+.flag h3 em{font-family:var(--mono);font-style:normal;font-size:10.5px;color:var(--ink-3);margin-right:6px}
+.flag p{margin:0;font-size:12.6px;color:var(--ink-2);max-width:60ch}
+.mix{display:grid;gap:7px}
+.mix div{display:grid;grid-template-columns:1fr auto auto;gap:9px;align-items:center;font-size:12.6px}
+.mix em{font-family:var(--mono);font-style:normal;font-size:11.3px;color:var(--ink-3)}
+.mix b{font-family:var(--mono);font-weight:500;font-size:11.3px;color:var(--ink-2);min-width:44px;text-align:right}
+.mix .track2{grid-column:1/-1;height:4px;background:var(--sunken);overflow:hidden;border-radius:1px}
+.mix .track2 i{display:block;height:100%;background:var(--accent);opacity:.7}
+footer{margin-top:48px;padding-top:16px;border-top:1px solid var(--line);
+       font-size:11.6px;color:var(--ink-3);max-width:82ch;line-height:1.7}
 
-/* ── profile panel ────────────────────── */
-#scrim{position:fixed;inset:0;background:rgba(20,16,22,.42);opacity:0;pointer-events:none;
-       transition:opacity .2s;z-index:40}
+/* ── panel ────────────────────────────── */
+#scrim{position:fixed;inset:0;background:rgba(10,8,12,.55);opacity:0;pointer-events:none;
+       transition:opacity .18s;z-index:40}
 #scrim.on{opacity:1;pointer-events:auto}
 #panel{position:fixed;top:0;right:0;bottom:0;width:min(470px,100%);z-index:50;
-       background:var(--surface);border-left:1px solid var(--line);box-shadow:var(--shadow);
-       transform:translateX(101%);transition:transform .24s cubic-bezier(.4,0,.2,1);
+       background:var(--bg);border-left:1px solid var(--line);box-shadow:var(--shadow);
+       transform:translateX(101%);transition:transform .22s cubic-bezier(.4,0,.2,1);
        overflow-y:auto;overscroll-behavior:contain}
 #panel.on{transform:none}
-.p-head{position:sticky;top:0;background:var(--surface);border-bottom:1px solid var(--line);
-        padding:20px 24px 15px;display:grid;gap:7px}
-.p-head h2{font-family:var(--display);font-weight:400;font-size:24px;line-height:1.16}
-.p-sub{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;font-size:12.5px;color:var(--ink-3)}
+.p-head{position:sticky;top:0;background:var(--bg);border-bottom:1px solid var(--line);
+        padding:18px 22px 13px;display:grid;gap:6px}
+.p-head .code{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;color:var(--accent)}
+.p-head h2{font-family:var(--display);font-weight:400;font-size:23px;line-height:1.15}
+.p-sub{display:flex;flex-wrap:wrap;gap:5px 13px;align-items:center;font-size:12px;color:var(--ink-3)}
 .p-sub .yr{font-family:var(--mono);color:var(--ink-2)}
-#close{position:absolute;top:16px;right:16px;width:30px;height:30px;border-radius:50%;
-       border:1px solid var(--line);background:var(--surface);color:var(--ink-2);
-       font-size:15px;line-height:1;cursor:pointer}
-#close:hover{border-color:var(--ink-3);color:var(--ink)}
-.p-body{padding:20px 24px 40px;display:grid;gap:22px}
-.p-price{display:grid;gap:8px;padding:15px 16px;background:var(--sunken);border-radius:10px}
+#close{position:absolute;top:14px;right:14px;width:26px;height:26px;border-radius:2px;
+       border:1px solid var(--line);background:var(--bg);color:var(--ink-3);
+       font-size:13px;line-height:1;cursor:pointer}
+#close:hover{border-color:var(--accent);color:var(--ink)}
+.p-body{padding:18px 22px 40px;display:grid;gap:20px}
+.p-price{display:grid;gap:7px;padding:13px 14px;background:var(--panel);
+         border:1px solid var(--line);border-radius:var(--r)}
 .p-price .amt{display:flex;align-items:baseline;gap:8px}
-.p-price .amt b{font-family:var(--display);font-weight:500;font-size:30px;line-height:1;
+.p-price .amt b{font-family:var(--mono);font-weight:600;font-size:26px;line-height:1;
                 font-variant-numeric:tabular-nums}
-.p-price .amt span{font-size:12px;color:var(--ink-3)}
-.p-price .krw{font-size:12.5px;color:var(--ink-2)}
-.p-price .cf{font-size:12px;color:var(--ink-3)}
+.p-price .amt span{font-family:var(--mono);font-size:11px;color:var(--ink-3)}
+.p-price .krw,.p-price .cf{font-size:12px;color:var(--ink-3)}
+.p-price .krw{color:var(--ink-2);font-family:var(--mono)}
 .p-price .cf b{font-weight:600;color:var(--ink-2)}
-.ws{display:inline-flex;align-items:center;gap:6px;justify-self:start;font-size:12.5px;
-    text-decoration:none;color:var(--accent-ink);border:1px solid var(--line);
-    border-radius:999px;padding:5px 12px;background:var(--surface)}
-.ws:hover{border-color:var(--accent);background:var(--accent-soft)}
-.blk h3{font-size:11.5px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;
-        color:var(--ink-3);margin-bottom:6px}
-.blk p{margin:0;font-size:13.5px;color:var(--ink-2)}
-.blk p.lead{color:var(--ink);font-size:14px}
-.serve{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-.serve div{padding:11px 12px;background:var(--sunken);border-radius:9px}
-.serve dt{font-size:11px;color:var(--ink-3);margin-bottom:3px}
-.serve dd{margin:0;font-size:13px;font-weight:500;line-height:1.45}
-.tags{display:flex;flex-wrap:wrap;gap:6px}
-.tags span{font-size:12.5px;padding:3px 10px;border-radius:999px;
+.ws{display:inline-flex;align-items:center;gap:6px;justify-self:start;font-family:var(--mono);
+    font-size:11.5px;text-decoration:none;color:var(--accent);border:1px solid var(--line);
+    border-radius:2px;padding:4px 10px;background:var(--bg)}
+.ws:hover{border-color:var(--accent)}
+.blk h3{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.12em;
+        text-transform:uppercase;color:var(--ink-3);margin-bottom:5px}
+.blk p{margin:0;font-size:13.2px;color:var(--ink-2)}
+.blk p.lead{color:var(--ink);font-size:13.8px}
+.serve{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);
+       border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.serve div{padding:10px 11px;background:var(--panel)}
+.serve dt{font-family:var(--mono);font-size:10px;color:var(--ink-3);margin-bottom:2px}
+.serve dd{margin:0;font-size:12.5px;font-weight:500;line-height:1.42}
+.tags{display:flex;flex-wrap:wrap;gap:5px}
+.tags span{font-size:11.8px;padding:2px 9px;border-radius:2px;
            border:1px solid var(--line);color:var(--ink-2)}
-.p-win{display:grid;gap:6px}
-.p-win .bararea{position:relative;height:10px;border-radius:5px;background:var(--sunken)}
-.p-win .fill{position:absolute;top:0;bottom:0;border-radius:5px;background:var(--c);opacity:.55}
-.p-win .mark{position:absolute;top:-3px;bottom:-3px;width:2px;background:var(--today);opacity:.65}
+.p-win{display:grid;gap:5px}
+.p-win .bararea{position:relative;height:8px;background:var(--sunken);border-radius:1px}
+.p-win .fill{position:absolute;top:0;bottom:0;background:var(--c);opacity:.6;border-radius:1px}
+.p-win .mark{position:absolute;top:-3px;bottom:-3px;width:2px;background:var(--accent)}
 .p-win .ends{display:flex;justify-content:space-between;font-family:var(--mono);
-             font-size:11px;color:var(--ink-3)}
-.p-meta{display:grid;gap:5px;font-size:12.5px;color:var(--ink-3)}
-.p-meta div{display:grid;grid-template-columns:76px 1fr;gap:10px}
-.p-meta b{font-weight:500;color:var(--ink-2)}
+             font-size:10.5px;color:var(--ink-3)}
+.p-meta{display:grid;gap:4px;font-size:12px;color:var(--ink-3)}
+.p-meta div{display:grid;grid-template-columns:70px 1fr;gap:9px}
+.p-meta b{font-family:var(--mono);font-weight:400;font-size:11px;color:var(--ink-3)}
 
-@media (max-width:720px){
-  .item{grid-template-columns:1fr 50px 74px;row-gap:5px}
-  .rg{display:none} .win{grid-column:2/4;justify-self:end} .pr{grid-column:3;justify-self:end}
+@media (max-width:760px){
+  .item{grid-template-columns:30px 1fr 46px 70px;row-gap:4px}
+  .rg,.pill{display:none} .pr{grid-column:4;justify-self:end}
   .serve{grid-template-columns:1fr}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
@@ -273,70 +309,78 @@ footer{margin-top:54px;padding-top:18px;border-top:1px solid var(--line);
 
 <div class="wrap">
   <header class="masthead">
-    <div>
-      <h1>셀러 인텔리전스</h1>
-      <div class="asof" id="asof"></div>
-    </div>
-    <div class="figures" id="figures"></div>
+    <h1>셀러 인텔리전스</h1>
+    <div class="sysline" id="sysline"></div>
+    <div class="kbd"><b>/</b> 검색 &nbsp; <b>esc</b> 닫기</div>
   </header>
+  <dl class="readout" id="readout"></dl>
 
   <nav id="nav">
-    <a href="#pace">소진 계획</a>
-    <a href="#curve">성숙 곡선</a>
-    <a href="#closing">마감 일정</a>
-    <a href="#windows">음용 창</a>
-    <a href="#flights">시음 세트</a>
-    <a href="#occasion">상황별</a>
-    <a href="#list">전체 목록</a>
-    <a href="#gaps">공백</a>
+    <a href="#insights">Insights</a>
+    <a href="#matrix">Matrix</a>
+    <a href="#curve">Maturity</a>
+    <a href="#closing">Closing</a>
+    <a href="#windows">Windows</a>
+    <a href="#flights">Flights</a>
+    <a href="#occasion">Occasion</a>
+    <a href="#list">Inventory</a>
+    <a href="#gaps">Gaps</a>
   </nav>
 
-  <section id="pace">
-    <div class="eyebrow"><h2>소진 계획</h2>
-      <p>창을 하나도 놓치지 않으려면 얼마나 마셔야 하는가</p></div>
-    <p class="lede" id="pace-lede"></p>
-    <dl class="pace" id="pace-cards"></dl>
+  <section id="insights">
+    <div class="sec-h"><span class="k">Insights</span><h2>발견</h2><span class="rule"></span>
+      <span class="n" id="ins-n"></span></div>
+    <p class="note">인벤토리에서 자동으로 도출된 판단. 병을 추가하면 수치와 문장이 함께 갱신된다.</p>
+    <div class="ins" id="ins-list"></div>
+  </section>
+
+  <section id="matrix">
+    <div class="sec-h"><span class="k">Matrix</span><h2>가치 × 잔여 시간</h2><span class="rule"></span></div>
+    <p class="note" id="matrix-note"></p>
+    <div class="chart" id="mx-chart"><div class="tip" id="mx-tip"></div></div>
+    <div class="legend" id="mx-legend"></div>
   </section>
 
   <section id="curve">
-    <div class="eyebrow"><h2>셀러 성숙 곡선</h2>
-      <p>연도별로 몇 병이 아직 잠겨 있고, 몇 병이 마실 수 있고, 몇 병이 이미 지났는가</p></div>
-    <p class="lede" id="curve-lede"></p>
+    <div class="sec-h"><span class="k">Maturity</span><h2>성숙 곡선</h2><span class="rule"></span></div>
+    <p class="note" id="curve-note"></p>
     <div class="chart" id="curve-chart"><div class="tip" id="curve-tip"></div></div>
     <div class="legend" id="curve-legend"></div>
   </section>
 
   <section id="closing">
-    <div class="eyebrow"><h2>마감 일정</h2><p>음용 창이 닫히는 해별 병 수</p></div>
-    <p class="lede" id="closing-lede"></p>
+    <div class="sec-h"><span class="k">Closing</span><h2>마감 일정</h2><span class="rule"></span></div>
+    <p class="note" id="closing-note"></p>
     <div class="chart" id="close-chart"><div class="tip" id="close-tip"></div></div>
   </section>
 
   <section id="windows">
-    <div class="eyebrow"><h2>음용 창</h2>
-      <p>마감 임박순. 막대를 클릭하면 프로파일이 열린다.</p></div>
+    <div class="sec-h"><span class="k">Windows</span><h2>음용 창</h2><span class="rule"></span>
+      <span class="n">마감 임박순</span></div>
     <div class="tl-scroll"><div class="tl" id="tl"></div></div>
     <div class="legend" id="tl-legend"></div>
   </section>
 
   <section id="flights">
-    <div class="eyebrow"><h2>시음 세트</h2>
-      <p>이 셀러 안에서만 가능한 비교 시음 조합</p></div>
+    <div class="sec-h"><span class="k">Flights</span><h2>시음 세트</h2><span class="rule"></span>
+      <span class="n" id="fl-n"></span></div>
+    <p class="note">이 셀러 안에서만 성립하는 비교 조합. 구성 병의 음용 창이 겹치는지까지 판정한다.</p>
     <div class="cards" id="flight-cards"></div>
   </section>
 
   <section id="occasion">
-    <div class="eyebrow"><h2>상황별 추천</h2><p>지금 열 수 있는 병 중에서</p></div>
+    <div class="sec-h"><span class="k">Occasion</span><h2>상황별</h2><span class="rule"></span></div>
     <div class="occ-tabs" id="occ-tabs"></div>
     <div class="occ-rule" id="occ-rule"></div>
     <div class="occ-list" id="occ-list"></div>
   </section>
 
   <section id="list">
-    <div class="eyebrow"><h2>전체 목록</h2><p id="count"></p></div>
+    <div class="sec-h"><span class="k">Inventory</span><h2>전체 목록</h2><span class="rule"></span>
+      <span class="n" id="count"></span></div>
     <div class="controls">
       <div class="chips" id="chips"></div>
-      <input id="q" type="search" placeholder="와인 · 지역 · 품종 검색" autocomplete="off">
+      <input id="q" type="search" placeholder="검색 — 와인 · 지역 · 품종" autocomplete="off">
       <select id="sort" aria-label="정렬">
         <option value="close">마감 임박순</option>
         <option value="price">가격 높은순</option>
@@ -350,13 +394,13 @@ footer{margin-top:54px;padding-top:18px;border-top:1px solid var(--line);
   <section id="gaps">
     <div class="split">
       <div>
-        <div class="eyebrow"><h2>공백</h2><p>이 셀러에 없는 것</p></div>
+        <div class="sec-h"><span class="k">Gaps</span><h2>공백</h2><span class="rule"></span></div>
         <div id="gap-list"></div>
       </div>
       <div>
-        <div class="eyebrow"><h2>짚고 갈 것</h2></div>
+        <div class="sec-h"><span class="k">Flags</span><h2>짚고 갈 것</h2><span class="rule"></span></div>
         <div id="flags"></div>
-        <div class="eyebrow" style="margin-top:32px"><h2>구성</h2></div>
+        <div class="sec-h" style="margin-top:26px"><span class="k">Mix</span><h2>구성</h2><span class="rule"></span></div>
         <div class="mix" id="mix"></div>
       </div>
     </div>
@@ -375,16 +419,16 @@ footer{margin-top:54px;padding-top:18px;border-top:1px solid var(--line);
 const DATA = /*__DATA__*/;
 const YEAR = +DATA.updated.slice(0,4);
 const KRW = 1380, KR_MULT = 1.7;
+const ST = DATA.stats;
 
-const S = {
-  urgent:{label:"긴급",v:"--s-urgent",note:"음용 창이 곧 닫힘"},
+const S={urgent:{label:"긴급",v:"--s-urgent",note:"음용 창이 곧 닫힘"},
   drink_now:{label:"지금",v:"--s-now",note:"더 보관할 이유 없음"},
   peak:{label:"피크",v:"--s-peak",note:"지금이 가장 좋은 구간"},
   drink_or_hold:{label:"음용/홀드",v:"--s-dh",note:"열어도 되지만 더 좋아짐"},
-  hold:{label:"홀드",v:"--s-hold",note:"아직 열지 말 것"},
-};
+  hold:{label:"홀드",v:"--s-hold",note:"아직 열지 말 것"}};
 const ORDER=["urgent","drink_now","peak","drink_or_hold","hold"];
 const CONF={high:"높음",medium:"보통",low:"낮음",none:"데이터 없음"};
+const SEV={high:"--s-urgent",med:"--s-now",low:"--s-dh"};
 const B=[...DATA.bottles], byId=Object.fromEntries(B.map(b=>[b.id,b]));
 const qty=b=>b.qty??1;
 const vint=b=>b.vintage?String(b.vintage):(b.vintage_label||"NV");
@@ -393,72 +437,112 @@ const value=b=>b.price.avg_usd*(b.format_ml===375?.5:1)*qty(b);
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const usd=n=>"$"+Math.round(n).toLocaleString();
 const won=u=>Math.round(u*KRW*KR_MULT/1000)*1000;
-const TOT=B.reduce((s,b)=>s+qty(b),0);
-const WORTH=B.reduce((s,b)=>s+value(b),0);
 const ready=b=>b.drink_from<=YEAR&&b.drink_to>=YEAR&&b.status!=="hold";
-
-/* ── masthead ─────────────────────────── */
-const yrs=B.filter(b=>b.vintage).map(b=>b.vintage);
-const soon=B.filter(b=>b.drink_to<=YEAR+2).reduce((s,b)=>s+qty(b),0);
-const atRisk=B.filter(b=>b.drink_to<=YEAR+2).reduce((s,b)=>s+value(b),0);
-document.getElementById("asof").textContent =
-  `${DATA.updated} 기준 · ${B.length}종 · 빈티지 ${Math.min(...yrs)}–${Math.max(...yrs)} · 셀러 ${DATA.storage.temp_c}°C`;
-document.getElementById("figures").innerHTML=[
-  [TOT,"병"],[usd(WORTH),"추정 가치"],[soon,"병 2년 내 마감"],[usd(atRisk),"마감 임박 금액"],
-].map(([n,l])=>`<div class="fig"><b>${n}</b><span>${l}</span></div>`).join("");
-
-/* ── 소진 계획 ────────────────────────── */
-const LAST=Math.max(...B.map(b=>b.drink_to));
-let pace=0, binding=YEAR, bindingN=0;
-for(let y=YEAR;y<=LAST;y++){
-  const need=B.filter(b=>b.drink_to<=y).reduce((s,b)=>s+qty(b),0);
-  const rate=need/(y-YEAR+1);
-  if(rate>pace){pace=rate;binding=y;bindingN=need;}
-}
-const thisYear=B.filter(b=>b.drink_to<=YEAR+1).reduce((s,b)=>s+qty(b),0);
-document.getElementById("pace-lede").innerHTML=
-  `${TOT}병 중 한 병도 창을 넘기지 않으려면 <b>연 ${pace.toFixed(1)}병</b>, 대략 <b>${(12/pace).toFixed(1)}주에 한 병</b> 페이스가 필요하다. `+
-  `가장 빡빡한 구간은 <b>${binding}년까지 ${bindingN}병</b> — 이 구간이 전체 페이스를 결정한다. `+
-  `그 뒤로는 여유가 급격히 늘어난다.`;
-document.getElementById("pace-cards").innerHTML=[
-  ["필요 페이스",`${pace.toFixed(1)}병/년`,`${(12/pace).toFixed(1)}주에 한 병`],
-  [`${YEAR+1}년까지`,`${thisYear}병`,"이 안에 열지 않으면 창을 넘긴다"],
-  [`${YEAR+2}년까지`,`${soon}병`,`묶인 금액 ${usd(atRisk)}`],
-  ["가장 빡빡한 해",`${binding}년`,`누적 ${bindingN}병을 소진해야 하는 시점`],
-].map(([t,v,s])=>`<div><dt>${t}</dt><dd>${v}</dd><small>${s}</small></div>`).join("");
-
-/* ── 차트 공통 ────────────────────────── */
+const code=b=>"B"+String(b.id).padStart(2,"0");
 const SVGNS="http://www.w3.org/2000/svg";
-function svg(w,h){const s=document.createElementNS(SVGNS,"svg");
-  s.setAttribute("viewBox",`0 0 ${w} ${h}`);s.setAttribute("role","img");return s;}
-function el(n,a){const e=document.createElementNS(SVGNS,n);
-  for(const k in a)e.setAttribute(k,a[k]);return e;}
+const svg=(w,h)=>{const s=document.createElementNS(SVGNS,"svg");
+  s.setAttribute("viewBox",`0 0 ${w} ${h}`);s.setAttribute("role","img");return s};
+const el=(n,a)=>{const e=document.createElementNS(SVGNS,n);for(const k in a)e.setAttribute(k,a[k]);return e};
+
+/* ── readout ──────────────────────────── */
+const yrs=B.filter(b=>b.vintage).map(b=>b.vintage);
+document.getElementById("sysline").textContent=
+  `${DATA.updated} · ${ST.kinds} SKU · ${Math.min(...yrs)}–${Math.max(...yrs)} · CELLAR ${DATA.storage.temp_c}°C`;
+const held=B.filter(b=>b.status==="hold").reduce((s,b)=>s+qty(b),0);
+const closing3=B.filter(b=>b.drink_to-YEAR<=3).reduce((s,b)=>s+qty(b),0);
+document.getElementById("readout").innerHTML=[
+  ["보유",`${ST.total}<small>병</small>`],
+  ["추정 가치",usd(ST.worth)],
+  ["병당 평균",`${usd(ST.avg)}<small> / 중앙 ${usd(ST.median_value)}</small>`],
+  ["3년 내 마감",`${closing3}<small>병</small>`],
+  ["홀드",`${held}<small>병</small>`],
+  ["잔여 중앙값",`${ST.median_years}<small>년</small>`],
+].map(([t,v])=>`<div><dt>${t}</dt><dd>${v}</dd></div>`).join("");
+
+/* ── insights ─────────────────────────── */
+document.getElementById("ins-n").textContent=DATA.insights.length+"건";
+document.getElementById("ins-list").innerHTML=DATA.insights.map(i=>`
+  <div class="ins-row" style="--c:var(${SEV[i.sev]})">
+    <div class="ins-rail"></div>
+    <div class="ins-body">
+      <div class="ins-top"><span class="ins-tag">${esc(i.tag)}</span>
+        <h3>${esc(i.head)}</h3><span class="ins-metric">${esc(i.metric)}</span></div>
+      <p>${esc(i.body)}</p>
+    </div></div>`).join("");
+
+/* ── 가치 × 잔여 시간 매트릭스 ─────────── */
+(function matrix(){
+  const W=760,H=330,m={t:20,r:18,b:34,l:46};
+  const xs=B.map(b=>b.drink_to-YEAR), ys=B.map(b=>b.price.avg_usd);
+  const XM=Math.max(...xs), YM=Math.max(...ys);
+  const px=v=>m.l+v/XM*(W-m.l-m.r), py=v=>H-m.b-v/YM*(H-m.t-m.b);
+  const s=svg(W,H);
+  s.setAttribute("aria-label","가로축 남은 음용 연수, 세로축 병당 추정 가치. 중앙값 기준 네 구역으로 나뉜다.");
+  [0,200,400,600,800].filter(v=>v<=YM+80).forEach(v=>{
+    s.appendChild(el("line",{x1:m.l,x2:W-m.r,y1:py(v),y2:py(v),class:"gridline"}));
+    s.appendChild(el("text",{x:m.l-8,y:py(v)+3.5,"text-anchor":"end",class:"axis"})).textContent="$"+v;
+  });
+  [0,5,10,15,20,25].filter(v=>v<=XM).forEach(v=>{
+    s.appendChild(el("text",{x:px(v),y:H-m.b+15,"text-anchor":"middle",class:"axis"})).textContent=v+"y";
+  });
+  s.appendChild(el("text",{x:W-m.r,y:H-6,"text-anchor":"end",class:"qlabel"}))
+   .textContent="남은 음용 연수 →";
+  s.appendChild(el("line",{x1:px(ST.median_years),x2:px(ST.median_years),y1:m.t,y2:H-m.b,class:"quadline"}));
+  s.appendChild(el("line",{x1:m.l,x2:W-m.r,y1:py(ST.median_value),y2:py(ST.median_value),class:"quadline"}));
+  [["위험 · 비싼데 시간 없음",m.l+8,m.t+11,"start"],
+   ["자산 · 비싸고 여유 있음",W-m.r-8,m.t+11,"end"],
+   ["소비 · 부담 없이 열 것",m.l+8,H-m.b-9,"start"],
+   ["대기 · 묵혀도 되는 병",W-m.r-8,H-m.b-9,"end"]].forEach(([t,x,y,a])=>
+    s.appendChild(el("text",{x,y,"text-anchor":a,class:"qlabel"})).textContent=t);
+  const box=document.getElementById("mx-chart"), tip=document.getElementById("mx-tip");
+  B.slice().sort((a,b)=>b.price.avg_usd-a.price.avg_usd).forEach(b=>{
+    const c=el("circle",{cx:px(b.drink_to-YEAR),cy:py(b.price.avg_usd),
+      r:qty(b)>1?7:5,fill:cvar(b),"fill-opacity":.85,class:"dot","data-id":b.id});
+    c.addEventListener("mouseenter",()=>{
+      tip.innerHTML=`<h4>${esc(b.display)} ${vint(b)}</h4>
+        <div class="r"><span>가치</span><b>${usd(b.price.avg_usd)}</b></div>
+        <div class="r"><span>남은 기간</span><b>${b.drink_to-YEAR}년</b></div>
+        <div class="r" style="--c:${cvar(b)}"><i></i><span>상태</span><b>${S[b.status].label}</b></div>`;
+      tip.classList.add("on");
+      const r=box.getBoundingClientRect(), sc=W/(r.width-28);
+      tip.style.left=Math.min(Math.max(px(b.drink_to-YEAR)/sc-80,4),r.width-190)+"px";
+      tip.style.top=Math.max(py(b.price.avg_usd)/sc-70,4)+"px";
+    });
+    c.addEventListener("mouseleave",()=>tip.classList.remove("on"));
+    s.appendChild(c);
+  });
+  box.insertBefore(s,tip);
+})();
+document.getElementById("mx-legend").innerHTML=ORDER.map(k=>
+  `<span style="--c:var(${S[k].v})"><i></i>${S[k].label}</span>`).join("")
+  +`<span style="color:var(--ink-3)">큰 점 = 2병 보유 · 점을 누르면 프로파일</span>`;
+const risk=B.filter(b=>b.price.avg_usd>=ST.median_value&&b.drink_to-YEAR<ST.median_years);
+document.getElementById("matrix-note").innerHTML=
+  `점선은 각 축의 중앙값(${usd(ST.median_value)} · ${ST.median_years}년). 좌상단 <b>위험</b> 구역에 `+
+  `${risk.length}종 ${usd(risk.reduce((s,b)=>s+value(b),0))}가 있고, 우상단 <b>자산</b> 구역이 셀러의 중심이다. `+
+  `좌하단은 고민 없이 열어도 되는 병들이다.`;
 
 /* ── 성숙 곡선 ────────────────────────── */
-const CY0=YEAR, CY1=LAST;
+const LAST=Math.max(...B.map(b=>b.drink_to)), TOT=ST.total;
 const curve=[];
-for(let y=CY0;y<=CY1;y++){
+for(let y=YEAR;y<=LAST;y++){
   let past=0,rdy=0,hold=0;
-  B.forEach(b=>{const q=qty(b);
-    if(b.drink_to<y)past+=q; else if(b.drink_from<=y)rdy+=q; else hold+=q;});
+  B.forEach(b=>{const n=qty(b);
+    if(b.drink_to<y)past+=n; else if(b.drink_from<=y)rdy+=n; else hold+=n});
   curve.push({y,past,rdy,hold});
 }
-const BANDS=[
-  {k:"past",label:"창이 닫힘",c:"var(--c-past)"},
-  {k:"rdy", label:"마실 수 있음",c:"var(--c-ready)"},
-  {k:"hold",label:"아직 잠김",c:"var(--c-hold)"},
-];
+const BANDS=[{k:"past",label:"창이 닫힘",c:"var(--c-past)"},
+  {k:"rdy",label:"마실 수 있음",c:"var(--c-ready)"},{k:"hold",label:"아직 잠김",c:"var(--c-hold)"}];
 (function drawCurve(){
-  const W=760,H=230,m={t:12,r:106,b:24,l:30};
-  const px=y=>m.l+(y-CY0)/(CY1-CY0)*(W-m.l-m.r);
-  const py=v=>m.t+(1-v/TOT)*(H-m.t-m.b);
+  const W=760,H=220,m={t:12,r:104,b:24,l:30};
+  const px=y=>m.l+(y-YEAR)/(LAST-YEAR)*(W-m.l-m.r), py=v=>m.t+(1-v/TOT)*(H-m.t-m.b);
   const s=svg(W,H);
-  s.setAttribute("aria-label",`${CY0}년부터 ${CY1}년까지 셀러 ${TOT}병이 잠김·음용 가능·창 닫힘으로 나뉘는 추이`);
+  s.setAttribute("aria-label",`${YEAR}년부터 ${LAST}년까지 ${TOT}병이 잠김·음용 가능·창 닫힘으로 나뉘는 추이`);
   [0,Math.round(TOT/2),TOT].forEach(v=>{
     s.appendChild(el("line",{x1:m.l,x2:W-m.r,y1:py(v),y2:py(v),class:"gridline"}));
-    s.appendChild(el("text",{x:m.l-7,y:py(v)+3.5,"text-anchor":"end",class:"axis"})).textContent=v;
+    s.appendChild(el("text",{x:m.l-8,y:py(v)+3.5,"text-anchor":"end",class:"axis"})).textContent=v;
   });
-  for(let y=Math.ceil(CY0/5)*5;y<=CY1;y+=5)
+  for(let y=Math.ceil(YEAR/5)*5;y<=LAST;y+=5)
     s.appendChild(el("text",{x:px(y),y:H-m.b+15,"text-anchor":"middle",class:"axis"})).textContent=y;
   let base=curve.map(()=>0);
   BANDS.forEach(band=>{
@@ -466,144 +550,123 @@ const BANDS=[
     const fwd=curve.map((d,i)=>`${px(d.y)},${py(top[i])}`).join(" ");
     const back=curve.map((d,i)=>`${px(d.y)},${py(base[i])}`).reverse().join(" ");
     s.appendChild(el("polygon",{points:fwd+" "+back,fill:band.c,"fill-opacity":.85,class:"band"}));
-    const lastMid=(base[curve.length-1]+top[curve.length-1])/2;
-    if(top[curve.length-1]-base[curve.length-1]>0)
-      s.appendChild(el("text",{x:W-m.r+9,y:py(lastMid),class:"dlabel",fill:band.c}))
-        .textContent=`${band.label} ${top[curve.length-1]-base[curve.length-1]}`;
+    const n=curve.length-1, seg=top[n]-base[n];
+    if(seg>0) s.appendChild(el("text",{x:W-m.r+8,y:py((base[n]+top[n])/2),class:"dlabel",fill:band.c}))
+      .textContent=`${band.label} ${seg}`;
     base=top;
   });
-  const cross=el("line",{y1:m.t,y2:H-m.b,class:"cross",opacity:0});
-  s.appendChild(cross);
+  const cross=el("line",{y1:m.t,y2:H-m.b,class:"cross",opacity:0}); s.appendChild(cross);
   const hit=el("rect",{x:m.l,y:m.t,width:W-m.l-m.r,height:H-m.t-m.b,fill:"transparent"});
   s.appendChild(hit);
   const box=document.getElementById("curve-chart"), tip=document.getElementById("curve-tip");
   box.insertBefore(s,tip);
-  function move(ev){
-    const r=box.getBoundingClientRect(), sc=W/r.width;
-    const mx=(ev.clientX-r.left)*sc;
-    const i=Math.max(0,Math.min(curve.length-1,Math.round((mx-m.l)/((W-m.l-m.r)/(curve.length-1)))));
+  hit.addEventListener("mousemove",ev=>{
+    const r=box.getBoundingClientRect(), sc=W/(r.width-28);
+    const i=Math.max(0,Math.min(curve.length-1,
+      Math.round(((ev.clientX-r.left-14)*sc-m.l)/((W-m.l-m.r)/(curve.length-1)))));
     const d=curve[i];
     cross.setAttribute("x1",px(d.y));cross.setAttribute("x2",px(d.y));cross.setAttribute("opacity",1);
-    tip.innerHTML=`<h4>${d.y}년</h4>`+BANDS.map(b=>
-      `<div class="r" style="--c:${b.c}"><i></i><span>${b.label}</span><b>${d[b.k]}병</b></div>`).join("");
+    tip.innerHTML=`<h4>${d.y}</h4>`+BANDS.map(b=>
+      `<div class="r" style="--c:${b.c}"><i></i><span>${b.label}</span><b>${d[b.k]}</b></div>`).join("");
     tip.classList.add("on");
-    const left=Math.min(Math.max(px(d.y)/sc-80,0),r.width-165);
-    tip.style.left=left+"px"; tip.style.top="6px";
-  }
-  hit.addEventListener("mousemove",move);
+    tip.style.left=Math.min(Math.max(px(d.y)/sc-80,4),r.width-180)+"px"; tip.style.top="4px";
+  });
   hit.addEventListener("mouseleave",()=>{tip.classList.remove("on");cross.setAttribute("opacity",0)});
 })();
 document.getElementById("curve-legend").innerHTML=BANDS.map(b=>
   `<span style="--c:${b.c}"><i></i>${b.label}</span>`).join("");
-const openIn5=curve.find(d=>d.y===YEAR+5)||curve[curve.length-1];
-const now0=curve[0];
-document.getElementById("curve-lede").innerHTML=
-  `지금은 <b>${now0.rdy}병</b>이 마실 수 있는 상태이고 <b>${now0.hold}병</b>이 아직 잠겨 있다. `+
-  `${YEAR+5}년이면 잠긴 병은 <b>${openIn5.hold}병</b>으로 줄고 마실 수 있는 병이 <b>${openIn5.rdy}병</b>까지 늘어난다 — `+
-  `즉 셀러가 가장 넓게 열리는 구간은 2030년대 초반이다. 그 뒤로는 창이 닫힌 병이 빠르게 쌓인다.`;
+const c5=curve.find(d=>d.y===YEAR+5)||curve[curve.length-1];
+document.getElementById("curve-note").innerHTML=
+  `지금 <b>${curve[0].rdy}병</b>이 열려 있고 <b>${curve[0].hold}병</b>이 잠겨 있다. `+
+  `${YEAR+5}년이면 잠긴 병은 <b>${c5.hold}병</b>, 열린 병은 <b>${c5.rdy}병</b>. `+
+  `셀러가 가장 넓게 펼쳐지는 구간은 2030년대 초반이고 그 뒤로는 닫힌 병이 빠르게 누적된다.`;
 
 /* ── 마감 일정 ────────────────────────── */
-const closeMap={};
-B.forEach(b=>{closeMap[b.drink_to]=(closeMap[b.drink_to]||0)+qty(b)});
+const closeMap={}; B.forEach(b=>closeMap[b.drink_to]=(closeMap[b.drink_to]||0)+qty(b));
 const CB0=Math.min(...Object.keys(closeMap).map(Number)), CB1=Math.max(...Object.keys(closeMap).map(Number));
 (function drawClose(){
-  const W=760,H=170,m={t:12,r:14,b:26,l:30};
-  const n=CB1-CB0+1, slot=(W-m.l-m.r)/n, bw=Math.min(slot*.6,20);
+  const W=760,H=150,m={t:12,r:14,b:26,l:30};
+  const n=CB1-CB0+1, slot=(W-m.l-m.r)/n, bw=Math.min(slot*.58,18);
   const maxV=Math.max(...Object.values(closeMap));
   const py=v=>m.t+(1-v/maxV)*(H-m.t-m.b);
   const s=svg(W,H);
   s.setAttribute("aria-label",`${CB0}년부터 ${CB1}년까지 음용 창이 닫히는 병 수`);
-  for(let v=0;v<=maxV;v++){
-    if(maxV>4&&v%2)continue;
+  for(let v=0;v<=maxV;v+=maxV>4?2:1){
     s.appendChild(el("line",{x1:m.l,x2:W-m.r,y1:py(v),y2:py(v),class:"gridline"}));
-    s.appendChild(el("text",{x:m.l-7,y:py(v)+3.5,"text-anchor":"end",class:"axis"})).textContent=v;
+    s.appendChild(el("text",{x:m.l-8,y:py(v)+3.5,"text-anchor":"end",class:"axis"})).textContent=v;
   }
   for(let y=Math.ceil(CB0/5)*5;y<=CB1;y+=5)
     s.appendChild(el("text",{x:m.l+(y-CB0+.5)*slot,y:H-m.b+15,"text-anchor":"middle",class:"axis"})).textContent=y;
   const box=document.getElementById("close-chart"), tip=document.getElementById("close-tip");
   for(let y=CB0;y<=CB1;y++){
     const v=closeMap[y]||0, cx=m.l+(y-CB0+.5)*slot;
-    if(v){
-      const urgent=y<=YEAR+2;
-      s.appendChild(el("rect",{x:cx-bw/2,y:py(v),width:bw,height:H-m.b-py(v),
-        fill:urgent?"var(--c-past)":"var(--accent)","fill-opacity":urgent?.9:.5,class:"bar-mark"}));
-    }
+    if(v) s.appendChild(el("rect",{x:cx-bw/2,y:py(v),width:bw,height:H-m.b-py(v),rx:1,
+      fill:y-YEAR<=3?"var(--c-past)":"var(--accent)","fill-opacity":y-YEAR<=3?.9:.45}));
     const hit=el("rect",{x:m.l+(y-CB0)*slot,y:m.t,width:slot,height:H-m.t-m.b,fill:"transparent"});
     hit.addEventListener("mouseenter",()=>{
       const list=B.filter(b=>b.drink_to===y);
-      const val=list.reduce((a,b)=>a+value(b),0);
-      tip.innerHTML=`<h4>${y}년 마감</h4>`+
-        (list.length?list.map(b=>`<div class="r"><span>${esc(b.display)}</span><b>${usd(value(b))}</b></div>`).join("")
-          +`<div class="r" style="border-top:1px solid var(--line);margin-top:5px;padding-top:5px"><span>합계</span><b>${usd(val)}</b></div>`
+      tip.innerHTML=`<h4>${y} 마감</h4>`+(list.length
+        ?list.map(b=>`<div class="r"><span>${esc(b.display)}</span><b>${usd(value(b))}</b></div>`).join("")
+          +`<div class="r" style="border-top:1px solid var(--line);margin-top:4px;padding-top:4px"><span>합계</span><b>${usd(list.reduce((a,b)=>a+value(b),0))}</b></div>`
         :`<div class="r"><span>없음</span></div>`);
       tip.classList.add("on");
-      const r=box.getBoundingClientRect(), sc=W/r.width;
-      tip.style.left=Math.min(Math.max(cx/sc-90,0),r.width-200)+"px"; tip.style.top="6px";
+      const r=box.getBoundingClientRect(), sc=W/(r.width-28);
+      tip.style.left=Math.min(Math.max(cx/sc-90,4),r.width-210)+"px"; tip.style.top="4px";
     });
     hit.addEventListener("mouseleave",()=>tip.classList.remove("on"));
     s.appendChild(hit);
   }
   box.insertBefore(s,tip);
 })();
-const peakClose=Object.entries(closeMap).sort((a,b)=>b[1]-a[1])[0];
-document.getElementById("closing-lede").innerHTML=
-  `마감이 한 해에 몰리는 구간이 병목이 된다. 가장 많이 겹치는 해는 <b>${peakClose[0]}년(${peakClose[1]}병)</b>. `+
-  `진한 막대는 2년 내 마감이다. 막대에 올리면 그 해에 닫히는 병과 금액이 나온다.`;
+const pk=Object.entries(closeMap).sort((a,b)=>b[1]-a[1])[0];
+document.getElementById("closing-note").innerHTML=
+  `가장 많이 겹치는 해는 <b>${pk[0]}년 ${pk[1]}병</b>. 진한 막대는 3년 내 마감이다. 막대에 올리면 해당 병과 금액.`;
 
-/* ── 음용 창 타임라인 ─────────────────── */
+/* ── 타임라인 ─────────────────────────── */
 const lo=Math.min(...B.map(b=>b.drink_from)), hi=Math.max(...B.map(b=>b.drink_to));
 const pct=y=>(y-lo)/(hi-lo)*100;
 function renderTimeline(list){
   const ticks=[]; for(let y=Math.ceil(lo/10)*10;y<=hi;y+=10)ticks.push(y);
   const tl=document.getElementById("tl");
-  tl.style.setProperty("--lane","206px");
-  tl.innerHTML=
-    `<div class="tl-axis">${ticks.map(y=>`<span style="left:${pct(y)}%">${y}</span>`).join("")}</div>
-     <div class="tl-body"><div class="tl-grid">
-       ${ticks.map(y=>`<i style="left:${pct(y)}%"></i>`).join("")}
-       <div class="tl-now" style="left:${pct(YEAR)}%"></div></div>
-       ${list.map(b=>`<div class="row">
-         <div class="rname" title="${esc(b.display)}">${esc(b.display)} <em>${vint(b)}</em></div>
-         <div class="track"><a class="bar" href="#" data-id="${b.id}" style="--c:${cvar(b)};
-           left:${pct(b.drink_from)}%;width:${Math.max(pct(b.drink_to)-pct(b.drink_from),1.2)}%"
-           title="${esc(b.display)} · ${b.drink_from}–${b.drink_to}"></a></div></div>`).join("")}
-     </div>`;
+  tl.style.setProperty("--lane","200px");
+  tl.innerHTML=`<div class="tl-axis">${ticks.map(y=>`<span style="left:${pct(y)}%">${y}</span>`).join("")}</div>
+   <div class="tl-body"><div class="tl-grid">
+     ${ticks.map(y=>`<i style="left:${pct(y)}%"></i>`).join("")}
+     <div class="tl-now" style="left:${pct(YEAR)}%"></div></div>
+     ${list.map(b=>`<div class="row">
+       <div class="rname" title="${esc(b.display)}">${esc(b.display)} <em>${vint(b)}</em></div>
+       <div class="track"><a class="bar" href="#" data-id="${b.id}" style="--c:${cvar(b)};
+         left:${pct(b.drink_from)}%;width:${Math.max(pct(b.drink_to)-pct(b.drink_from),1.2)}%"
+         title="${esc(b.display)} · ${b.drink_from}–${b.drink_to}"></a></div></div>`).join("")}
+   </div>`;
 }
 document.getElementById("tl-legend").innerHTML=ORDER.map(k=>
   `<span style="--c:var(${S[k].v})"><i></i>${S[k].label} — ${S[k].note}</span>`).join("");
 
-/* ── 시음 세트 ────────────────────────── */
+/* ── flights ──────────────────────────── */
+document.getElementById("fl-n").textContent=DATA.flights.length+"세트";
 document.getElementById("flight-cards").innerHTML=DATA.flights.map(f=>{
   const ms=f.ids.map(i=>byId[i]).filter(Boolean);
-  const openAll=Math.max(...ms.map(b=>b.drink_from));
-  const closeFirst=Math.min(...ms.map(b=>b.drink_to));
-  const clash=openAll>closeFirst;
-  const c=clash?"var(--s-urgent)":(openAll<=YEAR?"var(--s-peak)":"var(--s-hold)");
+  const openAll=Math.max(...ms.map(b=>b.drink_from)), closeFirst=Math.min(...ms.map(b=>b.drink_to));
+  const c=openAll>closeFirst?"var(--s-urgent)":(openAll<=YEAR?"var(--s-peak)":"var(--s-hold)");
   return `<div class="card">
     <div class="card-h"><h3>${esc(f.title)}</h3>
       <span class="tag" style="--c:${c}">${esc(f.urgency)}</span>
-      <span class="tag" style="--c:var(--s-dh)">${ms.length}종 · ${usd(ms.reduce((s,b)=>s+b.price.avg_usd,0))}</span></div>
+      <span class="tag" style="--c:var(--ink-3)">${ms.length}종 · ${usd(ms.reduce((s,b)=>s+b.price.avg_usd,0))}</span></div>
     <p>${esc(f.thesis)}</p>
     <div class="members">${ms.map(b=>
       `<button class="member" data-id="${b.id}">${esc(b.display)}<em>${vint(b)}</em></button>`).join("")}</div>
-    <div class="foot">${esc(f.note)}</div>
-  </div>`;
+    <div class="foot">${esc(f.note)}</div></div>`;
 }).join("");
 
-/* ── 상황별 추천 ──────────────────────── */
+/* ── occasion ─────────────────────────── */
 const OCC=[
-  {k:"special",label:"특별한 자리",rule:"지금 열 수 있고 평균가 $300 이상",
-   fn:b=>ready(b)&&b.price.avg_usd>=300},
-  {k:"meat",label:"고기 · 스테이크",rule:"지금 열 수 있는 레드",
-   fn:b=>ready(b)&&b.type==="red"},
-  {k:"sea",label:"해산물 · 생선",rule:"지금 열 수 있는 화이트와 샴페인",
-   fn:b=>ready(b)&&(b.type==="white"||b.type==="sparkling")},
-  {k:"dessert",label:"디저트 · 치즈",rule:"스위트 와인",
-   fn:b=>b.type==="sweet white"},
-  {k:"easy",label:"부담 없이",rule:"지금 열 수 있고 평균가 $130 이하",
-   fn:b=>ready(b)&&b.price.avg_usd<=130},
-  {k:"gift",label:"선물",rule:"평균가 $250 이상 · 이름값 있는 병 (보관 상태 무관)",
-   fn:b=>b.price.avg_usd>=250},
+  {k:"special",label:"특별한 자리",rule:"지금 열 수 있고 평균가 $300 이상",fn:b=>ready(b)&&b.price.avg_usd>=300},
+  {k:"meat",label:"고기",rule:"지금 열 수 있는 레드",fn:b=>ready(b)&&b.type==="red"},
+  {k:"sea",label:"해산물",rule:"지금 열 수 있는 화이트와 샴페인",fn:b=>ready(b)&&(b.type==="white"||b.type==="sparkling")},
+  {k:"dessert",label:"디저트",rule:"스위트 와인",fn:b=>b.type==="sweet white"},
+  {k:"easy",label:"부담 없이",rule:"지금 열 수 있고 평균가 $130 이하",fn:b=>ready(b)&&b.price.avg_usd<=130},
+  {k:"gift",label:"선물",rule:"평균가 $250 이상 · 보관 상태 무관",fn:b=>b.price.avg_usd>=250},
 ];
 let occK="special";
 document.getElementById("occ-tabs").innerHTML=OCC.map(o=>
@@ -616,7 +679,7 @@ function renderOcc(){
     <button class="occ-item" data-id="${b.id}">
       <b>${esc(b.display)} <span class="vt">${vint(b)}</span></b>
       <span class="p">${usd(b.price.avg_usd)}</span>
-      <span class="why">${esc(b.profile.style)} · ${b.profile.pair.slice(0,2).map(esc).join(", ")} · 서빙 ${esc(b.profile.serve.temp)}</span>
+      <span class="why">${esc(b.profile.style)} · ${b.profile.pair.slice(0,2).map(esc).join(", ")} · ${esc(b.profile.serve.temp)}</span>
     </button>`).join(""):`<p class="empty">조건에 맞는 병이 없습니다.</p>`;
 }
 document.getElementById("occ-tabs").addEventListener("click",e=>{
@@ -627,16 +690,16 @@ document.getElementById("occ-tabs").addEventListener("click",e=>{
 });
 renderOcc();
 
-/* ── 목록 ─────────────────────────────── */
+/* ── inventory ────────────────────────── */
 function renderList(list){
-  const el2=document.getElementById("list-body");
-  if(!list.length){el2.innerHTML=`<p class="empty">조건에 맞는 병이 없습니다.</p>`;return;}
-  el2.innerHTML=list.map(b=>`
-    <button class="item" data-id="${b.id}">
+  const t=document.getElementById("list-body");
+  if(!list.length){t.innerHTML=`<p class="empty">조건에 맞는 병이 없습니다.</p>`;return}
+  t.innerHTML=list.map(b=>`<button class="item" data-id="${b.id}">
+      <span class="id">${code(b)}</span>
       <span class="nm">${qty(b)>1?`<b>×${qty(b)}</b>`:""}<span>${esc(b.display)}</span></span>
       <span class="vt">${vint(b)}</span>
       <span class="rg">${esc(b.region)}</span>
-      <span class="pill" style="--c:${cvar(b)}">${S[b.status].label}</span>
+      <span class="pill">[${S[b.status].label}]</span>
       <span class="win">${b.drink_from}–${b.drink_to}</span>
       <span class="pr">${usd(b.price.avg_usd)}${b.format_ml===375?"<i>/750</i>":""}</span>
     </button>`).join("");
@@ -644,129 +707,115 @@ function renderList(list){
 document.getElementById("chips").innerHTML=ORDER.map(k=>{
   const n=B.filter(b=>b.status===k).reduce((s,b)=>s+qty(b),0);
   return `<button class="chip" data-k="${k}" aria-pressed="false" style="--c:var(${S[k].v})"
-    title="${S[k].note}"><i class="dot"></i>${S[k].label}<span class="n">${n}</span></button>`;
-}).join("");
+    title="${S[k].note}"><i class="dot2"></i>${S[k].label} ${n}</button>`}).join("");
 const active=new Set(), q=document.getElementById("q"), sortEl=document.getElementById("sort");
-const SORTS={
-  close:(a,b)=>a.drink_to-b.drink_to||a.id-b.id,
+const SORTS={close:(a,b)=>a.drink_to-b.drink_to||a.id-b.id,
   price:(a,b)=>b.price.avg_usd-a.price.avg_usd,
   vintage:(a,b)=>(a.vintage||9999)-(b.vintage||9999),
-  name:(a,b)=>a.display.localeCompare(b.display),
-};
+  name:(a,b)=>a.display.localeCompare(b.display)};
 function apply(){
   const t=q.value.trim().toLowerCase();
   const list=B.filter(b=>{
     if(active.size&&!active.has(b.status))return false;
     if(!t)return true;
-    return [b.display,b.producer,b.wine,b.region,b.category,vint(b),b.profile.style,...(b.grapes||[])]
+    return [b.display,b.producer,b.wine,b.region,b.category,vint(b),b.profile.style,code(b),...(b.grapes||[])]
       .join(" ").toLowerCase().includes(t);
   }).sort(SORTS[sortEl.value]);
   renderTimeline([...list].sort(SORTS.close)); renderList(list);
   const n=list.reduce((s,b)=>s+qty(b),0), v=list.reduce((s,b)=>s+value(b),0);
-  document.getElementById("count").textContent=
-    (list.length===B.length?`${n}병 / ${list.length}종`:`${n}병 / ${list.length}종 표시 중`)+` · ${usd(v)}`;
+  document.getElementById("count").textContent=`${n}병 · ${usd(v)}`;
 }
 document.getElementById("chips").addEventListener("click",e=>{
   const btn=e.target.closest(".chip"); if(!btn)return;
-  const k=btn.dataset.k;
-  active.has(k)?active.delete(k):active.add(k);
-  btn.setAttribute("aria-pressed",active.has(k));
-  apply();
+  const k=btn.dataset.k; active.has(k)?active.delete(k):active.add(k);
+  btn.setAttribute("aria-pressed",active.has(k)); apply();
 });
 q.addEventListener("input",apply); sortEl.addEventListener("change",apply);
 
-/* ── 공백 · 짚고 갈 것 · 구성 ─────────── */
+/* ── gaps · flags · mix ───────────────── */
 document.getElementById("gap-list").innerHTML=DATA.gaps.map(g=>`
   <div class="gap-item">
     <h3>${esc(g.title)}<span class="tag" style="--c:var(${g.severity==="high"?"--s-urgent":"--s-now"})">${g.severity==="high"?"우선":"보완"}</span></h3>
     <p>${esc(g.why)}</p>
-    <div class="picks">${g.picks.map(x=>`<span>${esc(x)}</span>`).join("")}</div>
-  </div>`).join("");
+    <div class="picks">${g.picks.map(x=>`<span>${esc(x)}</span>`).join("")}</div></div>`).join("");
 document.getElementById("flags").innerHTML=(DATA.flags||[]).map(f=>`
-  <div class="flag"><h3><em>#${f.id}</em>${esc(byId[f.id].display)} — ${esc(f.title)}</h3>
+  <div class="flag"><h3><em>${code(byId[f.id])}</em>${esc(byId[f.id].display)} — ${esc(f.title)}</h3>
   <p>${esc(f.text)}</p></div>`).join("")||`<p class="empty">확인이 필요한 병 없음.</p>`;
-const mix={}; B.forEach(b=>mix[b.category]=(mix[b.category]||0)+qty(b));
-const mixMax=Math.max(...Object.values(mix));
-document.getElementById("mix").innerHTML=Object.entries(mix).sort((a,b)=>b[1]-a[1])
-  .map(([c,n])=>`<div><span>${esc(c)}</span><em>${n}</em>
-    <span class="track2"><i style="width:${n/mixMax*100}%"></i></span></div>`).join("");
+const mix={}; B.forEach(b=>{const m=mix[b.category]||(mix[b.category]=[0,0]);m[0]+=qty(b);m[1]+=value(b)});
+const mixMax=Math.max(...Object.values(mix).map(v=>v[1]));
+document.getElementById("mix").innerHTML=Object.entries(mix).sort((a,b)=>b[1][1]-a[1][1])
+  .map(([c,[n,v]])=>`<div><span>${esc(c)}</span><em>${n}병</em><b>${usd(v)}</b>
+    <span class="track2"><i style="width:${v/mixMax*100}%"></i></span></div>`).join("");
 document.getElementById("foot").textContent=DATA.price_note+" "+DATA.storage.note;
 
-/* ── 프로파일 패널 ────────────────────── */
+/* ── panel ────────────────────────────── */
 const panel=document.getElementById("panel"), scrim=document.getElementById("scrim");
 let lastFocus=null;
 function openPanel(id){
   const b=byId[id]; if(!b)return;
   const pf=b.profile, pr=b.price;
   document.getElementById("panel-inner").innerHTML=`
-    <div class="p-head">
+    <div class="p-head"><div class="code">${code(b)}</div>
       <h2 id="p-title">${esc(b.display)}</h2>
       <div class="p-sub"><span class="yr">${vint(b)}</span><span>${esc(b.region)}</span>
-        <span class="pill" style="--c:${cvar(b)}">${S[b.status].label}</span></div>
-    </div>
+        <span style="color:${cvar(b)}">[${S[b.status].label}]</span></div></div>
     <div class="p-body">
       <div class="p-price">
-        <div class="cf" style="margin-bottom:-2px">${pr.confidence==="none"?"참고 추정가 (Wine-Searcher 미등재)":"Wine-Searcher 전세계 평균가"}</div>
+        <div class="cf">${pr.confidence==="none"?"참고 추정가 · Wine-Searcher 미등재":"Wine-Searcher 전세계 평균가"}</div>
         <div class="amt"><b>${usd(pr.avg_usd)}</b>
-          <span>${esc(pr.basis||"750ml, ex-tax")}${qty(b)>1?` · ${qty(b)}병 보유`:""}</span></div>
-        <div class="krw">한국 소매 환산 약 ₩${won(pr.avg_usd).toLocaleString()}
-          <span style="color:var(--ink-3)">(환율 ${KRW}원 × ${KR_MULT}배 가정)</span></div>
+          <span>${esc(pr.basis||"750ml, ex-tax")}${qty(b)>1?` · ${qty(b)}병`:""}</span></div>
+        <div class="krw">≈ ₩${won(pr.avg_usd).toLocaleString()} <span style="color:var(--ink-3)">(${KRW}원 × ${KR_MULT})</span></div>
         <div class="cf">신뢰도 <b>${CONF[pr.confidence]}</b>${pr.note?` — ${esc(pr.note)}`:""}</div>
         ${pr.verified?`<div class="cf" style="color:var(--s-peak)">✓ ${esc(pr.verified)}</div>`:""}
-        <a class="ws" href="${b.ws_url}" target="_blank" rel="noopener noreferrer">Wine-Searcher에서 확인 ↗</a>
-      </div>
-      <div class="p-win">
-        <div class="bararea">
+        <a class="ws" href="${b.ws_url}" target="_blank" rel="noopener noreferrer">Wine-Searcher ↗</a></div>
+      <div class="p-win"><div class="bararea">
           <div class="fill" style="--c:${cvar(b)};left:${pct(b.drink_from)}%;
                width:${Math.max(pct(b.drink_to)-pct(b.drink_from),1.5)}%"></div>
           <div class="mark" style="left:${pct(YEAR)}%"></div></div>
         <div class="ends"><span>${lo}</span>
-          <span style="color:var(--ink-2)">음용 창 ${b.drink_from}–${b.drink_to}</span>
-          <span>${hi}</span></div>
-      </div>
-      <div class="blk"><h3>스타일</h3><p class="lead">${esc(pf.style)}</p></div>
-      <div class="blk"><h3>시음 노트</h3><p>${esc(pf.tasting)}</p></div>
-      <div class="blk"><h3>배경</h3><p>${esc(pf.story)}</p></div>
-      <div class="blk"><h3>서빙</h3>
-        <dl class="serve">
-          <div><dt>온도</dt><dd>${esc(pf.serve.temp)}</dd></div>
-          <div><dt>디캔팅</dt><dd>${esc(pf.serve.decant)}</dd></div>
-          <div><dt>잔</dt><dd>${esc(pf.serve.glass)}</dd></div></dl></div>
-      <div class="blk"><h3>페어링</h3>
+          <span style="color:var(--ink-2)">${b.drink_from}–${b.drink_to}</span><span>${hi}</span></div></div>
+      <div class="blk"><h3>Style</h3><p class="lead">${esc(pf.style)}</p></div>
+      <div class="blk"><h3>Tasting</h3><p>${esc(pf.tasting)}</p></div>
+      <div class="blk"><h3>Background</h3><p>${esc(pf.story)}</p></div>
+      <div class="blk"><h3>Service</h3><dl class="serve">
+          <div><dt>TEMP</dt><dd>${esc(pf.serve.temp)}</dd></div>
+          <div><dt>DECANT</dt><dd>${esc(pf.serve.decant)}</dd></div>
+          <div><dt>GLASS</dt><dd>${esc(pf.serve.glass)}</dd></div></dl></div>
+      <div class="blk"><h3>Pairing</h3>
         <div class="tags">${pf.pair.map(x=>`<span>${esc(x)}</span>`).join("")}</div></div>
-      <div class="blk"><h3>셀러 코멘트</h3><p>${esc(b.notes)}</p></div>
+      <div class="blk"><h3>Note</h3><p>${esc(b.notes)}</p></div>
       <div class="p-meta">
-        <div><b>생산자</b><span>${esc(b.producer)}</span></div>
-        ${b.classification?`<div><b>등급</b><span>${esc(b.classification)}</span></div>`:""}
-        ${b.grapes?.length?`<div><b>품종</b><span>${b.grapes.map(esc).join(" · ")}</span></div>`:""}
-        ${b.abv?`<div><b>도수</b><span>${b.abv}%</span></div>`:""}
-        <div><b>용량</b><span>${b.format_ml??750}ml</span></div>
-        <div><b>보유</b><span>${qty(b)}병</span></div>
-      </div>
-    </div>`;
-  lastFocus=document.activeElement;
-  panel.hidden=false;
+        <div><b>PRODUCER</b><span>${esc(b.producer)}</span></div>
+        ${b.classification?`<div><b>CLASS</b><span>${esc(b.classification)}</span></div>`:""}
+        ${b.grapes?.length?`<div><b>GRAPES</b><span>${b.grapes.map(esc).join(" · ")}</span></div>`:""}
+        ${b.abv?`<div><b>ABV</b><span>${b.abv}%</span></div>`:""}
+        <div><b>FORMAT</b><span>${b.format_ml??750}ml</span></div>
+        <div><b>QTY</b><span>${qty(b)}</span></div></div></div>`;
+  lastFocus=document.activeElement; panel.hidden=false;
   requestAnimationFrame(()=>{panel.classList.add("on");scrim.classList.add("on")});
   panel.scrollTop=0; document.getElementById("close").focus();
 }
 function closePanel(){
   panel.classList.remove("on");scrim.classList.remove("on");
-  setTimeout(()=>{panel.hidden=true},240); lastFocus?.focus();
+  setTimeout(()=>{panel.hidden=true},220); lastFocus?.focus();
 }
 scrim.addEventListener("click",closePanel);
 document.getElementById("close").addEventListener("click",closePanel);
-document.addEventListener("keydown",e=>{if(e.key==="Escape"&&!panel.hidden)closePanel()});
+document.addEventListener("keydown",e=>{
+  if(e.key==="Escape"&&!panel.hidden)closePanel();
+  else if(e.key==="/"&&document.activeElement!==q){e.preventDefault();
+    q.scrollIntoView({block:"center"});q.focus()}
+});
 document.addEventListener("click",e=>{
   const t=e.target.closest("[data-id]"); if(!t)return;
   e.preventDefault(); openPanel(+t.dataset.id);
 });
 
-/* ── 섹션 내비 ────────────────────────── */
+/* ── nav ──────────────────────────────── */
 const links=[...document.querySelectorAll("nav a")];
-const obs=new IntersectionObserver(es=>{
-  es.forEach(en=>{ if(!en.isIntersecting) return;
-    links.forEach(a=>a.classList.toggle("on",a.getAttribute("href")==="#"+en.target.id)); });
-},{rootMargin:"-56px 0px -70% 0px"});
+const obs=new IntersectionObserver(es=>es.forEach(en=>{ if(!en.isIntersecting)return;
+  links.forEach(a=>a.classList.toggle("on",a.getAttribute("href")==="#"+en.target.id))}),
+  {rootMargin:"-48px 0px -70% 0px"});
 document.querySelectorAll("section[id]").forEach(s=>obs.observe(s));
 
 apply();
