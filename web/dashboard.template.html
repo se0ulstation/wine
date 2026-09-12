@@ -336,7 +336,7 @@ function openPanel(id){
     </div>
     <div class="p-body">
       <div class="p-price">
-        <div class="cf" style="margin-bottom:-2px">Wine-Searcher 전세계 평균가</div>
+        <div class="cf" style="margin-bottom:-2px">${pr.confidence==="none"?"참고 추정가 (Wine-Searcher 미등재)":"Wine-Searcher 전세계 평균가"}</div>
         <div class="amt"><b>$${pr.avg_usd.toLocaleString()}</b>
           <span>${esc(pr.basis)}${qty(b)>1?` · ${qty(b)}병 보유`:""}</span></div>
         <div class="krw">한국 소매 환산 약 ₩${won(pr.avg_usd).toLocaleString()}

@@ -84,9 +84,10 @@
       "price": {
         "avg_usd": 85,
         "basis": "750ml, ex-tax",
-        "confidence": "low",
-        "note": "빈티지 미특정 평균 — 2017 단독 수치는 확인 안 됨",
-        "source": "Wine-Searcher 평균가 (공개 검색 결과 기준, 2026-09 조회)"
+        "confidence": "medium",
+        "note": "Wine-Searcher가 이 와인은 빈티지별로 분리하지 않아 전 빈티지 통합 평균이다. 2017은 쿠나와라 과실에 95~96점대 평가를 받은 강한 해라 실제로는 이보다 높을 가능성이 있다.",
+        "source": "Wine-Searcher 평균가 (공개 검색 결과 기준, 2026-09 조회)",
+        "verified": "2회 재현"
       },
       "ws_url": "https://www.wine-searcher.com/find/hardys+thomas+cab+sauv+australia"
     },
@@ -581,9 +582,9 @@
       "price": {
         "avg_usd": 256,
         "basis": "750ml, ex-tax",
-        "confidence": "medium",
-        "note": "검색 결과가 $256~$379로 갈림 — 낮은 쪽 채택",
-        "source": "Wine-Searcher 평균가 (공개 검색 결과 기준, 2026-09 조회)"
+        "confidence": "high",
+        "source": "Wine-Searcher 평균가 (공개 검색 결과 기준, 2026-09 조회)",
+        "verified": "판매처 실호가로 확정 — Wine.com $249.97, Vinosas(독일) €249, 영국 £225. 검색 조회는 $256/$379/$503로 불안정했으나 실호가가 $250~285에 몰려 $256이 맞음"
       },
       "ws_url": "https://www.wine-searcher.com/find/ornellaia+superior+bolgheri+tuscany+italy/1996"
     },
@@ -895,7 +896,7 @@
         "avg_usd": 19,
         "basis": "750ml, ex-tax",
         "confidence": "medium",
-        "note": "",
+        "note": "소규모 그로워라 등재 판매처가 적어 표본이 얇다. 프랑스 현지 소매 기준이며 수입가는 이보다 높다.",
         "source": "Wine-Searcher 평균가 (공개 검색 결과 기준, 2026-09 조회)"
       },
       "ws_url": "https://www.wine-searcher.com/find/mondiale+libera+mer+brut+champagne+france"
@@ -982,9 +983,10 @@
       "price": {
         "avg_usd": 192,
         "basis": "750ml, ex-tax",
-        "confidence": "medium",
-        "note": "브뤼 밀레짐 기준. 브뤼 나튀르 버전이면 $231",
-        "source": "Wine-Searcher 평균가 (공개 검색 결과 기준, 2026-09 조회)"
+        "confidence": "high",
+        "note": "브뤼 밀레짐 기준. 같은 2006년에 브뤼 나튀르 버전($231)이 따로 있으니 라벨에 'Brut Nature' 표기가 있으면 그쪽 값으로 볼 것.",
+        "source": "Wine-Searcher 평균가 (공개 검색 결과 기준, 2026-09 조회)",
+        "verified": "2회 재현. 소매 실호가 $211.95~246.10과 정합"
       },
       "ws_url": "https://www.wine-searcher.com/find/pommery+cuvee+louise+brut+millesime+champagne+france/2006"
     },
@@ -1025,10 +1027,10 @@
         ]
       },
       "price": {
-        "avg_usd": 40,
+        "avg_usd": 43,
         "basis": "750ml, ex-tax",
         "confidence": "none",
-        "note": "Wine-Searcher에 이 큐베 데이터 없음 — 빌라주급 네고시앙 시세로 추정한 값",
+        "note": "이 큐베는 Wine-Searcher에 등재돼 있지 않아 전세계 평균가가 존재하지 않는다. 샤사뉴 몽라셰 빌라주급 평균 시세(약 €40)를 대입한 참고값이며, 다른 31종과 달리 Wine-Searcher 집계가 아니다.",
         "source": "Wine-Searcher 평균가 (공개 검색 결과 기준, 2026-09 조회)"
       },
       "ws_url": "https://www.wine-searcher.com/find/charles+noellat"
@@ -1302,9 +1304,9 @@
       "price": {
         "avg_usd": 31,
         "basis": "750ml, ex-tax",
-        "confidence": "medium",
-        "note": "",
-        "source": "Wine-Searcher 평균가 (공개 검색 결과 기준, 2026-09 조회)"
+        "confidence": "high",
+        "source": "Wine-Searcher 평균가 (공개 검색 결과 기준, 2026-09 조회)",
+        "verified": "2024 빈티지 페이지로 2회 재현"
       },
       "ws_url": "https://www.wine-searcher.com/find/jean+pabiot+dom+de+fines+caillottes+pouilly+fume+upper+loire+france/2024"
     },
