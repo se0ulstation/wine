@@ -1,2 +1,4 @@
 web/dashboard.html linguist-generated
 CELLAR.md linguist-generated
+web/font/pretendard-subset.woff2 binary
+web/font/pretendard.b64 -diff linguist-generated
