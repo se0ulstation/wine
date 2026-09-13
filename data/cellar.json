@@ -1365,12 +1365,13 @@
         ]
       },
       "price": {
-        "avg_usd": 603,
+        "avg_usd": 220,
         "basis": "750ml, ex-tax",
         "confidence": "high",
-        "note": "전세계 판매처 평균. 다만 편차가 큰 병으로, 미국 일부 소매는 $259(Saratoga Wine Exchange)~$289(Empire State of Wine)에 내놓고 있다. 한 병 더 사려면 미국에서 찾을 것.",
-        "source": "Wine-Searcher 전세계 평균가 (공개 검색 결과 기준, 2026-09 조회)",
-        "verified": "3회 서로 다른 질의에서 동일 값 재현"
+        "note": "판매처 실호가 $259(Saratoga)~$289(Empire State of Wine)와도 정합적.",
+        "source": "Wine-Searcher 화면 직접 확인 (보유자 캡처, 2026-09)",
+        "verified": "보유자가 Wine-Searcher 페이지에서 직접 확인한 값. 검색 스니펫이 세 번 모두 $603으로 잘못 읽어냈던 자리다.",
+        "source_kind": "screenshot"
       },
       "ws_url": "https://www.wine-searcher.com/find/canon+st+emilion+grand+cru+bordeaux+france/2000"
     },
