@@ -18,12 +18,15 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / "data" / "cellar.json"
 BASE = "https://www.wine-searcher.com/ws_api.php"
-CANDIDATES = [                      # 성공하는 형태를 첫 병에서 찾아 고정한다
-    BASE + "/wine-check",           # OpenAPI 스펙이 기술한 형태
-    BASE,                           # 쿼리만 붙이는 고전적 형태
+# Wine-Searcher 자체 문서는 "base URL 은 ws_api.php, 필수 파라미터는 api_key 와
+# winename" 이라고만 밝힌다. 경로를 덧붙이는 형태는 API Evangelist 가 유도한 것이라
+# 확실하지 않으므로, 문서에 맞는 평평한 형태를 먼저 시도한다.
+CANDIDATES = [
+    BASE,                           # 문서가 기술한 형태
+    BASE + "/wine-check",           # OpenAPI 스펙이 유도한 형태
     BASE + "?action=wine-check",
 ]
-PAUSE = 7.0                         # 분당 10회 한도를 넉넉히 밑도는 간격
+PAUSE = 7.0                         # 체험 키 기준 하루 100회 · 여유 있게 간격을 둔다
 
 
 def winename(b):
