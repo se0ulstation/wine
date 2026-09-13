@@ -69,27 +69,31 @@ def analyse(d):
     have = {b["vintage"] for b in B if b["vintage"]}
     bdx = {b["vintage"] for b in B if "Bordeaux" in b["region"]}
 
-    def sig(tag, sev, head, metric, detail):
-        return {"tag": tag, "sev": sev, "head": head, "metric": metric, "detail": detail}
+    def sig(tag, sev, head, metric, detail, sel):
+        """sel: 이 신호가 가리키는 병들. 콘솔에서 신호를 누르면 그대로 필터가 된다."""
+        return {"tag": tag, "sev": sev, "head": head, "metric": metric,
+                "detail": detail, "ids": [b["id"] for b in sel]}
 
     names = " · ".join(short(b) for b in sorted(hi_short, key=lambda x: x["drink_to"]))
     d["insights"] = [
         sig("RISK", "high", "고가 · 단기 구역", f"{usd(hs_v)} · {hs_p:.0f}%",
-            f"{len(hi_short)}종 — {names}"),
+            f"{len(hi_short)}종 — {names}", hi_short),
         sig("GAP", "high", "드라이 화이트 소멸", f"{len(dry_white)} → {len(dry_left)} · 2029",
-            "샤사뉴 2028 · 푸이 퓌메 2027 이후 스위트와 샴페인만 남음"),
+            "샤사뉴 2028 · 푸이 퓌메 2027 이후 스위트와 샴페인만 남음", dry_white),
         sig("CONC", "med", "상위 8종 가치 집중", f"{top8_p:.0f}% · {usd(top8_v)}",
-            f"나머지 24병 합계 {usd(worth - top8_v)}"),
+            f"나머지 24병 합계 {usd(worth - top8_v)}", ranked[:8]),
         sig("MIX", "med", "카베르네 편중", f"{cab}/{total} · {cab / total * 100:.0f}%",
-            "레드 피노 누아 0병 · 산지오베제 1병 · 시라 0병"),
+            "레드 피노 누아 0병 · 산지오베제 1병 · 시라 0병",
+            [b for b in B if b["grapes"] and b["grapes"][0] == "Cabernet Sauvignon"]),
         sig("GAP", "med", "보르도 2009 · 2010 없음", f"보유 {len(bdx)}개 빈티지",
-            " · ".join(str(y) for y in sorted(bdx))),
+            " · ".join(str(y) for y in sorted(bdx)),
+            [b for b in B if "Bordeaux" in b["region"]]),
         sig("MIX", "low", "샴페인 가치 초과", f"병 {ch_n / total * 100:.0f}% → 가치 {ch_p:.0f}%",
-            f"{ch_n}병 중 6병이 프레스티지 큐베 · 데일리 1병"),
+            f"{ch_n}병 중 6병이 프레스티지 큐베 · 데일리 1병", champ),
         sig("OPP", "low", "1996 수평 가능", f"4병 · {usd(v96)}",
-            "좌안 · 우안 · 볼게리 · 나파 — 전부 3년 내 마감"),
+            "좌안 · 우안 · 볼게리 · 나파 — 전부 3년 내 마감", y96),
         sig("MIX", "low", "세컨 와인 비중", f"{sum(qty(b) for b in seconds)}병 · {sec_p:.0f}%",
-            f"{sec_short}병이 2029년 내 마감 · 장기 보관 대상 아님"),
+            f"{sec_short}병이 2029년 내 마감 · 장기 보관 대상 아님", seconds),
     ]
 
     d["stats"] = {

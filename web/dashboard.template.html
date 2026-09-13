@@ -257,6 +257,42 @@ footer{padding:0 14px 8px;font-family:var(--mono);font-size:9.8px;color:var(--in
 .d-meta div{display:grid;grid-template-columns:62px 1fr;gap:8px}
 .d-meta b{font-family:var(--mono);font-weight:400;font-size:9.5px}
 
+
+/* ── cross-filter ─────────────────────── */
+.al{cursor:pointer;user-select:none}
+.al:hover{background:var(--cmd-soft)}
+.al.on{background:var(--cmd-soft);box-shadow:inset 2px 0 0 var(--cmd)}
+.fbar{display:flex;flex-wrap:wrap;gap:5px;align-items:center;padding:6px 11px;
+      border-bottom:1px solid var(--line);background:var(--sunken);font-family:var(--mono);font-size:10px}
+.fbar .lbl{color:var(--ink-3);letter-spacing:.1em}
+.fchip{display:inline-flex;align-items:center;gap:5px;padding:2px 6px;border:1px solid var(--cmd);
+       color:var(--cmd);background:transparent;font:inherit;cursor:pointer}
+.fchip:hover{background:var(--cmd-soft)}
+.fchip b{font-weight:600}
+.fclear{margin-left:auto;border:1px solid var(--line);background:transparent;color:var(--ink-3);
+        font:inherit;padding:2px 7px;cursor:pointer}
+.fclear:hover{border-color:var(--cmd);color:var(--ink)}
+.item.sel{background:var(--cmd-soft);box-shadow:inset 2px 0 0 var(--cmd)}
+.dot.off{opacity:.13}
+.dot.sel{stroke:var(--cmd);stroke-width:2.5}
+.quadhit{cursor:pointer;fill:transparent}
+.quadhit:hover{fill:var(--cmd);fill-opacity:.05}
+.quadhit.on{fill:var(--cmd);fill-opacity:.08}
+.bar2.sel{outline:1px solid var(--cmd);outline-offset:1px}
+.mix div{cursor:pointer}
+.mix div:hover span:first-child{color:var(--ink)}
+.mix div.on span:first-child{color:var(--cmd)}
+.mix div.on .t2 i{background:var(--cmd);opacity:1}
+.vbar{cursor:pointer}
+.vbar:hover rect{fill:var(--cmd)}
+.peers{display:flex;flex-wrap:wrap;gap:4px}
+.peers button{font-family:var(--mono);font-size:9.8px;padding:1px 6px;border:1px solid var(--line);
+              background:transparent;color:var(--ink-2);cursor:pointer}
+.peers button:hover{border-color:var(--cmd);color:var(--ink)}
+#copy{border:1px solid var(--line);background:transparent;color:var(--ink-3);
+      font-family:var(--mono);font-size:10px;padding:3px 8px;cursor:pointer}
+#copy:hover{border-color:var(--cmd);color:var(--ink)}
+
 @media (max-width:720px){
   .thead{display:none}
   .item{grid-template-columns:32px 1fr 56px;height:auto;padding-block:6px;row-gap:2px}
@@ -277,7 +313,7 @@ footer{padding:0 14px 8px;font-family:var(--mono);font-size:9.8px;color:var(--in
   <span class="f" id="f-alert"></span>
   <span class="right">
     <span class="f" id="clock">--:--:--</span>
-    <span class="f kbd"><b>/</b> SEARCH <b>ESC</b> CLOSE</span>
+    <span class="f kbd"><b>/</b> SEARCH <b>J/K</b> MOVE <b>↵</b> OPEN <b>C</b> CLEAR <b>ESC</b></span>
   </span>
 </div>
 
@@ -315,7 +351,9 @@ footer{padding:0 14px 8px;font-family:var(--mono);font-size:9.8px;color:var(--in
         <option value="close">마감순</option><option value="price">가격순</option>
         <option value="vintage">빈티지순</option><option value="name">이름순</option>
       </select>
+      <button id="copy" title="현재 목록을 CSV로 복사">COPY</button>
     </div>
+    <div class="fbar" id="fbar" hidden></div>
     <div id="table-view" class="scroll">
       <div class="thead"><span>ID</span><span>Wine</span><span>Vint</span><span>Region</span>
         <span>Status</span><span>Window</span><span>Left</span><span>Value</span></div>
@@ -325,8 +363,12 @@ footer{padding:0 14px 8px;font-family:var(--mono);font-size:9.8px;color:var(--in
   </div>
 
   <div class="grid3b">
-    <div class="p"><div class="ph">Mix<span class="r">가치 기준</span></div>
-      <div class="pad mix" id="mix"></div></div>
+    <div class="p"><div class="ph">Mix
+        <span class="r"><span class="seg" id="facet" style="display:inline-flex;vertical-align:middle">
+          <button data-f="category" aria-pressed="true">지역</button>
+          <button data-f="vintage" aria-pressed="false">빈티지</button>
+          <button data-f="grape" aria-pressed="false">품종</button></span></span></div>
+      <div class="pad" id="mix"></div></div>
     <div class="p"><div class="ph">Gaps</div><div class="pad" id="gaps"></div></div>
     <div class="p"><div class="ph">Flags</div><div class="pad" id="flags"></div></div>
   </div>
@@ -348,6 +390,10 @@ const S={urgent:{label:"긴급",v:"--s-urgent"},drink_now:{label:"지금",v:"--s
 const ORDER=["urgent","drink_now","peak","drink_or_hold","hold"];
 const CONF={high:"높음",medium:"보통",low:"낮음",none:"없음"};
 const SEV={high:"--s-urgent",med:"--s-now",low:"--s-dh"};
+const QUAD={risk:{label:"위험",fn:(v,t)=>v>=ST.median_value&&t<ST.median_years},
+  asset:{label:"자산",fn:(v,t)=>v>=ST.median_value&&t>=ST.median_years},
+  drink:{label:"소비",fn:(v,t)=>v<ST.median_value&&t<ST.median_years},
+  wait:{label:"대기",fn:(v,t)=>v<ST.median_value&&t>=ST.median_years}};
 const B=[...DATA.bottles], byId=Object.fromEntries(B.map(b=>[b.id,b]));
 const qty=b=>b.qty??1, vint=b=>b.vintage?String(b.vintage):(b.vintage_label||"NV");
 const cvar=b=>`var(${S[b.status].v})`;
@@ -357,82 +403,118 @@ const usd=n=>"$"+Math.round(n).toLocaleString();
 const won=u=>Math.round(u*KRW*KR_MULT/1000)*1000;
 const code=b=>"B"+String(b.id).padStart(2,"0");
 const ready=b=>b.drink_from<=YEAR&&b.drink_to>=YEAR&&b.status!=="hold";
+const left=b=>b.drink_to-YEAR;
+const grape=b=>(b.grapes&&b.grapes[0])||"—";
+const short0=b=>b.display.replace(/^Château /,"").split(" ").slice(0,2).join(" ");
 const NS="http://www.w3.org/2000/svg";
 const svg=(w,h)=>{const s=document.createElementNS(NS,"svg");
   s.setAttribute("viewBox",`0 0 ${w} ${h}`);s.setAttribute("role","img");return s};
 const el=(n,a)=>{const e=document.createElementNS(NS,n);for(const k in a)e.setAttribute(k,a[k]);return e};
+const $=id=>document.getElementById(id);
 
-/* command bar */
-const yrs=B.filter(b=>b.vintage).map(b=>b.vintage);
+/* ── state ────────────────────────────── */
+const PRESETS=[{k:"all",label:"ALL",fn:()=>true},{k:"now",label:"NOW",fn:ready},
+  {k:"soon",label:"3Y",fn:b=>left(b)<=3},{k:"top",label:"$300+",fn:b=>b.price.avg_usd>=300},
+  {k:"white",label:"WHITE",fn:b=>b.type!=="red"}];
+const F={preset:"all",status:new Set(),q:"",quad:null,facet:null,sig:null};
+let view="table", sortKey="close", selId=null, curList=[], facetAxis="category";
+const store=(k,v)=>{try{localStorage.setItem(k,v)}catch(e){}};
+const load=k=>{try{return localStorage.getItem(k)}catch(e){return null}};
+(function restore(){
+  try{const j=JSON.parse(load("cellar.v1")||"{}");
+    if(j.preset&&PRESETS.some(p=>p.k===j.preset))F.preset=j.preset;
+    if(Array.isArray(j.status))j.status.filter(k=>S[k]).forEach(k=>F.status.add(k));
+    if(j.quad&&QUAD[j.quad])F.quad=j.quad;
+    if(j.view==="time"||j.view==="table")view=j.view;
+    if(j.sort)sortKey=j.sort;
+    if(j.facetAxis)facetAxis=j.facetAxis;
+  }catch(e){}
+})();
+const save=()=>store("cellar.v1",JSON.stringify({preset:F.preset,status:[...F.status],
+  quad:F.quad,view,sort:sortKey,facetAxis}));
+
+/* ── command bar ──────────────────────── */
 const alerts=DATA.insights.filter(i=>i.sev==="high").length;
-document.getElementById("f-sku").innerHTML=`<b>${ST.total}</b> BTL / <b>${ST.kinds}</b> SKU`;
-document.getElementById("f-val").innerHTML=`VAL <b>${usd(ST.worth)}</b>`;
-document.getElementById("f-alert").innerHTML=
-  `<i class="led" style="--c:var(--alert)"></i>ALERT <b>${alerts}</b>`;
-const tick=()=>{const d=new Date();
-  document.getElementById("clock").textContent=
-    d.toTimeString().slice(0,8)+" "+DATA.updated.replace(/-/g,".")};
+$("f-sku").innerHTML=`<b>${ST.total}</b> BTL / <b>${ST.kinds}</b> SKU`;
+$("f-val").innerHTML=`VAL <b>${usd(ST.worth)}</b>`;
+$("f-alert").innerHTML=`<i class="led" style="--c:var(--alert)"></i>ALERT <b>${alerts}</b>`;
+const tick=()=>{$("clock").textContent=
+  new Date().toTimeString().slice(0,8)+" "+DATA.updated.replace(/-/g,".")};
 tick(); setInterval(tick,1000);
 
-/* strip */
+/* ── strip ────────────────────────────── */
 const held=B.filter(b=>b.status==="hold").reduce((s,b)=>s+qty(b),0);
-const soon=B.filter(b=>b.drink_to-YEAR<=3).reduce((s,b)=>s+qty(b),0);
+const soon=B.filter(b=>left(b)<=3).reduce((s,b)=>s+qty(b),0);
 const rdyN=B.filter(ready).reduce((s,b)=>s+qty(b),0);
-document.getElementById("strip").innerHTML=[
-  ["보유",`${ST.total}<small>BTL</small>`],["가치",usd(ST.worth)],
+$("strip").innerHTML=[["보유",`${ST.total}<small>BTL</small>`],["가치",usd(ST.worth)],
   ["병당",`${usd(ST.avg)}<small>MED ${usd(ST.median_value)}</small>`],
   ["지금 가능",`${rdyN}<small>BTL</small>`],["3년 내 마감",`${soon}<small>BTL</small>`],
-  ["홀드",`${held}<small>BTL</small>`],
-].map(([t,v])=>`<div class="p"><dl class="stat"><dt>${t}</dt><dd>${v}</dd></dl></div>`).join("");
+  ["홀드",`${held}<small>BTL</small>`]]
+  .map(([t,v])=>`<div class="p"><dl class="stat"><dt>${t}</dt><dd>${v}</dd></dl></div>`).join("");
 
-/* alerts */
-document.getElementById("al-n").textContent=DATA.insights.length;
-document.getElementById("alerts").innerHTML=DATA.insights.map(i=>`
-  <div class="al" style="--c:var(${SEV[i.sev]})">
+/* ── alerts (클릭 = 해당 병으로 필터) ──── */
+$("al-n").textContent=DATA.insights.length;
+$("alerts").innerHTML=DATA.insights.map((i,n)=>`
+  <div class="al" data-sig="${n}" role="button" tabindex="0" style="--c:var(${SEV[i.sev]})">
     <span class="t">${esc(i.tag)}</span><span class="h">${esc(i.head)}</span>
     <span class="v">${esc(i.metric)}</span>
     <span class="d" title="${esc(i.detail)}">${esc(i.detail)}</span></div>`).join("");
+$("alerts").addEventListener("click",e=>{
+  const r=e.target.closest("[data-sig]"); if(!r)return;
+  const n=+r.dataset.sig; F.sig=F.sig===n?null:n; render()});
+$("alerts").addEventListener("keydown",e=>{
+  if(e.key!=="Enter"&&e.key!==" ")return;
+  const r=e.target.closest("[data-sig]"); if(!r)return;
+  e.preventDefault(); const n=+r.dataset.sig; F.sig=F.sig===n?null:n; render()});
 
-/* value × time */
+/* ── matrix ───────────────────────────── */
+const dotById={};
 (function(){
   const W=460,H=300,m={t:14,r:12,b:26,l:40};
-  const XM=Math.max(...B.map(b=>b.drink_to-YEAR)), YM=Math.max(...B.map(b=>b.price.avg_usd));
+  const XM=Math.max(...B.map(left)), YM=Math.max(...B.map(b=>b.price.avg_usd));
   const px=v=>m.l+v/XM*(W-m.l-m.r), py=v=>H-m.b-v/YM*(H-m.t-m.b);
   const s=svg(W,H);
-  s.setAttribute("aria-label","가로 남은 음용 연수, 세로 병당 가치. 중앙값으로 네 구역을 나눈다.");
+  s.setAttribute("aria-label","가로 남은 음용 연수, 세로 병당 가치. 중앙값으로 네 구역을 나눈다. 구역을 누르면 인벤토리가 걸러진다.");
   [0,200,400,600].forEach(v=>{
     s.appendChild(el("line",{x1:m.l,x2:W-m.r,y1:py(v),y2:py(v),class:"gridline"}));
     s.appendChild(el("text",{x:m.l-6,y:py(v)+3,"text-anchor":"end",class:"axis"})).textContent="$"+v});
   [0,10,20].filter(v=>v<=XM).forEach(v=>
     s.appendChild(el("text",{x:px(v),y:H-m.b+12,"text-anchor":"middle",class:"axis"})).textContent=v+"y");
-  s.appendChild(el("line",{x1:px(ST.median_years),x2:px(ST.median_years),y1:m.t,y2:H-m.b,class:"quadline"}));
-  s.appendChild(el("line",{x1:m.l,x2:W-m.r,y1:py(ST.median_value),y2:py(ST.median_value),class:"quadline"}));
-  [["위험",m.l+6,m.t+8,"start"],["자산",W-m.r-4,m.t+8,"end"],
-   ["소비",m.l+6,H-m.b-12,"start"],["대기",W-m.r-4,H-m.b-12,"end"]].forEach(([t,x,y,a])=>
+  const mx=px(ST.median_years), my=py(ST.median_value);
+  [["risk",m.l,m.t,mx-m.l,my-m.t],["asset",mx,m.t,W-m.r-mx,my-m.t],
+   ["drink",m.l,my,mx-m.l,H-m.b-my],["wait",mx,my,W-m.r-mx,H-m.b-my]].forEach(([k,x,y,w,h])=>{
+    const r=el("rect",{x,y,width:Math.max(w,0),height:Math.max(h,0),class:"quadhit","data-quad":k});
+    r.addEventListener("click",()=>{F.quad=F.quad===k?null:k;render()});
+    s.appendChild(r)});
+  s.appendChild(el("line",{x1:mx,x2:mx,y1:m.t,y2:H-m.b,class:"quadline"}));
+  s.appendChild(el("line",{x1:m.l,x2:W-m.r,y1:my,y2:my,class:"quadline"}));
+  [["위험",m.l+6,m.t+9,"start"],["자산",W-m.r-4,m.t+9,"end"],
+   ["소비",m.l+6,H-m.b-11,"start"],["대기",W-m.r-4,H-m.b-11,"end"]].forEach(([t,x,y,a])=>
     s.appendChild(el("text",{x,y,"text-anchor":a,class:"qlabel"})).textContent=t);
-  const box=document.getElementById("mx"), tip=document.getElementById("mx-tip");
+  const box=$("mx"), tip=$("mx-tip");
   [...B].sort((a,b)=>b.price.avg_usd-a.price.avg_usd).forEach(b=>{
-    const c=el("circle",{cx:px(b.drink_to-YEAR),cy:py(b.price.avg_usd),r:qty(b)>1?5.5:4,
+    const c=el("circle",{cx:px(left(b)),cy:py(b.price.avg_usd),r:qty(b)>1?5.5:4,
       fill:cvar(b),"fill-opacity":.85,class:"dot","data-id":b.id});
     c.addEventListener("mouseenter",()=>{
       tip.innerHTML=`<h4>${esc(b.display)} ${vint(b)}</h4>
         <div class="r"><span>VAL</span><b>${usd(b.price.avg_usd)}</b></div>
-        <div class="r"><span>LEFT</span><b>${b.drink_to-YEAR}y</b></div>
+        <div class="r"><span>LEFT</span><b>${left(b)}y</b></div>
         <div class="r" style="--c:${cvar(b)}"><i></i><span>ST</span><b>${S[b.status].label}</b></div>`;
       tip.classList.add("on");
       const r=box.getBoundingClientRect(), sc=W/(r.width-22);
-      tip.style.left=Math.min(Math.max(px(b.drink_to-YEAR)/sc-66,2),Math.max(r.width-150,2))+"px";
+      tip.style.left=Math.min(Math.max(px(left(b))/sc-66,2),Math.max(r.width-150,2))+"px";
       tip.style.top=Math.max(py(b.price.avg_usd)/sc-62,2)+"px"});
     c.addEventListener("mouseleave",()=>tip.classList.remove("on"));
-    s.appendChild(c)});
+    dotById[b.id]=c; s.appendChild(c)});
   box.insertBefore(s,tip);
 })();
-const risk=B.filter(b=>b.price.avg_usd>=ST.median_value&&b.drink_to-YEAR<ST.median_years);
-document.getElementById("mx-sub").textContent=`MED ${usd(ST.median_value)} / ${ST.median_years}y · RISK ${risk.length}`;
-document.getElementById("mx-legend").innerHTML=ORDER.map(k=>
-  `<span style="--c:var(${S[k].v})"><i></i>${S[k].label}</span>`).join("");
+const risk=B.filter(b=>b.price.avg_usd>=ST.median_value&&left(b)<ST.median_years);
+$("mx-sub").textContent=`MED ${usd(ST.median_value)} / ${ST.median_years}y · RISK ${risk.length}`;
+$("mx-legend").innerHTML=ORDER.map(k=>
+  `<span style="--c:var(${S[k].v})"><i></i>${S[k].label}</span>`).join("")
+  +`<span style="color:var(--ink-3)">구역 클릭 = 필터</span>`;
 
-/* maturity */
+/* ── maturity ─────────────────────────── */
 const LAST=Math.max(...B.map(b=>b.drink_to)), TOT=ST.total, curve=[];
 for(let y=YEAR;y<=LAST;y++){let p=0,r=0,h=0;
   B.forEach(b=>{const n=qty(b); if(b.drink_to<y)p+=n; else if(b.drink_from<=y)r+=n; else h+=n});
@@ -462,8 +544,7 @@ const BANDS=[{k:"past",label:"마감",c:"var(--c-past)"},{k:"rdy",label:"가능"
   const cross=el("line",{y1:m.t,y2:H-m.b,class:"cross",opacity:0}); s.appendChild(cross);
   const hit=el("rect",{x:m.l,y:m.t,width:W-m.l-m.r,height:H-m.t-m.b,fill:"transparent"});
   s.appendChild(hit);
-  const box=document.getElementById("cv"), tip=document.getElementById("cv-tip");
-  box.insertBefore(s,tip);
+  const box=$("cv"), tip=$("cv-tip"); box.insertBefore(s,tip);
   hit.addEventListener("mousemove",ev=>{
     const r=box.getBoundingClientRect(), sc=W/(r.width-22);
     const i=Math.max(0,Math.min(curve.length-1,
@@ -473,108 +554,233 @@ const BANDS=[{k:"past",label:"마감",c:"var(--c-past)"},{k:"rdy",label:"가능"
     tip.innerHTML=`<h4>${d.y}</h4>`+BANDS.map(b=>
       `<div class="r" style="--c:${b.c}"><i></i><span>${b.label}</span><b>${d[b.k]}</b></div>`).join("");
     tip.classList.add("on");
-    tip.style.left=Math.min(Math.max(px(d.y)/sc-64,2),Math.max(r.width-142,2))+"px"; tip.style.top="2px"});
+    tip.style.left=Math.min(Math.max(px(d.y)/sc-64,2),Math.max(r.width-142,2))+"px";tip.style.top="2px"});
   hit.addEventListener("mouseleave",()=>{tip.classList.remove("on");cross.setAttribute("opacity",0)});
 })();
 const c5=curve.find(d=>d.y===YEAR+5)||curve[curve.length-1];
-document.getElementById("cv-sub").textContent=`NOW ${curve[0].rdy} · ${YEAR+5} ${c5.rdy}`;
-document.getElementById("cv-legend").innerHTML=BANDS.map(b=>
-  `<span style="--c:${b.c}"><i></i>${b.label}</span>`).join("");
+$("cv-sub").textContent=`NOW ${curve[0].rdy} · ${YEAR+5} ${c5.rdy}`;
+$("cv-legend").innerHTML=BANDS.map(b=>`<span style="--c:${b.c}"><i></i>${b.label}</span>`).join("");
 
-/* inventory */
+/* ── mix / facets (클릭 = 필터) ───────── */
 const lo=Math.min(...B.map(b=>b.drink_from)), hi=Math.max(...B.map(b=>b.drink_to));
 const pct=y=>(y-lo)/(hi-lo)*100;
-const PRESETS=[{k:"all",label:"ALL",fn:()=>true},{k:"now",label:"NOW",fn:ready},
-  {k:"soon",label:"3Y",fn:b=>b.drink_to-YEAR<=3},
-  {k:"top",label:"$300+",fn:b=>b.price.avg_usd>=300},
-  {k:"white",label:"WHITE",fn:b=>b.type!=="red"}];
-let preset="all", view="table";
-document.getElementById("presets").innerHTML=PRESETS.map(p=>
-  `<button data-p="${p.k}" aria-pressed="${p.k===preset}">${p.label}</button>`).join("");
-document.getElementById("chips").innerHTML=ORDER.map(k=>{
+function renderFacet(){
+  const host=$("mix");
+  if(facetAxis==="vintage"){
+    // 1981 한 병 때문에 앞쪽 14년이 비어 정작 중요한 1995~2024 구간이 눌린다.
+    // 축은 1995부터 그리고, 그보다 오래된 병은 캡션으로 뺀다.
+    const vs=B.filter(b=>b.vintage), V0=1995, V1=2024;
+    const older=vs.filter(b=>b.vintage<V0);
+    const cnt={}; vs.filter(b=>b.vintage>=V0).forEach(b=>cnt[b.vintage]=(cnt[b.vintage]||0)+qty(b));
+    const n=V1-V0+1, W=380,H=112,m={t:8,r:6,b:16,l:16}, slot=(W-m.l-m.r)/n;
+    const mx=Math.max(...Object.values(cnt));
+    const s=svg(W,H);
+    s.setAttribute("aria-label","빈티지별 보유 병 수. 막대가 없는 해가 공백이다.");
+    [0,mx].forEach(v=>{
+      const y=m.t+(1-v/mx)*(H-m.t-m.b);
+      s.appendChild(el("line",{x1:m.l,x2:W-m.r,y1:y,y2:y,class:"gridline"}));
+      s.appendChild(el("text",{x:m.l-3,y:y+3,"text-anchor":"end",class:"axis"})).textContent=v});
+    for(let y=Math.ceil(V0/10)*10;y<=V1;y+=10)
+      s.appendChild(el("text",{x:m.l+(y-V0+.5)*slot,y:H-m.b+11,"text-anchor":"middle",class:"axis"}))
+        .textContent="'"+String(y).slice(2);
+    for(let y=V0;y<=V1;y++){
+      const v=cnt[y]||0, x=m.l+(y-V0)*slot;
+      const g=el("g",{class:"vbar","data-vint":y});
+      const bh=v?(1-(1-v/mx))*(H-m.t-m.b):0;
+      g.appendChild(el("rect",{x:x+slot*.12,y:H-m.b-bh,width:Math.max(slot*.76,1.6),height:bh,
+        fill:F.facet&&F.facet.type==="vintage"&&F.facet.value===y?"var(--cmd)":"var(--c-ready)",
+        "fill-opacity":v?.9:0}));
+      g.appendChild(el("rect",{x,y:m.t,width:slot,height:H-m.t-m.b,fill:"transparent"}));
+      g.appendChild(el("title")).textContent=`${y} · ${v}병`;
+      if(v) g.addEventListener("click",()=>{
+        F.facet=(F.facet&&F.facet.type==="vintage"&&F.facet.value===y)?null:{type:"vintage",value:y};
+        render()});
+      s.appendChild(g)}
+    host.innerHTML=""; host.className="pad"; host.appendChild(s);
+    const gapY=[]; for(let y=1996;y<=2022;y++) if(!cnt[y])gapY.push(y);
+    const p=document.createElement("div");
+    p.style.cssText="font-family:var(--mono);font-size:9.8px;color:var(--ink-3);margin-top:4px";
+    p.textContent=(older.length?older.map(b=>`${b.vintage} ${short0(b)}`).join(" · ")+"  ·  ":"")
+      +"공백 "+gapY.join(" · ");
+    host.appendChild(p);
+    return;
+  }
+  const agg={};
+  B.forEach(b=>{const k=facetAxis==="category"?b.category:grape(b);
+    const a=agg[k]||(agg[k]=[0,0]); a[0]+=qty(b); a[1]+=value(b)});
+  const mm=Math.max(...Object.values(agg).map(v=>v[1]));
+  host.className="pad mix";
+  host.innerHTML=Object.entries(agg).sort((a,b)=>b[1][1]-a[1][1]).map(([c,[n,v]])=>{
+    const on=F.facet&&F.facet.type===facetAxis&&F.facet.value===c;
+    return `<div data-facet="${esc(c)}" class="${on?"on":""}"><span>${esc(c)}</span>
+      <em>${n}</em><b>${usd(v)}</b>
+      <span class="t2"><i style="width:${v/mm*100}%"></i></span></div>`}).join("");
+}
+$("facet").addEventListener("click",e=>{
+  const b=e.target.closest("button"); if(!b)return;
+  facetAxis=b.dataset.f;
+  [...e.currentTarget.children].forEach(c=>c.setAttribute("aria-pressed",c.dataset.f===facetAxis));
+  if(F.facet)F.facet=null;
+  save(); render()});
+$("mix").addEventListener("click",e=>{
+  const d=e.target.closest("[data-facet]"); if(!d)return;
+  const v=d.dataset.facet;
+  F.facet=(F.facet&&F.facet.type===facetAxis&&F.facet.value===v)?null:{type:facetAxis,value:v};
+  render()});
+
+/* ── inventory ────────────────────────── */
+$("presets").innerHTML=PRESETS.map(p=>
+  `<button data-p="${p.k}" aria-pressed="${p.k===F.preset}">${p.label}</button>`).join("");
+$("chips").innerHTML=ORDER.map(k=>{
   const n=B.filter(b=>b.status===k).reduce((s,b)=>s+qty(b),0);
-  return `<button data-k="${k}" aria-pressed="false" style="--c:var(${S[k].v})"
+  return `<button data-k="${k}" aria-pressed="${F.status.has(k)}" style="--c:var(${S[k].v})"
     title="${S[k].label}"><i class="d2"></i>${n}</button>`}).join("");
+$("sort").value=sortKey;
+[...$("view").children].forEach(c=>c.setAttribute("aria-pressed",c.dataset.v===view));
+[...$("facet").children].forEach(c=>c.setAttribute("aria-pressed",c.dataset.f===facetAxis));
+
+const SORTS={close:(a,b)=>a.drink_to-b.drink_to||a.id-b.id,
+  price:(a,b)=>b.price.avg_usd-a.price.avg_usd,
+  vintage:(a,b)=>(a.vintage||9999)-(b.vintage||9999),
+  name:(a,b)=>a.display.localeCompare(b.display)};
+
+function passes(b){
+  if(!PRESETS.find(p=>p.k===F.preset).fn(b))return false;
+  if(F.status.size&&!F.status.has(b.status))return false;
+  if(F.quad&&!QUAD[F.quad].fn(b.price.avg_usd,left(b)))return false;
+  if(F.facet){
+    if(F.facet.type==="category"&&b.category!==F.facet.value)return false;
+    if(F.facet.type==="grape"&&grape(b)!==F.facet.value)return false;
+    if(F.facet.type==="vintage"&&b.vintage!==F.facet.value)return false;
+  }
+  if(F.sig!==null&&!DATA.insights[F.sig].ids.includes(b.id))return false;
+  const t=F.q.trim().toLowerCase();
+  if(t&&![b.display,b.producer,b.region,b.category,vint(b),code(b),...(b.grapes||[])]
+    .join(" ").toLowerCase().includes(t))return false;
+  return true;
+}
 function rows(list){
-  const t=document.getElementById("rows");
+  const t=$("rows");
   if(!list.length){t.innerHTML=`<p class="empty">NO MATCH</p>`;return}
-  t.innerHTML=list.map(b=>`<button class="item" data-id="${b.id}">
+  t.innerHTML=list.map(b=>`<button class="item${b.id===selId?" sel":""}" data-id="${b.id}">
     <span class="id">${code(b)}</span>
     <span class="nm">${qty(b)>1?`<b>×${qty(b)}</b>`:""}<span>${esc(b.display)}</span></span>
     <span class="vt">${vint(b)}</span><span class="rg">${esc(b.region)}</span>
     <span class="st" style="--c:${cvar(b)}">${S[b.status].label}</span>
     <span class="win">${b.drink_from}–${b.drink_to}</span>
-    <span class="left">${b.drink_to-YEAR}y</span>
+    <span class="left">${left(b)}y</span>
     <span class="pr">${usd(b.price.avg_usd)}</span></button>`).join("");
 }
 function timeline(list){
   const ticks=[]; for(let y=Math.ceil(lo/10)*10;y<=hi;y+=10)ticks.push(y);
-  document.getElementById("tl").innerHTML=
+  $("tl").innerHTML=
     `<div class="tl-axis">${ticks.map(y=>`<span style="left:${pct(y)}%">${y}</span>`).join("")}</div>
      <div class="tl-body"><div class="tl-grid">${ticks.map(y=>`<i style="left:${pct(y)}%"></i>`).join("")}
        <div class="tl-now" style="left:${pct(YEAR)}%"></div></div>
        ${list.map(b=>`<div class="row">
          <div class="rname" title="${esc(b.display)}">${esc(b.display)} <em>${vint(b)}</em></div>
-         <div class="track"><a class="bar2" href="#" data-id="${b.id}" style="--c:${cvar(b)};
-           left:${pct(b.drink_from)}%;width:${Math.max(pct(b.drink_to)-pct(b.drink_from),1.2)}%"
+         <div class="track"><a class="bar2${b.id===selId?" sel":""}" href="#" data-id="${b.id}"
+           style="--c:${cvar(b)};left:${pct(b.drink_from)}%;
+           width:${Math.max(pct(b.drink_to)-pct(b.drink_from),1.2)}%"
            title="${esc(b.display)} ${b.drink_from}–${b.drink_to}"></a></div></div>`).join("")}</div>`;
 }
-const active=new Set(), q=document.getElementById("q"), sortEl=document.getElementById("sort");
-const SORTS={close:(a,b)=>a.drink_to-b.drink_to||a.id-b.id,
-  price:(a,b)=>b.price.avg_usd-a.price.avg_usd,
-  vintage:(a,b)=>(a.vintage||9999)-(b.vintage||9999),
-  name:(a,b)=>a.display.localeCompare(b.display)};
-function apply(){
-  const t=q.value.trim().toLowerCase(), pf=PRESETS.find(p=>p.k===preset).fn;
-  const list=B.filter(b=>{
-    if(!pf(b))return false;
-    if(active.size&&!active.has(b.status))return false;
-    if(!t)return true;
-    return [b.display,b.producer,b.region,b.category,vint(b),code(b),...(b.grapes||[])]
-      .join(" ").toLowerCase().includes(t)}).sort(SORTS[sortEl.value]);
-  rows(list); timeline([...list].sort(SORTS.close));
-  document.getElementById("count").textContent=
-    `${list.reduce((s,b)=>s+qty(b),0)} BTL · ${usd(list.reduce((s,b)=>s+value(b),0))}`;
+function fbar(){
+  const chips=[];
+  if(F.preset!=="all")chips.push(["preset",PRESETS.find(p=>p.k===F.preset).label]);
+  F.status.forEach(k=>chips.push(["status:"+k,S[k].label]));
+  if(F.quad)chips.push(["quad",QUAD[F.quad].label+" 구역"]);
+  if(F.facet)chips.push(["facet",F.facet.value]);
+  if(F.sig!==null)chips.push(["sig",DATA.insights[F.sig].tag+" "+DATA.insights[F.sig].head]);
+  if(F.q)chips.push(["q",'"'+F.q+'"']);
+  const bar=$("fbar");
+  bar.hidden=!chips.length;
+  if(!chips.length)return;
+  bar.innerHTML=`<span class="lbl">FILTER</span>`+
+    chips.map(([k,l])=>`<button class="fchip" data-clear="${k}"><b>${esc(l)}</b>✕</button>`).join("")+
+    `<button class="fclear" data-clear="all">CLEAR ALL</button>`;
 }
-document.getElementById("presets").addEventListener("click",e=>{
-  const b=e.target.closest("button"); if(!b)return; preset=b.dataset.p;
-  [...e.currentTarget.children].forEach(c=>c.setAttribute("aria-pressed",c.dataset.p===preset)); apply()});
-document.getElementById("chips").addEventListener("click",e=>{
+function render(){
+  curList=B.filter(passes).sort(SORTS[sortKey]);
+  if(selId&&!curList.some(b=>b.id===selId))selId=null;
+  rows(curList); timeline([...curList].sort(SORTS.close)); fbar(); renderFacet();
+  const ids=new Set(curList.map(b=>b.id));
+  B.forEach(b=>{const d=dotById[b.id]; if(!d)return;
+    d.classList.toggle("off",!ids.has(b.id)); d.classList.toggle("sel",b.id===selId)});
+  document.querySelectorAll(".quadhit").forEach(r=>
+    r.classList.toggle("on",r.dataset.quad===F.quad));
+  document.querySelectorAll("#alerts .al").forEach(a=>
+    a.classList.toggle("on",+a.dataset.sig===F.sig));
+  [...$("presets").children].forEach(c=>c.setAttribute("aria-pressed",c.dataset.p===F.preset));
+  [...$("chips").children].forEach(c=>c.setAttribute("aria-pressed",F.status.has(c.dataset.k)));
+  $("count").textContent=
+    `${curList.reduce((s,b)=>s+qty(b),0)} BTL · ${usd(curList.reduce((s,b)=>s+value(b),0))}`;
+  save();
+}
+$("fbar").addEventListener("click",e=>{
+  const b=e.target.closest("[data-clear]"); if(!b)return;
+  const k=b.dataset.clear;
+  if(k==="all"){F.preset="all";F.status.clear();F.quad=null;F.facet=null;F.sig=null;
+    F.q="";$("q").value=""}
+  else if(k==="preset")F.preset="all";
+  else if(k.startsWith("status:"))F.status.delete(k.slice(7));
+  else if(k==="quad")F.quad=null; else if(k==="facet")F.facet=null;
+  else if(k==="sig")F.sig=null; else if(k==="q"){F.q="";$("q").value=""}
+  render()});
+$("presets").addEventListener("click",e=>{
+  const b=e.target.closest("button"); if(!b)return; F.preset=b.dataset.p; render()});
+$("chips").addEventListener("click",e=>{
   const b=e.target.closest("button"); if(!b)return; const k=b.dataset.k;
-  active.has(k)?active.delete(k):active.add(k);
-  b.setAttribute("aria-pressed",active.has(k)); apply()});
-document.getElementById("view").addEventListener("click",e=>{
-  const b=e.target.closest("button"); if(!b)return; view=b.dataset.v;
-  [...e.currentTarget.children].forEach(c=>c.setAttribute("aria-pressed",c.dataset.v===view));
-  document.getElementById("table-view").hidden=view!=="table";
-  document.getElementById("time-view").hidden=view!=="time"});
-q.addEventListener("input",apply); sortEl.addEventListener("change",apply);
+  F.status.has(k)?F.status.delete(k):F.status.add(k); render()});
+$("view").addEventListener("click",e=>{
+  const b=e.target.closest("button"); if(!b)return; setView(b.dataset.v)});
+function setView(v){view=v;
+  [...$("view").children].forEach(c=>c.setAttribute("aria-pressed",c.dataset.v===view));
+  $("table-view").hidden=view!=="table"; $("time-view").hidden=view!=="time"; save()}
+$("q").addEventListener("input",e=>{F.q=e.target.value;render()});
+$("sort").addEventListener("change",e=>{sortKey=e.target.value;render()});
+$("copy").addEventListener("click",async()=>{
+  const csv=["id,wine,vintage,region,status,from,to,qty,usd",
+    ...curList.map(b=>[code(b),`"${b.display}"`,vint(b),`"${b.region}"`,S[b.status].label,
+      b.drink_from,b.drink_to,qty(b),b.price.avg_usd].join(","))].join("\n");
+  let ok=false;
+  try{await navigator.clipboard.writeText(csv);ok=true}catch(e){
+    try{const ta=document.createElement("textarea");ta.value=csv;ta.style.position="fixed";
+      ta.style.opacity="0";document.body.appendChild(ta);ta.select();
+      ok=document.execCommand("copy");ta.remove()}catch(e2){}}
+  const btn=$("copy"); btn.textContent=ok?"COPIED":"복사 실패";
+  setTimeout(()=>{btn.textContent="COPY"},1400)});
 
-/* bottom */
-const mix={}; B.forEach(b=>{const m=mix[b.category]||(mix[b.category]=[0,0]);m[0]+=qty(b);m[1]+=value(b)});
-const mm=Math.max(...Object.values(mix).map(v=>v[1]));
-document.getElementById("mix").innerHTML=Object.entries(mix).sort((a,b)=>b[1][1]-a[1][1])
-  .map(([c,[n,v]])=>`<div><span>${esc(c)}</span><em>${n}</em><b>${usd(v)}</b>
-    <span class="t2"><i style="width:${v/mm*100}%"></i></span></div>`).join("");
-document.getElementById("gaps").innerHTML=DATA.gaps.map(g=>`<div class="gap-i">
+/* ── gaps · flags ─────────────────────── */
+$("gaps").innerHTML=DATA.gaps.map(g=>`<div class="gap-i">
   <h3>${esc(g.title)}<span class="tag" style="--c:var(${g.severity==="high"?"--s-urgent":"--s-now"})">${g.severity==="high"?"PRI":"SEC"}</span></h3>
   <p>${esc(g.why.split(".")[0])}.</p>
   <div class="picks">${g.picks.map(x=>`<span>${esc(x)}</span>`).join("")}</div></div>`).join("");
-document.getElementById("flags").innerHTML=(DATA.flags||[]).map(f=>`<div class="flag">
+$("flags").innerHTML=(DATA.flags||[]).map(f=>`<div class="flag">
   <h3><em>${code(byId[f.id])}</em>${esc(f.title)}</h3><p>${esc(f.text)}</p></div>`).join("")
   ||`<p class="empty">NONE</p>`;
-document.getElementById("foot").textContent=DATA.price_note+" "+DATA.storage.note;
+$("foot").textContent=DATA.price_note+" "+DATA.storage.note;
 
-/* drawer */
-const drawer=document.getElementById("drawer"), scrim=document.getElementById("scrim");
+/* ── drawer ───────────────────────────── */
+const drawer=$("drawer"), scrim=$("scrim");
 let lastFocus=null;
+function peers(b){
+  const same=k=>B.filter(x=>x.id!==b.id&&k(x));
+  const reg=same(x=>x.region===b.region), gr=same(x=>grape(x)===grape(b)&&grape(b)!=="—");
+  const btn=x=>`<button data-id="${x.id}">${code(x)} ${esc(x.display.slice(0,18))}</button>`;
+  let out="";
+  if(reg.length)out+=`<div class="blk"><h3>Same region</h3><div class="peers">${reg.map(btn).join("")}</div></div>`;
+  if(gr.length)out+=`<div class="blk"><h3>Same grape · ${esc(grape(b))}</h3><div class="peers">${gr.slice(0,8).map(btn).join("")}</div></div>`;
+  return out;
+}
 function openDrawer(id){
   const b=byId[id]; if(!b)return; const p=b.profile, pr=b.price;
-  document.getElementById("drawer-inner").innerHTML=`
-    <div class="d-head"><div class="code">${code(b)}</div><h2 id="d-title">${esc(b.display)}</h2>
+  const rank=[...B].sort((x,y)=>y.price.avg_usd-x.price.avg_usd).findIndex(x=>x.id===id)+1;
+  $("drawer-inner").innerHTML=`
+    <div class="d-head"><div class="code">${code(b)} · VALUE RANK ${rank}/${B.length}</div>
+      <h2 id="d-title">${esc(b.display)}</h2>
       <div class="d-sub"><span>${vint(b)}</span><span>${esc(b.region)}</span>
         <span style="color:${cvar(b)}">${S[b.status].label}</span>
-        <span>${b.drink_from}–${b.drink_to}</span></div></div>
+        <span>${b.drink_from}–${b.drink_to} · ${left(b)}y</span></div></div>
     <div class="d-body">
       <div class="d-price">
         <div class="cf">${pr.confidence==="none"?"참고 추정가 · WS 미등재":"WINE-SEARCHER 전세계 평균"}</div>
@@ -597,6 +803,7 @@ function openDrawer(id){
         <div><dt>GLASS</dt><dd>${esc(p.serve.glass)}</dd></div></dl></div>
       <div class="blk"><h3>Pairing</h3><div class="tags">${p.pair.map(x=>`<span>${esc(x)}</span>`).join("")}</div></div>
       <div class="blk"><h3>Note</h3><p>${esc(b.notes)}</p></div>
+      ${peers(b)}
       <div class="d-meta">
         <div><b>PRODUCER</b><span>${esc(b.producer)}</span></div>
         ${b.classification?`<div><b>CLASS</b><span>${esc(b.classification)}</span></div>`:""}
@@ -604,19 +811,42 @@ function openDrawer(id){
         ${b.abv?`<div><b>ABV</b><span>${b.abv}%</span></div>`:""}
         <div><b>FORMAT</b><span>${b.format_ml??750}ml</span></div>
         <div><b>QTY</b><span>${qty(b)}</span></div></div></div>`;
+  selId=id; render();
   lastFocus=document.activeElement; drawer.hidden=false;
   requestAnimationFrame(()=>{drawer.classList.add("on");scrim.classList.add("on")});
-  drawer.scrollTop=0; document.getElementById("close").focus();
+  drawer.scrollTop=0; $("close").focus();
 }
 function closeDrawer(){drawer.classList.remove("on");scrim.classList.remove("on");
   setTimeout(()=>{drawer.hidden=true},200); lastFocus?.focus()}
 scrim.addEventListener("click",closeDrawer);
-document.getElementById("close").addEventListener("click",closeDrawer);
-document.addEventListener("keydown",e=>{
-  if(e.key==="Escape"&&!drawer.hidden)closeDrawer();
-  else if(e.key==="/"&&document.activeElement!==q){e.preventDefault();q.focus()}});
+$("close").addEventListener("click",closeDrawer);
 document.addEventListener("click",e=>{
   const t=e.target.closest("[data-id]"); if(!t)return; e.preventDefault(); openDrawer(+t.dataset.id)});
 
-apply();
+/* ── keyboard ─────────────────────────── */
+function moveSel(step){
+  if(!curList.length)return;
+  const i=curList.findIndex(b=>b.id===selId);
+  const n=i<0?(step>0?0:curList.length-1):Math.min(Math.max(i+step,0),curList.length-1);
+  selId=curList[n].id; render();
+  const row=document.querySelector(`.item[data-id="${selId}"]`);
+  row?.scrollIntoView({block:"nearest"});
+}
+document.addEventListener("keydown",e=>{
+  const typing=/^(INPUT|SELECT|TEXTAREA)$/.test(document.activeElement.tagName);
+  if(e.key==="Escape"){ if(!drawer.hidden)closeDrawer(); else if(typing)document.activeElement.blur(); return }
+  if(typing||e.metaKey||e.ctrlKey||e.altKey)return;
+  if(e.key==="/"){e.preventDefault();$("q").focus();return}
+  if(e.key==="j"||e.key==="ArrowDown"){e.preventDefault();moveSel(1);return}
+  if(e.key==="k"||e.key==="ArrowUp"){e.preventDefault();moveSel(-1);return}
+  if(e.key==="Enter"&&selId){e.preventDefault();openDrawer(selId);return}
+  if(e.key==="c"){F.preset="all";F.status.clear();F.quad=null;F.facet=null;F.sig=null;
+    F.q="";$("q").value="";render();return}
+  if(e.key==="t"){setView(view==="table"?"time":"table");return}
+  const n=+e.key;
+  if(n>=1&&n<=5){const k=ORDER[n-1];F.status.has(k)?F.status.delete(k):F.status.add(k);render()}
+});
+
+setView(view);
+render();
 </script>
