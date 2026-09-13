@@ -39,12 +39,20 @@
         ]
       },
       "price": {
-        "avg_usd": 154,
+        "avg_usd": 132,
         "basis": "750ml, ex-tax",
-        "confidence": "unverified",
-        "note": "미확인. 같은 방식으로 읽은 카농 2000이 실제 $220 대신 $603으로 나왔던 전례가 있어 오차 가능성이 크다.",
-        "source": "웹 검색 결과에서 읽은 값 — Wine-Searcher 페이지로 확인되지 않음",
-        "source_kind": "search"
+        "confidence": "estimate",
+        "note": "판매처 호가 6곳 $105~175의 중앙값. 신뢰도 높음. WS 스니펫 $164와 대조.",
+        "source": "실제 판매처 호가 6곳 삼각측량 중앙값 (USD/750ml)",
+        "source_kind": "triangulated",
+        "est": {
+          "low": 105,
+          "high": 175,
+          "n_listings": 6,
+          "grade": "high",
+          "ws_snippet": 164,
+          "flag": ""
+        }
       },
       "ws_url": "https://www.wine-searcher.com/find/orin+swift+mercurey+head+cab+sauv+napa+valley+county+north+coast+california+usa/2018"
     },
@@ -83,12 +91,20 @@
         ]
       },
       "price": {
-        "avg_usd": 85,
+        "avg_usd": 93,
         "basis": "750ml, ex-tax",
-        "confidence": "unverified",
-        "note": "미확인. 같은 방식으로 읽은 카농 2000이 실제 $220 대신 $603으로 나왔던 전례가 있어 오차 가능성이 크다.",
-        "source": "웹 검색 결과에서 읽은 값 — Wine-Searcher 페이지로 확인되지 않음",
-        "source_kind": "search"
+        "confidence": "estimate",
+        "note": "판매처 호가 4곳 $72~101의 중앙값. 신뢰도 높음. WS 스니펫 $97와 대조.",
+        "source": "실제 판매처 호가 4곳 삼각측량 중앙값 (USD/750ml)",
+        "source_kind": "triangulated",
+        "est": {
+          "low": 72,
+          "high": 101,
+          "n_listings": 4,
+          "grade": "high",
+          "ws_snippet": 97,
+          "flag": ""
+        }
       },
       "ws_url": "https://www.wine-searcher.com/find/hardys+thomas+cab+sauv+australia"
     },
@@ -127,12 +143,20 @@
         ]
       },
       "price": {
-        "avg_usd": 66,
+        "avg_usd": 50,
         "basis": "750ml, ex-tax",
-        "confidence": "unverified",
-        "note": "미확인. 같은 방식으로 읽은 카농 2000이 실제 $220 대신 $603으로 나왔던 전례가 있어 오차 가능성이 크다.",
-        "source": "웹 검색 결과에서 읽은 값 — Wine-Searcher 페이지로 확인되지 않음",
-        "source_kind": "search"
+        "confidence": "estimate",
+        "note": "판매처 호가 5곳 $50~78의 중앙값. 신뢰도 높음. WS 스니펫 $66와 대조.",
+        "source": "실제 판매처 호가 5곳 삼각측량 중앙값 (USD/750ml)",
+        "source_kind": "triangulated",
+        "est": {
+          "low": 50,
+          "high": 78,
+          "n_listings": 5,
+          "grade": "high",
+          "ws_snippet": 66,
+          "flag": ""
+        }
       },
       "ws_url": "https://www.wine-searcher.com/find/austinhope+cab+sauv+paso+robles+st+luis+obispo+county+central+coast+california+usa/2020"
     },
@@ -174,12 +198,20 @@
         ]
       },
       "price": {
-        "avg_usd": 218,
+        "avg_usd": 155,
         "basis": "750ml, ex-tax",
-        "confidence": "unverified",
-        "note": "미확인. 같은 방식으로 읽은 카농 2000이 실제 $220 대신 $603으로 나왔던 전례가 있어 오차 가능성이 크다.",
-        "source": "웹 검색 결과에서 읽은 값 — Wine-Searcher 페이지로 확인되지 않음",
-        "source_kind": "search"
+        "confidence": "estimate",
+        "note": "판매처 호가 8곳 $94~280의 중앙값. 신뢰도 낮음. WS 스니펫($210)은 호가보다 높아 제외.",
+        "source": "실제 판매처 호가 8곳 삼각측량 중앙값 (USD/750ml)",
+        "source_kind": "triangulated",
+        "est": {
+          "low": 94,
+          "high": 280,
+          "n_listings": 8,
+          "grade": "low",
+          "ws_snippet": 210,
+          "flag": "ws_high"
+        }
       },
       "ws_url": "https://www.wine-searcher.com/find/calon+segur+st+estephe+medoc+bordeaux+france/2005"
     },
@@ -218,12 +250,20 @@
         ]
       },
       "price": {
-        "avg_usd": 140,
+        "avg_usd": 125,
         "basis": "750ml, ex-tax",
-        "confidence": "unverified",
-        "note": "미확인. 같은 방식으로 읽은 카농 2000이 실제 $220 대신 $603으로 나왔던 전례가 있어 오차 가능성이 크다.",
-        "source": "웹 검색 결과에서 읽은 값 — Wine-Searcher 페이지로 확인되지 않음",
-        "source_kind": "search"
+        "confidence": "estimate",
+        "note": "판매처 호가 8곳 $97~150의 중앙값. 신뢰도 높음. WS 스니펫 $140와 대조.",
+        "source": "실제 판매처 호가 8곳 삼각측량 중앙값 (USD/750ml)",
+        "source_kind": "triangulated",
+        "est": {
+          "low": 97,
+          "high": 150,
+          "n_listings": 8,
+          "grade": "high",
+          "ws_snippet": 140,
+          "flag": ""
+        }
       },
       "ws_url": "https://www.wine-searcher.com/find/shafer+one+point+five+cab+sauv+stags+leap+district+napa+valley+county+north+coast+california+usa/2021"
     },
@@ -265,12 +305,20 @@
         ]
       },
       "price": {
-        "avg_usd": 183,
+        "avg_usd": 162,
         "basis": "750ml, ex-tax",
-        "confidence": "unverified",
-        "note": "미확인. 같은 방식으로 읽은 카농 2000이 실제 $220 대신 $603으로 나왔던 전례가 있어 오차 가능성이 크다.",
-        "source": "웹 검색 결과에서 읽은 값 — Wine-Searcher 페이지로 확인되지 않음",
-        "source_kind": "search"
+        "confidence": "estimate",
+        "note": "판매처 호가 12곳 $150~213의 중앙값. 신뢰도 높음. WS 스니펫 $183와 대조.",
+        "source": "실제 판매처 호가 12곳 삼각측량 중앙값 (USD/750ml)",
+        "source_kind": "triangulated",
+        "est": {
+          "low": 150,
+          "high": 213,
+          "n_listings": 12,
+          "grade": "high",
+          "ws_snippet": 183,
+          "flag": ""
+        }
       },
       "ws_url": "https://www.wine-searcher.com/find/marchesi+antinori+tignanello+tuscany+igp+italy/2020"
     },
@@ -312,12 +360,20 @@
         ]
       },
       "price": {
-        "avg_usd": 226,
+        "avg_usd": 217,
         "basis": "750ml, ex-tax",
-        "confidence": "unverified",
-        "note": "미확인. 같은 방식으로 읽은 카농 2000이 실제 $220 대신 $603으로 나왔던 전례가 있어 오차 가능성이 크다.",
-        "source": "웹 검색 결과에서 읽은 값 — Wine-Searcher 페이지로 확인되지 않음",
-        "source_kind": "search"
+        "confidence": "estimate",
+        "note": "판매처 호가 4곳 $173~280의 중앙값. 신뢰도 높음. WS 스니펫 $226와 대조.",
+        "source": "실제 판매처 호가 4곳 삼각측량 중앙값 (USD/750ml)",
+        "source_kind": "triangulated",
+        "est": {
+          "low": 173,
+          "high": 280,
+          "n_listings": 4,
+          "grade": "high",
+          "ws_snippet": 226,
+          "flag": ""
+        }
       },
       "ws_url": "https://www.wine-searcher.com/find/calon+segur+st+estephe+medoc+bordeaux+france/2000"
     },
@@ -358,12 +414,20 @@
         ]
       },
       "price": {
-        "avg_usd": 293,
+        "avg_usd": 245,
         "basis": "750ml, ex-tax",
-        "confidence": "unverified",
-        "note": "미확인. 같은 방식으로 읽은 카농 2000이 실제 $220 대신 $603으로 나왔던 전례가 있어 오차 가능성이 크다.",
-        "source": "웹 검색 결과에서 읽은 값 — Wine-Searcher 페이지로 확인되지 않음",
-        "source_kind": "search"
+        "confidence": "estimate",
+        "note": "판매처 호가 5곳 $183~527의 중앙값. 신뢰도 낮음. WS 스니펫 $258와 대조.",
+        "source": "실제 판매처 호가 5곳 삼각측량 중앙값 (USD/750ml)",
+        "source_kind": "triangulated",
+        "est": {
+          "low": 183,
+          "high": 527,
+          "n_listings": 5,
+          "grade": "low",
+          "ws_snippet": 258,
+          "flag": ""
+        }
       },
       "ws_url": "https://www.wine-searcher.com/find/le+petit+mouton+de+rothschild+pauillac+medoc+bordeaux+france/2013"
     },
@@ -406,12 +470,20 @@
         ]
       },
       "price": {
-        "avg_usd": 340,
+        "avg_usd": 290,
         "basis": "750ml, ex-tax",
-        "confidence": "unverified",
-        "note": "미확인. 같은 방식으로 읽은 카농 2000이 실제 $220 대신 $603으로 나왔던 전례가 있어 오차 가능성이 크다.",
-        "source": "웹 검색 결과에서 읽은 값 — Wine-Searcher 페이지로 확인되지 않음",
-        "source_kind": "search"
+        "confidence": "estimate",
+        "note": "판매처 호가 5곳 $217~319의 중앙값. 신뢰도 높음. WS 스니펫 $340와 대조.",
+        "source": "실제 판매처 호가 5곳 삼각측량 중앙값 (USD/750ml)",
+        "source_kind": "triangulated",
+        "est": {
+          "low": 217,
+          "high": 319,
+          "n_listings": 5,
+          "grade": "high",
+          "ws_snippet": 340,
+          "flag": ""
+        }
       },
       "ws_url": "https://www.wine-searcher.com/find/palmer+margaux+medoc+bordeaux+france/2008"
     },
@@ -452,12 +524,20 @@
         ]
       },
       "price": {
-        "avg_usd": 307,
+        "avg_usd": 272,
         "basis": "750ml, ex-tax",
-        "confidence": "unverified",
-        "note": "미확인. 같은 방식으로 읽은 카농 2000이 실제 $220 대신 $603으로 나왔던 전례가 있어 오차 가능성이 크다.",
-        "source": "웹 검색 결과에서 읽은 값 — Wine-Searcher 페이지로 확인되지 않음",
-        "source_kind": "search"
+        "confidence": "estimate",
+        "note": "판매처 호가 9곳 $172~450의 중앙값. 신뢰도 낮음. WS 스니펫 $307와 대조.",
+        "source": "실제 판매처 호가 9곳 삼각측량 중앙값 (USD/750ml)",
+        "source_kind": "triangulated",
+        "est": {
+          "low": 172,
+          "high": 450,
+          "n_listings": 9,
+          "grade": "low",
+          "ws_snippet": 307,
+          "flag": ""
+        }
       },
       "ws_url": "https://www.wine-searcher.com/find/pavillon+rouge+du+margaux+medoc+bordeaux+france/2000"
     },
@@ -499,12 +579,20 @@
         ]
       },
       "price": {
-        "avg_usd": 528,
+        "avg_usd": 504,
         "basis": "750ml, ex-tax",
-        "confidence": "unverified",
-        "note": "미확인. 같은 방식으로 읽은 카농 2000이 실제 $220 대신 $603으로 나왔던 전례가 있어 오차 가능성이 크다.",
-        "source": "웹 검색 결과에서 읽은 값 — Wine-Searcher 페이지로 확인되지 않음",
-        "source_kind": "search"
+        "confidence": "estimate",
+        "note": "판매처 호가 8곳 $395~1050의 중앙값. 신뢰도 낮음. WS 스니펫 $545와 대조.",
+        "source": "실제 판매처 호가 8곳 삼각측량 중앙값 (USD/750ml)",
+        "source_kind": "triangulated",
+        "est": {
+          "low": 395,
+          "high": 1050,
+          "n_listings": 8,
+          "grade": "low",
+          "ws_snippet": 545,
+          "flag": ""
+        }
       },
       "ws_url": "https://www.wine-searcher.com/find/opus+one+napa+valley+county+north+coast+california+usa/2007"
     },
@@ -544,12 +632,20 @@
         ]
       },
       "price": {
-        "avg_usd": 201,
+        "avg_usd": 200,
         "basis": "750ml, ex-tax",
-        "confidence": "unverified",
-        "note": "미확인. 같은 방식으로 읽은 카농 2000이 실제 $220 대신 $603으로 나왔던 전례가 있어 오차 가능성이 크다.",
-        "source": "웹 검색 결과에서 읽은 값 — Wine-Searcher 페이지로 확인되지 않음",
-        "source_kind": "search"
+        "confidence": "estimate",
+        "note": "판매처 호가 11곳 $169~250의 중앙값. 신뢰도 높음. WS 스니펫 $201와 대조.",
+        "source": "실제 판매처 호가 11곳 삼각측량 중앙값 (USD/750ml)",
+        "source_kind": "triangulated",
+        "est": {
+          "low": 169,
+          "high": 250,
+          "n_listings": 11,
+          "grade": "high",
+          "ws_snippet": 201,
+          "flag": ""
+        }
       },
       "ws_url": "https://www.wine-searcher.com/find/opus+one+overture+napa+valley+county+north+coast+california+usa/0"
     },
@@ -590,12 +686,20 @@
         ]
       },
       "price": {
-        "avg_usd": 256,
+        "avg_usd": 277,
         "basis": "750ml, ex-tax",
-        "confidence": "unverified",
-        "source": "웹 검색 결과에서 읽은 값 — Wine-Searcher 페이지로 확인되지 않음",
-        "source_kind": "search",
-        "note": "미확인. 같은 방식으로 읽은 카농 2000이 실제 $220 대신 $603으로 나왔던 전례가 있어 오차 가능성이 크다."
+        "confidence": "estimate",
+        "source": "실제 판매처 호가 4곳 삼각측량 중앙값 (USD/750ml)",
+        "source_kind": "triangulated",
+        "note": "판매처 호가 4곳 $250~548의 중앙값. 신뢰도 높음. WS 스니펫 $256와 대조.",
+        "est": {
+          "low": 250,
+          "high": 548,
+          "n_listings": 4,
+          "grade": "high",
+          "ws_snippet": 256,
+          "flag": ""
+        }
       },
       "ws_url": "https://www.wine-searcher.com/find/ornellaia+superior+bolgheri+tuscany+italy/1996"
     },
@@ -639,10 +743,18 @@
       "price": {
         "avg_usd": 613,
         "basis": "750ml, ex-tax",
-        "confidence": "unverified",
-        "note": "미확인. 같은 방식으로 읽은 카농 2000이 실제 $220 대신 $603으로 나왔던 전례가 있어 오차 가능성이 크다.",
-        "source": "웹 검색 결과에서 읽은 값 — Wine-Searcher 페이지로 확인되지 않음",
-        "source_kind": "search"
+        "confidence": "estimate",
+        "note": "판매처 호가 6곳 $580~685의 중앙값. 신뢰도 높음. WS 스니펫 $613와 대조.",
+        "source": "실제 판매처 호가 6곳 삼각측량 중앙값 (USD/750ml)",
+        "source_kind": "triangulated",
+        "est": {
+          "low": 580,
+          "high": 685,
+          "n_listings": 6,
+          "grade": "high",
+          "ws_snippet": 613,
+          "flag": ""
+        }
       },
       "ws_url": "https://www.wine-searcher.com/find/haut+brion+pessac+leognan+bordeaux+france/1996"
     },
@@ -681,12 +793,20 @@
         ]
       },
       "price": {
-        "avg_usd": 226,
+        "avg_usd": 153,
         "basis": "750ml, ex-tax",
-        "confidence": "unverified",
-        "note": "미확인. 같은 방식으로 읽은 카농 2000이 실제 $220 대신 $603으로 나왔던 전례가 있어 오차 가능성이 크다.",
-        "source": "웹 검색 결과에서 읽은 값 — Wine-Searcher 페이지로 확인되지 않음",
-        "source_kind": "search"
+        "confidence": "estimate",
+        "note": "판매처 호가 4곳 $148~200의 중앙값. 신뢰도 높음. WS 스니펫($226)은 호가보다 높아 제외.",
+        "source": "실제 판매처 호가 4곳 삼각측량 중앙값 (USD/750ml)",
+        "source_kind": "triangulated",
+        "est": {
+          "low": 148,
+          "high": 200,
+          "n_listings": 4,
+          "grade": "high",
+          "ws_snippet": 226,
+          "flag": "ws_high"
+        }
       },
       "ws_url": "https://www.wine-searcher.com/find/silver+oak+cellars+cab+sauv+napa+valley+county+north+coast+california+usa/1996"
     },
@@ -726,12 +846,20 @@
         ]
       },
       "price": {
-        "avg_usd": 330,
+        "avg_usd": 333,
         "basis": "750ml, ex-tax",
-        "confidence": "unverified",
-        "note": "미확인. 같은 방식으로 읽은 카농 2000이 실제 $220 대신 $603으로 나왔던 전례가 있어 오차 가능성이 크다.",
-        "source": "웹 검색 결과에서 읽은 값 — Wine-Searcher 페이지로 확인되지 않음",
-        "source_kind": "search"
+        "confidence": "estimate",
+        "note": "판매처 호가 12곳 $250~460의 중앙값. 신뢰도 높음. WS 스니펫 $322와 대조.",
+        "source": "실제 판매처 호가 12곳 삼각측량 중앙값 (USD/750ml)",
+        "source_kind": "triangulated",
+        "est": {
+          "low": 250,
+          "high": 460,
+          "n_listings": 12,
+          "grade": "high",
+          "ws_snippet": 322,
+          "flag": ""
+        }
       },
       "ws_url": "https://www.wine-searcher.com/find/tenute+st+guido+sassicaia+bolgheri+tuscany+italy/2019"
     },
@@ -771,12 +899,20 @@
         ]
       },
       "price": {
-        "avg_usd": 352,
+        "avg_usd": 295,
         "basis": "750ml, ex-tax",
-        "confidence": "unverified",
-        "note": "미확인. 같은 방식으로 읽은 카농 2000이 실제 $220 대신 $603으로 나왔던 전례가 있어 오차 가능성이 크다.",
-        "source": "웹 검색 결과에서 읽은 값 — Wine-Searcher 페이지로 확인되지 않음",
-        "source_kind": "search"
+        "confidence": "estimate",
+        "note": "판매처 호가 5곳 $270~320의 중앙값. 신뢰도 높음. WS 스니펫 $352와 대조.",
+        "source": "실제 판매처 호가 5곳 삼각측량 중앙값 (USD/750ml)",
+        "source_kind": "triangulated",
+        "est": {
+          "low": 270,
+          "high": 320,
+          "n_listings": 5,
+          "grade": "high",
+          "ws_snippet": 352,
+          "flag": ""
+        }
       },
       "ws_url": "https://www.wine-searcher.com/find/dom+perignon+brut+champagne+france/2010"
     },
@@ -817,12 +953,20 @@
         ]
       },
       "price": {
-        "avg_usd": 312,
+        "avg_usd": 275,
         "basis": "750ml, ex-tax",
-        "confidence": "unverified",
-        "note": "미확인. 같은 방식으로 읽은 카농 2000이 실제 $220 대신 $603으로 나왔던 전례가 있어 오차 가능성이 크다.",
-        "source": "웹 검색 결과에서 읽은 값 — Wine-Searcher 페이지로 확인되지 않음",
-        "source_kind": "search"
+        "confidence": "estimate",
+        "note": "판매처 호가 12곳 $191~400의 중앙값. 신뢰도 높음. WS 스니펫 $312와 대조.",
+        "source": "실제 판매처 호가 12곳 삼각측량 중앙값 (USD/750ml)",
+        "source_kind": "triangulated",
+        "est": {
+          "low": 191,
+          "high": 400,
+          "n_listings": 12,
+          "grade": "high",
+          "ws_snippet": 312,
+          "flag": ""
+        }
       },
       "ws_url": "https://www.wine-searcher.com/find/dom+perignon+brut+champagne+france/2013"
     },
@@ -862,12 +1006,20 @@
         ]
       },
       "price": {
-        "avg_usd": 277,
+        "avg_usd": 269,
         "basis": "750ml, ex-tax",
-        "confidence": "unverified",
-        "note": "미확인. 같은 방식으로 읽은 카농 2000이 실제 $220 대신 $603으로 나왔던 전례가 있어 오차 가능성이 크다.",
-        "source": "웹 검색 결과에서 읽은 값 — Wine-Searcher 페이지로 확인되지 않음",
-        "source_kind": "search"
+        "confidence": "estimate",
+        "note": "판매처 호가 9곳 $240~308의 중앙값. 신뢰도 높음. WS 스니펫 $277와 대조.",
+        "source": "실제 판매처 호가 9곳 삼각측량 중앙값 (USD/750ml)",
+        "source_kind": "triangulated",
+        "est": {
+          "low": 240,
+          "high": 308,
+          "n_listings": 9,
+          "grade": "high",
+          "ws_snippet": 277,
+          "flag": ""
+        }
       },
       "ws_url": "https://www.wine-searcher.com/find/dom+perignon+brut+champagne+france/2017"
     },
@@ -909,12 +1061,20 @@
         ]
       },
       "price": {
-        "avg_usd": 19,
+        "avg_usd": 33,
         "basis": "750ml, ex-tax",
-        "confidence": "unverified",
-        "note": "미확인. 같은 방식으로 읽은 카농 2000이 실제 $220 대신 $603으로 나왔던 전례가 있어 오차 가능성이 크다.",
-        "source": "웹 검색 결과에서 읽은 값 — Wine-Searcher 페이지로 확인되지 않음",
-        "source_kind": "search"
+        "confidence": "estimate",
+        "note": "판매처 호가 4곳 $24~36의 중앙값. 신뢰도 높음. WS 스니펫 $19와 대조.",
+        "source": "실제 판매처 호가 4곳 삼각측량 중앙값 (USD/750ml)",
+        "source_kind": "triangulated",
+        "est": {
+          "low": 24,
+          "high": 36,
+          "n_listings": 4,
+          "grade": "high",
+          "ws_snippet": 19,
+          "flag": ""
+        }
       },
       "ws_url": "https://www.wine-searcher.com/find/mondiale+libera+mer+brut+champagne+france"
     },
@@ -954,12 +1114,20 @@
         ]
       },
       "price": {
-        "avg_usd": 344,
+        "avg_usd": 330,
         "basis": "750ml, ex-tax",
-        "confidence": "unverified",
-        "note": "미확인. 같은 방식으로 읽은 카농 2000이 실제 $220 대신 $603으로 나왔던 전례가 있어 오차 가능성이 크다.",
-        "source": "웹 검색 결과에서 읽은 값 — Wine-Searcher 페이지로 확인되지 않음",
-        "source_kind": "search"
+        "confidence": "estimate",
+        "note": "판매처 호가 15곳 $270~460의 중앙값. 신뢰도 높음. WS 스니펫 $347와 대조.",
+        "source": "실제 판매처 호가 15곳 삼각측량 중앙값 (USD/750ml)",
+        "source_kind": "triangulated",
+        "est": {
+          "low": 270,
+          "high": 460,
+          "n_listings": 15,
+          "grade": "high",
+          "ws_snippet": 347,
+          "flag": ""
+        }
       },
       "ws_url": "https://www.wine-searcher.com/find/louis+roederer+cristal+millesime+brut+champagne+france/2016"
     },
@@ -999,12 +1167,20 @@
         ]
       },
       "price": {
-        "avg_usd": 192,
+        "avg_usd": 310,
         "basis": "750ml, ex-tax",
-        "confidence": "unverified",
-        "note": "미확인. 같은 방식으로 읽은 카농 2000이 실제 $220 대신 $603으로 나왔던 전례가 있어 오차 가능성이 크다.",
-        "source": "웹 검색 결과에서 읽은 값 — Wine-Searcher 페이지로 확인되지 않음",
-        "source_kind": "search"
+        "confidence": "estimate",
+        "note": "판매처 호가 4곳 $241~330의 중앙값. 신뢰도 높음.",
+        "source": "실제 판매처 호가 4곳 삼각측량 중앙값 (USD/750ml)",
+        "source_kind": "triangulated",
+        "est": {
+          "low": 241,
+          "high": 330,
+          "n_listings": 4,
+          "grade": "high",
+          "ws_snippet": null,
+          "flag": ""
+        }
       },
       "ws_url": "https://www.wine-searcher.com/find/pommery+cuvee+louise+brut+millesime+champagne+france/2006"
     },
@@ -1045,12 +1221,20 @@
         ]
       },
       "price": {
-        "avg_usd": 43,
+        "avg_usd": 126,
         "basis": "750ml, ex-tax",
-        "confidence": "unverified",
-        "note": "미확인. 같은 방식으로 읽은 카농 2000이 실제 $220 대신 $603으로 나왔던 전례가 있어 오차 가능성이 크다.",
-        "source": "웹 검색 결과에서 읽은 값 — Wine-Searcher 페이지로 확인되지 않음",
-        "source_kind": "search"
+        "confidence": "estimate",
+        "note": "판매처 호가 2곳 $116~136의 중앙값. 신뢰도 보통.",
+        "source": "실제 판매처 호가 2곳 삼각측량 중앙값 (USD/750ml)",
+        "source_kind": "triangulated",
+        "est": {
+          "low": 116,
+          "high": 136,
+          "n_listings": 2,
+          "grade": "medium",
+          "ws_snippet": null,
+          "flag": ""
+        }
       },
       "ws_url": "https://www.wine-searcher.com/find/charles+noellat"
     },
@@ -1091,12 +1275,20 @@
         ]
       },
       "price": {
-        "avg_usd": 734,
+        "avg_usd": 569,
         "basis": "750ml, ex-tax",
-        "confidence": "unverified",
-        "note": "미확인. 같은 방식으로 읽은 카농 2000이 실제 $220 대신 $603으로 나왔던 전례가 있어 오차 가능성이 크다.",
-        "source": "웹 검색 결과에서 읽은 값 — Wine-Searcher 페이지로 확인되지 않음",
-        "source_kind": "search"
+        "confidence": "estimate",
+        "note": "판매처 호가 10곳 $485~918의 중앙값. 신뢰도 높음. WS 스니펫 $724와 대조.",
+        "source": "실제 판매처 호가 10곳 삼각측량 중앙값 (USD/750ml)",
+        "source_kind": "triangulated",
+        "est": {
+          "low": 485,
+          "high": 918,
+          "n_listings": 10,
+          "grade": "high",
+          "ws_snippet": 724,
+          "flag": ""
+        }
       },
       "ws_url": "https://www.wine-searcher.com/find/krug+vintage+brut+champagne+france/2002"
     },
@@ -1137,12 +1329,20 @@
         ]
       },
       "price": {
-        "avg_usd": 431,
+        "avg_usd": 400,
         "basis": "750ml, ex-tax",
-        "confidence": "unverified",
-        "note": "미확인. 같은 방식으로 읽은 카농 2000이 실제 $220 대신 $603으로 나왔던 전례가 있어 오차 가능성이 크다.",
-        "source": "웹 검색 결과에서 읽은 값 — Wine-Searcher 페이지로 확인되지 않음",
-        "source_kind": "search"
+        "confidence": "estimate",
+        "note": "판매처 호가 7곳 $359~565의 중앙값. 신뢰도 높음.",
+        "source": "실제 판매처 호가 7곳 삼각측량 중앙값 (USD/750ml)",
+        "source_kind": "triangulated",
+        "est": {
+          "low": 359,
+          "high": 565,
+          "n_listings": 7,
+          "grade": "high",
+          "ws_snippet": null,
+          "flag": ""
+        }
       },
       "ws_url": "https://www.wine-searcher.com/find/marchesi+antinori+solaia+tuscany+igp+italy/2021"
     },
@@ -1484,7 +1684,7 @@
     "temp_c": 10,
     "note": "셀러 10°C 고정. 장기 보관에 안전하며 이상적 구간(12–14°C)보다 약간 낮아 숙성이 조금 더 천천히 진행된다 — 음용 창의 뒤쪽 끝은 표기보다 여유 있다고 봐도 된다. 다만 레드는 서빙 온도가 16–18°C이므로 개봉 40~60분 전에 셀러에서 꺼내 둘 것."
   },
-  "price_note": "가격은 Wine-Searcher의 전세계 평균가(ex-tax, 750ml)를 기준으로 한다. 현재 2종만 실제 페이지에서 확인됐고 나머지 30종은 웹 검색 결과에서 읽은 미확인 값이다. 검색은 이 숫자에 신뢰할 수 없다 — 카농 2000은 서로 다른 문구로 다섯 번 조회해 모두 $603이 나왔지만 실제 페이지 값은 $220이었다. Wine-Searcher는 자동 접근을 캡차로 막아 직접 읽을 수 없으므로, 확정값은 페이지에서 직접 확인하거나 Wine-Searcher API로만 얻을 수 있다.",
+  "price_note": "가격은 Wine-Searcher 전세계 평균가를 목표로 한다. 자동 접근이 캡차로 막혀 있어 세 등급으로 관리한다: 확인됨 = Wine-Searcher 페이지 직접 확인(2종) · 추정 = 실제 판매처 호가 여러 곳을 삼각측량한 중앙값(멀티에이전트 수집, 빈티지 일치 호가 기준, 이상치 제거) · 미확인 = 예전 단일 검색값(5종, 워크플로가 세션 한도로 못 미친 것). 추정치는 판매처 실호가에 앵커돼 예전 단일 스니펫보다 정확하며, 카농에서 스니펫이 $603으로 2.7배 부풀었던 오류를 교정한 방식이다. 확정 전세계 평균은 Wine-Searcher API 키나 페이지 직접 확인으로만 얻을 수 있다.",
   "gaps": [
     {
       "title": "부르고뉴 피노 누아",

@@ -93,8 +93,10 @@ def analyse(d):
         {"label": "보유 빈티지", "value": f"{len({b['vintage'] for b in B if b['vintage']})}개", "ids": []},
         {"label": "보관", "value": f"{d['storage']['temp_c']}°C", "ids": []},
         {"label": "가격 확인",
-         "value": f"{sum(1 for b in B if b['price']['confidence'] == 'verified')}/{len(B)}종",
-         "ids": [b["id"] for b in B if b["price"]["confidence"] != "verified"]},
+         "value": f"확인 {sum(1 for b in B if b['price']['confidence']=='verified')} · "
+                  f"추정 {sum(1 for b in B if b['price']['confidence']=='estimate')} · "
+                  f"미확인 {sum(1 for b in B if b['price']['confidence']=='unverified')}",
+         "ids": [b["id"] for b in B if b["price"]["confidence"] == "unverified"]},
     ]
 
     def ins(kicker, act, head, detail, sel):

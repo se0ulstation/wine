@@ -369,7 +369,8 @@ const LABEL={urgent:"임박",drink_now:"지금",peak:"정점",drink_or_hold:"음
 const TONES=["act","prime","hold"];
 const toneOf=b=>TONES.find(t=>TONE[t].of.includes(b.status));
 const cvar=b=>`var(${TONE[toneOf(b)].c})`;
-const CONF={verified:"확인됨",unverified:"미확인"};
+const CONF={verified:"확인됨",estimate:"추정",unverified:"미확인"};
+const CONF_C={verified:"var(--green)",estimate:"var(--ink-2)",unverified:"var(--red)"};
 const B=[...DATA.bottles], byId=Object.fromEntries(B.map(b=>[b.id,b]));
 const qty=b=>b.qty??1, vint=b=>b.vintage?String(b.vintage):(b.vintage_label||"NV");
 const value=b=>b.price.avg_usd*(b.format_ml===375?.5:1)*qty(b);
@@ -624,8 +625,8 @@ function rows(list){
     <span class="st" style="--c:${cvar(b)}">${LABEL[b.status]}</span>
     <span class="win">${b.drink_from}–${b.drink_to}</span>
     <span class="left">${left(b)}년</span>
-    <span class="pr${b.price.confidence==="verified"?"":" unv"}"
-      title="${b.price.confidence==="verified"?"Wine-Searcher 확인됨":"미확인 — 검색에서 읽은 값"}"
+    <span class="pr${b.price.confidence==="unverified"?" unv":""}"
+      title="${CONF[b.price.confidence]||""}${b.price.est?` · 호가 ${b.price.est.n_listings}곳 $${b.price.est.low}~${b.price.est.high}`:""}"
     >${usd(b.price.avg_usd)}</span></button>`).join("")}
 function timeline(list){
   const ticks=[]; for(let y=Math.ceil(lo/10)*10;y<=hi;y+=10)ticks.push(y);
@@ -731,8 +732,9 @@ function openDrawer(id){
     <div class="db">
       <div class="dprice">
         <div class="cf">Wine-Searcher 전세계 평균 ·
-          <b style="color:${pr.confidence==="verified"?"var(--green)":"var(--red)"}">${CONF[pr.confidence]||pr.confidence}</b></div>
+          <b style="color:${CONF_C[pr.confidence]||"var(--ink-2)"}">${CONF[pr.confidence]||pr.confidence}</b>${pr.est?` · 신뢰도 ${({high:"높음",medium:"보통",low:"낮음"})[pr.est.grade]}`:""}</div>
         <div class="amt"><b>${usd(pr.avg_usd)}</b><span>${esc(pr.basis||"750ml ex-tax")}${qty(b)>1?` · ${qty(b)}병`:""}</span></div>
+        ${pr.est?`<div class="cf">판매처 호가 ${pr.est.n_listings}곳 · $${pr.est.low}~${pr.est.high}${pr.est.ws_snippet?` · WS 스니펫 $${pr.est.ws_snippet}`:""}</div>`:""}
         <div class="krw">≈ ₩${won(pr.avg_usd).toLocaleString()}</div>
         <div class="cf">${esc(pr.source||"")}</div>
         ${pr.note?`<div class="cf">${esc(pr.note)}</div>`:""}
