@@ -181,6 +181,7 @@ header .keys b{font-weight:500;color:var(--ink-2);border:1px solid var(--line);
   font-feature-settings:"tnum" 1;color:var(--ink-2)}
 .left,.pr{text-align:right}
 .pr{color:var(--ink);font-weight:500}
+.pr.unv{color:var(--ink-3);font-weight:400}
 .rg{font-size:11.5px;color:var(--ink-3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .st{font-size:11.5px;color:var(--c);white-space:nowrap}
 .empty{padding:24px 14px;color:var(--ink-3);font-size:12.5px}
@@ -368,7 +369,7 @@ const LABEL={urgent:"임박",drink_now:"지금",peak:"정점",drink_or_hold:"음
 const TONES=["act","prime","hold"];
 const toneOf=b=>TONES.find(t=>TONE[t].of.includes(b.status));
 const cvar=b=>`var(${TONE[toneOf(b)].c})`;
-const CONF={high:"높음",medium:"보통",low:"낮음",none:"없음"};
+const CONF={verified:"확인됨",unverified:"미확인"};
 const B=[...DATA.bottles], byId=Object.fromEntries(B.map(b=>[b.id,b]));
 const qty=b=>b.qty??1, vint=b=>b.vintage?String(b.vintage):(b.vintage_label||"NV");
 const value=b=>b.price.avg_usd*(b.format_ml===375?.5:1)*qty(b);
@@ -623,7 +624,9 @@ function rows(list){
     <span class="st" style="--c:${cvar(b)}">${LABEL[b.status]}</span>
     <span class="win">${b.drink_from}–${b.drink_to}</span>
     <span class="left">${left(b)}년</span>
-    <span class="pr">${usd(b.price.avg_usd)}</span></button>`).join("")}
+    <span class="pr${b.price.confidence==="verified"?"":" unv"}"
+      title="${b.price.confidence==="verified"?"Wine-Searcher 확인됨":"미확인 — 검색에서 읽은 값"}"
+    >${usd(b.price.avg_usd)}</span></button>`).join("")}
 function timeline(list){
   const ticks=[]; for(let y=Math.ceil(lo/10)*10;y<=hi;y+=10)ticks.push(y);
   $("tl").innerHTML=
@@ -727,11 +730,12 @@ function openDrawer(id){
         <span>${b.drink_from}–${b.drink_to} · 잔여 ${left(b)}년</span></div></div>
     <div class="db">
       <div class="dprice">
-        <div class="cf">${pr.confidence==="none"?"참고 추정가 · Wine-Searcher 미등재":"Wine-Searcher 전세계 평균"}</div>
+        <div class="cf">Wine-Searcher 전세계 평균 ·
+          <b style="color:${pr.confidence==="verified"?"var(--green)":"var(--red)"}">${CONF[pr.confidence]||pr.confidence}</b></div>
         <div class="amt"><b>${usd(pr.avg_usd)}</b><span>${esc(pr.basis||"750ml ex-tax")}${qty(b)>1?` · ${qty(b)}병`:""}</span></div>
         <div class="krw">≈ ₩${won(pr.avg_usd).toLocaleString()}</div>
-        <div class="cf">신뢰도 <b>${CONF[pr.confidence]}</b>${pr.note?` — ${esc(pr.note)}`:""}</div>
-        ${pr.verified?`<div class="cf" style="color:var(--green)">확인 — ${esc(pr.verified)}</div>`:""}
+        <div class="cf">${esc(pr.source||"")}</div>
+        ${pr.note?`<div class="cf">${esc(pr.note)}</div>`:""}
         <a class="ws" href="${b.ws_url}" target="_blank" rel="noopener noreferrer">Wine-Searcher ↗</a></div>
       <div class="dwin"><div class="ba">
         <div class="fill" style="--c:${cvar(b)};left:${pct(b.drink_from)}%;
