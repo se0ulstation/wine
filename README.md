@@ -1,37 +1,56 @@
-# 🍷 Wine Cellar
+# Wine Cellar
 
-개인 와인 셀러 인벤토리 및 컨설팅 기록.
+A personal cellar: what is in it, when to drink it, and what it is worth.
 
-- [`data/cellar.json`](data/cellar.json) — **원본 데이터.** 인벤토리는 여기서만 수정한다.
-- [`CELLAR.md`](CELLAR.md) — 셀러 현황, 음용 우선순위, 홀드 목록. **자동 생성물이므로 직접 수정하지 말 것.**
-- [`web/dashboard.html`](web/dashboard.html) — 대시보드. **자동 생성물.** ([`web/dashboard.template.html`](web/dashboard.template.html) 을 수정할 것)
-- `scripts/build_cellar.py`, `scripts/build_dashboard.py` — 생성기
+`data/cellar.json` is the only file edited by hand. Everything else is generated,
+so the numbers in the Markdown and in the dashboard can never drift apart.
 
 ```
-python3 scripts/build_cellar.py     # → CELLAR.md
-python3 scripts/build_dashboard.py  # → web/dashboard.html
+python3 scripts/build_cellar.py     # -> CELLAR.md
+python3 scripts/build_prices.py     # -> PRICES.md
+python3 scripts/build_dashboard.py  # -> web/dashboard.html
 ```
 
-대시보드는 Artifact 로 배포되어 있다. 데이터를 고친 뒤 두 스크립트를 돌리고 같은 경로로 재배포하면 링크가 유지된다.
-
-## 데이터 스키마
-
-| 필드 | 설명 |
+| Path | |
 |---|---|
-| `id` | 병 고유 번호 |
-| `producer` / `wine` / `vintage` | 생산자 / 와인명 / 빈티지 (`null` = NV 또는 미확인) |
-| `country` / `region` / `classification` | 원산지 및 등급 |
+| [`data/cellar.json`](data/cellar.json) | **Source of truth.** Edit the inventory here and nowhere else. |
+| [`scripts/cellar.py`](scripts/cellar.py) | Shared domain: status, value, regions. Both generators import it. |
+| [`CELLAR.md`](CELLAR.md) | The cellar as a document. Generated. |
+| [`PRICES.md`](PRICES.md) | Which prices still need confirming. Generated. |
+| [`web/dashboard.html`](web/dashboard.html) | The dashboard. Generated, published as an Artifact. |
+
+The dashboard is a static document — no client-side script. Region browsing is
+CSS `:target`, so it works with JavaScript off and prints as it reads. Rebuild
+and republish to the same file path and the Artifact link stays the same.
+
+## Schema
+
+| Field | |
+|---|---|
+| `id` | Bottle number |
+| `producer` / `wine` / `vintage` | `vintage: null` means NV — set `vintage_label` |
+| `country` / `region` / `classification` | Origin and rank |
 | `type` | `red` / `white` / `sparkling` |
-| `grapes` | 품종 |
-| `qty` | 수량 |
-| `drink_from` / `drink_to` | 음용 창 (연도) |
-| `status` | `urgent` · `drink_now` · `peak` · `drink_or_hold` · `hold` · `verify` |
-| `display` | 표기용 이름 |
-| `category` | 구성 개요 분류 |
-| `short` | 요약 테이블용 한 줄 코멘트 |
-| `format_ml` | 병 용량 (750 외일 때만) |
-| `notes` | 상세 코멘트 |
+| `grapes` | Varieties, most important first |
+| `qty` | How many bottles |
+| `format_ml` | Bottle size; omit for 750 |
+| `drink_from` / `drink_to` | Drinking window, in years |
+| `display` / `short` / `category` | Name and one-line note for the tables |
+| `notes` | The practical note: what to do with this bottle |
+| `profile` | `style`, `tasting`, `story`, `serve`, `pair` |
+| `price` | `avg_usd` on a 750ml basis, plus `confidence` and its provenance |
+| `ws_url` | Wine-Searcher page for this wine and vintage |
 
-## 추가 예정 필드
+**Status is not stored.** It is derived from the drinking window every build:
+past the window is post peak; two years or less left is urgent; not yet open is
+hold; a quarter of the way in — or five years past the opening — is peak;
+everything else is drink now. A stored status would be wrong within a year.
 
-구매가, 구매처, 입고일, 보관 위치, 시음 기록.
+**`price.confidence`** is honest about provenance: `verified` was read off a
+Wine-Searcher page, `estimate` is a triangulated median of real merchant
+listings, `unverified` came from a single web search and has been wrong by 2.7x
+before. See `PRICES.md`.
+
+## Not yet tracked
+
+Purchase price, merchant, date acquired, rack position, tasting history.

@@ -1,16 +1,18 @@
 #!/usr/bin/env python3
-"""Wine-Searcher wine-check API 로 각 병의 price_average 를 받아 cellar.json 에 기록한다.
+"""Fetch each bottle's price_average from the Wine-Searcher wine-check API.
 
-    WS_API_KEY=... python3 scripts/fetch_ws_prices.py            # 전체
-    WS_API_KEY=... python3 scripts/fetch_ws_prices.py --only 30  # 한 병만
-    python3 scripts/fetch_ws_prices.py --dry-run                 # 키 없이 요청만 확인
+    WS_API_KEY=... python3 scripts/fetch_ws_prices.py            # every bottle
+    WS_API_KEY=... python3 scripts/fetch_ws_prices.py --only 30  # one bottle
+    python3 scripts/fetch_ws_prices.py --dry-run                 # print the requests only
 
-wine-check 응답의 price_average 는 "Average retail price across all listings" 로,
-Wine-Searcher 페이지의 Avg Price 와 같은 값이다. location/state 를 붙이지 않으면
-특정 국가로 좁혀지지 않으므로 전세계 기준이 된다 — 그래서 여기서는 붙이지 않는다.
+price_average in the wine-check response is the "Average retail price across all
+listings" — the same number the Wine-Searcher page shows as Avg Price. Leaving
+location and state off keeps it worldwide instead of narrowing to one country,
+which is exactly what we want, so this script never sends them.
 
-엔드포인트 경로는 API Evangelist 가 공개 자료에서 '유도'한 것이라 실제와 다를 수
-있다. 그래서 첫 요청에서 후보 형태를 차례로 시도하고, 성공한 형태를 이후에 재사용한다.
+The endpoint path was inferred by API Evangelist from public material and may not
+match the real one, so the first request tries each candidate shape in turn and
+reuses whichever works.
 """
 import argparse, json, os, ssl, sys, time, urllib.parse, urllib.request
 from pathlib import Path
@@ -18,19 +20,19 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / "data" / "cellar.json"
 BASE = "https://www.wine-searcher.com/ws_api.php"
-# Wine-Searcher 자체 문서는 "base URL 은 ws_api.php, 필수 파라미터는 api_key 와
-# winename" 이라고만 밝힌다. 경로를 덧붙이는 형태는 API Evangelist 가 유도한 것이라
-# 확실하지 않으므로, 문서에 맞는 평평한 형태를 먼저 시도한다.
+# Wine-Searcher's own documentation says only that the base URL is ws_api.php and
+# that api_key and winename are required. The path-suffixed shapes were inferred
+# rather than documented, so try the flat shape the docs describe first.
 CANDIDATES = [
-    BASE,                           # 문서가 기술한 형태
-    BASE + "/wine-check",           # OpenAPI 스펙이 유도한 형태
+    BASE,                           # the shape the documentation describes
+    BASE + "/wine-check",           # the shape inferred from the OpenAPI spec
     BASE + "?action=wine-check",
 ]
-PAUSE = 7.0                         # 체험 키 기준 하루 100회 · 여유 있게 간격을 둔다
+PAUSE = 7.0                         # trial keys allow 100 calls a day; leave room
 
 
 def winename(b):
-    """저장해 둔 Wine-Searcher URL 슬러그가 곧 그쪽 정식 표기다."""
+    """The stored Wine-Searcher URL slug is already their canonical spelling."""
     slug = b["ws_url"].rstrip("/").split("/find/")[-1]
     return slug.split("/")[0]
 
@@ -41,8 +43,8 @@ def build(url, key, b):
         q["vintage"] = str(b["vintage"])
     elif b.get("vintage_label") == "NV":
         q["vintage"] = "NV"
-    # winename 의 '+' 는 Wine-Searcher 의 단어 구분자다. 기본 인코더는 이걸 %2B 로
-    # 바꿔버리므로 safe 에 넣어 그대로 통과시킨다.
+    # '+' is Wine-Searcher's word separator inside winename. The default encoder
+    # would turn it into %2B, so pass it through via safe.
     sep = "&" if "?" in url else "?"
     return url + sep + urllib.parse.urlencode(q, quote_via=urllib.parse.quote, safe="+")
 
@@ -66,12 +68,12 @@ def redact(url, key):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--dry-run", action="store_true")
-    ap.add_argument("--only", type=int, action="append", help="병 번호 (여러 번 지정 가능)")
+    ap.add_argument("--only", type=int, action="append", help="bottle number; repeatable")
     a = ap.parse_args()
 
     key = os.environ.get("WS_API_KEY", "")
     if not key and not a.dry_run:
-        sys.exit("WS_API_KEY 가 없습니다. WS_API_KEY=... 로 실행하거나 --dry-run 을 쓰세요.")
+        sys.exit("WS_API_KEY is not set. Run with WS_API_KEY=... or use --dry-run.")
 
     d = json.loads(SRC.read_text())
     bottles = [b for b in d["bottles"] if not a.only or b["id"] in a.only]
@@ -79,7 +81,7 @@ def main():
     if a.dry_run:
         for b in bottles:
             print(f"{b['id']:>2} {b['display'][:38]:<38} {redact(build(CANDIDATES[0], key or 'KEY', b), key)}")
-        print(f"\n{len(bottles)}건 · 간격 {PAUSE}s · 예상 {len(bottles) * PAUSE / 60:.1f}분")
+        print(f"\n{len(bottles)} requests · {PAUSE}s apart · about {len(bottles) * PAUSE / 60:.1f} min")
         return
 
     shape = None
@@ -90,7 +92,7 @@ def main():
         for cand in tries:
             try:
                 r = call(build(cand, key, b))
-            except Exception as e:                       # 형태가 틀리면 404/500 이 난다
+            except Exception as e:                       # a wrong shape returns 404 or 500
                 print(f"  · {cand.split('ws_api.php')[-1] or '(query only)'} → {e}")
                 continue
             if r.get("status") == 0 and r.get("wine"):
@@ -98,7 +100,7 @@ def main():
                 break
             print(f"  · status={r.get('status')} {r.get('message')}")
         if not data:
-            print(f"{b['id']:>2} {b['display'][:34]:<34} 실패")
+            print(f"{b['id']:>2} {b['display'][:34]:<34} failed")
             bad += 1
         else:
             avg = data.get("price_average")
@@ -106,26 +108,26 @@ def main():
                 b["price"].update({
                     "avg_usd": round(float(avg)),
                     "confidence": "verified", "source_kind": "api",
-                    "source": "Wine-Searcher wine-check API · price_average (USD, 전세계)",
+                    "source": "Wine-Searcher wine-check API · price_average (USD, worldwide)",
                     "basis": "750ml, ex-tax",
                     "ws_min": data.get("price_min"), "ws_max": data.get("price_max"),
                     "ws_listings": data.get("listing_count"),
                 })
                 b["price"].pop("note", None)
                 b["price"]["verified"] = (
-                    f"API 응답 · 최저 {data.get('price_min')} / 최고 {data.get('price_max')}"
-                    f" / 등재 {data.get('listing_count')}곳")
+                    f"API response · low {data.get('price_min')} / high {data.get('price_max')}"
+                    f" / {data.get('listing_count')} listings")
                 print(f"{b['id']:>2} {b['display'][:34]:<34} ${round(float(avg)):>5}")
                 ok += 1
             else:
-                print(f"{b['id']:>2} {b['display'][:34]:<34} price_average 없음")
+                print(f"{b['id']:>2} {b['display'][:34]:<34} no price_average")
                 bad += 1
         if i < len(bottles) - 1:
             time.sleep(PAUSE)
 
     SRC.write_text(json.dumps(d, ensure_ascii=False, indent=2))
-    print(f"\n확인 {ok} · 실패 {bad} → {SRC.relative_to(ROOT)} 갱신")
-    print("이어서: python3 scripts/build_dashboard.py && python3 scripts/build_cellar.py")
+    print(f"\n{ok} confirmed · {bad} failed → {SRC.relative_to(ROOT)} updated")
+    print("Next: python3 scripts/build_dashboard.py && python3 scripts/build_cellar.py")
 
 
 if __name__ == "__main__":
