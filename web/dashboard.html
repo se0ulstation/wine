@@ -95,12 +95,10 @@ h1{font-size:21px;font-weight:700;letter-spacing:-.012em;margin:0;text-wrap:bala
   letter-spacing:-.01em}
 .nm{color:var(--ink);font-weight:500}
 .w[open] .nm{font-weight:600}
-/* Bottle tags. Only the few rows that hold more than one, or something other
-   than a 750, carry one — so the marks stay sparse enough to catch. */
-.tag{display:inline-block;font-size:11px;font-weight:400;line-height:1.5;
-  padding:0 5px;border-radius:3px;background:var(--rule-2);color:var(--ink-2);
-  vertical-align:1px;white-space:nowrap}
-.tag.qty{font-weight:600;color:var(--ink);font-variant-numeric:tabular-nums}
+/* Bottle qualifiers, set rather than boxed. Quantity is the one being scanned
+   for, so it takes ink and weight; format is a footnote on the name. */
+.qty{font-weight:700;color:var(--ink);white-space:nowrap;letter-spacing:.01em}
+.fmt{color:var(--ink-3);font-weight:400;white-space:nowrap}
 .mult{display:block;color:var(--ink-3);font-size:11.5px;margin-top:2px}
 .st{white-space:nowrap;font-weight:500}
 .car{color:var(--ink-3);font-size:10px;line-height:2;transition:transform .14s ease}
@@ -120,6 +118,13 @@ h1{font-size:21px;font-weight:700;letter-spacing:-.012em;margin:0;text-wrap:bala
   color:var(--ink-3);text-align:right;line-height:1.9}
 .body dd{margin:0;font-size:14px;line-height:1.65}
 .body dd.lead{font-size:15px}
+/* Vintage verdict. Weight carries the scale; the two hues already mean status
+   elsewhere, so only the extremes borrow them. */
+.vr{font-weight:700}
+.vr-great{color:var(--peak)}
+.vr-very-good,.vr-good{color:var(--ink)}
+.vr-mixed{color:var(--ink-2)}
+.vr-poor{color:var(--urgent)}
 .body .q{color:var(--ink-2);font-size:13px}
 
 .readout{color:var(--ink-3);font-size:12px;margin-top:12px}
@@ -225,17 +230,17 @@ h1{font-size:21px;font-weight:700;letter-spacing:-.012em;margin:0;text-wrap:bala
 #f-so-window:checked ~ .main .w29{order:3}
 #f-so-window:checked ~ .main .w13{order:4}
 #f-so-window:checked ~ .main .w08{order:5}
-#f-so-window:checked ~ .main .w23{order:6}
-#f-so-window:checked ~ .main .w33{order:7}
-#f-so-window:checked ~ .main .w12{order:8}
-#f-so-window:checked ~ .main .w20{order:9}
-#f-so-window:checked ~ .main .w34{order:10}
-#f-so-window:checked ~ .main .w35{order:11}
-#f-so-window:checked ~ .main .w03{order:12}
-#f-so-window:checked ~ .main .w30{order:13}
-#f-so-window:checked ~ .main .w10{order:14}
-#f-so-window:checked ~ .main .w22{order:15}
-#f-so-window:checked ~ .main .w17{order:16}
+#f-so-window:checked ~ .main .w33{order:6}
+#f-so-window:checked ~ .main .w12{order:7}
+#f-so-window:checked ~ .main .w20{order:8}
+#f-so-window:checked ~ .main .w34{order:9}
+#f-so-window:checked ~ .main .w35{order:10}
+#f-so-window:checked ~ .main .w03{order:11}
+#f-so-window:checked ~ .main .w30{order:12}
+#f-so-window:checked ~ .main .w10{order:13}
+#f-so-window:checked ~ .main .w22{order:14}
+#f-so-window:checked ~ .main .w17{order:15}
+#f-so-window:checked ~ .main .w23{order:16}
 #f-so-window:checked ~ .main .w31{order:17}
 #f-so-window:checked ~ .main .w28{order:18}
 #f-so-window:checked ~ .main .w01{order:19}
@@ -424,10 +429,10 @@ h1{font-size:21px;font-weight:700;letter-spacing:-.012em;margin:0;text-wrap:bala
 #f-rg-burgundy:checked ~ #f-st-urgent:checked ~ .empty{display:block}
 #f-st-urgent:checked ~ .nav label[for="f-rg-burgundy"]{opacity:.32}
 #f-rg-burgundy:checked ~ .nav label[for="f-st-urgent"]{opacity:.32}
-#f-rg-burgundy:checked ~ #f-st-now:checked ~ .main{display:none}
-#f-rg-burgundy:checked ~ #f-st-now:checked ~ .empty{display:block}
-#f-st-now:checked ~ .nav label[for="f-rg-burgundy"]{opacity:.32}
-#f-rg-burgundy:checked ~ .nav label[for="f-st-now"]{opacity:.32}
+#f-rg-burgundy:checked ~ #f-st-peak:checked ~ .main{display:none}
+#f-rg-burgundy:checked ~ #f-st-peak:checked ~ .empty{display:block}
+#f-st-peak:checked ~ .nav label[for="f-rg-burgundy"]{opacity:.32}
+#f-rg-burgundy:checked ~ .nav label[for="f-st-peak"]{opacity:.32}
 #f-rg-burgundy:checked ~ #f-st-hold:checked ~ .main{display:none}
 #f-rg-burgundy:checked ~ #f-st-hold:checked ~ .empty{display:block}
 #f-st-hold:checked ~ .nav label[for="f-rg-burgundy"]{opacity:.32}
@@ -712,7 +717,7 @@ h1{font-size:21px;font-weight:700;letter-spacing:-.012em;margin:0;text-wrap:bala
 #f-dir-desc:focus-visible ~ .nav label[for="f-dir-desc"]{outline:2px solid #0b57d0;outline-offset:3px}</style>
 <div class="top"><h1>CellarOS</h1><p class="meta">40 bottles · 35 labels · est. $8,051 · vintages 1981–2024 · cellar 10°C · as of 2026-09-11</p></div>
 <h2 class="sec">Summary</h2>
-<div class="sum"><span class="fig s-urgent"><b>4</b> Urgent</span><span class="fig s-now"><b>6</b> Drink now</span><span class="fig s-peak"><b>24</b> Peak</span><span class="fig s-hold"><b>6</b> Hold</span></div>
+<div class="sum"><span class="fig s-urgent"><b>4</b> Urgent</span><span class="fig s-now"><b>7</b> Drink now</span><span class="fig s-peak"><b>23</b> Peak</span><span class="fig s-hold"><b>6</b> Hold</span></div>
 <p class="prices">Prices — 2 confirmed · 27 estimated · 6 unverified.</p>
 <input class="f" type="radio" name="rg" id="f-rg-all" checked>
 <input class="f" type="radio" name="rg" id="f-rg-bordeaux">
@@ -786,8 +791,8 @@ h1{font-size:21px;font-weight:700;letter-spacing:-.012em;margin:0;text-wrap:bala
 <label class="sub sub-loire" for="f-ap-pouilly-fume">Pouilly-Fumé <span class="n">1</span></label></span></div>
 <div class="nav"><span class="lbl">Status</span><span class="opts"><label for="f-st-all">Any</label>
 <label for="f-st-urgent"><span class="s-urgent">Urgent</span> <span class="n">4</span></label>
-<label for="f-st-now"><span class="s-now">Drink now</span> <span class="n">6</span></label>
-<label for="f-st-peak"><span class="s-peak">Peak</span> <span class="n">24</span></label>
+<label for="f-st-now"><span class="s-now">Drink now</span> <span class="n">7</span></label>
+<label for="f-st-peak"><span class="s-peak">Peak</span> <span class="n">23</span></label>
 <label for="f-st-hold"><span class="s-hold">Hold</span> <span class="n">6</span></label></span></div>
 <div class="nav"><span class="lbl">Sort</span><span class="opts"><label for="f-so-vintage">Vintage</label>
 <label for="f-so-value">Value</label>
@@ -805,6 +810,7 @@ h1{font-size:21px;font-weight:700;letter-spacing:-.012em;margin:0;text-wrap:bala
 <summary class="row"><span class="car">▶</span><span class="yr">1981</span><span class="nm">Moulin Touchais Coteaux du Layon</span><span class="c-region">Coteaux du Layon, Anjou, Loire</span><span class="st s-peak">Peak</span><span class="num c-window">1995–2045<span class="wb s-peak" style="--p:62%"></span></span><span class="num">$50</span><span class="c-basis">unverified</span></summary>
 <div class="body"><dl>
 <dt>Region</dt><dd class="lead">Coteaux du Layon, Anjou, Loire · France</dd>
+<dt>Vintage</dt><dd>1981 <span class="vr vr-mixed">Mixed</span><span class="q"> — Not a celebrated Loire year, and I could not verify much about 1981 in the Layon specifically. Moulin Touchais holds everything for decades before release, which flattens the difference between vintages more than most producers.</span></dd>
 <dt>Style</dt><dd class="lead">Long-lived Loire sweet wine</dd>
 <dt>Tasting</dt><dd>Honey and quince, dried apricot and caramel, with the strong acidity of Chenin Blanc running straight through. 45 years on it is still within normal range by this house&#x27;s standard, and the acidity gives it another 20 years. The bottle with the most time in hand in the cellar.</dd>
 <dt>Background</dt><dd>Moulin Touchais is known for keeping its wines in the cellar at least ten years after harvest before release. It is one of the few producers whose 40-year-old vintages, like this 1981, are still normally available on the market.</dd>
@@ -819,6 +825,7 @@ h1{font-size:21px;font-weight:700;letter-spacing:-.012em;margin:0;text-wrap:bala
 <summary class="row"><span class="car">▶</span><span class="yr">1996</span><span class="nm">Ornellaia</span><span class="c-region">Bolgheri Superiore DOC</span><span class="st s-urgent">Urgent</span><span class="num c-window">2005–2028<span class="wb s-urgent" style="--p:91%"></span></span><span class="num">$277</span><span class="c-basis">estimated</span></summary>
 <div class="body"><dl>
 <dt>Region</dt><dd class="lead">Bolgheri Superiore DOC · Italy</dd>
+<dt>Vintage</dt><dd>1996 <span class="vr vr-good">Good</span><span class="q"> — A cooler, more classical Tuscan year than the ripe vintages around it. Bolgheri fared better than Chianti, but this is one to drink rather than wait on.</span></dd>
 <dt>Style</dt><dd class="lead">Mature Bolgheri</dd>
 <dt>Tasting</dt><dd>Dried plum and fig, leather, tobacco and forest floor. The fresh fruit has all but gone and tertiary aromas dominate. At 30 years it is fragile, and long contact with air will collapse it fast — open it briefly and drink it straight away.</dd>
 <dt>Background</dt><dd>First made in 1985, it put Bolgheri on the world map alongside Sassicaia. 1996 is one of the vintages that fixed Ornellaia&#x27;s early reputation.</dd>
@@ -833,6 +840,7 @@ h1{font-size:21px;font-weight:700;letter-spacing:-.012em;margin:0;text-wrap:bala
 <summary class="row"><span class="car">▶</span><span class="yr">1996</span><span class="nm">Château Haut-Brion</span><span class="c-region">Pessac-Léognan, Bordeaux</span><span class="st s-peak">Peak</span><span class="num c-window">2015–2045<span class="wb s-peak" style="--p:37%"></span></span><span class="num">$613</span><span class="c-basis">estimated</span></summary>
 <div class="body"><dl>
 <dt>Region</dt><dd class="lead">Pessac-Léognan, Bordeaux · France</dd>
+<dt>Vintage</dt><dd>1996 <span class="vr vr-great">Great</span><span class="q"> — A great Cabernet year on the Left Bank — cool and late, giving firm structure and long life. The Right Bank, where Merlot never fully ripened, got a very different 1996.</span></dd>
 <dt>Style</dt><dd class="lead">The first growth of Pessac-Léognan</dd>
 <dt>Tasting</dt><dd>Tobacco, cigar box and baked earth over a bed of cassis, with the smoke and mineral note that signs every Haut-Brion. It is the most distinctive nose among the Bordeaux first growths, and at 30 years it has reached complete harmony.</dd>
 <dt>Background</dt><dd>The only château outside the Médoc to be ranked a first growth in 1855. It is counted as the oldest brand-name wine in Bordeaux.</dd>
@@ -847,6 +855,7 @@ h1{font-size:21px;font-weight:700;letter-spacing:-.012em;margin:0;text-wrap:bala
 <summary class="row"><span class="car">▶</span><span class="yr">1996</span><span class="nm">Silver Oak Napa Valley Cabernet Sauvignon</span><span class="c-region">Napa Valley</span><span class="st s-urgent">Urgent</span><span class="num c-window">2001–2027<span class="wb s-urgent" style="--p:96%"></span></span><span class="num">$153</span><span class="c-basis">estimated</span></summary>
 <div class="body"><dl>
 <dt>Region</dt><dd class="lead">Napa Valley · USA</dd>
+<dt>Vintage</dt><dd>1996 <span class="vr vr-good">Good</span><span class="q"> — An uneven year in Napa after a difficult flowering. Good rather than great, and at thirty years old there is nothing to gain by waiting.</span></dd>
 <dt>Style</dt><dd class="lead">Napa Cabernet in American oak</dd>
 <dt>Tasting</dt><dd>Coconut, dill and vanilla — the signature of the American oak ageing Silver Oak insists on, ahead of the fruit. After 30 years the fruit has most likely faded a long way, so adjust expectations before opening.</dd>
 <dt>Background</dt><dd>A Napa winery known for releasing its wines already ready to drink. It is one of the few top-level producers to use American oak exclusively.</dd>
@@ -861,6 +870,7 @@ h1{font-size:21px;font-weight:700;letter-spacing:-.012em;margin:0;text-wrap:bala
 <summary class="row"><span class="car">▶</span><span class="yr">1996</span><span class="nm">Château du Domaine de l&#x27;Église</span><span class="c-region">Pomerol, Bordeaux</span><span class="st s-urgent">Urgent</span><span class="num c-window">2004–2027<span class="wb s-urgent" style="--p:96%"></span></span><span class="num">$102</span><span class="c-basis">confirmed</span></summary>
 <div class="body"><dl>
 <dt>Region</dt><dd class="lead">Pomerol, Bordeaux · France</dd>
+<dt>Vintage</dt><dd>1996 <span class="vr vr-mixed">Mixed</span><span class="q"> — 1996 was a Left Bank year. On the Right Bank, Merlot struggled to ripen in a cool late season, so Pomerol 1996 is the weaker half of a great vintage.</span></dd>
 <dt>Style</dt><dd class="lead">Mature Pomerol</dd>
 <dt>Tasting</dt><dd>Dried plum and fig, earth and mushroom, and the round texture Merlot gives. At 30 years the fruit will have faded a long way and tertiary aromas dominate. 1996 favoured the Left Bank, so don&#x27;t expect much of a Right Bank wine.</dd>
 <dt>Background</dt><dd>A small Pomerol property owned by the Castéja family. Pomerol has no official classification, so a château&#x27;s own reputation is all there is.</dd>
@@ -875,6 +885,7 @@ h1{font-size:21px;font-weight:700;letter-spacing:-.012em;margin:0;text-wrap:bala
 <summary class="row"><span class="car">▶</span><span class="yr">2000</span><span class="nm">Château Calon Ségur</span><span class="c-region">Saint-Estèphe, Bordeaux</span><span class="st s-peak">Peak</span><span class="num c-window">2020–2040<span class="wb s-peak" style="--p:30%"></span></span><span class="num">$217</span><span class="c-basis">estimated</span></summary>
 <div class="body"><dl>
 <dt>Region</dt><dd class="lead">Saint-Estèphe, Bordeaux · France</dd>
+<dt>Vintage</dt><dd>2000 <span class="vr vr-great">Great</span><span class="q"> — The millennium vintage, and it earned the hype. Ripe, complete and successful on both banks — one of the reference Bordeaux years.</span></dd>
 <dt>Style</dt><dd class="lead">Mature Saint-Estèphe</dd>
 <dt>Tasting</dt><dd>The fresh fruit has receded and tertiary aromas take the front — cedar, leather, dried plum, mushroom. The tannin has fully resolved into silk and the acidity still holds it up. A textbook point in the ageing of Bordeaux.</dd>
 <dt>Background</dt><dd>The 2000 millennium vintage succeeded evenly across Bordeaux, and 26 years on most of the classed growths have moved into their best window.</dd>
@@ -889,6 +900,7 @@ h1{font-size:21px;font-weight:700;letter-spacing:-.012em;margin:0;text-wrap:bala
 <summary class="row"><span class="car">▶</span><span class="yr">2000</span><span class="nm">Pavillon Rouge du Château Margaux</span><span class="c-region">Margaux, Bordeaux</span><span class="st s-peak">Peak</span><span class="num c-window">2015–2032<span class="wb s-peak" style="--p:65%"></span></span><span class="num">$272</span><span class="c-basis">estimated</span></summary>
 <div class="body"><dl>
 <dt>Region</dt><dd class="lead">Margaux, Bordeaux · France</dd>
+<dt>Vintage</dt><dd>2000 <span class="vr vr-great">Great</span><span class="q"> — The millennium vintage, and it earned the hype. Ripe, complete and successful on both banks — one of the reference Bordeaux years.</span></dd>
 <dt>Style</dt><dd class="lead">Elegant Margaux second wine</dd>
 <dt>Tasting</dt><dd>Violets and red fruit, the fine-boned Margaux nose. At 26 years the tannin has completely unwound and dried flowers and earth have come up. Being a second wine, its window closes earlier than the grand vin&#x27;s, so don&#x27;t wait.</dd>
 <dt>Background</dt><dd>The second wine of Château Margaux. It has existed since 1908 and is one of the oldest second wines in Bordeaux.</dd>
@@ -903,6 +915,7 @@ h1{font-size:21px;font-weight:700;letter-spacing:-.012em;margin:0;text-wrap:bala
 <summary class="row"><span class="car">▶</span><span class="yr">2000</span><span class="nm">Château Canon</span><span class="c-region">Saint-Émilion, Bordeaux</span><span class="st s-peak">Peak</span><span class="num c-window">2012–2032<span class="wb s-peak" style="--p:70%"></span></span><span class="num">$220</span><span class="c-basis">confirmed</span></summary>
 <div class="body"><dl>
 <dt>Region</dt><dd class="lead">Saint-Émilion, Bordeaux · France</dd>
+<dt>Vintage</dt><dd>2000 <span class="vr vr-great">Great</span><span class="q"> — 2000 was a great Bordeaux vintage on both banks. The caveat here is the estate rather than the year: Canon was still rebuilding from the TCA contamination and did not hit its stride until the mid-2000s.</span></dd>
 <dt>Style</dt><dd class="lead">Limestone Saint-Émilion</dd>
 <dt>Tasting</dt><dd>Red fruit and violets, with the straight minerality that comes off limestone. Canon is at the finesse-and-tension end of Saint-Émilion rather than the powerful end. For this vintage, though, read the caution below.</dd>
 <dt>Background</dt><dd>A Saint-Émilion Premier Grand Cru Classé B, bought by Chanel in 1996. TCA contamination in the cellars was severe at the time of the purchase, so they were stripped out and rebuilt, and quality only clearly got back on track from the mid-to-late 2000s.</dd>
@@ -917,6 +930,7 @@ h1{font-size:21px;font-weight:700;letter-spacing:-.012em;margin:0;text-wrap:bala
 <summary class="row"><span class="car">▶</span><span class="yr">2002</span><span class="nm">Krug Vintage</span><span class="c-region">Champagne</span><span class="st s-peak">Peak</span><span class="num c-window">2020–2050<span class="wb s-peak" style="--p:20%"></span></span><span class="num">$569</span><span class="c-basis">estimated</span></summary>
 <div class="body"><dl>
 <dt>Region</dt><dd class="lead">Champagne · France</dd>
+<dt>Vintage</dt><dd>2002 <span class="vr vr-great">Great</span><span class="q"> — One of the benchmark modern Champagne vintages, ripe and structured at once. Still the reference point everything else is measured against.</span></dd>
 <dt>Style</dt><dd class="lead">The summit of the cellar</dd>
 <dt>Tasting</dt><dd>Toasted nuts and brioche, marmalade and coffee. Krug&#x27;s oxidative complexity plus the concentration of 2002 makes the density overwhelming. 24 years on it is still climbing, and it has another 20 years in it.</dd>
 <dt>Background</dt><dd>Krug does the first fermentation of every cuvée in small oak casks. 2002 is reckoned the best Champagne vintage of the century, and Krug 2002 is called a legend even within it.</dd>
@@ -928,9 +942,10 @@ h1{font-size:21px;font-weight:700;letter-spacing:-.012em;margin:0;text-wrap:bala
 <dt>Bottle</dt><dd class="q">#24 · Krug · Pinot Noir · Chardonnay · Pinot Meunier · 750ml · <a href="https://www.wine-searcher.com/find/krug+vintage+brut+champagne+france/2002" target="_blank" rel="noopener">Wine-Searcher</a></dd>
 </dl></div></details>
 <details class="w w31 rg-bordeaux ap-barsac k-peak" style="counter-increment:bb 1 ll 1">
-<summary class="row"><span class="car">▶</span><span class="yr">2002</span><span class="nm">Château Coutet <span class="tag">375ml</span></span><span class="c-region">Barsac, Sauternes, Bordeaux</span><span class="st s-peak">Peak</span><span class="num c-window">2010–2035<span class="wb s-peak" style="--p:64%"></span></span><span class="num">$25</span><span class="c-basis">unverified</span></summary>
+<summary class="row"><span class="car">▶</span><span class="yr">2002</span><span class="nm">Château Coutet <span class="fmt">375ml</span></span><span class="c-region">Barsac, Sauternes, Bordeaux</span><span class="st s-peak">Peak</span><span class="num c-window">2010–2035<span class="wb s-peak" style="--p:64%"></span></span><span class="num">$25</span><span class="c-basis">unverified</span></summary>
 <div class="body"><dl>
 <dt>Region</dt><dd class="lead">Barsac, Sauternes, Bordeaux · France</dd>
+<dt>Vintage</dt><dd>2002 <span class="vr vr-good">Good</span><span class="q"> — A decent botrytis year in Barsac without the concentration of 2001, the vintage of that era. Balanced and lighter, which suits a half-bottle that has aged faster.</span></dd>
 <dt>Style</dt><dd class="lead">Lean Barsac</dd>
 <dt>Tasting</dt><dd>Apricot and orange marmalade and honey, with the high Barsac acidity cutting through like a knife. It is the lightest, freshest style in Sauternes, so the sweetness does not sit heavy. At 375ml it ages fast, and now is good.</dd>
 <dt>Background</dt><dd>A Barsac first growth. Barsac sits inside the Sauternes AOC but its soils are more limestone, which gives sweet wines with higher acidity and a sharper outline.</dd>
@@ -945,6 +960,7 @@ h1{font-size:21px;font-weight:700;letter-spacing:-.012em;margin:0;text-wrap:bala
 <summary class="row"><span class="car">▶</span><span class="yr">2005</span><span class="nm">Château Calon Ségur</span><span class="c-region">Saint-Estèphe, Bordeaux</span><span class="st s-now">Drink now</span><span class="num c-window">2024–2048<span class="wb s-now" style="--p:8%"></span></span><span class="num">$155</span><span class="c-basis">estimated</span></summary>
 <div class="body"><dl>
 <dt>Region</dt><dd class="lead">Saint-Estèphe, Bordeaux · France</dd>
+<dt>Vintage</dt><dd>2005 <span class="vr vr-great">Great</span><span class="q"> — One of the two benchmark modern Bordeaux vintages. A dry summer without heat spikes gave ripe fruit and unusually high tannin, which is why these are still closed twenty years on.</span></dd>
 <dt>Style</dt><dd class="lead">Classical Saint-Estèphe</dd>
 <dt>Tasting</dt><dd>Cassis and cedar, wet earth and tobacco leaf. The firm tannic frame typical of Saint-Estèphe, with Calon Ségur&#x27;s own elegance laid over it. 2005 is high in both acidity and tannin, so there is a long way left to go.</dd>
 <dt>Background</dt><dd>The heart on the label comes from the eighteenth-century owner, the Marquis de Ségur, who said his heart was at Calon. A third growth, but a château that has long fetched second-growth prices.</dd>
@@ -959,6 +975,7 @@ h1{font-size:21px;font-weight:700;letter-spacing:-.012em;margin:0;text-wrap:bala
 <summary class="row"><span class="car">▶</span><span class="yr">2006</span><span class="nm">Pommery Cuvée Louise</span><span class="c-region">Champagne</span><span class="st s-peak">Peak</span><span class="num c-window">2016–2032<span class="wb s-peak" style="--p:62%"></span></span><span class="num">$310</span><span class="c-basis">estimated</span></summary>
 <div class="body"><dl>
 <dt>Region</dt><dd class="lead">Champagne · France</dd>
+<dt>Vintage</dt><dd>2006 <span class="vr vr-very-good">Very good</span><span class="q"> — A warm, generous year. Rich and forward rather than tense, so it has been drinking well for some time already.</span></dd>
 <dt>Style</dt><dd class="lead">Mature Chardonnay-led prestige cuvée</dd>
 <dt>Tasting</dt><dd>Toasted brioche and honey, dried apricot. At 20 years a fine oxidative note has settled over it and the bubbles have softened. Less known than Krug or DP, but complete enough.</dd>
 <dt>Background</dt><dd>Pommery&#x27;s prestige cuvée, named after Madame Louise Pommery, who popularised brut Champagne in the nineteenth century.</dd>
@@ -970,9 +987,10 @@ h1{font-size:21px;font-weight:700;letter-spacing:-.012em;margin:0;text-wrap:bala
 <dt>Bottle</dt><dd class="q">#22 · Pommery · Chardonnay · Pinot Noir · 750ml · <a href="https://www.wine-searcher.com/find/pommery+cuvee+louise+brut+millesime+champagne+france/2006" target="_blank" rel="noopener">Wine-Searcher</a></dd>
 </dl></div></details>
 <details class="w w11 rg-napa ap-oakville k-peak" style="counter-increment:bb 2 ll 1">
-<summary class="row"><span class="car">▶</span><span class="yr">2007</span><span class="nm">Opus One <span class="tag qty">×2</span></span><span class="c-region">Oakville, Napa Valley</span><span class="st s-peak">Peak</span><span class="num c-window">2020–2038<span class="wb s-peak" style="--p:33%"></span></span><span class="num">$1,008<span class="mult">2 × $504</span></span><span class="c-basis">estimated</span></summary>
+<summary class="row"><span class="car">▶</span><span class="yr">2007</span><span class="nm">Opus One <span class="qty">×2</span></span><span class="c-region">Oakville, Napa Valley</span><span class="st s-peak">Peak</span><span class="num c-window">2020–2038<span class="wb s-peak" style="--p:33%"></span></span><span class="num">$1,008<span class="mult">2 × $504</span></span><span class="c-basis">estimated</span></summary>
 <div class="body"><dl>
 <dt>Region</dt><dd class="lead">Oakville, Napa Valley · USA</dd>
+<dt>Vintage</dt><dd>2007 <span class="vr vr-great">Great</span><span class="q"> — A near-ideal season — small crop, even ripening, wines with both depth and acidity. Regarded as one of Napa&#x27;s finest of the decade.</span></dd>
 <dt>Style</dt><dd class="lead">Opus One in maturity</dd>
 <dt>Tasting</dt><dd>Cassis and blackcurrant layered with cedar, pencil lead and tobacco leaf. It sits where Napa fruit concentration meets Bordeaux restraint, and at 19 years the tannin has fully resolved into a smooth texture. 2007 is one of the great years in Opus One&#x27;s history.</dd>
 <dt>Background</dt><dd>Napa&#x27;s first ultra-premium project, founded in 1979 as a joint venture between Robert Mondavi and Baron Philippe de Rothschild.</dd>
@@ -987,6 +1005,7 @@ h1{font-size:21px;font-weight:700;letter-spacing:-.012em;margin:0;text-wrap:bala
 <summary class="row"><span class="car">▶</span><span class="yr">2008</span><span class="nm">Château Palmer</span><span class="c-region">Margaux, Bordeaux</span><span class="st s-now">Drink now</span><span class="num c-window">2024–2045<span class="wb s-now" style="--p:10%"></span></span><span class="num">$290</span><span class="c-basis">estimated</span></summary>
 <div class="body"><dl>
 <dt>Region</dt><dd class="lead">Margaux, Bordeaux · France</dd>
+<dt>Vintage</dt><dd>2008 <span class="vr vr-very-good">Very good</span><span class="q"> — Rescued by a long dry autumn after a difficult summer. Classical and firm, never fashionable, and consistently underrated.</span></dd>
 <dt>Style</dt><dd class="lead">Margaux with a high proportion of Merlot</dd>
 <dt>Tasting</dt><dd>Violets and black fruit, and the aromatic flamboyance particular to Margaux. Palmer is the only third growth to use close to half Merlot, which gives it a round texture and a sensual nose. 2008 is an underrated vintage, but Palmer was exceptionally successful in it.</dd>
 <dt>Background</dt><dd>A third growth in the 1855 classification, but rated in practice at second-growth level or above, and one of the leading châteaux of Margaux. It converted to biodynamics in 2014.</dd>
@@ -1001,6 +1020,7 @@ h1{font-size:21px;font-weight:700;letter-spacing:-.012em;margin:0;text-wrap:bala
 <summary class="row"><span class="car">▶</span><span class="yr">2010</span><span class="nm">Dom Pérignon</span><span class="c-region">Champagne</span><span class="st s-peak">Peak</span><span class="num c-window">2020–2032<span class="wb s-peak" style="--p:50%"></span></span><span class="num">$295</span><span class="c-basis">estimated</span></summary>
 <div class="body"><dl>
 <dt>Region</dt><dd class="lead">Champagne · France</dd>
+<dt>Vintage</dt><dd>2010 <span class="vr vr-mixed">Mixed</span><span class="q"> — A hard year. Rot pressure in Pinot Noir forced severe selection and several houses declined to declare; those that did leaned on Chardonnay. A declared 2010 says more about the house&#x27;s sorting than about the season.</span></dd>
 <dt>Style</dt><dd class="lead">Mature prestige Champagne</dd>
 <dt>Tasting</dt><dd>Brioche and hazelnut, baked apple, and the iodine and smoke that mark DP. At 16 years the bead has settled fine and the texture has turned creamy. It is the most developed of the three DPs, so open it first.</dd>
 <dt>Background</dt><dd>Dom Pérignon is a vintage-only cuvée, declared just in the good years. 2010 was a difficult year, but selection held the wine together.</dd>
@@ -1015,6 +1035,7 @@ h1{font-size:21px;font-weight:700;letter-spacing:-.012em;margin:0;text-wrap:bala
 <summary class="row"><span class="car">▶</span><span class="yr">2011</span><span class="nm">Château Lynch-Bages</span><span class="c-region">Pauillac, Bordeaux</span><span class="st s-peak">Peak</span><span class="num c-window">2021–2035<span class="wb s-peak" style="--p:36%"></span></span><span class="num">$166</span><span class="c-basis">unverified</span></summary>
 <div class="body"><dl>
 <dt>Region</dt><dd class="lead">Pauillac, Bordeaux · France</dd>
+<dt>Vintage</dt><dd>2011 <span class="vr vr-mixed">Mixed</span><span class="q"> — Caught between the twin greats of 2009 and 2010. An erratic, uneven season gave lighter, earlier-maturing wines. Fine now, not one to wait on.</span></dd>
 <dt>Style</dt><dd class="lead">Textbook Pauillac</dd>
 <dt>Tasting</dt><dd>Cassis and pencil lead, cedar and tobacco leaf — the textbook Pauillac nose. Lynch-Bages sits at the fuller-fruited end of that. 2011 is a middling vintage that matured quickly, so it is good to approach now.</dd>
 <dt>Background</dt><dd>A fifth growth known as &#x27;the poor man&#x27;s Mouton&#x27;. It has long been rated well above its classification.</dd>
@@ -1029,6 +1050,7 @@ h1{font-size:21px;font-weight:700;letter-spacing:-.012em;margin:0;text-wrap:bala
 <summary class="row"><span class="car">▶</span><span class="yr">2013</span><span class="nm">Le Petit Mouton de Mouton Rothschild</span><span class="c-region">Pauillac, Bordeaux</span><span class="st s-urgent">Urgent</span><span class="num c-window">2020–2028<span class="wb s-urgent" style="--p:75%"></span></span><span class="num">$245</span><span class="c-basis">estimated</span></summary>
 <div class="body"><dl>
 <dt>Region</dt><dd class="lead">Pauillac, Bordeaux · France</dd>
+<dt>Vintage</dt><dd>2013 <span class="vr vr-poor">Poor</span><span class="q"> — The weakest modern Bordeaux vintage. A cold wet spring wrecked flowering and rot at harvest finished the job; even first-growth estates made light, early wines. That is why this one has a short window.</span></dd>
 <dt>Style</dt><dd class="lead">Approachable Pauillac</dd>
 <dt>Tasting</dt><dd>Cassis and pencil lead, with the hint of spice that marks Mouton. It has none of the grand vin&#x27;s density but the Pauillac frame is clear. Bad weather at flowering and rain at harvest left 2013 short on concentration, so it opened early.</dd>
 <dt>Background</dt><dd>The second wine of Mouton Rothschild. It has carried the current name since 1993.</dd>
@@ -1043,6 +1065,7 @@ h1{font-size:21px;font-weight:700;letter-spacing:-.012em;margin:0;text-wrap:bala
 <summary class="row"><span class="car">▶</span><span class="yr">2013</span><span class="nm">Dom Pérignon</span><span class="c-region">Champagne</span><span class="st s-now">Drink now</span><span class="num c-window">2023–2036<span class="wb s-now" style="--p:23%"></span></span><span class="num">$275</span><span class="c-basis">estimated</span></summary>
 <div class="body"><dl>
 <dt>Region</dt><dd class="lead">Champagne · France</dd>
+<dt>Vintage</dt><dd>2013 <span class="vr vr-very-good">Very good</span><span class="q"> — A late, cool season picked into October. High acidity and slow development — built for long ageing rather than early charm.</span></dd>
 <dt>Style</dt><dd class="lead">Taut prestige Champagne</dd>
 <dt>Tasting</dt><dd>Citrus, white flowers and flint. 2013 was cool and ripened late, so the acidity is high and the outline sharp. Good now, but with more time the texture will fill out.</dd>
 <dt>Background</dt><dd>Dom Pérignon keeps evolving in the cellar after release, and high-acid vintages like this one last the longest.</dd>
@@ -1057,6 +1080,7 @@ h1{font-size:21px;font-weight:700;letter-spacing:-.012em;margin:0;text-wrap:bala
 <summary class="row"><span class="car">▶</span><span class="yr">2016</span><span class="nm">Louis Roederer Cristal</span><span class="c-region">Champagne</span><span class="st s-hold">Hold</span><span class="num c-window">2028–2048<span class="wb s-hold" style="--p:0%"></span></span><span class="num">$330</span><span class="c-basis">estimated</span></summary>
 <div class="body"><dl>
 <dt>Region</dt><dd class="lead">Champagne · France</dd>
+<dt>Vintage</dt><dd>2016 <span class="vr vr-good">Good</span><span class="q"> — Frost, mildew and a miserable spring cut the crop hard before a hot dry summer rescued what survived. Better in the glass than the growing season deserved.</span></dd>
 <dt>Style</dt><dd class="lead">The longest-ageing prestige Champagne</dd>
 <dt>Tasting</dt><dd>Lemon peel and white flowers, with the minerality still wound tight. Cristal needs five to ten years past release before its silk texture and nutty flavours open up. Open it now and you see less than half of what it has.</dd>
 <dt>Background</dt><dd>A cuvée made in 1876 for Tsar Alexander II of Russia; the name comes from the clear crystal bottle, used because of fears of assassination.</dd>
@@ -1071,6 +1095,7 @@ h1{font-size:21px;font-weight:700;letter-spacing:-.012em;margin:0;text-wrap:bala
 <summary class="row"><span class="car">▶</span><span class="yr">2017</span><span class="nm">Hardys Thomas Hardy Cabernet Sauvignon</span><span class="c-region">Coonawarra / Margaret River</span><span class="st s-hold">Hold</span><span class="num c-window">2027–2042<span class="wb s-hold" style="--p:0%"></span></span><span class="num">$93</span><span class="c-basis">estimated</span></summary>
 <div class="body"><dl>
 <dt>Region</dt><dd class="lead">Coonawarra / Margaret River · Australia</dd>
+<dt>Vintage</dt><dd>2017 <span class="vr vr-very-good">Very good</span><span class="q"> — A cool, late season in both Coonawarra and Margaret River after a wet winter. Lower alcohol and firmer acid than the Australian norm, which suits a wine built to age.</span></dd>
 <dt>Style</dt><dd class="lead">Structured Australian Cabernet</dd>
 <dt>Tasting</dt><dd>Cassis and graphite layered over eucalyptus and mint. This is the cool-climate end of Australian Cabernet, so it has more edge than Napa and a tighter weave of tannin. Right now that tannin is still closed.</dd>
 <dt>Background</dt><dd>Hardys&#x27; flagship, named after founder Thomas Hardy and released only in the best years. The fruit comes from Coonawarra and Margaret River.</dd>
@@ -1085,6 +1110,7 @@ h1{font-size:21px;font-weight:700;letter-spacing:-.012em;margin:0;text-wrap:bala
 <summary class="row"><span class="car">▶</span><span class="yr">2017</span><span class="nm">Dom Pérignon</span><span class="c-region">Champagne</span><span class="st s-hold">Hold</span><span class="num c-window">2027–2040<span class="wb s-hold" style="--p:0%"></span></span><span class="num">$269</span><span class="c-basis">estimated</span></summary>
 <div class="body"><dl>
 <dt>Region</dt><dd class="lead">Champagne · France</dd>
+<dt>Vintage</dt><dd>2017 <span class="vr vr-mixed">Mixed</span><span class="q"> — Rain and rot at harvest made 2017 one of the more difficult recent years and few prestige cuvées were declared. Treat a declared 2017 as a selection exercise.</span></dd>
 <dt>Style</dt><dd class="lead">Young prestige Champagne</dd>
 <dt>Tasting</dt><dd>Citrus and white fruit, at a stage where the yeasty notes have not fully come up yet. The potential is clear, but opening it now means missing the complexity that is the point of DP. Better after 2028.</dd>
 <dt>Background</dt><dd>The youngest of the three DPs in the cellar. Kept alongside the 2010 and the 2013 it makes an excellent vertical.</dd>
@@ -1099,6 +1125,7 @@ h1{font-size:21px;font-weight:700;letter-spacing:-.012em;margin:0;text-wrap:bala
 <summary class="row"><span class="car">▶</span><span class="yr">2018</span><span class="nm">Orin Swift Mercury Head Cabernet Sauvignon</span><span class="c-region">Napa Valley</span><span class="st s-now">Drink now</span><span class="num c-window">2024–2035<span class="wb s-now" style="--p:18%"></span></span><span class="num">$132</span><span class="c-basis">estimated</span></summary>
 <div class="body"><dl>
 <dt>Region</dt><dd class="lead">Napa Valley · USA</dd>
+<dt>Vintage</dt><dd>2018 <span class="vr vr-great">Great</span><span class="q"> — A long, even growing season and a large crop of high quality. One of Napa&#x27;s best recent years, with more freshness than the hot vintages either side of it.</span></dd>
 <dt>Style</dt><dd class="lead">Dense Napa Cabernet</dd>
 <dt>Tasting</dt><dd>Ripe blackberry and cassis with a thick layer of mocha and vanilla oak over the top. The Orin Swift house style puts overripe fruit and high alcohol out front, so it competes on density rather than finesse. The acidity of the 2018 vintage carries that weight.</dd>
 <dt>Background</dt><dd>Dave Phinney&#x27;s cult-minded Napa label. Mercury Head is the signature cuvée, released with a real Mercury dime — the US ten-cent piece struck in 90% silver until 1945 — fixed to the label.</dd>
@@ -1113,6 +1140,7 @@ h1{font-size:21px;font-weight:700;letter-spacing:-.012em;margin:0;text-wrap:bala
 <summary class="row"><span class="car">▶</span><span class="yr">2019</span><span class="nm">Sassicaia</span><span class="c-region">Bolgheri Sassicaia DOC</span><span class="st s-hold">Hold</span><span class="num c-window">2027–2048<span class="wb s-hold" style="--p:0%"></span></span><span class="num">$333</span><span class="c-basis">estimated</span></summary>
 <div class="body"><dl>
 <dt>Region</dt><dd class="lead">Bolgheri Sassicaia DOC · Italy</dd>
+<dt>Vintage</dt><dd>2019 <span class="vr vr-great">Great</span><span class="q"> — An excellent Tuscan vintage — a cool August and warm September gave ripeness with the acidity intact. Rated among the best of the decade in Bolgheri.</span></dd>
 <dt>Style</dt><dd class="lead">The original Bolgheri</dd>
 <dt>Tasting</dt><dd>Cabernet cassis and cedar layered with Mediterranean herbs and salty minerality. Sassicaia is lighter and higher-toned than Bordeaux, but the 2019 structure is unusually firm and it is closed right now. After 2030 is where it really comes into its own.</dd>
 <dt>Background</dt><dd>First commercial release in 1968. It is the only wine in Italy with a DOC of its own (Bolgheri Sassicaia).</dd>
@@ -1127,6 +1155,7 @@ h1{font-size:21px;font-weight:700;letter-spacing:-.012em;margin:0;text-wrap:bala
 <summary class="row"><span class="car">▶</span><span class="yr">2019</span><span class="nm">Alter Ego de Palmer</span><span class="c-region">Margaux, Bordeaux</span><span class="st s-now">Drink now</span><span class="num c-window">2026–2040<span class="wb s-now" style="--p:0%"></span></span><span class="num">$122</span><span class="c-basis">unverified</span></summary>
 <div class="body"><dl>
 <dt>Region</dt><dd class="lead">Margaux, Bordeaux · France</dd>
+<dt>Vintage</dt><dd>2019 <span class="vr vr-great">Great</span><span class="q"> — Hot but well balanced, with the drought relieved at the right moments. Ripe and fresh at once, and among the strongest recent Bordeaux vintages.</span></dd>
 <dt>Style</dt><dd class="lead">Modern Margaux</dd>
 <dt>Tasting</dt><dd>Red fruit and violets, fresh spice. It is Palmer&#x27;s second wine but it is not a scaled-down grand vin; it is made as a separate style that leads with fruit. The concentration of 2019 means power comes first for now.</dd>
 <dt>Background</dt><dd>The cuvée Palmer launched in 2002 after rethinking what a second wine is. As the name &#x27;alter ego&#x27; says, a different character was the intention.</dd>
@@ -1141,6 +1170,7 @@ h1{font-size:21px;font-weight:700;letter-spacing:-.012em;margin:0;text-wrap:bala
 <summary class="row"><span class="car">▶</span><span class="yr">2020</span><span class="nm">Austin Hope Cabernet Sauvignon</span><span class="c-region">Paso Robles</span><span class="st s-peak">Peak</span><span class="num c-window">2023–2030<span class="wb s-peak" style="--p:43%"></span></span><span class="num">$50</span><span class="c-basis">estimated</span></summary>
 <div class="body"><dl>
 <dt>Region</dt><dd class="lead">Paso Robles · USA</dd>
+<dt>Vintage</dt><dd>2020 <span class="vr vr-mixed">Mixed</span><span class="q"> — The California smoke year. The damage was concentrated in Napa and Sonoma and Paso Robles picks earlier, so it was far less exposed — but 2020 is the one California vintage worth tasting before you commit it to a table.</span></dd>
 <dt>Style</dt><dd class="lead">Straightforward Paso Robles Cabernet</dd>
 <dt>Tasting</dt><dd>Ripe plum and black cherry, vanilla and sweet oak. The fruit is forward enough to read as sweetness and the tannin is soft. It is built for immediate satisfaction rather than complexity, so drinking it now is right.</dd>
 <dt>Background</dt><dd>Made by the Austin Hope family in Paso Robles. Scores in the 90s and an accessible price made it sell explosively in the US.</dd>
@@ -1155,6 +1185,7 @@ h1{font-size:21px;font-weight:700;letter-spacing:-.012em;margin:0;text-wrap:bala
 <summary class="row"><span class="car">▶</span><span class="yr">2020</span><span class="nm">Antinori Tignanello</span><span class="c-region">Toscana IGT</span><span class="st s-now">Drink now</span><span class="num c-window">2026–2038<span class="wb s-now" style="--p:0%"></span></span><span class="num">$162</span><span class="c-basis">estimated</span></summary>
 <div class="body"><dl>
 <dt>Region</dt><dd class="lead">Toscana IGT · Italy</dd>
+<dt>Vintage</dt><dd>2020 <span class="vr vr-very-good">Very good</span><span class="q"> — A warm, early Tuscan year. Less consistent than 2019, but the successful wines are generous and open earlier.</span></dd>
 <dt>Style</dt><dd class="lead">Sangiovese-based Super Tuscan</dd>
 <dt>Tasting</dt><dd>Cherry and dried herbs, leather and earth, with the black fruit the Cabernet brings layered over them. Sangiovese&#x27;s high acidity and scratchy tannin are at the centre, which makes it unusually good with Italian food. 2020 is a well-balanced year.</dd>
 <dt>Background</dt><dd>The 1971 first vintage gave up Chianti Classico status on purpose in order to blend in Cabernet, and became the wine the Super Tuscans started from.</dd>
@@ -1169,6 +1200,7 @@ h1{font-size:21px;font-weight:700;letter-spacing:-.012em;margin:0;text-wrap:bala
 <summary class="row"><span class="car">▶</span><span class="yr">2021</span><span class="nm">Shafer One Point Five Cabernet Sauvignon</span><span class="c-region">Stags Leap District, Napa Valley</span><span class="st s-hold">Hold</span><span class="num c-window">2027–2038<span class="wb s-hold" style="--p:0%"></span></span><span class="num">$125</span><span class="c-basis">estimated</span></summary>
 <div class="body"><dl>
 <dt>Region</dt><dd class="lead">Stags Leap District, Napa Valley · USA</dd>
+<dt>Vintage</dt><dd>2021 <span class="vr vr-great">Great</span><span class="q"> — A small crop after drought, and no smoke — the vintage that restored confidence after 2020. Concentrated and firmly structured.</span></dd>
 <dt>Style</dt><dd class="lead">Stags Leap Cabernet</dd>
 <dt>Tasting</dt><dd>Black fruit with liquorice and cocoa, and the velvet texture of Stags Leap. Shafer&#x27;s hand has polished the tannin fine, but the concentration of 2021 keeps the fruit balled up for now.</dd>
 <dt>Background</dt><dd>One Point Five means between the first generation and the second — the handover from John Shafer to his son Doug, written into the name. Sold to Shinsegae in 2022.</dd>
@@ -1183,6 +1215,7 @@ h1{font-size:21px;font-weight:700;letter-spacing:-.012em;margin:0;text-wrap:bala
 <summary class="row"><span class="car">▶</span><span class="yr">2021</span><span class="nm">Antinori Solaia</span><span class="c-region">Toscana IGT</span><span class="st s-hold">Hold</span><span class="num c-window">2029–2050<span class="wb s-hold" style="--p:0%"></span></span><span class="num">$400</span><span class="c-basis">estimated</span></summary>
 <div class="body"><dl>
 <dt>Region</dt><dd class="lead">Toscana IGT · Italy</dd>
+<dt>Vintage</dt><dd>2021 <span class="vr vr-great">Great</span><span class="q"> — A cool, dry season with a small crop, giving firm structure and depth. Rated at the top of the decade in Tuscany.</span></dd>
 <dt>Style</dt><dd class="lead">The summit of Antinori</dd>
 <dt>Tasting</dt><dd>Cassis and blackberry, cedar and balsamic. Unlike Tignanello, Cabernet leads here, which brings it close to Bordeaux, but the acidity and bitter edge from the Sangiovese keep the Italian identity. The 2021 structure is extremely firm.</dd>
 <dt>Background</dt><dd>First vintage 1978. It comes from the best parcels within the Tignanello vineyard and is made only in good years.</dd>
@@ -1193,24 +1226,26 @@ h1{font-size:21px;font-weight:700;letter-spacing:-.012em;margin:0;text-wrap:bala
 <dt>Price</dt><dd>$400 per 750ml · <span class="q">estimated — Median of 7 actual retailer listings, triangulated (USD/750ml) · 7 listings $359–$565</span></dd>
 <dt>Bottle</dt><dd class="q">#25 · Marchesi Antinori · Cabernet Sauvignon · Sangiovese · Cabernet Franc · 750ml · <a href="https://www.wine-searcher.com/find/marchesi+antinori+solaia+tuscany+igp+italy/2021" target="_blank" rel="noopener">Wine-Searcher</a></dd>
 </dl></div></details>
-<details class="w w23 rg-burgundy ap-chassagne-montrachet k-peak" style="counter-increment:bb 1 ll 1">
-<summary class="row"><span class="car">▶</span><span class="yr">2022</span><span class="nm">Charles Noëllat Chassagne-Montrachet</span><span class="c-region">Chassagne-Montrachet, Côte de Beaune, Burgundy</span><span class="st s-peak">Peak</span><span class="num c-window">2024–2028<span class="wb s-peak" style="--p:50%"></span></span><span class="num">$126</span><span class="c-basis">estimated</span></summary>
+<details class="w w23 rg-burgundy ap-chassagne-montrachet k-now" style="counter-increment:bb 1 ll 1">
+<summary class="row"><span class="car">▶</span><span class="yr">2022</span><span class="nm">Charles Noëllat Chassagne-Montrachet Rouge</span><span class="c-region">Chassagne-Montrachet, Côte de Beaune, Burgundy</span><span class="st s-now">Drink now</span><span class="num c-window">2025–2032<span class="wb s-now" style="--p:14%"></span></span><span class="num">$126</span><span class="c-basis">estimated</span></summary>
 <div class="body"><dl>
 <dt>Region</dt><dd class="lead">Chassagne-Montrachet, Côte de Beaune, Burgundy · France</dd>
-<dt>Style</dt><dd class="lead">Village-level white Burgundy</dd>
-<dt>Tasting</dt><dd>Yellow apple and citrus, light hazelnut and butter. 2022 was a hot year, so acidity is low and the fruit full, at the cost of tension. It is négociant village level, so set expectations at an easy everyday white Burgundy.</dd>
-<dt>Background</dt><dd>Domaine Charles Noëllat disappeared when it was sold to Leroy in 1988, but the name stayed on as a négociant brand and is still in use. This bottle is that brand&#x27;s bottling.</dd>
-<dt>Serving</dt><dd>12–13°C · decant None · Burgundy (white) glass</dd>
-<dt>Pairing</dt><dd>Scallops in butter sauce · Roast chicken · Goat cheese</dd>
-<dt>Window</dt><dd>2024–2028 · <span class="s-peak">Peak</span><span class="q"> · 50% through</span></dd>
-<dt>Note</dt><dd>Label checked (2022, white, 12.5%). The historic Domaine Charles Noëllat was sold to Leroy in 1988 and ceased to exist, but the name survives as a négociant brand → not a domaine wine but a négociant-bottled village-level wine. 2022 was a hot vintage, so acidity is low and the fruit full. Not suitable for keeping, drink by 2027. 12–13°C, white Burgundy glass.</dd>
+<dt>Vintage</dt><dd>2022 <span class="vr vr-very-good">Very good</span><span class="q"> — A hot, dry year that made far better wine than the weather suggested — the vines adapted and the reds came in ripe and plush with fair freshness. Generous now rather than a keeper.</span></dd>
+<dt>Style</dt><dd class="lead">Village red Burgundy</dd>
+<dt>Tasting</dt><dd>Red cherry and raspberry over a savoury, earthy base, with the light tannin and high acidity of village-level Pinot Noir. Chassagne&#x27;s reds sit on heavier soil than its whites and come out firmer and less perfumed than Volnay or Beaune. 2022 gives it more flesh than the appellation usually shows.</dd>
+<dt>Background</dt><dd>Domaine Charles Noëllat was a famous Vosne-Romanée estate until Lalou Bize-Leroy bought it in 1988 to found Domaine Leroy. The name survived as a négociant label and is still in use; this is that label, not the old domaine.</dd>
+<dt>Serving</dt><dd>14–16°C · decant 30 minutes · Burgundy glass</dd>
+<dt>Pairing</dt><dd>Roast chicken · Mushroom dishes · Duck · Comté</dd>
+<dt>Window</dt><dd>2025–2032 · <span class="s-now">Drink now</span><span class="q"> · 14% through</span></dd>
+<dt>Note</dt><dd>Red Chassagne, not white — the appellation is better known for Chardonnay but has always made Pinot Noir. Village level from a négociant, so drink it rather than wait on it.</dd>
 <dt>Price</dt><dd>$126 per 750ml · <span class="q">estimated — Median of 2 actual retailer listings, triangulated (USD/750ml) · 2 listings $116–$136</span></dd>
-<dt>Bottle</dt><dd class="q">#23 · Charles Noëllat (négociant) · Village · Chardonnay · 12.5% · 750ml · <a href="https://www.wine-searcher.com/find/charles+noellat" target="_blank" rel="noopener">Wine-Searcher</a></dd>
+<dt>Bottle</dt><dd class="q">#23 · Charles Noëllat (négociant) · Village · Pinot Noir · 12.5% · 750ml · <a href="https://www.wine-searcher.com/find/charles+noellat" target="_blank" rel="noopener">Wine-Searcher</a></dd>
 </dl></div></details>
 <details class="w w33 rg-penedes ap-penedes k-peak" style="counter-increment:bb 4 ll 1">
-<summary class="row"><span class="car">▶</span><span class="yr">2022</span><span class="nm">Naveran Dama de Naveran Extra Brut Cava <span class="tag qty">×4</span></span><span class="c-region">Penedès, Catalonia</span><span class="st s-peak">Peak</span><span class="num c-window">2024–2028<span class="wb s-peak" style="--p:50%"></span></span><span class="num">$120<span class="mult">4 × $30</span></span><span class="c-basis">estimated</span></summary>
+<summary class="row"><span class="car">▶</span><span class="yr">2022</span><span class="nm">Naveran Dama de Naveran Extra Brut Cava <span class="qty">×4</span></span><span class="c-region">Penedès, Catalonia</span><span class="st s-peak">Peak</span><span class="num c-window">2024–2028<span class="wb s-peak" style="--p:50%"></span></span><span class="num">$120<span class="mult">4 × $30</span></span><span class="c-basis">estimated</span></summary>
 <div class="body"><dl>
 <dt>Region</dt><dd class="lead">Penedès, Catalonia · Spain</dd>
+<dt>Vintage</dt><dd>2022 <span class="vr vr-mixed">Mixed</span><span class="q"> — A hot, dry drought year in Catalonia with a small crop. Cava held its acidity better than still wine did, but 2022 was hard work.</span></dd>
 <dt>Style</dt><dd class="lead">Chardonnay-led vintage Cava</dd>
 <dt>Tasting</dt><dd>Green apple and lemon peel over a fine, insistent bead, with a light bready note from two years on the lees. The Chardonnay carries it and the Parellada keeps the finish lifted; the low dosage means it lands dry and clean rather than soft.</dd>
 <dt>Background</dt><dd>Caves Naveran is a family estate in Torrelavit, in the Alt Penedès, working its own organically farmed fruit rather than bought-in grapes — unusual for Cava, where scale usually wins. Dama is 85% Chardonnay with 15% Parellada, aged 18 to 24 months on the lees.</dd>
@@ -1222,9 +1257,10 @@ h1{font-size:21px;font-weight:700;letter-spacing:-.012em;margin:0;text-wrap:bala
 <dt>Bottle</dt><dd class="q">#33 · Caves Naveran · Chardonnay · Parellada · 12.5% · 750ml · <a href="https://www.wine-searcher.com/find/naveran+dama+naveran+extra+brut+cava+penedes+spain/2022" target="_blank" rel="noopener">Wine-Searcher</a></dd>
 </dl></div></details>
 <details class="w w35 rg-marlborough ap-marlborough k-peak" style="counter-increment:bb 1 ll 1">
-<summary class="row"><span class="car">▶</span><span class="yr">2023</span><span class="nm">Cloudy Bay Sauvignon Blanc <span class="tag">1.5L</span></span><span class="c-region">Marlborough</span><span class="st s-peak">Peak</span><span class="num c-window">2024–2029<span class="wb s-peak" style="--p:40%"></span></span><span class="num">$64</span><span class="c-basis">unverified</span></summary>
+<summary class="row"><span class="car">▶</span><span class="yr">2023</span><span class="nm">Cloudy Bay Sauvignon Blanc <span class="fmt">1.5L</span></span><span class="c-region">Marlborough</span><span class="st s-peak">Peak</span><span class="num c-window">2024–2029<span class="wb s-peak" style="--p:40%"></span></span><span class="num">$64</span><span class="c-basis">unverified</span></summary>
 <div class="body"><dl>
 <dt>Region</dt><dd class="lead">Marlborough · New Zealand</dd>
+<dt>Vintage</dt><dd>2023 <span class="vr vr-good">Good</span><span class="q"> — Cyclone Gabrielle hit New Zealand in February 2023 but spared Marlborough the worst of it. A large, healthy harvest, less concentrated than 2022.</span></dd>
 <dt>Style</dt><dd class="lead">Marlborough Sauvignon Blanc, magnum</dd>
 <dt>Tasting</dt><dd>Passionfruit, grapefruit and cut grass over a taut line of acidity, with a saline finish that keeps it from turning sweet-fruited. The magnum format slows oxidation, so this shows a shade more restraint than the 750ml of the same vintage.</dd>
 <dt>Background</dt><dd>The wine that made Marlborough famous in 1985 and effectively created the international market for New Zealand Sauvignon Blanc. Now owned by LVMH, still the reference point for the style.</dd>
@@ -1236,23 +1272,25 @@ h1{font-size:21px;font-weight:700;letter-spacing:-.012em;margin:0;text-wrap:bala
 <dt>Bottle</dt><dd class="q">#35 · Cloudy Bay · Sauvignon Blanc · 1500ml · <a href="https://www.wine-searcher.com/find/cloudy+bay+sauvignon+blanc+marlborough+new+zealand/2023" target="_blank" rel="noopener">Wine-Searcher</a></dd>
 </dl></div></details>
 <details class="w w29 rg-loire ap-pouilly-fume k-peak" style="counter-increment:bb 1 ll 1">
-<summary class="row"><span class="car">▶</span><span class="yr">2024</span><span class="nm">Jean Pabiot Pouilly-Fumé (Fines Caillottes)</span><span class="c-region">Pouilly-Fumé, Loire</span><span class="st s-peak">Peak</span><span class="num c-window">2025–2027<span class="wb s-peak" style="--p:50%"></span></span><span class="num">$31</span><span class="c-basis">unverified</span></summary>
+<summary class="row"><span class="car">▶</span><span class="yr">2024</span><span class="nm">Jean Pabiot Domaine des Fines Caillottes</span><span class="c-region">Pouilly-Fumé, Loire</span><span class="st s-peak">Peak</span><span class="num c-window">2025–2027<span class="wb s-peak" style="--p:50%"></span></span><span class="num">$31</span><span class="c-basis">unverified</span></summary>
 <div class="body"><dl>
 <dt>Region</dt><dd class="lead">Pouilly-Fumé, Loire · France</dd>
+<dt>Vintage</dt><dd>2024 <span class="vr vr-poor">Poor</span><span class="q"> — A miserable French vintage — a wet spring, heavy mildew pressure and a small crop across the Loire. Drink it young for whatever freshness it has.</span></dd>
 <dt>Style</dt><dd class="lead">Mineral-driven Sauvignon Blanc</dd>
 <dt>Tasting</dt><dd>Grapefruit and gooseberry, flint and chalky minerality. The sharp acidity of Loire Sauvignon is the centre of it and no oak is used. The 2024 has only just come out, so this is exactly its peak.</dd>
-<dt>Background</dt><dd>The domaine&#x27;s name, Fines Caillottes, refers to the limestone gravel soils of this vineyard. That is where the mineral character of Pouilly-Fumé comes from.</dd>
+<dt>Background</dt><dd>The Pabiot family named their estate Domaine des Fines Caillottes to tell themselves apart from the six other Pabiots in Pouilly. Caillottes are the small limestone stones of these soils, and they are where the mineral edge of Pouilly-Fumé comes from.</dd>
 <dt>Serving</dt><dd>8–10°C · decant None · White wine glass</dd>
 <dt>Pairing</dt><dd>Oysters · Goat cheese · Asparagus</dd>
 <dt>Window</dt><dd>2025–2027 · <span class="s-peak">Peak</span><span class="q"> · 50% through</span></dd>
 <dt>Note</dt><dd>Label correction: Fines Caillions → Domaine des Fines Caillottes. The flint and citrus come from the limestone gravel (caillottes) soils. 2024 is very young = this is the peak. Nothing to gain by keeping it, so drink within a year. 8–10°C, with oysters, goat cheese or salad.</dd>
 <dt>Price</dt><dd>$31 per 750ml · <span class="q">unverified — Value read from web search results — not confirmed on a Wine-Searcher page</span></dd>
-<dt>Bottle</dt><dd class="q">#29 · Jean Pabiot (Domaine des Fines Caillottes) · Sauvignon Blanc · 750ml · <a href="https://www.wine-searcher.com/find/jean+pabiot+dom+de+fines+caillottes+pouilly+fume+upper+loire+france/2024" target="_blank" rel="noopener">Wine-Searcher</a></dd>
+<dt>Bottle</dt><dd class="q">#29 · Domaine Jean Pabiot et Fils · Sauvignon Blanc · 750ml · <a href="https://www.wine-searcher.com/find/jean+pabiot+dom+de+fines+caillottes+pouilly+fume+upper+loire+france/2024" target="_blank" rel="noopener">Wine-Searcher</a></dd>
 </dl></div></details>
 <details class="w w12 rg-napa ap-napa-valley k-peak" style="counter-increment:bb 2 ll 1">
-<summary class="row"><span class="car">▶</span><span class="yr">NV</span><span class="nm">Opus One Overture <span class="tag qty">×2</span></span><span class="c-region">Napa Valley</span><span class="st s-peak">Peak</span><span class="num c-window">2023–2029<span class="wb s-peak" style="--p:50%"></span></span><span class="num">$400<span class="mult">2 × $200</span></span><span class="c-basis">estimated</span></summary>
+<summary class="row"><span class="car">▶</span><span class="yr">NV</span><span class="nm">Opus One Overture <span class="qty">×2</span></span><span class="c-region">Napa Valley</span><span class="st s-peak">Peak</span><span class="num c-window">2023–2029<span class="wb s-peak" style="--p:50%"></span></span><span class="num">$400<span class="mult">2 × $200</span></span><span class="c-basis">estimated</span></summary>
 <div class="body"><dl>
 <dt>Region</dt><dd class="lead">Napa Valley · USA</dd>
+<dt>Vintage</dt><dd>Non-vintage<span class="q"> — Non-vintage: blended across years from lots that did not go into the grand vin. There is no vintage to rate.</span></dd>
 <dt>Style</dt><dd class="lead">The entry point to Opus One</dd>
 <dt>Tasting</dt><dd>Cassis and cedar, like an abridged version of the Opus One nose. Blending several vintages keeps variation low and leaves it open from the start. There is nothing to gain by keeping it, so open it whenever.</dd>
 <dt>Background</dt><dd>Opus One&#x27;s non-vintage second wine. It used to be sold only to visitors at the winery and is now distributed normally.</dd>
@@ -1267,6 +1305,7 @@ h1{font-size:21px;font-weight:700;letter-spacing:-.012em;margin:0;text-wrap:bala
 <summary class="row"><span class="car">▶</span><span class="yr">NV</span><span class="nm">Monial Libera Me Brut (Blanc de Noirs)</span><span class="c-region">Colombé-le-Sec, Côte des Bar (Aube), Champagne</span><span class="st s-peak">Peak</span><span class="num c-window">2024–2029<span class="wb s-peak" style="--p:40%"></span></span><span class="num">$33</span><span class="c-basis">estimated</span></summary>
 <div class="body"><dl>
 <dt>Region</dt><dd class="lead">Colombé-le-Sec, Côte des Bar (Aube), Champagne · France</dd>
+<dt>Vintage</dt><dd>Non-vintage<span class="q"> — Non-vintage, blended across years. Nothing to rate.</span></dd>
 <dt>Style</dt><dd class="lead">Pinot Noir-based grower Champagne</dd>
 <dt>Tasting</dt><dd>Red apple and ripe pear, with the flesh and round texture of a Blanc de Noirs. The warm character of the Aube (Côte des Bar) comes through directly. Instead of the precision of a big house, the appeal is how direct the fruit is.</dd>
 <dt>Background</dt><dd>A family producer founded in 2008. They work in outbuildings of the Clairvaux abbey that have stood at Colombé-le-Sec since 1194, and &#x27;Libera Me&#x27; is taken from the Requiem liturgy.</dd>
@@ -1281,6 +1320,7 @@ h1{font-size:21px;font-weight:700;letter-spacing:-.012em;margin:0;text-wrap:bala
 <summary class="row"><span class="car">▶</span><span class="yr">NV</span><span class="nm">Bohigas Cava Brut Reserva</span><span class="c-region">Penedès, Catalonia</span><span class="st s-peak">Peak</span><span class="num c-window">2024–2029<span class="wb s-peak" style="--p:40%"></span></span><span class="num">$19</span><span class="c-basis">estimated</span></summary>
 <div class="body"><dl>
 <dt>Region</dt><dd class="lead">Penedès, Catalonia · Spain</dd>
+<dt>Vintage</dt><dd>Non-vintage<span class="q"> — Non-vintage. Nothing to rate.</span></dd>
 <dt>Style</dt><dd class="lead">Traditional Penedès Cava</dd>
 <dt>Tasting</dt><dd>The classic Penedès signature, Xarel·lo-led: quince, almond skin and a faintly bitter herbal edge that keeps it savoury. Two years on the lees give it texture rather than fruit. Less forward than Chardonnay-led Cava, and better at the table for it.</dd>
 <dt>Background</dt><dd>Caves Bohigas, also known as Fermí Bohigas, has been bottling since 1870 and works 35 hectares of estate vineyards at Òdena, in the higher inland part of Penedès where cooler nights hold acidity. The Brut Reserva is 55% Xarel·lo, 30% Macabeo and 15% Parellada, aged a minimum of 24 months.</dd>
@@ -1300,6 +1340,7 @@ h1{font-size:21px;font-weight:700;letter-spacing:-.012em;margin:0;text-wrap:bala
 </ul>
 <div class="method">
 <p>Status is derived from the drinking window, not stored by hand: past the window is post peak; inside its last quarter is urgent; not yet open is hold; a quarter of the way in, or five years past the opening, is peak; everything else is drink now. Urgency is relative to the window rather than a fixed countdown, because a year left on a Cava is a third of its life and a year left on a 1996 Napa Cabernet is four per cent of it. The bar under each window shows how far through that span the wine is today. Value scales a 750ml average price by the actual bottle format.</p>
+<p>Vintage ratings describe the growing season in that region and year, not this particular bottle — a great estate makes good wine in a poor year and the reverse happens too. They are reputations gathered from general knowledge, not measurements, and where one is shaky the note says so.</p>
 <p>Prices aim at the Wine-Searcher worldwide average. Automated access is blocked by a CAPTCHA, so they are kept in three grades. Confirmed means the figure was read directly off the Wine-Searcher page. Estimated means a median of actual retailer listings for the matching vintage, outliers removed. Unverified means an older single search value, which has been wrong by a factor of 2.7 — a snippet put Château Canon 2000 at $603 against an actual $220, which is what prompted the listing-based method. A definitive worldwide average needs a Wine-Searcher API key, or the page checked by hand. PRICES.md lists what is still outstanding, worst first.</p>
 <p>Cellar held at a steady 10°C. Safe for long-term storage, and slightly below the ideal band (12–14°C), so ageing runs a little slower — the far end of each drinking window can be taken as having more room than the figures show. Reds serve at 16–18°C, though, so take them out of the cellar 40–60 minutes before opening.</p>
 </div>

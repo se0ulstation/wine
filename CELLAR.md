@@ -29,7 +29,7 @@ As of 2026-09-11 · 40 bottles / 35 labels · est. $8,051 · stored at 10°C
 | 15 | Silver Oak Napa Valley Cabernet Sauvignon | 1996 | 2001-2027 | Early-drinking style plus 30 years of age |
 | 26 | Château du Domaine de l'Église | 1996 | 2004-2027 | 30 years old plus a vintage that hurt the Right Bank, no ageing left |
 
-## Drink now (6)
+## Drink now (7)
 
 | # | Wine | Vintage | Window | Note |
 |---|---|---|---|---|
@@ -38,9 +38,10 @@ As of 2026-09-11 · 40 bottles / 35 labels · est. $8,051 · stored at 10°C
 | 6 | Antinori Tignanello | 2020 | 2026-2038 | Decant 2 hours if opening now, better after 2028 |
 | 9 | Château Palmer | 2008 | 2024-2045 | Underrated vintage, but Palmer is exceptionally good |
 | 18 | Dom Pérignon | 2013 | 2023-2036 | High acidity and tension, good now and good for longer |
+| 23 | Charles Noëllat Chassagne-Montrachet Rouge | 2022 | 2025-2032 | Village red Burgundy from a négociant label. Drink, don't keep. |
 | 27 | Alter Ego de Palmer | 2019 | 2026-2040 | Strong 2019 vintage, drinkable now but it hits its stride after 2029 |
 
-## Peak (24)
+## Peak (23)
 
 | # | Wine | Vintage | Window | Note |
 |---|---|---|---|---|
@@ -53,10 +54,9 @@ As of 2026-09-11 · 40 bottles / 35 labels · est. $8,051 · stored at 10°C
 | 17 | Dom Pérignon | 2010 | 2020-2032 | Open this first of the three DPs |
 | 20 | Monial Libera Me Brut (Blanc de Noirs) | NV | 2024-2029 | Non-vintage grower Champagne, nothing to gain by keeping it |
 | 22 | Pommery Cuvée Louise | 2006 | 2016-2032 | Prestige cuvée at 20 years |
-| 23 | Charles Noëllat Chassagne-Montrachet | 2022 | 2024-2028 | Négociant village level plus a low-acid vintage, not for keeping |
 | 24 | Krug Vintage | 2002 | 2020-2050 | One of the century's best Champagne vintages. The highlight of the cellar |
 | 28 | Château Lynch-Bages | 2011 | 2021-2035 | Middling vintage so it opened early, a good window now |
-| 29 | Jean Pabiot Pouilly-Fumé (Fines Caillottes) | 2024 | 2025-2027 | Sauvignon Blanc, freshness is the whole point. Drink within a year |
+| 29 | Jean Pabiot Domaine des Fines Caillottes | 2024 | 2025-2027 | Sauvignon Blanc, freshness is the whole point. Drink within a year |
 | 30 | Château Canon | 2000 | 2012-2032 | At peak, but watch for bottle variation — see below |
 | 31 | Château Coutet (375ml) | 2002 | 2010-2035 | A half bottle, so it ages fast; good now |
 | 32 | Moulin Touchais Coteaux du Layon | 1981 | 1995-2045 | 45 years old but within normal range. The longest-lived bottle in the cellar |
@@ -103,13 +103,13 @@ As of 2026-09-11 · 40 bottles / 35 labels · est. $8,051 · stored at 10°C
 | 20 | NV | Monial Libera Me Brut (Blanc de Noirs) | Colombé-le-Sec, Côte des Bar (Aube), Champagne | Peak | 2024-2029 | $33 |
 | 21 | 2016 | Louis Roederer Cristal | Champagne | Hold | 2028-2048 | $330 |
 | 22 | 2006 | Pommery Cuvée Louise | Champagne | Peak | 2016-2032 | $310 |
-| 23 | 2022 | Charles Noëllat Chassagne-Montrachet | Chassagne-Montrachet, Côte de Beaune, Burgundy | Peak | 2024-2028 | $126 |
+| 23 | 2022 | Charles Noëllat Chassagne-Montrachet Rouge | Chassagne-Montrachet, Côte de Beaune, Burgundy | Drink now | 2025-2032 | $126 |
 | 24 | 2002 | Krug Vintage | Champagne | Peak | 2020-2050 | $569 |
 | 25 | 2021 | Antinori Solaia | Toscana IGT | Hold | 2029-2050 | $400 |
 | 26 | 1996 | Château du Domaine de l'Église | Pomerol, Bordeaux | Urgent | 2004-2027 | $102 |
 | 27 | 2019 | Alter Ego de Palmer | Margaux, Bordeaux | Drink now | 2026-2040 | $122 |
 | 28 | 2011 | Château Lynch-Bages | Pauillac, Bordeaux | Peak | 2021-2035 | $166 |
-| 29 | 2024 | Jean Pabiot Pouilly-Fumé (Fines Caillottes) | Pouilly-Fumé, Loire | Peak | 2025-2027 | $31 |
+| 29 | 2024 | Jean Pabiot Domaine des Fines Caillottes | Pouilly-Fumé, Loire | Peak | 2025-2027 | $31 |
 | 30 | 2000 | Château Canon | Saint-Émilion, Bordeaux | Peak | 2012-2032 | $220 |
 | 31 | 2002 | Château Coutet (375ml) | Barsac, Sauternes, Bordeaux | Peak | 2010-2035 | $25 |
 | 32 | 1981 | Moulin Touchais Coteaux du Layon | Coteaux du Layon, Anjou, Loire | Peak | 1995-2045 | $50 |

@@ -107,6 +107,29 @@ self-hosting as a webfont, and not on Google Fonts — which is the only externa
 font host the artifact CSP admits. Nothing is embedded; readers without it fall
 back through Segoe UI to the system sans. Do not add a `@font-face` for it.
 
+## Vintage notes
+
+Each bottle carries `vintage_note: {rating, text}` — one of `great`, `very
+good`, `good`, `mixed`, `poor`, or `n/a` for non-vintage. These rate **the
+growing season in that region and year, not the bottle**: a good estate makes
+decent wine in a poor year. They come from general knowledge rather than a
+source, so where one is shaky the text says so outright (bottle 32, Layon
+1981). Keep that habit — a hedge is worth more than false precision.
+
+## Get the wine right before writing about it
+
+Two errors worth not repeating, both from assuming the common case:
+
+- **Chassagne-Montrachet is not automatically white.** Bottle 23 is red Pinot
+  Noir; it was catalogued as Chardonnay, and every tasting note, pairing and
+  serving temperature written for it was wrong as a result.
+- **"Domaine des Fines Caillottes" is an estate name, not a cuvée.** It was
+  written as a parenthetical on bottle 29. The Pabiot family use it to tell
+  themselves apart from the six other Pabiots in Pouilly.
+
+Check colour, grape and what part of the name is the producer before writing a
+profile. The prose is long and confident, which makes a wrong premise expensive.
+
 ## Conventions
 
 - **English throughout** — code, comments, data, output. No Korean anywhere.

@@ -135,12 +135,10 @@ h1{font-size:21px;font-weight:700;letter-spacing:-.012em;margin:0;text-wrap:bala
   letter-spacing:-.01em}
 .nm{color:var(--ink);font-weight:500}
 .w[open] .nm{font-weight:600}
-/* Bottle tags. Only the few rows that hold more than one, or something other
-   than a 750, carry one — so the marks stay sparse enough to catch. */
-.tag{display:inline-block;font-size:11px;font-weight:400;line-height:1.5;
-  padding:0 5px;border-radius:3px;background:var(--rule-2);color:var(--ink-2);
-  vertical-align:1px;white-space:nowrap}
-.tag.qty{font-weight:600;color:var(--ink);font-variant-numeric:tabular-nums}
+/* Bottle qualifiers, set rather than boxed. Quantity is the one being scanned
+   for, so it takes ink and weight; format is a footnote on the name. */
+.qty{font-weight:700;color:var(--ink);white-space:nowrap;letter-spacing:.01em}
+.fmt{color:var(--ink-3);font-weight:400;white-space:nowrap}
 .mult{display:block;color:var(--ink-3);font-size:11.5px;margin-top:2px}
 .st{white-space:nowrap;font-weight:500}
 .car{color:var(--ink-3);font-size:10px;line-height:2;transition:transform .14s ease}
@@ -160,6 +158,13 @@ h1{font-size:21px;font-weight:700;letter-spacing:-.012em;margin:0;text-wrap:bala
   color:var(--ink-3);text-align:right;line-height:1.9}
 .body dd{margin:0;font-size:14px;line-height:1.65}
 .body dd.lead{font-size:15px}
+/* Vintage verdict. Weight carries the scale; the two hues already mean status
+   elsewhere, so only the extremes borrow them. */
+.vr{font-weight:700}
+.vr-great{color:var(--peak)}
+.vr-very-good,.vr-good{color:var(--ink)}
+.vr-mixed{color:var(--ink-2)}
+.vr-poor{color:var(--urgent)}
 .body .q{color:var(--ink-2);font-size:13px}
 
 .readout{color:var(--ink-3);font-size:12px;margin-top:12px}
@@ -335,9 +340,9 @@ def render(d):
         lo, hi = b["drink_from"], b["drink_to"]
         through = min(max((NOW - lo) / max(hi - lo, 1), 0), 1)
         ml = b.get("format_ml", 750)
-        fm = (f' <span class="tag">{"1.5L" if ml == 1500 else f"{ml}ml"}</span>'
+        fm = (f' <span class="fmt">{"1.5L" if ml == 1500 else f"{ml}ml"}</span>'
               if ml != 750 else "")
-        qt = (f' <span class="tag qty">×{qty(b)}</span>' if qty(b) > 1 else "")
+        qt = (f' <span class="qty">×{qty(b)}</span>' if qty(b) > 1 else "")
         each = value(b) / qty(b)
         mult = (f'<span class="mult">{qty(b)} × {usd(each)}</span>'
                 if qty(b) > 1 else "")
@@ -355,6 +360,13 @@ def render(d):
 
         A('<div class="body"><dl>')
         A(f'<dt>Region</dt><dd class="lead">{esc(b["region"])} · {esc(b["country"])}</dd>')
+        vn = b.get("vintage_note")
+        if vn:
+            r = vn["rating"]
+            head = ("Non-vintage" if r == "n/a"
+                    else f'{vintage(b)} <span class="vr vr-{r.replace(" ", "-")}">'
+                         f'{r[0].upper() + r[1:]}</span>')
+            A(f'<dt>Vintage</dt><dd>{head}<span class="q"> — {esc(vn["text"])}</span></dd>')
         A(f'<dt>Style</dt><dd class="lead">{esc(pf["style"])}</dd>')
         A(f'<dt>Tasting</dt><dd>{esc(pf["tasting"])}</dd>')
         A(f'<dt>Background</dt><dd>{esc(pf["story"])}</dd>')
@@ -410,6 +422,7 @@ def render(d):
       'Napa Cabernet is four per cent of it. The bar under each window shows how far '
       'through that span the wine is today. Value scales a 750ml average price by the '
       'actual bottle format.</p>')
+    A(f'<p>{esc(d["vintage_note"])}</p>')
     A(f'<p>{esc(d["price_note"])}</p>')
     A(f'<p>{esc(d["storage"]["note"])}</p>')
     A("</div>")
