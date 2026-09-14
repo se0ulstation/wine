@@ -1,1730 +1,1883 @@
 {
-  "owner": "jungyoonkim96",
-  "updated": "2026-09-11",
-  "notes": "수량 미확인 항목은 qty=1로 가정. 구매가/구매처/입고일 추후 추가.",
-  "bottles": [
-    {
-      "id": 1,
-      "producer": "Orin Swift",
-      "wine": "Mercury Head Cabernet Sauvignon",
-      "vintage": 2018,
-      "country": "USA",
-      "region": "Napa Valley",
-      "type": "red",
-      "grapes": [
-        "Cabernet Sauvignon"
-      ],
-      "qty": 1,
-      "drink_from": 2024,
-      "drink_to": 2035,
-      "status": "drink_or_hold",
-      "notes": "2018 나파 최상급 빈티지. 지금도 좋고 5년 더 가도 됨. 디캔팅 2시간.",
-      "category": "나파 / 캘리포니아",
-      "short": "2018 나파 최상급, 지금도 좋고 더 가도 됨",
-      "display": "Orin Swift Mercury Head Cabernet Sauvignon",
-      "peak_from": 2030,
-      "profile": {
-        "style": "농밀한 나파 카베르네",
-        "tasting": "잘 익은 블랙베리와 카시스에 모카·바닐라 오크가 두껍게 얹힌다. 오린 스위프트 특유의 과숙한 과실과 높은 알코올이 전면에 나오는 스타일이라 섬세함보다 밀도로 승부한다. 2018 빈티지의 산도가 그 무게를 받쳐준다.",
-        "story": "데이브 피니가 만든 나파의 컬트 지향 브랜드. 머큐리 헤드는 라벨에 실제 1오운스 은화(머큐리 다임)를 붙여 내놓는 시그니처 큐베다.",
-        "serve": {
-          "temp": "16–18°C",
-          "decant": "2시간",
-          "glass": "보르도"
-        },
-        "pair": [
-          "드라이에이징 립아이",
-          "숯불 양갈비",
-          "블루치즈"
-        ]
-      },
-      "price": {
-        "avg_usd": 132,
-        "basis": "750ml, ex-tax",
-        "confidence": "estimate",
-        "note": "판매처 호가 6곳 $105~175의 중앙값. 신뢰도 높음. WS 스니펫 $164와 대조.",
-        "source": "실제 판매처 호가 6곳 삼각측량 중앙값 (USD/750ml)",
-        "source_kind": "triangulated",
-        "est": {
-          "low": 105,
-          "high": 175,
-          "n_listings": 6,
-          "grade": "high",
-          "ws_snippet": 164,
-          "flag": ""
-        }
-      },
-      "ws_url": "https://www.wine-searcher.com/find/orin+swift+mercurey+head+cab+sauv+napa+valley+county+north+coast+california+usa/2018"
+ "owner": "jungyoonkim96",
+ "updated": "2026-09-11",
+ "notes": "수량 미확인 항목은 qty=1로 가정. 구매가/구매처/입고일 추후 추가.",
+ "bottles": [
+  {
+   "id": 1,
+   "producer": "Orin Swift",
+   "wine": "Mercury Head Cabernet Sauvignon",
+   "vintage": 2018,
+   "country": "USA",
+   "region": "Napa Valley",
+   "type": "red",
+   "grapes": [
+    "Cabernet Sauvignon"
+   ],
+   "qty": 1,
+   "drink_from": 2024,
+   "drink_to": 2035,
+   "status": "drink_or_hold",
+   "notes": "2018 나파 최상급 빈티지. 지금도 좋고 5년 더 가도 됨. 디캔팅 2시간.",
+   "category": "나파 / 캘리포니아",
+   "short": "2018 나파 최상급, 지금도 좋고 더 가도 됨",
+   "display": "Orin Swift Mercury Head Cabernet Sauvignon",
+   "peak_from": 2030,
+   "profile": {
+    "style": "농밀한 나파 카베르네",
+    "tasting": "잘 익은 블랙베리와 카시스에 모카·바닐라 오크가 두껍게 얹힌다. 오린 스위프트 특유의 과숙한 과실과 높은 알코올이 전면에 나오는 스타일이라 섬세함보다 밀도로 승부한다. 2018 빈티지의 산도가 그 무게를 받쳐준다.",
+    "story": "데이브 피니가 만든 나파의 컬트 지향 브랜드. 머큐리 헤드는 라벨에 실제 1오운스 은화(머큐리 다임)를 붙여 내놓는 시그니처 큐베다.",
+    "serve": {
+     "temp": "16–18°C",
+     "decant": "2시간",
+     "glass": "보르도"
     },
-    {
-      "id": 2,
-      "producer": "Hardys",
-      "wine": "Thomas Hardy Cabernet Sauvignon",
-      "vintage": 2017,
-      "country": "Australia",
-      "region": "Coonawarra / Margaret River",
-      "type": "red",
-      "grapes": [
-        "Cabernet Sauvignon"
-      ],
-      "qty": 1,
-      "drink_from": 2027,
-      "drink_to": 2042,
-      "status": "hold",
-      "notes": "하디스 최상위 카베르네. 아직 어림. 최소 2~3년 더.",
-      "category": "호주",
-      "short": "아직 어림, 최소 2~3년 더",
-      "display": "Hardys Thomas Hardy Cabernet Sauvignon",
-      "profile": {
-        "style": "구조적인 호주 카베르네",
-        "tasting": "유칼립투스·민트 뉘앙스 위에 카시스와 흑연이 겹친다. 호주 카베르네 중에서도 서늘한 기후 쪽 표현이라 나파보다 날이 서 있고 타닌이 촘촘하다. 지금은 그 타닌이 아직 닫혀 있다.",
-        "story": "하디스가 창립자 토마스 하디의 이름을 붙여 최상급 해에만 내놓는 플래그십. 쿠나와라와 마가렛 리버 과실을 쓴다.",
-        "serve": {
-          "temp": "17–18°C",
-          "decant": "3시간 (또는 2029년 이후 개봉)",
-          "glass": "보르도"
-        },
-        "pair": [
-          "로스트 램",
-          "비프 웰링턴",
-          "숙성 체다"
-        ]
-      },
-      "price": {
-        "avg_usd": 93,
-        "basis": "750ml, ex-tax",
-        "confidence": "estimate",
-        "note": "판매처 호가 4곳 $72~101의 중앙값. 신뢰도 높음. WS 스니펫 $97와 대조.",
-        "source": "실제 판매처 호가 4곳 삼각측량 중앙값 (USD/750ml)",
-        "source_kind": "triangulated",
-        "est": {
-          "low": 72,
-          "high": 101,
-          "n_listings": 4,
-          "grade": "high",
-          "ws_snippet": 97,
-          "flag": ""
-        }
-      },
-      "ws_url": "https://www.wine-searcher.com/find/hardys+thomas+cab+sauv+australia"
-    },
-    {
-      "id": 3,
-      "producer": "Austin Hope",
-      "wine": "Cabernet Sauvignon",
-      "vintage": 2020,
-      "country": "USA",
-      "region": "Paso Robles",
-      "type": "red",
-      "grapes": [
-        "Cabernet Sauvignon"
-      ],
-      "qty": 1,
-      "drink_from": 2023,
-      "drink_to": 2030,
-      "status": "drink_now",
-      "notes": "셀러에서 가장 캐주얼한 데일리급. 장기 보관 이유 없음. 먼저 비울 것.",
-      "category": "나파 / 캘리포니아",
-      "short": "데일리급, 지금이 제일 맛있음",
-      "display": "Austin Hope Cabernet Sauvignon",
-      "profile": {
-        "style": "직선적인 파소 로블스 카베르네",
-        "tasting": "잘 익은 자두와 블랙체리, 바닐라와 달콤한 오크. 당도감이 느껴질 만큼 과실이 앞서고 타닌은 부드럽다. 복잡함보다 즉각적인 만족을 주는 구성이라 지금 마시는 게 맞다.",
-        "story": "파소 로블스에서 오스틴 호프 가문이 만드는 와인. 90점대 평가와 접근 가능한 가격으로 미국에서 폭발적으로 팔린 물건이다.",
-        "serve": {
-          "temp": "16–17°C",
-          "decant": "1시간",
-          "glass": "보르도"
-        },
-        "pair": [
-          "버거",
-          "바비큐 립",
-          "토마토 파스타"
-        ]
-      },
-      "price": {
-        "avg_usd": 50,
-        "basis": "750ml, ex-tax",
-        "confidence": "estimate",
-        "note": "판매처 호가 5곳 $50~78의 중앙값. 신뢰도 높음. WS 스니펫 $66와 대조.",
-        "source": "실제 판매처 호가 5곳 삼각측량 중앙값 (USD/750ml)",
-        "source_kind": "triangulated",
-        "est": {
-          "low": 50,
-          "high": 78,
-          "n_listings": 5,
-          "grade": "high",
-          "ws_snippet": 66,
-          "flag": ""
-        }
-      },
-      "ws_url": "https://www.wine-searcher.com/find/austinhope+cab+sauv+paso+robles+st+luis+obispo+county+central+coast+california+usa/2020"
-    },
-    {
-      "id": 4,
-      "producer": "Château Calon Ségur",
-      "wine": "Château Calon Ségur",
-      "vintage": 2005,
-      "country": "France",
-      "region": "Saint-Estèphe, Bordeaux",
-      "classification": "3ème Cru Classé",
-      "type": "red",
-      "grapes": [
-        "Cabernet Sauvignon",
-        "Merlot",
-        "Cabernet Franc"
-      ],
-      "qty": 1,
-      "drink_from": 2030,
-      "drink_to": 2048,
-      "status": "hold",
-      "notes": "2005는 보르도 전설적 빈티지. 이제 막 창이 열림. 급할 것 없음.",
-      "category": "보르도 (레드)",
-      "short": "2005 전설적 빈티지, 창은 열렸지만 본령은 2030년대",
-      "display": "Château Calon Ségur",
-      "profile": {
-        "style": "고전적인 생테스테프",
-        "tasting": "카시스와 삼나무, 젖은 흙과 담배잎. 생테스테프 특유의 단단한 타닌 골격에 칼롱 세귀르 특유의 우아함이 얹힌다. 2005는 산도와 타닌이 모두 높아 아직 한참 남았다.",
-        "story": "라벨의 하트는 18세기 소유주 세귀르 후작이 '내 마음은 칼롱에 있다'고 한 데서 왔다. 3등급이지만 오랫동안 2등급 값을 받아온 샤토다.",
-        "serve": {
-          "temp": "17–18°C",
-          "decant": "3시간 이상 (2030년 이후 개봉 권장)",
-          "glass": "보르도"
-        },
-        "pair": [
-          "로스트 비프",
-          "사슴고기",
-          "트러플 요리"
-        ]
-      },
-      "price": {
-        "avg_usd": 155,
-        "basis": "750ml, ex-tax",
-        "confidence": "estimate",
-        "note": "판매처 호가 8곳 $94~280의 중앙값. 신뢰도 낮음. WS 스니펫($210)은 호가보다 높아 제외.",
-        "source": "실제 판매처 호가 8곳 삼각측량 중앙값 (USD/750ml)",
-        "source_kind": "triangulated",
-        "est": {
-          "low": 94,
-          "high": 280,
-          "n_listings": 8,
-          "grade": "low",
-          "ws_snippet": 210,
-          "flag": "ws_high"
-        }
-      },
-      "ws_url": "https://www.wine-searcher.com/find/calon+segur+st+estephe+medoc+bordeaux+france/2005"
-    },
-    {
-      "id": 5,
-      "producer": "Shafer",
-      "wine": "One Point Five Cabernet Sauvignon",
-      "vintage": 2021,
-      "country": "USA",
-      "region": "Stags Leap District, Napa Valley",
-      "type": "red",
-      "grapes": [
-        "Cabernet Sauvignon"
-      ],
-      "qty": 1,
-      "drink_from": 2027,
-      "drink_to": 2038,
-      "status": "hold",
-      "notes": "2021 나파 초강세 빈티지. 지금 열면 아까움.",
-      "category": "나파 / 캘리포니아",
-      "short": "2021 나파 초강세, 지금 열면 아까움",
-      "display": "Shafer One Point Five Cabernet Sauvignon",
-      "profile": {
-        "style": "스택스 립 카베르네",
-        "tasting": "검은 과실에 감초와 코코아, 스택스 립다운 벨벳 같은 질감. 셰이퍼의 손길로 타닌이 곱게 다듬어져 있지만 2021의 농축도 때문에 지금은 과실이 뭉쳐 있다.",
-        "story": "'원 포인트 파이브'는 1세대와 2세대 사이라는 뜻 — 존 셰이퍼와 아들 덕의 세대 교체를 이름에 담았다. 2022년 신젠타에 매각됐다.",
-        "serve": {
-          "temp": "16–18°C",
-          "decant": "2–3시간 (2028년 이후 개봉 권장)",
-          "glass": "보르도"
-        },
-        "pair": [
-          "안심 스테이크",
-          "오리 가슴살",
-          "하드 치즈"
-        ]
-      },
-      "price": {
-        "avg_usd": 125,
-        "basis": "750ml, ex-tax",
-        "confidence": "estimate",
-        "note": "판매처 호가 8곳 $97~150의 중앙값. 신뢰도 높음. WS 스니펫 $140와 대조.",
-        "source": "실제 판매처 호가 8곳 삼각측량 중앙값 (USD/750ml)",
-        "source_kind": "triangulated",
-        "est": {
-          "low": 97,
-          "high": 150,
-          "n_listings": 8,
-          "grade": "high",
-          "ws_snippet": 140,
-          "flag": ""
-        }
-      },
-      "ws_url": "https://www.wine-searcher.com/find/shafer+one+point+five+cab+sauv+stags+leap+district+napa+valley+county+north+coast+california+usa/2021"
-    },
-    {
-      "id": 6,
-      "producer": "Marchesi Antinori",
-      "wine": "Tignanello",
-      "vintage": 2020,
-      "country": "Italy",
-      "region": "Toscana IGT",
-      "type": "red",
-      "grapes": [
-        "Sangiovese",
-        "Cabernet Sauvignon",
-        "Cabernet Franc"
-      ],
-      "qty": 1,
-      "drink_from": 2026,
-      "drink_to": 2038,
-      "status": "drink_or_hold",
-      "notes": "지금 열려면 디캔팅 2시간. 2028년 이후가 더 좋음.",
-      "category": "이탈리아 (슈퍼 투스칸)",
-      "short": "지금 열려면 디캔팅 2시간, 2028 이후가 더 좋음",
-      "display": "Antinori Tignanello",
-      "peak_from": 2029,
-      "profile": {
-        "style": "산지오베제 기반 슈퍼 투스칸",
-        "tasting": "체리와 말린 허브, 가죽과 흙내음에 카베르네가 주는 검은 과실이 겹친다. 산지오베제의 높은 산도와 까슬한 타닌이 중심이라 이탈리아 음식과의 궁합이 유별나다. 2020은 균형이 좋은 해.",
-        "story": "1971년 첫 빈티지로 키안티 클라시코 등급을 스스로 포기하고 카베르네를 섞은, 슈퍼 투스칸의 출발점이 된 와인.",
-        "serve": {
-          "temp": "16–18°C",
-          "decant": "2시간",
-          "glass": "보르도"
-        },
-        "pair": [
-          "피오렌티나 스테이크",
-          "버섯 리조토",
-          "파르미지아노"
-        ]
-      },
-      "price": {
-        "avg_usd": 162,
-        "basis": "750ml, ex-tax",
-        "confidence": "estimate",
-        "note": "판매처 호가 12곳 $150~213의 중앙값. 신뢰도 높음. WS 스니펫 $183와 대조.",
-        "source": "실제 판매처 호가 12곳 삼각측량 중앙값 (USD/750ml)",
-        "source_kind": "triangulated",
-        "est": {
-          "low": 150,
-          "high": 213,
-          "n_listings": 12,
-          "grade": "high",
-          "ws_snippet": 183,
-          "flag": ""
-        }
-      },
-      "ws_url": "https://www.wine-searcher.com/find/marchesi+antinori+tignanello+tuscany+igp+italy/2020"
-    },
-    {
-      "id": 7,
-      "producer": "Château Calon Ségur",
-      "wine": "Château Calon Ségur",
-      "vintage": 2000,
-      "country": "France",
-      "region": "Saint-Estèphe, Bordeaux",
-      "classification": "3ème Cru Classé",
-      "type": "red",
-      "grapes": [
-        "Cabernet Sauvignon",
-        "Merlot",
-        "Cabernet Franc"
-      ],
-      "qty": 1,
-      "drink_from": 2020,
-      "drink_to": 2040,
-      "status": "peak",
-      "notes": "밀레니엄 빈티지, 26년차. 지금이 정확히 피크 구간.",
-      "category": "보르도 (레드)",
-      "short": "밀레니엄 빈티지 26년차, 정확히 피크",
-      "display": "Château Calon Ségur",
-      "profile": {
-        "style": "성숙한 생테스테프",
-        "tasting": "신선한 과실은 물러나고 삼나무·가죽·말린 자두·버섯 같은 3차 향이 전면에 나온다. 타닌이 완전히 녹아 실크처럼 깔리고 산도가 여전히 받쳐준다. 보르도 숙성의 교과서적인 지점.",
-        "story": "2000 밀레니엄 빈티지는 보르도 전역이 고르게 성공한 해로, 26년이 지난 지금 대부분의 그랑크뤼가 최적 구간에 들어와 있다.",
-        "serve": {
-          "temp": "17–18°C",
-          "decant": "1–2시간 (침전물 분리 목적)",
-          "glass": "보르도"
-        },
-        "pair": [
-          "로스트 램",
-          "비둘기 요리",
-          "콩테"
-        ]
-      },
-      "price": {
-        "avg_usd": 217,
-        "basis": "750ml, ex-tax",
-        "confidence": "estimate",
-        "note": "판매처 호가 4곳 $173~280의 중앙값. 신뢰도 높음. WS 스니펫 $226와 대조.",
-        "source": "실제 판매처 호가 4곳 삼각측량 중앙값 (USD/750ml)",
-        "source_kind": "triangulated",
-        "est": {
-          "low": 173,
-          "high": 280,
-          "n_listings": 4,
-          "grade": "high",
-          "ws_snippet": 226,
-          "flag": ""
-        }
-      },
-      "ws_url": "https://www.wine-searcher.com/find/calon+segur+st+estephe+medoc+bordeaux+france/2000"
-    },
-    {
-      "id": 8,
-      "producer": "Château Mouton Rothschild",
-      "wine": "Le Petit Mouton de Mouton Rothschild",
-      "vintage": 2013,
-      "country": "France",
-      "region": "Pauillac, Bordeaux",
-      "classification": "Second Wine",
-      "type": "red",
-      "grapes": [
-        "Cabernet Sauvignon",
-        "Merlot"
-      ],
-      "qty": 1,
-      "drink_from": 2020,
-      "drink_to": 2028,
-      "status": "drink_now",
-      "notes": "2013은 보르도 약한 빈티지. 더 기다릴 이유 없음. 2년 내 소비 권장.",
-      "category": "보르도 (레드)",
-      "short": "약한 빈티지, 더 기다릴 이유 없음",
-      "display": "Le Petit Mouton de Mouton Rothschild",
-      "profile": {
-        "style": "접근하기 쉬운 포이약",
-        "tasting": "카시스와 연필심, 무통 특유의 향신료 힌트. 그랑뱅의 밀도는 없지만 포이약의 골격은 분명하다. 2013은 개화기 악천후와 수확기 비로 농축도가 낮았던 해라 일찍 열렸다.",
-        "story": "무통 로칠드의 세컨 와인. 1993년부터 현재 이름으로 나오고 있다.",
-        "serve": {
-          "temp": "16–18°C",
-          "decant": "1시간",
-          "glass": "보르도"
-        },
-        "pair": [
-          "등심 스테이크",
-          "오리 콩피",
-          "경성 치즈"
-        ]
-      },
-      "price": {
-        "avg_usd": 245,
-        "basis": "750ml, ex-tax",
-        "confidence": "estimate",
-        "note": "판매처 호가 5곳 $183~527의 중앙값. 신뢰도 낮음. WS 스니펫 $258와 대조.",
-        "source": "실제 판매처 호가 5곳 삼각측량 중앙값 (USD/750ml)",
-        "source_kind": "triangulated",
-        "est": {
-          "low": 183,
-          "high": 527,
-          "n_listings": 5,
-          "grade": "low",
-          "ws_snippet": 258,
-          "flag": ""
-        }
-      },
-      "ws_url": "https://www.wine-searcher.com/find/le+petit+mouton+de+rothschild+pauillac+medoc+bordeaux+france/2013"
-    },
-    {
-      "id": 9,
-      "producer": "Château Palmer",
-      "wine": "Château Palmer",
-      "vintage": 2008,
-      "country": "France",
-      "region": "Margaux, Bordeaux",
-      "classification": "3ème Cru Classé",
-      "type": "red",
-      "grapes": [
-        "Merlot",
-        "Cabernet Sauvignon",
-        "Petit Verdot"
-      ],
-      "qty": 1,
-      "drink_from": 2024,
-      "drink_to": 2045,
-      "status": "drink_or_hold",
-      "notes": "저평가 빈티지지만 팔머는 예외적으로 훌륭. 셀러 최상위권 중 하나.",
-      "category": "보르도 (레드)",
-      "short": "저평가 빈티지지만 팔머는 예외적으로 훌륭",
-      "display": "Château Palmer",
-      "peak_from": 2032,
-      "profile": {
-        "style": "메를로 비중이 높은 마고",
-        "tasting": "제비꽃과 검은 과실, 마고 특유의 향의 화려함. 팔머는 3등급 중 유일하게 메를로를 절반 가까이 쓰는데, 그 덕에 질감이 둥글고 향이 관능적이다. 2008은 저평가 빈티지지만 팔머는 예외적으로 성공했다.",
-        "story": "1855년 등급에서 3등급이지만 실질적으로는 2등급 이상으로 평가받는 마고의 대표 샤토. 2014년부터 비오디나미로 전환했다.",
-        "serve": {
-          "temp": "17–18°C",
-          "decant": "2–3시간",
-          "glass": "보르도"
-        },
-        "pair": [
-          "양고기",
-          "송로버섯 파스타",
-          "숙성 콩테"
-        ]
-      },
-      "price": {
-        "avg_usd": 290,
-        "basis": "750ml, ex-tax",
-        "confidence": "estimate",
-        "note": "판매처 호가 5곳 $217~319의 중앙값. 신뢰도 높음. WS 스니펫 $340와 대조.",
-        "source": "실제 판매처 호가 5곳 삼각측량 중앙값 (USD/750ml)",
-        "source_kind": "triangulated",
-        "est": {
-          "low": 217,
-          "high": 319,
-          "n_listings": 5,
-          "grade": "high",
-          "ws_snippet": 340,
-          "flag": ""
-        }
-      },
-      "ws_url": "https://www.wine-searcher.com/find/palmer+margaux+medoc+bordeaux+france/2008"
-    },
-    {
-      "id": 10,
-      "producer": "Château Margaux",
-      "wine": "Pavillon Rouge du Château Margaux",
-      "vintage": 2000,
-      "country": "France",
-      "region": "Margaux, Bordeaux",
-      "classification": "Second Wine",
-      "type": "red",
-      "grapes": [
-        "Cabernet Sauvignon",
-        "Merlot"
-      ],
-      "qty": 1,
-      "drink_from": 2015,
-      "drink_to": 2032,
-      "status": "peak",
-      "notes": "세컨 와인 26년차. 피크 후반부. 우선순위 높게 소비.",
-      "category": "보르도 (레드)",
-      "short": "세컨 와인 26년차, 피크 후반부",
-      "display": "Pavillon Rouge du Château Margaux",
-      "profile": {
-        "style": "우아한 마고 세컨",
-        "tasting": "제비꽃과 붉은 과실, 마고 특유의 섬세한 향. 26년이 지나 타닌이 완전히 풀렸고 말린 꽃과 흙 뉘앙스가 올라온다. 세컨 와인이라 그랑뱅보다 창이 먼저 닫히니 서두를 것.",
-        "story": "샤토 마고의 세컨. 1908년부터 존재해온, 보르도에서 가장 오래된 세컨 와인 중 하나다.",
-        "serve": {
-          "temp": "17–18°C",
-          "decant": "1시간 (침전물 주의)",
-          "glass": "보르도"
-        },
-        "pair": [
-          "로스트 치킨",
-          "양갈비",
-          "버섯 요리"
-        ]
-      },
-      "price": {
-        "avg_usd": 272,
-        "basis": "750ml, ex-tax",
-        "confidence": "estimate",
-        "note": "판매처 호가 9곳 $172~450의 중앙값. 신뢰도 낮음. WS 스니펫 $307와 대조.",
-        "source": "실제 판매처 호가 9곳 삼각측량 중앙값 (USD/750ml)",
-        "source_kind": "triangulated",
-        "est": {
-          "low": 172,
-          "high": 450,
-          "n_listings": 9,
-          "grade": "low",
-          "ws_snippet": 307,
-          "flag": ""
-        }
-      },
-      "ws_url": "https://www.wine-searcher.com/find/pavillon+rouge+du+margaux+medoc+bordeaux+france/2000"
-    },
-    {
-      "id": 11,
-      "producer": "Opus One",
-      "wine": "Opus One",
-      "vintage": 2007,
-      "country": "USA",
-      "region": "Oakville, Napa Valley",
-      "type": "red",
-      "grapes": [
-        "Cabernet Sauvignon",
-        "Merlot",
-        "Petit Verdot",
-        "Cabernet Franc"
-      ],
-      "qty": 2,
-      "drink_from": 2020,
-      "drink_to": 2038,
-      "status": "peak",
-      "notes": "2007은 오퍼스 원 역대 최고 빈티지 중 하나. 지금 완벽한 구간. 동일 빈티지 2병 보유.",
-      "category": "나파 / 캘리포니아",
-      "short": "오퍼스 원 역대 최고 빈티지 중 하나",
-      "display": "Opus One",
-      "profile": {
-        "style": "성숙기의 오퍼스 원",
-        "tasting": "카시스와 블랙커런트에 삼나무·연필심·담뱃잎이 겹친다. 나파의 과실 농도와 보르도의 절제가 만나는 지점으로, 19년이 지난 지금 타닌이 완전히 녹아 질감이 매끄럽다. 2007은 오퍼스 원 역사상 손꼽히는 해.",
-        "story": "1979년 로버트 몬다비와 바롱 필립 드 로칠드가 합작해 만든 나파 최초의 울트라 프리미엄 프로젝트.",
-        "serve": {
-          "temp": "17–18°C",
-          "decant": "1.5–2시간",
-          "glass": "보르도"
-        },
-        "pair": [
-          "드라이에이징 스테이크",
-          "양갈비",
-          "트러플"
-        ]
-      },
-      "price": {
-        "avg_usd": 504,
-        "basis": "750ml, ex-tax",
-        "confidence": "estimate",
-        "note": "판매처 호가 8곳 $395~1050의 중앙값. 신뢰도 낮음. WS 스니펫 $545와 대조.",
-        "source": "실제 판매처 호가 8곳 삼각측량 중앙값 (USD/750ml)",
-        "source_kind": "triangulated",
-        "est": {
-          "low": 395,
-          "high": 1050,
-          "n_listings": 8,
-          "grade": "low",
-          "ws_snippet": 545,
-          "flag": ""
-        }
-      },
-      "ws_url": "https://www.wine-searcher.com/find/opus+one+napa+valley+county+north+coast+california+usa/2007"
-    },
-    {
-      "id": 12,
-      "producer": "Opus One",
-      "wine": "Overture",
-      "vintage": null,
-      "vintage_label": "NV",
-      "country": "USA",
-      "region": "Napa Valley",
-      "type": "red",
-      "grapes": [
-        "Cabernet Sauvignon"
-      ],
-      "qty": 2,
-      "drink_from": 2023,
-      "drink_to": 2029,
-      "status": "drink_now",
-      "notes": "멀티빈티지 블렌드. 숙성용 아님. 우선 소비 대상. 2병 보유 — 한 병은 편하게 열고 다른 한 병으로 비교해볼 여지 있음.",
-      "category": "나파 / 캘리포니아",
-      "short": "멀티빈티지 블렌드, 숙성용 아님",
-      "display": "Opus One Overture",
-      "profile": {
-        "style": "오퍼스 원의 입문판",
-        "tasting": "오퍼스 원의 향 구조를 축약해 놓은 듯한 카시스와 삼나무. 여러 빈티지를 섞어 만들기 때문에 편차가 적고 처음부터 열려 있다. 숙성으로 얻을 게 없으니 편하게 열면 된다.",
-        "story": "오퍼스 원의 논빈티지 세컨. 와이너리 방문객에게만 팔던 것이 지금은 일반 유통된다.",
-        "serve": {
-          "temp": "16–18°C",
-          "decant": "1시간",
-          "glass": "보르도"
-        },
-        "pair": [
-          "스테이크",
-          "숙성 치즈",
-          "로스트 포크"
-        ]
-      },
-      "price": {
-        "avg_usd": 200,
-        "basis": "750ml, ex-tax",
-        "confidence": "estimate",
-        "note": "판매처 호가 11곳 $169~250의 중앙값. 신뢰도 높음. WS 스니펫 $201와 대조.",
-        "source": "실제 판매처 호가 11곳 삼각측량 중앙값 (USD/750ml)",
-        "source_kind": "triangulated",
-        "est": {
-          "low": 169,
-          "high": 250,
-          "n_listings": 11,
-          "grade": "high",
-          "ws_snippet": 201,
-          "flag": ""
-        }
-      },
-      "ws_url": "https://www.wine-searcher.com/find/opus+one+overture+napa+valley+county+north+coast+california+usa/0"
-    },
-    {
-      "id": 13,
-      "producer": "Tenuta dell'Ornellaia",
-      "wine": "Ornellaia",
-      "vintage": 1996,
-      "country": "Italy",
-      "region": "Bolgheri Superiore DOC",
-      "type": "red",
-      "grapes": [
-        "Cabernet Sauvignon",
-        "Merlot",
-        "Cabernet Franc"
-      ],
-      "qty": 1,
-      "drink_from": 2005,
-      "drink_to": 2028,
-      "status": "urgent",
-      "notes": "30년차. 보관 이력 좋아도 창 끝자락. 최우선 소비 대상. 디캔팅 짧게(30분), 침전물 주의.",
-      "category": "이탈리아 (슈퍼 투스칸)",
-      "short": "30년차, 음용 창 끝자락",
-      "display": "Ornellaia",
-      "profile": {
-        "style": "숙성된 볼게리",
-        "tasting": "말린 자두와 무화과, 가죽·담배·숲 바닥. 신선한 과실은 거의 사라지고 3차 향이 지배한다. 30년이 지나 섬세해진 상태라 공기와 오래 접촉하면 빠르게 무너진다 — 짧게 열고 바로 마실 것.",
-        "story": "1985년 첫 빈티지로 사시카이아와 함께 볼게리를 세계 지도에 올린 와인. 1996은 오르넬라이아 초기 명성을 굳힌 빈티지 중 하나다.",
-        "serve": {
-          "temp": "16–17°C",
-          "decant": "30분 이내 (침전물 분리만)",
-          "glass": "보르도"
-        },
-        "pair": [
-          "로스트 램",
-          "버섯 파스타",
-          "숙성 페코리노"
-        ]
-      },
-      "price": {
-        "avg_usd": 277,
-        "basis": "750ml, ex-tax",
-        "confidence": "estimate",
-        "source": "실제 판매처 호가 4곳 삼각측량 중앙값 (USD/750ml)",
-        "source_kind": "triangulated",
-        "note": "판매처 호가 4곳 $250~548의 중앙값. 신뢰도 높음. WS 스니펫 $256와 대조.",
-        "est": {
-          "low": 250,
-          "high": 548,
-          "n_listings": 4,
-          "grade": "high",
-          "ws_snippet": 256,
-          "flag": ""
-        }
-      },
-      "ws_url": "https://www.wine-searcher.com/find/ornellaia+superior+bolgheri+tuscany+italy/1996"
-    },
-    {
-      "id": 14,
-      "producer": "Château Haut-Brion",
-      "wine": "Château Haut-Brion",
-      "vintage": 1996,
-      "country": "France",
-      "region": "Pessac-Léognan, Bordeaux",
-      "classification": "1er Cru Classé",
-      "type": "red",
-      "grapes": [
-        "Cabernet Sauvignon",
-        "Merlot",
-        "Cabernet Franc"
-      ],
-      "qty": 1,
-      "drink_from": 2015,
-      "drink_to": 2045,
-      "status": "peak",
-      "notes": "셀러 최고가·최고 등급. 1급 그랑크뤼 30년차, 지금이 클래식 피크. 특별한 자리용.",
-      "category": "보르도 (레드)",
-      "short": "1급 그랑크뤼 30년차, 클래식 피크. 특별한 자리용",
-      "display": "Château Haut-Brion",
-      "profile": {
-        "style": "페삭 레오냥의 1등급",
-        "tasting": "담배·시가박스·구운 흙에 카시스가 깔리고, 하우트 브리옹 특유의 훈연·미네랄 뉘앙스가 서명처럼 남는다. 보르도 1등급 중 가장 개성이 뚜렷한 향이며, 30년이 지난 지금 완전한 조화에 도달해 있다.",
-        "story": "1855년 등급에서 메독 밖에 있으면서도 1등급에 오른 유일한 샤토. 보르도에서 가장 오래된 브랜드 와인으로 꼽힌다.",
-        "serve": {
-          "temp": "17–18°C",
-          "decant": "1–2시간 (침전물 주의)",
-          "glass": "보르도"
-        },
-        "pair": [
-          "로스트 비프",
-          "비둘기",
-          "트러플 리소토"
-        ]
-      },
-      "price": {
-        "avg_usd": 613,
-        "basis": "750ml, ex-tax",
-        "confidence": "estimate",
-        "note": "판매처 호가 6곳 $580~685의 중앙값. 신뢰도 높음. WS 스니펫 $613와 대조.",
-        "source": "실제 판매처 호가 6곳 삼각측량 중앙값 (USD/750ml)",
-        "source_kind": "triangulated",
-        "est": {
-          "low": 580,
-          "high": 685,
-          "n_listings": 6,
-          "grade": "high",
-          "ws_snippet": 613,
-          "flag": ""
-        }
-      },
-      "ws_url": "https://www.wine-searcher.com/find/haut+brion+pessac+leognan+bordeaux+france/1996"
-    },
-    {
-      "id": 15,
-      "producer": "Silver Oak",
-      "wine": "Napa Valley Cabernet Sauvignon",
-      "vintage": 1996,
-      "country": "USA",
-      "region": "Napa Valley",
-      "type": "red",
-      "grapes": [
-        "Cabernet Sauvignon"
-      ],
-      "qty": 1,
-      "drink_from": 2001,
-      "drink_to": 2027,
-      "status": "urgent",
-      "notes": "실버오크는 출시 시점에 이미 마실 준비가 된 스타일. 30년은 한계치. 최우선 소비.",
-      "category": "나파 / 캘리포니아",
-      "short": "조기 음용형 스타일 + 30년차",
-      "display": "Silver Oak Napa Valley Cabernet Sauvignon",
-      "profile": {
-        "style": "아메리칸 오크의 나파 카베르네",
-        "tasting": "코코넛·딜·바닐라 — 실버 오크가 고집하는 아메리칸 오크 숙성의 시그니처가 과실보다 앞선다. 30년이 지나 과실이 상당히 물러났을 가능성이 크니 기대치를 조정하고 열 것.",
-        "story": "출시 시점에 이미 마실 준비가 된 상태로 내놓는 것으로 유명한 나파 와이너리. 아메리칸 오크만 쓰는 몇 안 되는 최상급 생산자다.",
-        "serve": {
-          "temp": "16–17°C",
-          "decant": "30분–1시간",
-          "glass": "보르도"
-        },
-        "pair": [
-          "바비큐 브리스킷",
-          "립아이",
-          "체다"
-        ]
-      },
-      "price": {
-        "avg_usd": 153,
-        "basis": "750ml, ex-tax",
-        "confidence": "estimate",
-        "note": "판매처 호가 4곳 $148~200의 중앙값. 신뢰도 높음. WS 스니펫($226)은 호가보다 높아 제외.",
-        "source": "실제 판매처 호가 4곳 삼각측량 중앙값 (USD/750ml)",
-        "source_kind": "triangulated",
-        "est": {
-          "low": 148,
-          "high": 200,
-          "n_listings": 4,
-          "grade": "high",
-          "ws_snippet": 226,
-          "flag": "ws_high"
-        }
-      },
-      "ws_url": "https://www.wine-searcher.com/find/silver+oak+cellars+cab+sauv+napa+valley+county+north+coast+california+usa/1996"
-    },
-    {
-      "id": 16,
-      "producer": "Tenuta San Guido",
-      "wine": "Sassicaia",
-      "vintage": 2019,
-      "country": "Italy",
-      "region": "Bolgheri Sassicaia DOC",
-      "type": "red",
-      "grapes": [
-        "Cabernet Sauvignon",
-        "Cabernet Franc"
-      ],
-      "qty": 1,
-      "drink_from": 2027,
-      "drink_to": 2048,
-      "status": "hold",
-      "notes": "2019는 사시카이아 역대급 빈티지. 지금 열면 손해. 최소 2030년까지 홀드.",
-      "category": "이탈리아 (슈퍼 투스칸)",
-      "short": "역대급 빈티지, 지금 열면 손해",
-      "display": "Sassicaia",
-      "profile": {
-        "style": "볼게리의 원형",
-        "tasting": "카베르네의 카시스와 삼나무에 지중해 허브와 짠 미네랄이 겹친다. 사시카이아는 보르도보다 가볍고 향이 높은 쪽인데, 2019는 그 구조가 특히 단단해 지금은 닫혀 있다. 2030년 이후가 본령.",
-        "story": "1968년 첫 상업 출시. 이탈리아에서 유일하게 단일 와인이 자체 DOC(볼게리 사시카이아)를 가진 와인이다.",
-        "serve": {
-          "temp": "17–18°C",
-          "decant": "3시간 이상 (2030년 이후 개봉 권장)",
-          "glass": "보르도"
-        },
-        "pair": [
-          "피오렌티나",
-          "로스트 램",
-          "숙성 페코리노"
-        ]
-      },
-      "price": {
-        "avg_usd": 333,
-        "basis": "750ml, ex-tax",
-        "confidence": "estimate",
-        "note": "판매처 호가 12곳 $250~460의 중앙값. 신뢰도 높음. WS 스니펫 $322와 대조.",
-        "source": "실제 판매처 호가 12곳 삼각측량 중앙값 (USD/750ml)",
-        "source_kind": "triangulated",
-        "est": {
-          "low": 250,
-          "high": 460,
-          "n_listings": 12,
-          "grade": "high",
-          "ws_snippet": 322,
-          "flag": ""
-        }
-      },
-      "ws_url": "https://www.wine-searcher.com/find/tenute+st+guido+sassicaia+bolgheri+tuscany+italy/2019"
-    },
-    {
-      "id": 17,
-      "producer": "Moët & Chandon",
-      "wine": "Dom Pérignon",
-      "vintage": 2010,
-      "country": "France",
-      "region": "Champagne",
-      "type": "sparkling",
-      "grapes": [
-        "Chardonnay",
-        "Pinot Noir"
-      ],
-      "qty": 1,
-      "drink_from": 2020,
-      "drink_to": 2032,
-      "status": "peak",
-      "notes": "DP 3병 중 가장 먼저 열 것. 지금 완숙.",
-      "category": "샴페인",
-      "short": "DP 3병 중 가장 먼저 열 것",
-      "display": "Dom Pérignon",
-      "profile": {
-        "style": "성숙한 프레스티지 샴페인",
-        "tasting": "브리오슈와 헤이즐넛, 구운 사과에 DP 특유의 요오드·연기 뉘앙스. 16년이 지나 기포가 곱게 잦아들고 질감이 크리미해졌다. DP 3병 중 가장 무르익어 있으니 먼저 열 것.",
-        "story": "돔 페리뇽은 좋은 해에만 선언하는 빈티지 전용 큐베다. 2010은 어려운 해였지만 선별로 완성도를 지킨 빈티지.",
-        "serve": {
-          "temp": "10–12°C",
-          "decant": "불필요 (30분 전 꺼내 두기)",
-          "glass": "화이트 와인 잔 (플루트 금지)"
-        },
-        "pair": [
-          "관자",
-          "닭 요리",
-          "숙성 콩테"
-        ]
-      },
-      "price": {
-        "avg_usd": 295,
-        "basis": "750ml, ex-tax",
-        "confidence": "estimate",
-        "note": "판매처 호가 5곳 $270~320의 중앙값. 신뢰도 높음. WS 스니펫 $352와 대조.",
-        "source": "실제 판매처 호가 5곳 삼각측량 중앙값 (USD/750ml)",
-        "source_kind": "triangulated",
-        "est": {
-          "low": 270,
-          "high": 320,
-          "n_listings": 5,
-          "grade": "high",
-          "ws_snippet": 352,
-          "flag": ""
-        }
-      },
-      "ws_url": "https://www.wine-searcher.com/find/dom+perignon+brut+champagne+france/2010"
-    },
-    {
-      "id": 18,
-      "producer": "Moët & Chandon",
-      "wine": "Dom Pérignon",
-      "vintage": 2013,
-      "country": "France",
-      "region": "Champagne",
-      "type": "sparkling",
-      "grapes": [
-        "Chardonnay",
-        "Pinot Noir"
-      ],
-      "qty": 1,
-      "drink_from": 2023,
-      "drink_to": 2036,
-      "status": "drink_or_hold",
-      "notes": "산도 높고 긴장감 있는 빈티지. 지금도 좋고 더 가도 좋음.",
-      "category": "샴페인",
-      "short": "산도 높고 긴장감 있음, 지금도 좋고 더 가도 좋음",
-      "display": "Dom Pérignon",
-      "peak_from": 2030,
-      "profile": {
-        "style": "긴장감 있는 프레스티지 샴페인",
-        "tasting": "시트러스와 백색 꽃, 부싯돌. 2013은 서늘하고 늦게 익은 해라 산도가 높고 윤곽이 날카롭다. 지금도 좋지만 시간이 더 지나면 질감이 살에 붙는다.",
-        "story": "돔 페리뇽은 출시 후에도 셀러에서 계속 진화하며, 이런 고산도 빈티지가 특히 오래 간다.",
-        "serve": {
-          "temp": "10–12°C",
-          "decant": "불필요",
-          "glass": "화이트 와인 잔"
-        },
-        "pair": [
-          "굴",
-          "생선회",
-          "캐비어"
-        ]
-      },
-      "price": {
-        "avg_usd": 275,
-        "basis": "750ml, ex-tax",
-        "confidence": "estimate",
-        "note": "판매처 호가 12곳 $191~400의 중앙값. 신뢰도 높음. WS 스니펫 $312와 대조.",
-        "source": "실제 판매처 호가 12곳 삼각측량 중앙값 (USD/750ml)",
-        "source_kind": "triangulated",
-        "est": {
-          "low": 191,
-          "high": 400,
-          "n_listings": 12,
-          "grade": "high",
-          "ws_snippet": 312,
-          "flag": ""
-        }
-      },
-      "ws_url": "https://www.wine-searcher.com/find/dom+perignon+brut+champagne+france/2013"
-    },
-    {
-      "id": 19,
-      "producer": "Moët & Chandon",
-      "wine": "Dom Pérignon",
-      "vintage": 2017,
-      "country": "France",
-      "region": "Champagne",
-      "type": "sparkling",
-      "grapes": [
-        "Chardonnay",
-        "Pinot Noir"
-      ],
-      "qty": 1,
-      "drink_from": 2027,
-      "drink_to": 2040,
-      "status": "hold",
-      "notes": "가장 어린 DP. 홀드.",
-      "category": "샴페인",
-      "short": "가장 어린 DP",
-      "display": "Dom Pérignon",
-      "profile": {
-        "style": "어린 프레스티지 샴페인",
-        "tasting": "감귤과 흰 과실, 아직 효모 향이 충분히 올라오지 않은 단계. 잠재력은 분명하지만 지금 열면 DP의 진가인 복합미를 놓친다. 2028년 이후가 좋다.",
-        "story": "셀러에 있는 DP 세 병 중 가장 어리다. 2010·2013과 함께 두면 훌륭한 수직 시음 세트가 된다.",
-        "serve": {
-          "temp": "10–12°C",
-          "decant": "불필요 (2028년 이후 개봉 권장)",
-          "glass": "화이트 와인 잔"
-        },
-        "pair": [
-          "관자",
-          "흰살 생선",
-          "파르미지아노"
-        ]
-      },
-      "price": {
-        "avg_usd": 269,
-        "basis": "750ml, ex-tax",
-        "confidence": "estimate",
-        "note": "판매처 호가 9곳 $240~308의 중앙값. 신뢰도 높음. WS 스니펫 $277와 대조.",
-        "source": "실제 판매처 호가 9곳 삼각측량 중앙값 (USD/750ml)",
-        "source_kind": "triangulated",
-        "est": {
-          "low": 240,
-          "high": 308,
-          "n_listings": 9,
-          "grade": "high",
-          "ws_snippet": 277,
-          "flag": ""
-        }
-      },
-      "ws_url": "https://www.wine-searcher.com/find/dom+perignon+brut+champagne+france/2017"
-    },
-    {
-      "id": 20,
-      "producer": "Champagne Monial (Emmanuel & Agnès Calon)",
-      "wine": "Libera Me Brut — Blanc de Noirs",
-      "vintage": null,
-      "vintage_label": "NV",
-      "country": "France",
-      "region": "Colombé-le-Sec, Côte des Bar (Aube), Champagne",
-      "type": "sparkling",
-      "grapes": [
-        "Pinot Noir"
-      ],
-      "qty": 1,
-      "drink_from": 2024,
-      "drink_to": 2029,
-      "status": "drink_now",
-      "notes": "신원 확인 완료. 2008년 설립된 소규모 가족 생산자, 오브(코트 데 바르) 콜롱베-르-섹 소재. 1194년부터 이 마을에 있던 클레르보 수도원 부속 건물에서 양조 — 라벨의 수도원 지하 아치 그림과 'Libera Me'(레퀴엠 전례문) 명칭이 여기서 옴. 점토석회질 토양, 피노 누아 2/3 + 샤르도네. Libera Me는 피노 누아 기반 블랑 드 누아. 리옹 국제와인콩쿠르 금상(2013, 2019). NV 논빈티지라 장기 보관 대상 아님 — 3년 내 소비. 같은 이름의 Brut Nature 버전이 따로 있으나 이 병은 Brut.",
-      "abv": 12.5,
-      "format_ml": 750,
-      "category": "샴페인",
-      "short": "논빈티지 그로워 샴페인, 숙성 이득 없음",
-      "display": "Monial Libera Me Brut (Blanc de Noirs)",
-      "profile": {
-        "style": "피노 누아 기반 그로워 샴페인",
-        "tasting": "붉은 사과와 잘 익은 배, 블랑 드 누아다운 살집과 둥근 질감. 오브(코트 데 바르)의 따뜻한 성격이 그대로 나온다. 대형 하우스의 정교함 대신 과실의 직접성이 매력.",
-        "story": "2008년 설립된 가족 생산자. 1194년부터 콜롱베르섹에 있던 클레르보 수도원의 부속 건물에서 양조하며, 'Libera Me'는 레퀴엠 전례문에서 따온 이름이다.",
-        "serve": {
-          "temp": "8–10°C",
-          "decant": "불필요",
-          "glass": "화이트 와인 잔"
-        },
-        "pair": [
-          "하몽",
-          "치킨",
-          "크림 파스타"
-        ]
-      },
-      "price": {
-        "avg_usd": 33,
-        "basis": "750ml, ex-tax",
-        "confidence": "estimate",
-        "note": "판매처 호가 4곳 $24~36의 중앙값. 신뢰도 높음. WS 스니펫 $19와 대조.",
-        "source": "실제 판매처 호가 4곳 삼각측량 중앙값 (USD/750ml)",
-        "source_kind": "triangulated",
-        "est": {
-          "low": 24,
-          "high": 36,
-          "n_listings": 4,
-          "grade": "high",
-          "ws_snippet": 19,
-          "flag": ""
-        }
-      },
-      "ws_url": "https://www.wine-searcher.com/find/mondiale+libera+mer+brut+champagne+france"
-    },
-    {
-      "id": 21,
-      "producer": "Louis Roederer",
-      "wine": "Cristal",
-      "vintage": 2016,
-      "country": "France",
-      "region": "Champagne",
-      "type": "sparkling",
-      "grapes": [
-        "Pinot Noir",
-        "Chardonnay"
-      ],
-      "qty": 1,
-      "drink_from": 2028,
-      "drink_to": 2048,
-      "status": "hold",
-      "notes": "크리스탈은 출시 후 5~10년 추가 숙성 시 진가. 셀러 샴페인 중 최장기 보관 대상.",
-      "category": "샴페인",
-      "short": "셀러 샴페인 중 최장기 보관 대상",
-      "display": "Louis Roederer Cristal",
-      "profile": {
-        "style": "최장기 숙성형 프레스티지 샴페인",
-        "tasting": "레몬 껍질과 흰 꽃, 아직 단단히 조여 있는 미네랄. 크리스탈은 출시 후 5~10년이 지나야 특유의 실크 질감과 견과 풍미가 열린다. 지금 열면 잠재력의 절반도 못 본다.",
-        "story": "1876년 러시아 차르 알렉산드르 2세를 위해 만들어진 큐베로, 암살 우려 때문에 투명한 크리스탈 병에 담은 것이 이름의 유래다.",
-        "serve": {
-          "temp": "10–12°C",
-          "decant": "불필요 (2028년 이후 개봉 권장)",
-          "glass": "화이트 와인 잔"
-        },
-        "pair": [
-          "캐비어",
-          "랍스터",
-          "관자"
-        ]
-      },
-      "price": {
-        "avg_usd": 330,
-        "basis": "750ml, ex-tax",
-        "confidence": "estimate",
-        "note": "판매처 호가 15곳 $270~460의 중앙값. 신뢰도 높음. WS 스니펫 $347와 대조.",
-        "source": "실제 판매처 호가 15곳 삼각측량 중앙값 (USD/750ml)",
-        "source_kind": "triangulated",
-        "est": {
-          "low": 270,
-          "high": 460,
-          "n_listings": 15,
-          "grade": "high",
-          "ws_snippet": 347,
-          "flag": ""
-        }
-      },
-      "ws_url": "https://www.wine-searcher.com/find/louis+roederer+cristal+millesime+brut+champagne+france/2016"
-    },
-    {
-      "id": 22,
-      "producer": "Pommery",
-      "wine": "Cuvée Louise",
-      "vintage": 2006,
-      "country": "France",
-      "region": "Champagne",
-      "type": "sparkling",
-      "grapes": [
-        "Chardonnay",
-        "Pinot Noir"
-      ],
-      "qty": 1,
-      "drink_from": 2016,
-      "drink_to": 2032,
-      "status": "peak",
-      "notes": "20년차 프레스티지 퀴베. 지금이 좋음.",
-      "category": "샴페인",
-      "short": "20년차 프레스티지 퀴베",
-      "display": "Pommery Cuvée Louise",
-      "profile": {
-        "style": "성숙한 샤르도네 중심 프레스티지",
-        "tasting": "구운 브리오슈와 꿀, 말린 살구. 20년이 지나 산화 뉘앙스가 곱게 얹혔고 기포는 부드러워졌다. 크뤼그·DP보다 덜 알려졌지만 완성도는 충분하다.",
-        "story": "포므리의 프레스티지 큐베로, 19세기에 브뤼 샴페인을 대중화한 루이즈 포므리 부인의 이름을 땄다.",
-        "serve": {
-          "temp": "10–12°C",
-          "decant": "불필요",
-          "glass": "화이트 와인 잔"
-        },
-        "pair": [
-          "훈제 연어",
-          "닭 요리",
-          "브리 치즈"
-        ]
-      },
-      "price": {
-        "avg_usd": 310,
-        "basis": "750ml, ex-tax",
-        "confidence": "estimate",
-        "note": "판매처 호가 4곳 $241~330의 중앙값. 신뢰도 높음.",
-        "source": "실제 판매처 호가 4곳 삼각측량 중앙값 (USD/750ml)",
-        "source_kind": "triangulated",
-        "est": {
-          "low": 241,
-          "high": 330,
-          "n_listings": 4,
-          "grade": "high",
-          "ws_snippet": null,
-          "flag": ""
-        }
-      },
-      "ws_url": "https://www.wine-searcher.com/find/pommery+cuvee+louise+brut+millesime+champagne+france/2006"
-    },
-    {
-      "id": 23,
-      "producer": "Charles Noëllat (négociant)",
-      "wine": "Chassagne-Montrachet",
-      "vintage": 2022,
-      "country": "France",
-      "region": "Chassagne-Montrachet, Côte de Beaune, Burgundy",
-      "type": "white",
-      "grapes": [
-        "Chardonnay"
-      ],
-      "qty": 1,
-      "drink_from": 2024,
-      "drink_to": 2028,
-      "status": "drink_now",
-      "notes": "라벨 확인 완료(2022, 화이트, 12.5%). 역사적 도멘 Charles Noëllat는 1988년 르로이에 매각되며 소멸했으나 이름은 네고시앙 브랜드로 존속 → 도멘 와인 아닌 네고시앙 병입 빌라주급. 2022는 더운 빈티지라 산도 낮고 과실 풍만. 장기 보관 부적합, 2027년 내 소비 권장. 12~13°C, 부르고뉴 화이트 잔.",
-      "classification": "Village",
-      "abv": 12.5,
-      "category": "부르고뉴 (화이트)",
-      "short": "네고시앙 빌라주급 + 저산도 빈티지, 장기 보관 부적합",
-      "display": "Charles Noëllat Chassagne-Montrachet",
-      "profile": {
-        "style": "빌라주급 백부르고뉴",
-        "tasting": "노란 사과와 감귤, 가벼운 헤이즐넛과 버터 뉘앙스. 2022는 더웠던 해라 산도가 낮고 과실이 풍만한 대신 긴장감은 덜하다. 네고시앙 빌라주급이니 기대는 편안한 데일리 백부르고뉴 수준으로.",
-        "story": "샤를 노엘라 도멘은 1988년 르로이에 매각되며 사라졌지만 이름은 네고시앙 브랜드로 남아 계속 쓰이고 있다. 이 병은 그 브랜드 병입이다.",
-        "serve": {
-          "temp": "12–13°C",
-          "decant": "불필요",
-          "glass": "부르고뉴 화이트"
-        },
-        "pair": [
-          "버터 소스 관자",
-          "로스트 치킨",
-          "염소 치즈"
-        ]
-      },
-      "price": {
-        "avg_usd": 126,
-        "basis": "750ml, ex-tax",
-        "confidence": "estimate",
-        "note": "판매처 호가 2곳 $116~136의 중앙값. 신뢰도 보통.",
-        "source": "실제 판매처 호가 2곳 삼각측량 중앙값 (USD/750ml)",
-        "source_kind": "triangulated",
-        "est": {
-          "low": 116,
-          "high": 136,
-          "n_listings": 2,
-          "grade": "medium",
-          "ws_snippet": null,
-          "flag": ""
-        }
-      },
-      "ws_url": "https://www.wine-searcher.com/find/charles+noellat"
-    },
-    {
-      "id": 24,
-      "producer": "Krug",
-      "wine": "Krug Vintage",
-      "vintage": 2002,
-      "country": "France",
-      "region": "Champagne",
-      "type": "sparkling",
-      "grapes": [
-        "Pinot Noir",
-        "Chardonnay",
-        "Pinot Meunier"
-      ],
-      "qty": 1,
-      "drink_from": 2020,
-      "drink_to": 2050,
-      "status": "peak",
-      "notes": "2002는 금세기 샴페인 최고 빈티지 중 하나. 크뤼그 2002는 전설급. 지금부터 20년 더 가능. 셀러의 하이라이트.",
-      "category": "샴페인",
-      "short": "금세기 최고 샴페인 빈티지 중 하나. 셀러의 하이라이트",
-      "display": "Krug Vintage",
-      "profile": {
-        "style": "셀러의 정점",
-        "tasting": "구운 견과와 브리오슈, 마멀레이드와 커피. 크뤼그 특유의 산화적 복합미에 2002의 농축도가 더해져 밀도가 압도적이다. 24년이 지났지만 아직 상승 곡선이고 앞으로 20년 더 간다.",
-        "story": "크뤼그는 모든 큐베를 소형 오크통에서 1차 발효한다. 2002는 금세기 샴페인 최고 빈티지로 꼽히며 크뤼그 2002는 그중에서도 전설로 불린다.",
-        "serve": {
-          "temp": "10–12°C",
-          "decant": "불필요 (1시간 전 꺼내 두면 향이 더 열린다)",
-          "glass": "화이트 와인 잔"
-        },
-        "pair": [
-          "캐비어",
-          "트러플 리소토",
-          "숙성 콩테"
-        ]
-      },
-      "price": {
-        "avg_usd": 569,
-        "basis": "750ml, ex-tax",
-        "confidence": "estimate",
-        "note": "판매처 호가 10곳 $485~918의 중앙값. 신뢰도 높음. WS 스니펫 $724와 대조.",
-        "source": "실제 판매처 호가 10곳 삼각측량 중앙값 (USD/750ml)",
-        "source_kind": "triangulated",
-        "est": {
-          "low": 485,
-          "high": 918,
-          "n_listings": 10,
-          "grade": "high",
-          "ws_snippet": 724,
-          "flag": ""
-        }
-      },
-      "ws_url": "https://www.wine-searcher.com/find/krug+vintage+brut+champagne+france/2002"
-    },
-    {
-      "id": 25,
-      "producer": "Marchesi Antinori",
-      "wine": "Solaia",
-      "vintage": 2021,
-      "country": "Italy",
-      "region": "Toscana IGT",
-      "type": "red",
-      "grapes": [
-        "Cabernet Sauvignon",
-        "Sangiovese",
-        "Cabernet Franc"
-      ],
-      "qty": 1,
-      "drink_from": 2029,
-      "drink_to": 2050,
-      "status": "hold",
-      "notes": "안티노리 최상위 큐베(티냐넬로 상위). 2021은 토스카나 최상급 빈티지로 평가됨. 구조와 타닌이 단단해 최소 2029년까지 홀드 권장, 2032~2045가 핵심 구간. 셀러 최장기 보관 대상 중 하나.",
-      "category": "이탈리아 (슈퍼 투스칸)",
-      "short": "핵심 구간 2032–2045",
-      "display": "Antinori Solaia",
-      "profile": {
-        "style": "안티노리의 정점",
-        "tasting": "카시스와 블랙베리, 삼나무와 발사믹. 티냐넬로와 달리 카베르네가 주도해 보르도에 가깝지만 산지오베제가 주는 산도와 쌉쌀함이 이탈리아 정체성을 남긴다. 2021은 구조가 대단히 단단하다.",
-        "story": "1978년 첫 빈티지. 티냐넬로 포도밭 중 가장 좋은 구획에서 나오며 좋은 해에만 생산한다.",
-        "serve": {
-          "temp": "17–18°C",
-          "decant": "3시간 이상 (2029년 이후 개봉 권장)",
-          "glass": "보르도"
-        },
-        "pair": [
-          "피오렌티나",
-          "로스트 램",
-          "트러플"
-        ]
-      },
-      "price": {
-        "avg_usd": 400,
-        "basis": "750ml, ex-tax",
-        "confidence": "estimate",
-        "note": "판매처 호가 7곳 $359~565의 중앙값. 신뢰도 높음.",
-        "source": "실제 판매처 호가 7곳 삼각측량 중앙값 (USD/750ml)",
-        "source_kind": "triangulated",
-        "est": {
-          "low": 359,
-          "high": 565,
-          "n_listings": 7,
-          "grade": "high",
-          "ws_snippet": null,
-          "flag": ""
-        }
-      },
-      "ws_url": "https://www.wine-searcher.com/find/marchesi+antinori+solaia+tuscany+igp+italy/2021"
-    },
-    {
-      "id": 26,
-      "producer": "Château du Domaine de l'Église",
-      "wine": "Château du Domaine de l'Église",
-      "vintage": 1996,
-      "country": "France",
-      "region": "Pomerol, Bordeaux",
-      "classification": "Pomerol (등급 없음)",
-      "type": "red",
-      "grapes": [
-        "Merlot",
-        "Cabernet Franc"
-      ],
-      "abv": 12.5,
-      "qty": 1,
-      "drink_from": 2004,
-      "drink_to": 2027,
-      "status": "urgent",
-      "notes": "Castéja 소유, Borie-Manoux 독점 유통, 샤토 병입. 포므롤 소규모 중견 샤토(메를로 주도). 1996은 좌안(메독/카베르네)에 유리했던 해로 우안 메를로에는 어려운 빈티지 → 장기 숙성형이 아님. 30년차, 음용 창 끝자락이라 최우선 소비. 개봉 전 48시간 세워두고 아소(양날) 오프너로 코르크 조심스럽게, 디캔팅은 짧게(20~30분) 또는 병에서 바로. 16~17°C.",
-      "category": "보르도 (레드)",
-      "short": "30년차 + 우안에 불리했던 빈티지, 숙성 여력 없음",
-      "display": "Château du Domaine de l'Église",
-      "profile": {
-        "style": "숙성된 포므롤",
-        "tasting": "말린 자두와 무화과, 흙과 버섯, 메를로다운 둥근 질감. 30년이 지나 과실이 상당히 물러났을 것이고 3차 향이 지배한다. 1996은 좌안에 유리했던 해라 우안 와인에 큰 기대는 금물.",
-        "story": "카스테자 가문 소유의 소규모 포므롤. 포므롤에는 공식 등급이 없어 샤토별 평판이 전부인 지역이다.",
-        "serve": {
-          "temp": "16–17°C",
-          "decant": "30분 (침전물 분리만)",
-          "glass": "보르도"
-        },
-        "pair": [
-          "로스트 포크",
-          "버섯 요리",
-          "브리 치즈"
-        ]
-      },
-      "price": {
-        "avg_usd": 102,
-        "basis": "750ml, ex-tax",
-        "confidence": "verified",
-        "source": "보유자가 Wine-Searcher 화면에서 직접 확인 (2026-09)",
-        "source_kind": "screenshot",
-        "verified": "보유자가 Wine-Searcher 화면에서 직접 확인 (2026-09)"
-      },
-      "ws_url": "https://www.wine-searcher.com/find/domaine+de+l+eglise+pomerol+bordeaux+france/1996"
-    },
-    {
-      "id": 27,
-      "producer": "Château Palmer",
-      "wine": "Alter Ego de Palmer",
-      "vintage": 2019,
-      "country": "France",
-      "region": "Margaux, Bordeaux",
-      "classification": "Second Wine",
-      "category": "보르도 (레드)",
-      "type": "red",
-      "grapes": [
-        "Merlot",
-        "Cabernet Sauvignon",
-        "Petit Verdot"
-      ],
-      "qty": 1,
-      "drink_from": 2026,
-      "drink_to": 2040,
-      "status": "drink_or_hold",
-      "short": "2019 강세 빈티지, 지금도 가능하나 2029 이후가 본령",
-      "notes": "팔머의 세컨이지만 '작은 팔머'가 아니라 별도 스타일로 만드는 큐베 — 과실 표현이 앞서고 접근성이 빠름. 2019는 보르도 근래 최고 빈티지 중 하나라 구조가 단단함. 지금 열려면 디캔팅 2시간. #9 팔머 2008과 나란히 놓으면 그랑뱅/알테르 에고 대비가 명확.",
-      "display": "Alter Ego de Palmer",
-      "peak_from": 2030,
-      "profile": {
-        "style": "현대적인 마고",
-        "tasting": "붉은 과실과 제비꽃, 신선한 향신료. 팔머의 세컨이지만 그랑뱅의 축소판이 아니라 과실 표현을 앞세운 별도 스타일로 만든다. 2019의 농축도 때문에 지금은 힘이 앞선다.",
-        "story": "2002년부터 팔머가 세컨의 개념을 바꿔 내놓은 큐베. '또 다른 자아'라는 이름 그대로 다른 성격을 의도했다.",
-        "serve": {
-          "temp": "17–18°C",
-          "decant": "2시간 (2029년 이후가 본령)",
-          "glass": "보르도"
-        },
-        "pair": [
-          "양갈비",
-          "오리 가슴살",
-          "버섯 요리"
-        ]
-      },
-      "price": {
-        "avg_usd": 122,
-        "basis": "750ml, ex-tax",
-        "confidence": "unverified",
-        "note": "미확인. 같은 방식으로 읽은 카농 2000이 실제 $220 대신 $603으로 나왔던 전례가 있어 오차 가능성이 크다.",
-        "source": "웹 검색 결과에서 읽은 값 — Wine-Searcher 페이지로 확인되지 않음",
-        "source_kind": "search"
-      },
-      "ws_url": "https://www.wine-searcher.com/find/palmer+alter+ego+de+margaux+medoc+bordeaux+france/2019"
-    },
-    {
-      "id": 28,
-      "producer": "Château Lynch-Bages",
-      "wine": "Château Lynch-Bages",
-      "vintage": 2011,
-      "country": "France",
-      "region": "Pauillac, Bordeaux",
-      "classification": "5ème Cru Classé",
-      "category": "보르도 (레드)",
-      "type": "red",
-      "grapes": [
-        "Cabernet Sauvignon",
-        "Merlot",
-        "Cabernet Franc",
-        "Petit Verdot"
-      ],
-      "qty": 1,
-      "drink_from": 2021,
-      "drink_to": 2035,
-      "status": "peak",
-      "short": "중간급 빈티지라 일찍 열림, 지금이 좋은 구간",
-      "notes": "'가난한 자의 무통'이라 불리는 포이약 5등급. 2011은 2009·2010 사이에 낀 중간급 빈티지로 숙성이 빨라 지금 접근하기 좋음. 15년차, 디캔팅 1~1.5시간. 등심·양갈비에 잘 맞음.",
-      "display": "Château Lynch-Bages",
-      "profile": {
-        "style": "전형적인 포이약",
-        "tasting": "카시스와 연필심, 삼나무와 담뱃잎 — 포이약의 교과서 같은 향. 린치 바주는 그 안에서도 과실이 풍만한 쪽이다. 2011은 중간급 빈티지라 숙성이 빨라 지금 접근하기 좋다.",
-        "story": "'가난한 자의 무통'이라 불리는 5등급. 오랫동안 등급을 뛰어넘는 품질로 평가받아 왔다.",
-        "serve": {
-          "temp": "17–18°C",
-          "decant": "1.5시간",
-          "glass": "보르도"
-        },
-        "pair": [
-          "등심 스테이크",
-          "양갈비",
-          "숙성 치즈"
-        ]
-      },
-      "price": {
-        "avg_usd": 166,
-        "basis": "750ml, ex-tax",
-        "confidence": "unverified",
-        "note": "미확인. 같은 방식으로 읽은 카농 2000이 실제 $220 대신 $603으로 나왔던 전례가 있어 오차 가능성이 크다.",
-        "source": "웹 검색 결과에서 읽은 값 — Wine-Searcher 페이지로 확인되지 않음",
-        "source_kind": "search"
-      },
-      "ws_url": "https://www.wine-searcher.com/find/lynch+bages+pauillac+medoc+bordeaux+france/2011"
-    },
-    {
-      "id": 29,
-      "producer": "Jean Pabiot (Domaine des Fines Caillottes)",
-      "wine": "Pouilly-Fumé",
-      "vintage": 2024,
-      "country": "France",
-      "region": "Pouilly-Fumé, Loire",
-      "category": "루아르",
-      "type": "white",
-      "grapes": [
-        "Sauvignon Blanc"
-      ],
-      "qty": 1,
-      "drink_from": 2025,
-      "drink_to": 2027,
-      "status": "drink_now",
-      "short": "소비뇽 블랑, 신선할 때가 전부. 1년 내 소비",
-      "notes": "라벨 표기 정정: Fines Caillions → Domaine des Fines Caillottes. 석회질 자갈(caillottes) 토양에서 오는 부싯돌·시트러스 계열. 2024는 아주 어림 = 지금이 정점. 보관 이득 전혀 없으니 1년 내 소비. 8~10°C, 굴·염소치즈·샐러드.",
-      "display": "Jean Pabiot Pouilly-Fumé (Fines Caillottes)",
-      "profile": {
-        "style": "미네랄 중심 소비뇽 블랑",
-        "tasting": "자몽과 구스베리, 부싯돌과 분필 같은 미네랄. 루아르 소비뇽의 날카로운 산도가 중심이고 오크는 쓰지 않는다. 2024는 갓 나온 상태라 지금이 정확히 정점이다.",
-        "story": "도멘의 이름 'Fines Caillottes'는 이 밭의 석회질 자갈 토양을 가리킨다. 푸이 퓌메의 미네랄 성격이 여기서 나온다.",
-        "serve": {
-          "temp": "8–10°C",
-          "decant": "불필요",
-          "glass": "화이트 와인 잔"
-        },
-        "pair": [
-          "굴",
-          "염소 치즈",
-          "아스파라거스"
-        ]
-      },
-      "price": {
-        "avg_usd": 31,
-        "basis": "750ml, ex-tax",
-        "confidence": "unverified",
-        "source": "웹 검색 결과에서 읽은 값 — Wine-Searcher 페이지로 확인되지 않음",
-        "source_kind": "search",
-        "note": "미확인. 같은 방식으로 읽은 카농 2000이 실제 $220 대신 $603으로 나왔던 전례가 있어 오차 가능성이 크다."
-      },
-      "ws_url": "https://www.wine-searcher.com/find/jean+pabiot+dom+de+fines+caillottes+pouilly+fume+upper+loire+france/2024"
-    },
-    {
-      "id": 30,
-      "producer": "Château Canon",
-      "wine": "Château Canon",
-      "vintage": 2000,
-      "country": "France",
-      "region": "Saint-Émilion, Bordeaux",
-      "classification": "1er Grand Cru Classé B",
-      "category": "보르도 (레드)",
-      "type": "red",
-      "grapes": [
-        "Merlot",
-        "Cabernet Franc"
-      ],
-      "qty": 1,
-      "drink_from": 2012,
-      "drink_to": 2032,
-      "status": "peak",
-      "short": "피크 구간이나 병차(bottle variation) 주의 — 아래 설명",
-      "notes": "주의할 점이 있음: 카농은 1990년대 셀러 목재의 TCA(코르크 냄새) 오염으로 심각한 문제를 겪었고, 1996년 샤넬 인수 후 대대적으로 셀러를 철거·재건했음. 품질이 확실히 궤도에 오른 건 2000년대 중후반 이후라 2000 빈티지는 과도기에 걸쳐 있음. 빈티지 자체는 훌륭하고 좋은 병은 지금 아주 좋지만, 병에 따른 편차 가능성을 감안할 것. 중요한 자리에 단독으로 올리기보다 예비 병이 있는 자리에서 여는 걸 권함. 디캔팅 1시간.",
-      "display": "Château Canon",
-      "profile": {
-        "style": "석회질 생테밀리옹",
-        "tasting": "붉은 과실과 제비꽃, 석회질에서 오는 곧은 미네랄. 카농은 생테밀리옹 중에서도 힘보다 섬세함과 긴장감으로 가는 스타일이다. 다만 이 빈티지는 아래 주의사항을 확인할 것.",
-        "story": "1996년 샤넬이 인수한 생테밀리옹 1등급 B. 인수 당시 셀러의 TCA 오염이 심각해 대대적으로 철거·재건했고, 품질이 확실히 궤도에 오른 것은 2000년대 중후반부터다.",
-        "serve": {
-          "temp": "17–18°C",
-          "decant": "1시간",
-          "glass": "보르도"
-        },
-        "pair": [
-          "로스트 비프",
-          "오리",
-          "버섯 요리"
-        ]
-      },
-      "price": {
-        "avg_usd": 220,
-        "basis": "750ml, ex-tax",
-        "confidence": "verified",
-        "source": "보유자가 Wine-Searcher 화면에서 직접 확인 (2026-09)",
-        "verified": "보유자가 Wine-Searcher 화면에서 직접 확인 (2026-09)",
-        "source_kind": "screenshot"
-      },
-      "ws_url": "https://www.wine-searcher.com/find/canon+st+emilion+grand+cru+bordeaux+france/2000"
-    },
-    {
-      "id": 31,
-      "producer": "Château Coutet",
-      "wine": "Château Coutet",
-      "vintage": 2002,
-      "country": "France",
-      "region": "Barsac, Sauternes, Bordeaux",
-      "classification": "1er Cru Classé",
-      "category": "보르도 (스위트)",
-      "type": "sweet white",
-      "grapes": [
-        "Sémillon",
-        "Sauvignon Blanc",
-        "Muscadelle"
-      ],
-      "qty": 1,
-      "format_ml": 375,
-      "drink_from": 2010,
-      "drink_to": 2035,
-      "status": "peak",
-      "short": "하프보틀이라 숙성이 빠름, 지금이 좋음",
-      "notes": "375ml 하프보틀(확인됨). 바르삭의 1등급, 소테른 중 가장 산도가 높고 날렵한 스타일. 하프보틀은 750ml보다 산화가 2배 가까이 빨라 숙성 속도가 빠름 → 24년차면 충분히 무르익었고 더 기다릴 이유 없음. 8~10°C, 푸아그라·블루치즈·타르트 타탱. 개봉 후 냉장 1주일 가능.",
-      "display": "Château Coutet",
-      "profile": {
-        "style": "날렵한 바르삭",
-        "tasting": "살구와 오렌지 마멀레이드, 꿀에 바르삭 특유의 높은 산도가 칼처럼 지나간다. 소테른 중 가장 가볍고 신선한 스타일이라 단맛이 무겁게 남지 않는다. 375ml라 숙성이 빨라 지금이 좋다.",
-        "story": "바르삭의 1등급. 바르삭은 소테른 AOC 안에 있지만 토양이 더 석회질이라 산도가 높고 윤곽이 또렷한 스위트 와인이 나온다.",
-        "serve": {
-          "temp": "8–10°C",
-          "decant": "불필요",
-          "glass": "화이트 와인 잔"
-        },
-        "pair": [
-          "푸아그라",
-          "블루치즈",
-          "타르트 타탱"
-        ]
-      },
-      "price": {
-        "avg_usd": 50,
-        "basis": "750ml, ex-tax",
-        "confidence": "unverified",
-        "note": "미확인. 같은 방식으로 읽은 카농 2000이 실제 $220 대신 $603으로 나왔던 전례가 있어 오차 가능성이 크다.",
-        "source": "웹 검색 결과에서 읽은 값 — Wine-Searcher 페이지로 확인되지 않음",
-        "source_kind": "search"
-      },
-      "ws_url": "https://www.wine-searcher.com/find/coutet+barsac+sauternes+bordeaux+france/2002"
-    },
-    {
-      "id": 32,
-      "producer": "Moulin Touchais",
-      "wine": "Coteaux du Layon",
-      "vintage": 1981,
-      "country": "France",
-      "region": "Coteaux du Layon, Anjou, Loire",
-      "category": "루아르",
-      "type": "sweet white",
-      "grapes": [
-        "Chenin Blanc"
-      ],
-      "qty": 1,
-      "drink_from": 1995,
-      "drink_to": 2045,
-      "status": "peak",
-      "short": "45년차지만 정상 범위. 셀러에서 가장 오래 갈 병",
-      "notes": "물랭 투셰는 최소 10년 이상 자가 숙성 후 출시하는 것으로 유명한 집이라 45년차는 이 집 기준 이상 없음. 슈냉 블랑의 강한 산도 덕에 스위트 와인 중에서도 극단적으로 장수함 — 앞으로 20년 더 가능. 셀러에서 가장 여유 있는 병. 꿀·모과·카라멜 계열에 산도가 받쳐주는 구조. 10~12°C, 디캔팅 불필요. 단독 또는 과일 타르트.",
-      "display": "Moulin Touchais Coteaux du Layon",
-      "profile": {
-        "style": "장수형 루아르 스위트",
-        "tasting": "꿀과 모과, 말린 살구와 카라멜에 슈냉 블랑의 강한 산도가 관통한다. 45년이 지났지만 이 집 기준으로는 정상 범위이고, 산도 덕에 앞으로 20년 더 간다. 셀러에서 가장 여유 있는 병.",
-        "story": "물랭 투셰는 수확 후 최소 10년 이상 셀러에 두었다가 출시하는 것으로 유명하다. 1981처럼 40년이 넘은 빈티지가 시장에 정상 유통되는 몇 안 되는 생산자다.",
-        "serve": {
-          "temp": "10–12°C",
-          "decant": "불필요",
-          "glass": "화이트 와인 잔"
-        },
-        "pair": [
-          "과일 타르트",
-          "푸아그라",
-          "단독"
-        ]
-      },
-      "price": {
-        "avg_usd": 50,
-        "basis": "750ml, ex-tax",
-        "confidence": "unverified",
-        "note": "미확인. 같은 방식으로 읽은 카농 2000이 실제 $220 대신 $603으로 나왔던 전례가 있어 오차 가능성이 크다.",
-        "source": "웹 검색 결과에서 읽은 값 — Wine-Searcher 페이지로 확인되지 않음",
-        "source_kind": "search"
-      },
-      "ws_url": "https://www.wine-searcher.com/find/moulin+touchais+coteaux+du+layon+anjou+loire+france/1981"
+    "pair": [
+     "드라이에이징 립아이",
+     "숯불 양갈비",
+     "블루치즈"
+    ]
+   },
+   "price": {
+    "avg_usd": 132,
+    "basis": "750ml, ex-tax",
+    "confidence": "estimate",
+    "note": "판매처 호가 6곳 $105~175의 중앙값. 신뢰도 높음. WS 스니펫 $164와 대조.",
+    "source": "실제 판매처 호가 6곳 삼각측량 중앙값 (USD/750ml)",
+    "source_kind": "triangulated",
+    "est": {
+     "low": 105,
+     "high": 175,
+     "n_listings": 6,
+     "grade": "high",
+     "ws_snippet": 164,
+     "flag": ""
     }
-  ],
-  "summary": "풀보디 카베르네와 프레스티지 샴페인이 중심축. 최근 추가로 루아르 화이트·스위트와 보르도 우안이 보강되면서 균형이 나아졌다. 여전히 부르고뉴 피노 누아와 론은 공백.",
-  "flags": [
-    {
-      "id": 30,
-      "title": "병차(bottle variation) 가능성",
-      "text": "카농은 1990년대 셀러 목재의 TCA 오염으로 고생했고 1996년 샤넬 인수 후 셀러를 재건했다. 품질이 궤도에 오른 건 2000년대 중후반이라 2000 빈티지는 과도기. 중요한 자리에 단독으로 올리지 말 것."
-    }
-  ],
-  "storage": {
-    "temp_c": 10,
-    "note": "셀러 10°C 고정. 장기 보관에 안전하며 이상적 구간(12–14°C)보다 약간 낮아 숙성이 조금 더 천천히 진행된다 — 음용 창의 뒤쪽 끝은 표기보다 여유 있다고 봐도 된다. 다만 레드는 서빙 온도가 16–18°C이므로 개봉 40~60분 전에 셀러에서 꺼내 둘 것."
+   },
+   "ws_url": "https://www.wine-searcher.com/find/orin+swift+mercurey+head+cab+sauv+napa+valley+county+north+coast+california+usa/2018"
   },
-  "price_note": "가격은 Wine-Searcher 전세계 평균가를 목표로 한다. 자동 접근이 캡차로 막혀 있어 세 등급으로 관리한다: 확인됨 = Wine-Searcher 페이지 직접 확인(2종) · 추정 = 실제 판매처 호가 여러 곳을 삼각측량한 중앙값(멀티에이전트 수집, 빈티지 일치 호가 기준, 이상치 제거) · 미확인 = 예전 단일 검색값(5종, 워크플로가 세션 한도로 못 미친 것). 추정치는 판매처 실호가에 앵커돼 예전 단일 스니펫보다 정확하며, 카농에서 스니펫이 $603으로 2.7배 부풀었던 오류를 교정한 방식이다. 확정 전세계 평균은 Wine-Searcher API 키나 페이지 직접 확인으로만 얻을 수 있다.",
-  "gaps": [
-    {
-      "title": "부르고뉴 피노 누아",
-      "severity": "high",
-      "why": "셀러 레드 21병이 전부 카베르네·메를로·산지오베제 기반이다. 가볍고 향 중심으로 가는 자리에 낼 카드가 하나도 없고, 버섯·오리·연어나 간장 베이스 한식에서 특히 아쉽다. 지금은 그런 자리에도 풀보디 카베르네를 열게 된다.",
-      "picks": [
-        "Gevrey-Chambertin 빌라주 (도멘 급) · $80~120",
-        "Volnay 1er Cru · $120~200",
-        "Nuits-Saint-Georges · $100~160"
-      ]
+  {
+   "id": 2,
+   "producer": "Hardys",
+   "wine": "Thomas Hardy Cabernet Sauvignon",
+   "vintage": 2017,
+   "country": "Australia",
+   "region": "Coonawarra / Margaret River",
+   "type": "red",
+   "grapes": [
+    "Cabernet Sauvignon"
+   ],
+   "qty": 1,
+   "drink_from": 2027,
+   "drink_to": 2042,
+   "status": "hold",
+   "notes": "하디스 최상위 카베르네. 아직 어림. 최소 2~3년 더.",
+   "category": "호주",
+   "short": "아직 어림, 최소 2~3년 더",
+   "display": "Hardys Thomas Hardy Cabernet Sauvignon",
+   "profile": {
+    "style": "구조적인 호주 카베르네",
+    "tasting": "유칼립투스·민트 뉘앙스 위에 카시스와 흑연이 겹친다. 호주 카베르네 중에서도 서늘한 기후 쪽 표현이라 나파보다 날이 서 있고 타닌이 촘촘하다. 지금은 그 타닌이 아직 닫혀 있다.",
+    "story": "하디스가 창립자 토마스 하디의 이름을 붙여 최상급 해에만 내놓는 플래그십. 쿠나와라와 마가렛 리버 과실을 쓴다.",
+    "serve": {
+     "temp": "17–18°C",
+     "decant": "3시간 (또는 2029년 이후 개봉)",
+     "glass": "보르도"
     },
-    {
-      "title": "북부 론 시라",
-      "severity": "high",
-      "why": "후추·올리브·훈연 계열의 사바리(savory) 축이 전무하다. 카베르네와 가장 다른 방향이라 셀러 다양성을 가장 크게 늘려주는 한 병이다.",
-      "picks": [
-        "Crozes-Hermitage · $40~70",
-        "Cornas · $80~140",
-        "Côte-Rôtie · $120~250"
-      ]
-    },
-    {
-      "title": "숙성형 드라이 화이트",
-      "severity": "medium",
-      "why": "화이트가 푸이 퓌메 2024와 빌라주 백부르고뉴 2022 두 병뿐이고 둘 다 3년 내 소진 대상이다. 셀러에 눕혀둘 화이트가 없다.",
-      "picks": [
-        "Chablis 1er Cru · $50~90",
-        "Alsace Riesling Grand Cru · $50~100",
-        "Meursault / Puligny 1er Cru · $150~250"
-      ]
-    },
-    {
-      "title": "평일용 레드",
-      "severity": "medium",
-      "why": "$70 이하가 오스틴 호프 한 병뿐이다. 가볍게 열 병이 없으면 결국 아껴야 할 병을 열게 되고, 그게 셀러가 계획보다 빨리 비는 가장 흔한 이유다.",
-      "picks": [
-        "Côtes du Rhône Villages · $20~35",
-        "Chianti Classico · $25~40",
-        "Bourgogne Rouge · $35~55"
-      ]
+    "pair": [
+     "로스트 램",
+     "비프 웰링턴",
+     "숙성 체다"
+    ]
+   },
+   "price": {
+    "avg_usd": 93,
+    "basis": "750ml, ex-tax",
+    "confidence": "estimate",
+    "note": "판매처 호가 4곳 $72~101의 중앙값. 신뢰도 높음. WS 스니펫 $97와 대조.",
+    "source": "실제 판매처 호가 4곳 삼각측량 중앙값 (USD/750ml)",
+    "source_kind": "triangulated",
+    "est": {
+     "low": 72,
+     "high": 101,
+     "n_listings": 4,
+     "grade": "high",
+     "ws_snippet": 97,
+     "flag": ""
     }
-  ]
+   },
+   "ws_url": "https://www.wine-searcher.com/find/hardys+thomas+cab+sauv+australia"
+  },
+  {
+   "id": 3,
+   "producer": "Austin Hope",
+   "wine": "Cabernet Sauvignon",
+   "vintage": 2020,
+   "country": "USA",
+   "region": "Paso Robles",
+   "type": "red",
+   "grapes": [
+    "Cabernet Sauvignon"
+   ],
+   "qty": 1,
+   "drink_from": 2023,
+   "drink_to": 2030,
+   "status": "drink_now",
+   "notes": "셀러에서 가장 캐주얼한 데일리급. 장기 보관 이유 없음. 먼저 비울 것.",
+   "category": "나파 / 캘리포니아",
+   "short": "데일리급, 지금이 제일 맛있음",
+   "display": "Austin Hope Cabernet Sauvignon",
+   "profile": {
+    "style": "직선적인 파소 로블스 카베르네",
+    "tasting": "잘 익은 자두와 블랙체리, 바닐라와 달콤한 오크. 당도감이 느껴질 만큼 과실이 앞서고 타닌은 부드럽다. 복잡함보다 즉각적인 만족을 주는 구성이라 지금 마시는 게 맞다.",
+    "story": "파소 로블스에서 오스틴 호프 가문이 만드는 와인. 90점대 평가와 접근 가능한 가격으로 미국에서 폭발적으로 팔린 물건이다.",
+    "serve": {
+     "temp": "16–17°C",
+     "decant": "1시간",
+     "glass": "보르도"
+    },
+    "pair": [
+     "버거",
+     "바비큐 립",
+     "토마토 파스타"
+    ]
+   },
+   "price": {
+    "avg_usd": 50,
+    "basis": "750ml, ex-tax",
+    "confidence": "estimate",
+    "note": "판매처 호가 5곳 $50~78의 중앙값. 신뢰도 높음. WS 스니펫 $66와 대조.",
+    "source": "실제 판매처 호가 5곳 삼각측량 중앙값 (USD/750ml)",
+    "source_kind": "triangulated",
+    "est": {
+     "low": 50,
+     "high": 78,
+     "n_listings": 5,
+     "grade": "high",
+     "ws_snippet": 66,
+     "flag": ""
+    }
+   },
+   "ws_url": "https://www.wine-searcher.com/find/austinhope+cab+sauv+paso+robles+st+luis+obispo+county+central+coast+california+usa/2020"
+  },
+  {
+   "id": 4,
+   "producer": "Château Calon Ségur",
+   "wine": "Château Calon Ségur",
+   "vintage": 2005,
+   "country": "France",
+   "region": "Saint-Estèphe, Bordeaux",
+   "classification": "3ème Cru Classé",
+   "type": "red",
+   "grapes": [
+    "Cabernet Sauvignon",
+    "Merlot",
+    "Cabernet Franc"
+   ],
+   "qty": 1,
+   "drink_from": 2030,
+   "drink_to": 2048,
+   "status": "hold",
+   "notes": "2005는 보르도 전설적 빈티지. 이제 막 창이 열림. 급할 것 없음.",
+   "category": "보르도 (레드)",
+   "short": "2005 전설적 빈티지, 창은 열렸지만 본령은 2030년대",
+   "display": "Château Calon Ségur",
+   "profile": {
+    "style": "고전적인 생테스테프",
+    "tasting": "카시스와 삼나무, 젖은 흙과 담배잎. 생테스테프 특유의 단단한 타닌 골격에 칼롱 세귀르 특유의 우아함이 얹힌다. 2005는 산도와 타닌이 모두 높아 아직 한참 남았다.",
+    "story": "라벨의 하트는 18세기 소유주 세귀르 후작이 '내 마음은 칼롱에 있다'고 한 데서 왔다. 3등급이지만 오랫동안 2등급 값을 받아온 샤토다.",
+    "serve": {
+     "temp": "17–18°C",
+     "decant": "3시간 이상 (2030년 이후 개봉 권장)",
+     "glass": "보르도"
+    },
+    "pair": [
+     "로스트 비프",
+     "사슴고기",
+     "트러플 요리"
+    ]
+   },
+   "price": {
+    "avg_usd": 155,
+    "basis": "750ml, ex-tax",
+    "confidence": "estimate",
+    "note": "판매처 호가 8곳 $94~280의 중앙값. 신뢰도 낮음. WS 스니펫($210)은 호가보다 높아 제외.",
+    "source": "실제 판매처 호가 8곳 삼각측량 중앙값 (USD/750ml)",
+    "source_kind": "triangulated",
+    "est": {
+     "low": 94,
+     "high": 280,
+     "n_listings": 8,
+     "grade": "low",
+     "ws_snippet": 210,
+     "flag": "ws_high"
+    }
+   },
+   "ws_url": "https://www.wine-searcher.com/find/calon+segur+st+estephe+medoc+bordeaux+france/2005"
+  },
+  {
+   "id": 5,
+   "producer": "Shafer",
+   "wine": "One Point Five Cabernet Sauvignon",
+   "vintage": 2021,
+   "country": "USA",
+   "region": "Stags Leap District, Napa Valley",
+   "type": "red",
+   "grapes": [
+    "Cabernet Sauvignon"
+   ],
+   "qty": 1,
+   "drink_from": 2027,
+   "drink_to": 2038,
+   "status": "hold",
+   "notes": "2021 나파 초강세 빈티지. 지금 열면 아까움.",
+   "category": "나파 / 캘리포니아",
+   "short": "2021 나파 초강세, 지금 열면 아까움",
+   "display": "Shafer One Point Five Cabernet Sauvignon",
+   "profile": {
+    "style": "스택스 립 카베르네",
+    "tasting": "검은 과실에 감초와 코코아, 스택스 립다운 벨벳 같은 질감. 셰이퍼의 손길로 타닌이 곱게 다듬어져 있지만 2021의 농축도 때문에 지금은 과실이 뭉쳐 있다.",
+    "story": "'원 포인트 파이브'는 1세대와 2세대 사이라는 뜻 — 존 셰이퍼와 아들 덕의 세대 교체를 이름에 담았다. 2022년 신젠타에 매각됐다.",
+    "serve": {
+     "temp": "16–18°C",
+     "decant": "2–3시간 (2028년 이후 개봉 권장)",
+     "glass": "보르도"
+    },
+    "pair": [
+     "안심 스테이크",
+     "오리 가슴살",
+     "하드 치즈"
+    ]
+   },
+   "price": {
+    "avg_usd": 125,
+    "basis": "750ml, ex-tax",
+    "confidence": "estimate",
+    "note": "판매처 호가 8곳 $97~150의 중앙값. 신뢰도 높음. WS 스니펫 $140와 대조.",
+    "source": "실제 판매처 호가 8곳 삼각측량 중앙값 (USD/750ml)",
+    "source_kind": "triangulated",
+    "est": {
+     "low": 97,
+     "high": 150,
+     "n_listings": 8,
+     "grade": "high",
+     "ws_snippet": 140,
+     "flag": ""
+    }
+   },
+   "ws_url": "https://www.wine-searcher.com/find/shafer+one+point+five+cab+sauv+stags+leap+district+napa+valley+county+north+coast+california+usa/2021"
+  },
+  {
+   "id": 6,
+   "producer": "Marchesi Antinori",
+   "wine": "Tignanello",
+   "vintage": 2020,
+   "country": "Italy",
+   "region": "Toscana IGT",
+   "type": "red",
+   "grapes": [
+    "Sangiovese",
+    "Cabernet Sauvignon",
+    "Cabernet Franc"
+   ],
+   "qty": 1,
+   "drink_from": 2026,
+   "drink_to": 2038,
+   "status": "drink_or_hold",
+   "notes": "지금 열려면 디캔팅 2시간. 2028년 이후가 더 좋음.",
+   "category": "이탈리아 (슈퍼 투스칸)",
+   "short": "지금 열려면 디캔팅 2시간, 2028 이후가 더 좋음",
+   "display": "Antinori Tignanello",
+   "peak_from": 2029,
+   "profile": {
+    "style": "산지오베제 기반 슈퍼 투스칸",
+    "tasting": "체리와 말린 허브, 가죽과 흙내음에 카베르네가 주는 검은 과실이 겹친다. 산지오베제의 높은 산도와 까슬한 타닌이 중심이라 이탈리아 음식과의 궁합이 유별나다. 2020은 균형이 좋은 해.",
+    "story": "1971년 첫 빈티지로 키안티 클라시코 등급을 스스로 포기하고 카베르네를 섞은, 슈퍼 투스칸의 출발점이 된 와인.",
+    "serve": {
+     "temp": "16–18°C",
+     "decant": "2시간",
+     "glass": "보르도"
+    },
+    "pair": [
+     "피오렌티나 스테이크",
+     "버섯 리조토",
+     "파르미지아노"
+    ]
+   },
+   "price": {
+    "avg_usd": 162,
+    "basis": "750ml, ex-tax",
+    "confidence": "estimate",
+    "note": "판매처 호가 12곳 $150~213의 중앙값. 신뢰도 높음. WS 스니펫 $183와 대조.",
+    "source": "실제 판매처 호가 12곳 삼각측량 중앙값 (USD/750ml)",
+    "source_kind": "triangulated",
+    "est": {
+     "low": 150,
+     "high": 213,
+     "n_listings": 12,
+     "grade": "high",
+     "ws_snippet": 183,
+     "flag": ""
+    }
+   },
+   "ws_url": "https://www.wine-searcher.com/find/marchesi+antinori+tignanello+tuscany+igp+italy/2020"
+  },
+  {
+   "id": 7,
+   "producer": "Château Calon Ségur",
+   "wine": "Château Calon Ségur",
+   "vintage": 2000,
+   "country": "France",
+   "region": "Saint-Estèphe, Bordeaux",
+   "classification": "3ème Cru Classé",
+   "type": "red",
+   "grapes": [
+    "Cabernet Sauvignon",
+    "Merlot",
+    "Cabernet Franc"
+   ],
+   "qty": 1,
+   "drink_from": 2020,
+   "drink_to": 2040,
+   "status": "peak",
+   "notes": "밀레니엄 빈티지, 26년차. 지금이 정확히 피크 구간.",
+   "category": "보르도 (레드)",
+   "short": "밀레니엄 빈티지 26년차, 정확히 피크",
+   "display": "Château Calon Ségur",
+   "profile": {
+    "style": "성숙한 생테스테프",
+    "tasting": "신선한 과실은 물러나고 삼나무·가죽·말린 자두·버섯 같은 3차 향이 전면에 나온다. 타닌이 완전히 녹아 실크처럼 깔리고 산도가 여전히 받쳐준다. 보르도 숙성의 교과서적인 지점.",
+    "story": "2000 밀레니엄 빈티지는 보르도 전역이 고르게 성공한 해로, 26년이 지난 지금 대부분의 그랑크뤼가 최적 구간에 들어와 있다.",
+    "serve": {
+     "temp": "17–18°C",
+     "decant": "1–2시간 (침전물 분리 목적)",
+     "glass": "보르도"
+    },
+    "pair": [
+     "로스트 램",
+     "비둘기 요리",
+     "콩테"
+    ]
+   },
+   "price": {
+    "avg_usd": 217,
+    "basis": "750ml, ex-tax",
+    "confidence": "estimate",
+    "note": "판매처 호가 4곳 $173~280의 중앙값. 신뢰도 높음. WS 스니펫 $226와 대조.",
+    "source": "실제 판매처 호가 4곳 삼각측량 중앙값 (USD/750ml)",
+    "source_kind": "triangulated",
+    "est": {
+     "low": 173,
+     "high": 280,
+     "n_listings": 4,
+     "grade": "high",
+     "ws_snippet": 226,
+     "flag": ""
+    }
+   },
+   "ws_url": "https://www.wine-searcher.com/find/calon+segur+st+estephe+medoc+bordeaux+france/2000"
+  },
+  {
+   "id": 8,
+   "producer": "Château Mouton Rothschild",
+   "wine": "Le Petit Mouton de Mouton Rothschild",
+   "vintage": 2013,
+   "country": "France",
+   "region": "Pauillac, Bordeaux",
+   "classification": "Second Wine",
+   "type": "red",
+   "grapes": [
+    "Cabernet Sauvignon",
+    "Merlot"
+   ],
+   "qty": 1,
+   "drink_from": 2020,
+   "drink_to": 2028,
+   "status": "drink_now",
+   "notes": "2013은 보르도 약한 빈티지. 더 기다릴 이유 없음. 2년 내 소비 권장.",
+   "category": "보르도 (레드)",
+   "short": "약한 빈티지, 더 기다릴 이유 없음",
+   "display": "Le Petit Mouton de Mouton Rothschild",
+   "profile": {
+    "style": "접근하기 쉬운 포이약",
+    "tasting": "카시스와 연필심, 무통 특유의 향신료 힌트. 그랑뱅의 밀도는 없지만 포이약의 골격은 분명하다. 2013은 개화기 악천후와 수확기 비로 농축도가 낮았던 해라 일찍 열렸다.",
+    "story": "무통 로칠드의 세컨 와인. 1993년부터 현재 이름으로 나오고 있다.",
+    "serve": {
+     "temp": "16–18°C",
+     "decant": "1시간",
+     "glass": "보르도"
+    },
+    "pair": [
+     "등심 스테이크",
+     "오리 콩피",
+     "경성 치즈"
+    ]
+   },
+   "price": {
+    "avg_usd": 245,
+    "basis": "750ml, ex-tax",
+    "confidence": "estimate",
+    "note": "판매처 호가 5곳 $183~527의 중앙값. 신뢰도 낮음. WS 스니펫 $258와 대조.",
+    "source": "실제 판매처 호가 5곳 삼각측량 중앙값 (USD/750ml)",
+    "source_kind": "triangulated",
+    "est": {
+     "low": 183,
+     "high": 527,
+     "n_listings": 5,
+     "grade": "low",
+     "ws_snippet": 258,
+     "flag": ""
+    }
+   },
+   "ws_url": "https://www.wine-searcher.com/find/le+petit+mouton+de+rothschild+pauillac+medoc+bordeaux+france/2013"
+  },
+  {
+   "id": 9,
+   "producer": "Château Palmer",
+   "wine": "Château Palmer",
+   "vintage": 2008,
+   "country": "France",
+   "region": "Margaux, Bordeaux",
+   "classification": "3ème Cru Classé",
+   "type": "red",
+   "grapes": [
+    "Merlot",
+    "Cabernet Sauvignon",
+    "Petit Verdot"
+   ],
+   "qty": 1,
+   "drink_from": 2024,
+   "drink_to": 2045,
+   "status": "drink_or_hold",
+   "notes": "저평가 빈티지지만 팔머는 예외적으로 훌륭. 셀러 최상위권 중 하나.",
+   "category": "보르도 (레드)",
+   "short": "저평가 빈티지지만 팔머는 예외적으로 훌륭",
+   "display": "Château Palmer",
+   "peak_from": 2032,
+   "profile": {
+    "style": "메를로 비중이 높은 마고",
+    "tasting": "제비꽃과 검은 과실, 마고 특유의 향의 화려함. 팔머는 3등급 중 유일하게 메를로를 절반 가까이 쓰는데, 그 덕에 질감이 둥글고 향이 관능적이다. 2008은 저평가 빈티지지만 팔머는 예외적으로 성공했다.",
+    "story": "1855년 등급에서 3등급이지만 실질적으로는 2등급 이상으로 평가받는 마고의 대표 샤토. 2014년부터 비오디나미로 전환했다.",
+    "serve": {
+     "temp": "17–18°C",
+     "decant": "2–3시간",
+     "glass": "보르도"
+    },
+    "pair": [
+     "양고기",
+     "송로버섯 파스타",
+     "숙성 콩테"
+    ]
+   },
+   "price": {
+    "avg_usd": 290,
+    "basis": "750ml, ex-tax",
+    "confidence": "estimate",
+    "note": "판매처 호가 5곳 $217~319의 중앙값. 신뢰도 높음. WS 스니펫 $340와 대조.",
+    "source": "실제 판매처 호가 5곳 삼각측량 중앙값 (USD/750ml)",
+    "source_kind": "triangulated",
+    "est": {
+     "low": 217,
+     "high": 319,
+     "n_listings": 5,
+     "grade": "high",
+     "ws_snippet": 340,
+     "flag": ""
+    }
+   },
+   "ws_url": "https://www.wine-searcher.com/find/palmer+margaux+medoc+bordeaux+france/2008"
+  },
+  {
+   "id": 10,
+   "producer": "Château Margaux",
+   "wine": "Pavillon Rouge du Château Margaux",
+   "vintage": 2000,
+   "country": "France",
+   "region": "Margaux, Bordeaux",
+   "classification": "Second Wine",
+   "type": "red",
+   "grapes": [
+    "Cabernet Sauvignon",
+    "Merlot"
+   ],
+   "qty": 1,
+   "drink_from": 2015,
+   "drink_to": 2032,
+   "status": "peak",
+   "notes": "세컨 와인 26년차. 피크 후반부. 우선순위 높게 소비.",
+   "category": "보르도 (레드)",
+   "short": "세컨 와인 26년차, 피크 후반부",
+   "display": "Pavillon Rouge du Château Margaux",
+   "profile": {
+    "style": "우아한 마고 세컨",
+    "tasting": "제비꽃과 붉은 과실, 마고 특유의 섬세한 향. 26년이 지나 타닌이 완전히 풀렸고 말린 꽃과 흙 뉘앙스가 올라온다. 세컨 와인이라 그랑뱅보다 창이 먼저 닫히니 서두를 것.",
+    "story": "샤토 마고의 세컨. 1908년부터 존재해온, 보르도에서 가장 오래된 세컨 와인 중 하나다.",
+    "serve": {
+     "temp": "17–18°C",
+     "decant": "1시간 (침전물 주의)",
+     "glass": "보르도"
+    },
+    "pair": [
+     "로스트 치킨",
+     "양갈비",
+     "버섯 요리"
+    ]
+   },
+   "price": {
+    "avg_usd": 272,
+    "basis": "750ml, ex-tax",
+    "confidence": "estimate",
+    "note": "판매처 호가 9곳 $172~450의 중앙값. 신뢰도 낮음. WS 스니펫 $307와 대조.",
+    "source": "실제 판매처 호가 9곳 삼각측량 중앙값 (USD/750ml)",
+    "source_kind": "triangulated",
+    "est": {
+     "low": 172,
+     "high": 450,
+     "n_listings": 9,
+     "grade": "low",
+     "ws_snippet": 307,
+     "flag": ""
+    }
+   },
+   "ws_url": "https://www.wine-searcher.com/find/pavillon+rouge+du+margaux+medoc+bordeaux+france/2000"
+  },
+  {
+   "id": 11,
+   "producer": "Opus One",
+   "wine": "Opus One",
+   "vintage": 2007,
+   "country": "USA",
+   "region": "Oakville, Napa Valley",
+   "type": "red",
+   "grapes": [
+    "Cabernet Sauvignon",
+    "Merlot",
+    "Petit Verdot",
+    "Cabernet Franc"
+   ],
+   "qty": 2,
+   "drink_from": 2020,
+   "drink_to": 2038,
+   "status": "peak",
+   "notes": "2007은 오퍼스 원 역대 최고 빈티지 중 하나. 지금 완벽한 구간. 동일 빈티지 2병 보유.",
+   "category": "나파 / 캘리포니아",
+   "short": "오퍼스 원 역대 최고 빈티지 중 하나",
+   "display": "Opus One",
+   "profile": {
+    "style": "성숙기의 오퍼스 원",
+    "tasting": "카시스와 블랙커런트에 삼나무·연필심·담뱃잎이 겹친다. 나파의 과실 농도와 보르도의 절제가 만나는 지점으로, 19년이 지난 지금 타닌이 완전히 녹아 질감이 매끄럽다. 2007은 오퍼스 원 역사상 손꼽히는 해.",
+    "story": "1979년 로버트 몬다비와 바롱 필립 드 로칠드가 합작해 만든 나파 최초의 울트라 프리미엄 프로젝트.",
+    "serve": {
+     "temp": "17–18°C",
+     "decant": "1.5–2시간",
+     "glass": "보르도"
+    },
+    "pair": [
+     "드라이에이징 스테이크",
+     "양갈비",
+     "트러플"
+    ]
+   },
+   "price": {
+    "avg_usd": 504,
+    "basis": "750ml, ex-tax",
+    "confidence": "estimate",
+    "note": "판매처 호가 8곳 $395~1050의 중앙값. 신뢰도 낮음. WS 스니펫 $545와 대조.",
+    "source": "실제 판매처 호가 8곳 삼각측량 중앙값 (USD/750ml)",
+    "source_kind": "triangulated",
+    "est": {
+     "low": 395,
+     "high": 1050,
+     "n_listings": 8,
+     "grade": "low",
+     "ws_snippet": 545,
+     "flag": ""
+    }
+   },
+   "ws_url": "https://www.wine-searcher.com/find/opus+one+napa+valley+county+north+coast+california+usa/2007"
+  },
+  {
+   "id": 12,
+   "producer": "Opus One",
+   "wine": "Overture",
+   "vintage": null,
+   "vintage_label": "NV",
+   "country": "USA",
+   "region": "Napa Valley",
+   "type": "red",
+   "grapes": [
+    "Cabernet Sauvignon"
+   ],
+   "qty": 2,
+   "drink_from": 2023,
+   "drink_to": 2029,
+   "status": "drink_now",
+   "notes": "멀티빈티지 블렌드. 숙성용 아님. 우선 소비 대상. 2병 보유 — 한 병은 편하게 열고 다른 한 병으로 비교해볼 여지 있음.",
+   "category": "나파 / 캘리포니아",
+   "short": "멀티빈티지 블렌드, 숙성용 아님",
+   "display": "Opus One Overture",
+   "profile": {
+    "style": "오퍼스 원의 입문판",
+    "tasting": "오퍼스 원의 향 구조를 축약해 놓은 듯한 카시스와 삼나무. 여러 빈티지를 섞어 만들기 때문에 편차가 적고 처음부터 열려 있다. 숙성으로 얻을 게 없으니 편하게 열면 된다.",
+    "story": "오퍼스 원의 논빈티지 세컨. 와이너리 방문객에게만 팔던 것이 지금은 일반 유통된다.",
+    "serve": {
+     "temp": "16–18°C",
+     "decant": "1시간",
+     "glass": "보르도"
+    },
+    "pair": [
+     "스테이크",
+     "숙성 치즈",
+     "로스트 포크"
+    ]
+   },
+   "price": {
+    "avg_usd": 200,
+    "basis": "750ml, ex-tax",
+    "confidence": "estimate",
+    "note": "판매처 호가 11곳 $169~250의 중앙값. 신뢰도 높음. WS 스니펫 $201와 대조.",
+    "source": "실제 판매처 호가 11곳 삼각측량 중앙값 (USD/750ml)",
+    "source_kind": "triangulated",
+    "est": {
+     "low": 169,
+     "high": 250,
+     "n_listings": 11,
+     "grade": "high",
+     "ws_snippet": 201,
+     "flag": ""
+    }
+   },
+   "ws_url": "https://www.wine-searcher.com/find/opus+one+overture+napa+valley+county+north+coast+california+usa/0"
+  },
+  {
+   "id": 13,
+   "producer": "Tenuta dell'Ornellaia",
+   "wine": "Ornellaia",
+   "vintage": 1996,
+   "country": "Italy",
+   "region": "Bolgheri Superiore DOC",
+   "type": "red",
+   "grapes": [
+    "Cabernet Sauvignon",
+    "Merlot",
+    "Cabernet Franc"
+   ],
+   "qty": 1,
+   "drink_from": 2005,
+   "drink_to": 2028,
+   "status": "urgent",
+   "notes": "30년차. 보관 이력 좋아도 창 끝자락. 최우선 소비 대상. 디캔팅 짧게(30분), 침전물 주의.",
+   "category": "이탈리아 (슈퍼 투스칸)",
+   "short": "30년차, 음용 창 끝자락",
+   "display": "Ornellaia",
+   "profile": {
+    "style": "숙성된 볼게리",
+    "tasting": "말린 자두와 무화과, 가죽·담배·숲 바닥. 신선한 과실은 거의 사라지고 3차 향이 지배한다. 30년이 지나 섬세해진 상태라 공기와 오래 접촉하면 빠르게 무너진다 — 짧게 열고 바로 마실 것.",
+    "story": "1985년 첫 빈티지로 사시카이아와 함께 볼게리를 세계 지도에 올린 와인. 1996은 오르넬라이아 초기 명성을 굳힌 빈티지 중 하나다.",
+    "serve": {
+     "temp": "16–17°C",
+     "decant": "30분 이내 (침전물 분리만)",
+     "glass": "보르도"
+    },
+    "pair": [
+     "로스트 램",
+     "버섯 파스타",
+     "숙성 페코리노"
+    ]
+   },
+   "price": {
+    "avg_usd": 277,
+    "basis": "750ml, ex-tax",
+    "confidence": "estimate",
+    "source": "실제 판매처 호가 4곳 삼각측량 중앙값 (USD/750ml)",
+    "source_kind": "triangulated",
+    "note": "판매처 호가 4곳 $250~548의 중앙값. 신뢰도 높음. WS 스니펫 $256와 대조.",
+    "est": {
+     "low": 250,
+     "high": 548,
+     "n_listings": 4,
+     "grade": "high",
+     "ws_snippet": 256,
+     "flag": ""
+    }
+   },
+   "ws_url": "https://www.wine-searcher.com/find/ornellaia+superior+bolgheri+tuscany+italy/1996"
+  },
+  {
+   "id": 14,
+   "producer": "Château Haut-Brion",
+   "wine": "Château Haut-Brion",
+   "vintage": 1996,
+   "country": "France",
+   "region": "Pessac-Léognan, Bordeaux",
+   "classification": "1er Cru Classé",
+   "type": "red",
+   "grapes": [
+    "Cabernet Sauvignon",
+    "Merlot",
+    "Cabernet Franc"
+   ],
+   "qty": 1,
+   "drink_from": 2015,
+   "drink_to": 2045,
+   "status": "peak",
+   "notes": "셀러 최고가·최고 등급. 1급 그랑크뤼 30년차, 지금이 클래식 피크. 특별한 자리용.",
+   "category": "보르도 (레드)",
+   "short": "1급 그랑크뤼 30년차, 클래식 피크. 특별한 자리용",
+   "display": "Château Haut-Brion",
+   "profile": {
+    "style": "페삭 레오냥의 1등급",
+    "tasting": "담배·시가박스·구운 흙에 카시스가 깔리고, 하우트 브리옹 특유의 훈연·미네랄 뉘앙스가 서명처럼 남는다. 보르도 1등급 중 가장 개성이 뚜렷한 향이며, 30년이 지난 지금 완전한 조화에 도달해 있다.",
+    "story": "1855년 등급에서 메독 밖에 있으면서도 1등급에 오른 유일한 샤토. 보르도에서 가장 오래된 브랜드 와인으로 꼽힌다.",
+    "serve": {
+     "temp": "17–18°C",
+     "decant": "1–2시간 (침전물 주의)",
+     "glass": "보르도"
+    },
+    "pair": [
+     "로스트 비프",
+     "비둘기",
+     "트러플 리소토"
+    ]
+   },
+   "price": {
+    "avg_usd": 613,
+    "basis": "750ml, ex-tax",
+    "confidence": "estimate",
+    "note": "판매처 호가 6곳 $580~685의 중앙값. 신뢰도 높음. WS 스니펫 $613와 대조.",
+    "source": "실제 판매처 호가 6곳 삼각측량 중앙값 (USD/750ml)",
+    "source_kind": "triangulated",
+    "est": {
+     "low": 580,
+     "high": 685,
+     "n_listings": 6,
+     "grade": "high",
+     "ws_snippet": 613,
+     "flag": ""
+    }
+   },
+   "ws_url": "https://www.wine-searcher.com/find/haut+brion+pessac+leognan+bordeaux+france/1996"
+  },
+  {
+   "id": 15,
+   "producer": "Silver Oak",
+   "wine": "Napa Valley Cabernet Sauvignon",
+   "vintage": 1996,
+   "country": "USA",
+   "region": "Napa Valley",
+   "type": "red",
+   "grapes": [
+    "Cabernet Sauvignon"
+   ],
+   "qty": 1,
+   "drink_from": 2001,
+   "drink_to": 2027,
+   "status": "urgent",
+   "notes": "실버오크는 출시 시점에 이미 마실 준비가 된 스타일. 30년은 한계치. 최우선 소비.",
+   "category": "나파 / 캘리포니아",
+   "short": "조기 음용형 스타일 + 30년차",
+   "display": "Silver Oak Napa Valley Cabernet Sauvignon",
+   "profile": {
+    "style": "아메리칸 오크의 나파 카베르네",
+    "tasting": "코코넛·딜·바닐라 — 실버 오크가 고집하는 아메리칸 오크 숙성의 시그니처가 과실보다 앞선다. 30년이 지나 과실이 상당히 물러났을 가능성이 크니 기대치를 조정하고 열 것.",
+    "story": "출시 시점에 이미 마실 준비가 된 상태로 내놓는 것으로 유명한 나파 와이너리. 아메리칸 오크만 쓰는 몇 안 되는 최상급 생산자다.",
+    "serve": {
+     "temp": "16–17°C",
+     "decant": "30분–1시간",
+     "glass": "보르도"
+    },
+    "pair": [
+     "바비큐 브리스킷",
+     "립아이",
+     "체다"
+    ]
+   },
+   "price": {
+    "avg_usd": 153,
+    "basis": "750ml, ex-tax",
+    "confidence": "estimate",
+    "note": "판매처 호가 4곳 $148~200의 중앙값. 신뢰도 높음. WS 스니펫($226)은 호가보다 높아 제외.",
+    "source": "실제 판매처 호가 4곳 삼각측량 중앙값 (USD/750ml)",
+    "source_kind": "triangulated",
+    "est": {
+     "low": 148,
+     "high": 200,
+     "n_listings": 4,
+     "grade": "high",
+     "ws_snippet": 226,
+     "flag": "ws_high"
+    }
+   },
+   "ws_url": "https://www.wine-searcher.com/find/silver+oak+cellars+cab+sauv+napa+valley+county+north+coast+california+usa/1996"
+  },
+  {
+   "id": 16,
+   "producer": "Tenuta San Guido",
+   "wine": "Sassicaia",
+   "vintage": 2019,
+   "country": "Italy",
+   "region": "Bolgheri Sassicaia DOC",
+   "type": "red",
+   "grapes": [
+    "Cabernet Sauvignon",
+    "Cabernet Franc"
+   ],
+   "qty": 1,
+   "drink_from": 2027,
+   "drink_to": 2048,
+   "status": "hold",
+   "notes": "2019는 사시카이아 역대급 빈티지. 지금 열면 손해. 최소 2030년까지 홀드.",
+   "category": "이탈리아 (슈퍼 투스칸)",
+   "short": "역대급 빈티지, 지금 열면 손해",
+   "display": "Sassicaia",
+   "profile": {
+    "style": "볼게리의 원형",
+    "tasting": "카베르네의 카시스와 삼나무에 지중해 허브와 짠 미네랄이 겹친다. 사시카이아는 보르도보다 가볍고 향이 높은 쪽인데, 2019는 그 구조가 특히 단단해 지금은 닫혀 있다. 2030년 이후가 본령.",
+    "story": "1968년 첫 상업 출시. 이탈리아에서 유일하게 단일 와인이 자체 DOC(볼게리 사시카이아)를 가진 와인이다.",
+    "serve": {
+     "temp": "17–18°C",
+     "decant": "3시간 이상 (2030년 이후 개봉 권장)",
+     "glass": "보르도"
+    },
+    "pair": [
+     "피오렌티나",
+     "로스트 램",
+     "숙성 페코리노"
+    ]
+   },
+   "price": {
+    "avg_usd": 333,
+    "basis": "750ml, ex-tax",
+    "confidence": "estimate",
+    "note": "판매처 호가 12곳 $250~460의 중앙값. 신뢰도 높음. WS 스니펫 $322와 대조.",
+    "source": "실제 판매처 호가 12곳 삼각측량 중앙값 (USD/750ml)",
+    "source_kind": "triangulated",
+    "est": {
+     "low": 250,
+     "high": 460,
+     "n_listings": 12,
+     "grade": "high",
+     "ws_snippet": 322,
+     "flag": ""
+    }
+   },
+   "ws_url": "https://www.wine-searcher.com/find/tenute+st+guido+sassicaia+bolgheri+tuscany+italy/2019"
+  },
+  {
+   "id": 17,
+   "producer": "Moët & Chandon",
+   "wine": "Dom Pérignon",
+   "vintage": 2010,
+   "country": "France",
+   "region": "Champagne",
+   "type": "sparkling",
+   "grapes": [
+    "Chardonnay",
+    "Pinot Noir"
+   ],
+   "qty": 1,
+   "drink_from": 2020,
+   "drink_to": 2032,
+   "status": "peak",
+   "notes": "DP 3병 중 가장 먼저 열 것. 지금 완숙.",
+   "category": "샴페인",
+   "short": "DP 3병 중 가장 먼저 열 것",
+   "display": "Dom Pérignon",
+   "profile": {
+    "style": "성숙한 프레스티지 샴페인",
+    "tasting": "브리오슈와 헤이즐넛, 구운 사과에 DP 특유의 요오드·연기 뉘앙스. 16년이 지나 기포가 곱게 잦아들고 질감이 크리미해졌다. DP 3병 중 가장 무르익어 있으니 먼저 열 것.",
+    "story": "돔 페리뇽은 좋은 해에만 선언하는 빈티지 전용 큐베다. 2010은 어려운 해였지만 선별로 완성도를 지킨 빈티지.",
+    "serve": {
+     "temp": "10–12°C",
+     "decant": "불필요 (30분 전 꺼내 두기)",
+     "glass": "화이트 와인 잔 (플루트 금지)"
+    },
+    "pair": [
+     "관자",
+     "닭 요리",
+     "숙성 콩테"
+    ]
+   },
+   "price": {
+    "avg_usd": 295,
+    "basis": "750ml, ex-tax",
+    "confidence": "estimate",
+    "note": "판매처 호가 5곳 $270~320의 중앙값. 신뢰도 높음. WS 스니펫 $352와 대조.",
+    "source": "실제 판매처 호가 5곳 삼각측량 중앙값 (USD/750ml)",
+    "source_kind": "triangulated",
+    "est": {
+     "low": 270,
+     "high": 320,
+     "n_listings": 5,
+     "grade": "high",
+     "ws_snippet": 352,
+     "flag": ""
+    }
+   },
+   "ws_url": "https://www.wine-searcher.com/find/dom+perignon+brut+champagne+france/2010"
+  },
+  {
+   "id": 18,
+   "producer": "Moët & Chandon",
+   "wine": "Dom Pérignon",
+   "vintage": 2013,
+   "country": "France",
+   "region": "Champagne",
+   "type": "sparkling",
+   "grapes": [
+    "Chardonnay",
+    "Pinot Noir"
+   ],
+   "qty": 1,
+   "drink_from": 2023,
+   "drink_to": 2036,
+   "status": "drink_or_hold",
+   "notes": "산도 높고 긴장감 있는 빈티지. 지금도 좋고 더 가도 좋음.",
+   "category": "샴페인",
+   "short": "산도 높고 긴장감 있음, 지금도 좋고 더 가도 좋음",
+   "display": "Dom Pérignon",
+   "peak_from": 2030,
+   "profile": {
+    "style": "긴장감 있는 프레스티지 샴페인",
+    "tasting": "시트러스와 백색 꽃, 부싯돌. 2013은 서늘하고 늦게 익은 해라 산도가 높고 윤곽이 날카롭다. 지금도 좋지만 시간이 더 지나면 질감이 살에 붙는다.",
+    "story": "돔 페리뇽은 출시 후에도 셀러에서 계속 진화하며, 이런 고산도 빈티지가 특히 오래 간다.",
+    "serve": {
+     "temp": "10–12°C",
+     "decant": "불필요",
+     "glass": "화이트 와인 잔"
+    },
+    "pair": [
+     "굴",
+     "생선회",
+     "캐비어"
+    ]
+   },
+   "price": {
+    "avg_usd": 275,
+    "basis": "750ml, ex-tax",
+    "confidence": "estimate",
+    "note": "판매처 호가 12곳 $191~400의 중앙값. 신뢰도 높음. WS 스니펫 $312와 대조.",
+    "source": "실제 판매처 호가 12곳 삼각측량 중앙값 (USD/750ml)",
+    "source_kind": "triangulated",
+    "est": {
+     "low": 191,
+     "high": 400,
+     "n_listings": 12,
+     "grade": "high",
+     "ws_snippet": 312,
+     "flag": ""
+    }
+   },
+   "ws_url": "https://www.wine-searcher.com/find/dom+perignon+brut+champagne+france/2013"
+  },
+  {
+   "id": 19,
+   "producer": "Moët & Chandon",
+   "wine": "Dom Pérignon",
+   "vintage": 2017,
+   "country": "France",
+   "region": "Champagne",
+   "type": "sparkling",
+   "grapes": [
+    "Chardonnay",
+    "Pinot Noir"
+   ],
+   "qty": 1,
+   "drink_from": 2027,
+   "drink_to": 2040,
+   "status": "hold",
+   "notes": "가장 어린 DP. 홀드.",
+   "category": "샴페인",
+   "short": "가장 어린 DP",
+   "display": "Dom Pérignon",
+   "profile": {
+    "style": "어린 프레스티지 샴페인",
+    "tasting": "감귤과 흰 과실, 아직 효모 향이 충분히 올라오지 않은 단계. 잠재력은 분명하지만 지금 열면 DP의 진가인 복합미를 놓친다. 2028년 이후가 좋다.",
+    "story": "셀러에 있는 DP 세 병 중 가장 어리다. 2010·2013과 함께 두면 훌륭한 수직 시음 세트가 된다.",
+    "serve": {
+     "temp": "10–12°C",
+     "decant": "불필요 (2028년 이후 개봉 권장)",
+     "glass": "화이트 와인 잔"
+    },
+    "pair": [
+     "관자",
+     "흰살 생선",
+     "파르미지아노"
+    ]
+   },
+   "price": {
+    "avg_usd": 269,
+    "basis": "750ml, ex-tax",
+    "confidence": "estimate",
+    "note": "판매처 호가 9곳 $240~308의 중앙값. 신뢰도 높음. WS 스니펫 $277와 대조.",
+    "source": "실제 판매처 호가 9곳 삼각측량 중앙값 (USD/750ml)",
+    "source_kind": "triangulated",
+    "est": {
+     "low": 240,
+     "high": 308,
+     "n_listings": 9,
+     "grade": "high",
+     "ws_snippet": 277,
+     "flag": ""
+    }
+   },
+   "ws_url": "https://www.wine-searcher.com/find/dom+perignon+brut+champagne+france/2017"
+  },
+  {
+   "id": 20,
+   "producer": "Champagne Monial (Emmanuel & Agnès Calon)",
+   "wine": "Libera Me Brut — Blanc de Noirs",
+   "vintage": null,
+   "vintage_label": "NV",
+   "country": "France",
+   "region": "Colombé-le-Sec, Côte des Bar (Aube), Champagne",
+   "type": "sparkling",
+   "grapes": [
+    "Pinot Noir"
+   ],
+   "qty": 1,
+   "drink_from": 2024,
+   "drink_to": 2029,
+   "status": "drink_now",
+   "notes": "신원 확인 완료. 2008년 설립된 소규모 가족 생산자, 오브(코트 데 바르) 콜롱베-르-섹 소재. 1194년부터 이 마을에 있던 클레르보 수도원 부속 건물에서 양조 — 라벨의 수도원 지하 아치 그림과 'Libera Me'(레퀴엠 전례문) 명칭이 여기서 옴. 점토석회질 토양, 피노 누아 2/3 + 샤르도네. Libera Me는 피노 누아 기반 블랑 드 누아. 리옹 국제와인콩쿠르 금상(2013, 2019). NV 논빈티지라 장기 보관 대상 아님 — 3년 내 소비. 같은 이름의 Brut Nature 버전이 따로 있으나 이 병은 Brut.",
+   "abv": 12.5,
+   "format_ml": 750,
+   "category": "샴페인",
+   "short": "논빈티지 그로워 샴페인, 숙성 이득 없음",
+   "display": "Monial Libera Me Brut (Blanc de Noirs)",
+   "profile": {
+    "style": "피노 누아 기반 그로워 샴페인",
+    "tasting": "붉은 사과와 잘 익은 배, 블랑 드 누아다운 살집과 둥근 질감. 오브(코트 데 바르)의 따뜻한 성격이 그대로 나온다. 대형 하우스의 정교함 대신 과실의 직접성이 매력.",
+    "story": "2008년 설립된 가족 생산자. 1194년부터 콜롱베르섹에 있던 클레르보 수도원의 부속 건물에서 양조하며, 'Libera Me'는 레퀴엠 전례문에서 따온 이름이다.",
+    "serve": {
+     "temp": "8–10°C",
+     "decant": "불필요",
+     "glass": "화이트 와인 잔"
+    },
+    "pair": [
+     "하몽",
+     "치킨",
+     "크림 파스타"
+    ]
+   },
+   "price": {
+    "avg_usd": 33,
+    "basis": "750ml, ex-tax",
+    "confidence": "estimate",
+    "note": "판매처 호가 4곳 $24~36의 중앙값. 신뢰도 높음. WS 스니펫 $19와 대조.",
+    "source": "실제 판매처 호가 4곳 삼각측량 중앙값 (USD/750ml)",
+    "source_kind": "triangulated",
+    "est": {
+     "low": 24,
+     "high": 36,
+     "n_listings": 4,
+     "grade": "high",
+     "ws_snippet": 19,
+     "flag": ""
+    }
+   },
+   "ws_url": "https://www.wine-searcher.com/find/mondiale+libera+mer+brut+champagne+france"
+  },
+  {
+   "id": 21,
+   "producer": "Louis Roederer",
+   "wine": "Cristal",
+   "vintage": 2016,
+   "country": "France",
+   "region": "Champagne",
+   "type": "sparkling",
+   "grapes": [
+    "Pinot Noir",
+    "Chardonnay"
+   ],
+   "qty": 1,
+   "drink_from": 2028,
+   "drink_to": 2048,
+   "status": "hold",
+   "notes": "크리스탈은 출시 후 5~10년 추가 숙성 시 진가. 셀러 샴페인 중 최장기 보관 대상.",
+   "category": "샴페인",
+   "short": "셀러 샴페인 중 최장기 보관 대상",
+   "display": "Louis Roederer Cristal",
+   "profile": {
+    "style": "최장기 숙성형 프레스티지 샴페인",
+    "tasting": "레몬 껍질과 흰 꽃, 아직 단단히 조여 있는 미네랄. 크리스탈은 출시 후 5~10년이 지나야 특유의 실크 질감과 견과 풍미가 열린다. 지금 열면 잠재력의 절반도 못 본다.",
+    "story": "1876년 러시아 차르 알렉산드르 2세를 위해 만들어진 큐베로, 암살 우려 때문에 투명한 크리스탈 병에 담은 것이 이름의 유래다.",
+    "serve": {
+     "temp": "10–12°C",
+     "decant": "불필요 (2028년 이후 개봉 권장)",
+     "glass": "화이트 와인 잔"
+    },
+    "pair": [
+     "캐비어",
+     "랍스터",
+     "관자"
+    ]
+   },
+   "price": {
+    "avg_usd": 330,
+    "basis": "750ml, ex-tax",
+    "confidence": "estimate",
+    "note": "판매처 호가 15곳 $270~460의 중앙값. 신뢰도 높음. WS 스니펫 $347와 대조.",
+    "source": "실제 판매처 호가 15곳 삼각측량 중앙값 (USD/750ml)",
+    "source_kind": "triangulated",
+    "est": {
+     "low": 270,
+     "high": 460,
+     "n_listings": 15,
+     "grade": "high",
+     "ws_snippet": 347,
+     "flag": ""
+    }
+   },
+   "ws_url": "https://www.wine-searcher.com/find/louis+roederer+cristal+millesime+brut+champagne+france/2016"
+  },
+  {
+   "id": 22,
+   "producer": "Pommery",
+   "wine": "Cuvée Louise",
+   "vintage": 2006,
+   "country": "France",
+   "region": "Champagne",
+   "type": "sparkling",
+   "grapes": [
+    "Chardonnay",
+    "Pinot Noir"
+   ],
+   "qty": 1,
+   "drink_from": 2016,
+   "drink_to": 2032,
+   "status": "peak",
+   "notes": "20년차 프레스티지 퀴베. 지금이 좋음.",
+   "category": "샴페인",
+   "short": "20년차 프레스티지 퀴베",
+   "display": "Pommery Cuvée Louise",
+   "profile": {
+    "style": "성숙한 샤르도네 중심 프레스티지",
+    "tasting": "구운 브리오슈와 꿀, 말린 살구. 20년이 지나 산화 뉘앙스가 곱게 얹혔고 기포는 부드러워졌다. 크뤼그·DP보다 덜 알려졌지만 완성도는 충분하다.",
+    "story": "포므리의 프레스티지 큐베로, 19세기에 브뤼 샴페인을 대중화한 루이즈 포므리 부인의 이름을 땄다.",
+    "serve": {
+     "temp": "10–12°C",
+     "decant": "불필요",
+     "glass": "화이트 와인 잔"
+    },
+    "pair": [
+     "훈제 연어",
+     "닭 요리",
+     "브리 치즈"
+    ]
+   },
+   "price": {
+    "avg_usd": 310,
+    "basis": "750ml, ex-tax",
+    "confidence": "estimate",
+    "note": "판매처 호가 4곳 $241~330의 중앙값. 신뢰도 높음.",
+    "source": "실제 판매처 호가 4곳 삼각측량 중앙값 (USD/750ml)",
+    "source_kind": "triangulated",
+    "est": {
+     "low": 241,
+     "high": 330,
+     "n_listings": 4,
+     "grade": "high",
+     "ws_snippet": null,
+     "flag": ""
+    }
+   },
+   "ws_url": "https://www.wine-searcher.com/find/pommery+cuvee+louise+brut+millesime+champagne+france/2006"
+  },
+  {
+   "id": 23,
+   "producer": "Charles Noëllat (négociant)",
+   "wine": "Chassagne-Montrachet",
+   "vintage": 2022,
+   "country": "France",
+   "region": "Chassagne-Montrachet, Côte de Beaune, Burgundy",
+   "type": "white",
+   "grapes": [
+    "Chardonnay"
+   ],
+   "qty": 1,
+   "drink_from": 2024,
+   "drink_to": 2028,
+   "status": "drink_now",
+   "notes": "라벨 확인 완료(2022, 화이트, 12.5%). 역사적 도멘 Charles Noëllat는 1988년 르로이에 매각되며 소멸했으나 이름은 네고시앙 브랜드로 존속 → 도멘 와인 아닌 네고시앙 병입 빌라주급. 2022는 더운 빈티지라 산도 낮고 과실 풍만. 장기 보관 부적합, 2027년 내 소비 권장. 12~13°C, 부르고뉴 화이트 잔.",
+   "classification": "Village",
+   "abv": 12.5,
+   "category": "부르고뉴 (화이트)",
+   "short": "네고시앙 빌라주급 + 저산도 빈티지, 장기 보관 부적합",
+   "display": "Charles Noëllat Chassagne-Montrachet",
+   "profile": {
+    "style": "빌라주급 백부르고뉴",
+    "tasting": "노란 사과와 감귤, 가벼운 헤이즐넛과 버터 뉘앙스. 2022는 더웠던 해라 산도가 낮고 과실이 풍만한 대신 긴장감은 덜하다. 네고시앙 빌라주급이니 기대는 편안한 데일리 백부르고뉴 수준으로.",
+    "story": "샤를 노엘라 도멘은 1988년 르로이에 매각되며 사라졌지만 이름은 네고시앙 브랜드로 남아 계속 쓰이고 있다. 이 병은 그 브랜드 병입이다.",
+    "serve": {
+     "temp": "12–13°C",
+     "decant": "불필요",
+     "glass": "부르고뉴 화이트"
+    },
+    "pair": [
+     "버터 소스 관자",
+     "로스트 치킨",
+     "염소 치즈"
+    ]
+   },
+   "price": {
+    "avg_usd": 126,
+    "basis": "750ml, ex-tax",
+    "confidence": "estimate",
+    "note": "판매처 호가 2곳 $116~136의 중앙값. 신뢰도 보통.",
+    "source": "실제 판매처 호가 2곳 삼각측량 중앙값 (USD/750ml)",
+    "source_kind": "triangulated",
+    "est": {
+     "low": 116,
+     "high": 136,
+     "n_listings": 2,
+     "grade": "medium",
+     "ws_snippet": null,
+     "flag": ""
+    }
+   },
+   "ws_url": "https://www.wine-searcher.com/find/charles+noellat"
+  },
+  {
+   "id": 24,
+   "producer": "Krug",
+   "wine": "Krug Vintage",
+   "vintage": 2002,
+   "country": "France",
+   "region": "Champagne",
+   "type": "sparkling",
+   "grapes": [
+    "Pinot Noir",
+    "Chardonnay",
+    "Pinot Meunier"
+   ],
+   "qty": 1,
+   "drink_from": 2020,
+   "drink_to": 2050,
+   "status": "peak",
+   "notes": "2002는 금세기 샴페인 최고 빈티지 중 하나. 크뤼그 2002는 전설급. 지금부터 20년 더 가능. 셀러의 하이라이트.",
+   "category": "샴페인",
+   "short": "금세기 최고 샴페인 빈티지 중 하나. 셀러의 하이라이트",
+   "display": "Krug Vintage",
+   "profile": {
+    "style": "셀러의 정점",
+    "tasting": "구운 견과와 브리오슈, 마멀레이드와 커피. 크뤼그 특유의 산화적 복합미에 2002의 농축도가 더해져 밀도가 압도적이다. 24년이 지났지만 아직 상승 곡선이고 앞으로 20년 더 간다.",
+    "story": "크뤼그는 모든 큐베를 소형 오크통에서 1차 발효한다. 2002는 금세기 샴페인 최고 빈티지로 꼽히며 크뤼그 2002는 그중에서도 전설로 불린다.",
+    "serve": {
+     "temp": "10–12°C",
+     "decant": "불필요 (1시간 전 꺼내 두면 향이 더 열린다)",
+     "glass": "화이트 와인 잔"
+    },
+    "pair": [
+     "캐비어",
+     "트러플 리소토",
+     "숙성 콩테"
+    ]
+   },
+   "price": {
+    "avg_usd": 569,
+    "basis": "750ml, ex-tax",
+    "confidence": "estimate",
+    "note": "판매처 호가 10곳 $485~918의 중앙값. 신뢰도 높음. WS 스니펫 $724와 대조.",
+    "source": "실제 판매처 호가 10곳 삼각측량 중앙값 (USD/750ml)",
+    "source_kind": "triangulated",
+    "est": {
+     "low": 485,
+     "high": 918,
+     "n_listings": 10,
+     "grade": "high",
+     "ws_snippet": 724,
+     "flag": ""
+    }
+   },
+   "ws_url": "https://www.wine-searcher.com/find/krug+vintage+brut+champagne+france/2002"
+  },
+  {
+   "id": 25,
+   "producer": "Marchesi Antinori",
+   "wine": "Solaia",
+   "vintage": 2021,
+   "country": "Italy",
+   "region": "Toscana IGT",
+   "type": "red",
+   "grapes": [
+    "Cabernet Sauvignon",
+    "Sangiovese",
+    "Cabernet Franc"
+   ],
+   "qty": 1,
+   "drink_from": 2029,
+   "drink_to": 2050,
+   "status": "hold",
+   "notes": "안티노리 최상위 큐베(티냐넬로 상위). 2021은 토스카나 최상급 빈티지로 평가됨. 구조와 타닌이 단단해 최소 2029년까지 홀드 권장, 2032~2045가 핵심 구간. 셀러 최장기 보관 대상 중 하나.",
+   "category": "이탈리아 (슈퍼 투스칸)",
+   "short": "핵심 구간 2032–2045",
+   "display": "Antinori Solaia",
+   "profile": {
+    "style": "안티노리의 정점",
+    "tasting": "카시스와 블랙베리, 삼나무와 발사믹. 티냐넬로와 달리 카베르네가 주도해 보르도에 가깝지만 산지오베제가 주는 산도와 쌉쌀함이 이탈리아 정체성을 남긴다. 2021은 구조가 대단히 단단하다.",
+    "story": "1978년 첫 빈티지. 티냐넬로 포도밭 중 가장 좋은 구획에서 나오며 좋은 해에만 생산한다.",
+    "serve": {
+     "temp": "17–18°C",
+     "decant": "3시간 이상 (2029년 이후 개봉 권장)",
+     "glass": "보르도"
+    },
+    "pair": [
+     "피오렌티나",
+     "로스트 램",
+     "트러플"
+    ]
+   },
+   "price": {
+    "avg_usd": 400,
+    "basis": "750ml, ex-tax",
+    "confidence": "estimate",
+    "note": "판매처 호가 7곳 $359~565의 중앙값. 신뢰도 높음.",
+    "source": "실제 판매처 호가 7곳 삼각측량 중앙값 (USD/750ml)",
+    "source_kind": "triangulated",
+    "est": {
+     "low": 359,
+     "high": 565,
+     "n_listings": 7,
+     "grade": "high",
+     "ws_snippet": null,
+     "flag": ""
+    }
+   },
+   "ws_url": "https://www.wine-searcher.com/find/marchesi+antinori+solaia+tuscany+igp+italy/2021"
+  },
+  {
+   "id": 26,
+   "producer": "Château du Domaine de l'Église",
+   "wine": "Château du Domaine de l'Église",
+   "vintage": 1996,
+   "country": "France",
+   "region": "Pomerol, Bordeaux",
+   "classification": "Pomerol (등급 없음)",
+   "type": "red",
+   "grapes": [
+    "Merlot",
+    "Cabernet Franc"
+   ],
+   "abv": 12.5,
+   "qty": 1,
+   "drink_from": 2004,
+   "drink_to": 2027,
+   "status": "urgent",
+   "notes": "Castéja 소유, Borie-Manoux 독점 유통, 샤토 병입. 포므롤 소규모 중견 샤토(메를로 주도). 1996은 좌안(메독/카베르네)에 유리했던 해로 우안 메를로에는 어려운 빈티지 → 장기 숙성형이 아님. 30년차, 음용 창 끝자락이라 최우선 소비. 개봉 전 48시간 세워두고 아소(양날) 오프너로 코르크 조심스럽게, 디캔팅은 짧게(20~30분) 또는 병에서 바로. 16~17°C.",
+   "category": "보르도 (레드)",
+   "short": "30년차 + 우안에 불리했던 빈티지, 숙성 여력 없음",
+   "display": "Château du Domaine de l'Église",
+   "profile": {
+    "style": "숙성된 포므롤",
+    "tasting": "말린 자두와 무화과, 흙과 버섯, 메를로다운 둥근 질감. 30년이 지나 과실이 상당히 물러났을 것이고 3차 향이 지배한다. 1996은 좌안에 유리했던 해라 우안 와인에 큰 기대는 금물.",
+    "story": "카스테자 가문 소유의 소규모 포므롤. 포므롤에는 공식 등급이 없어 샤토별 평판이 전부인 지역이다.",
+    "serve": {
+     "temp": "16–17°C",
+     "decant": "30분 (침전물 분리만)",
+     "glass": "보르도"
+    },
+    "pair": [
+     "로스트 포크",
+     "버섯 요리",
+     "브리 치즈"
+    ]
+   },
+   "price": {
+    "avg_usd": 102,
+    "basis": "750ml, ex-tax",
+    "confidence": "verified",
+    "source": "보유자가 Wine-Searcher 화면에서 직접 확인 (2026-09)",
+    "source_kind": "screenshot",
+    "verified": "보유자가 Wine-Searcher 화면에서 직접 확인 (2026-09)"
+   },
+   "ws_url": "https://www.wine-searcher.com/find/domaine+de+l+eglise+pomerol+bordeaux+france/1996"
+  },
+  {
+   "id": 27,
+   "producer": "Château Palmer",
+   "wine": "Alter Ego de Palmer",
+   "vintage": 2019,
+   "country": "France",
+   "region": "Margaux, Bordeaux",
+   "classification": "Second Wine",
+   "category": "보르도 (레드)",
+   "type": "red",
+   "grapes": [
+    "Merlot",
+    "Cabernet Sauvignon",
+    "Petit Verdot"
+   ],
+   "qty": 1,
+   "drink_from": 2026,
+   "drink_to": 2040,
+   "status": "drink_or_hold",
+   "short": "2019 강세 빈티지, 지금도 가능하나 2029 이후가 본령",
+   "notes": "팔머의 세컨이지만 '작은 팔머'가 아니라 별도 스타일로 만드는 큐베 — 과실 표현이 앞서고 접근성이 빠름. 2019는 보르도 근래 최고 빈티지 중 하나라 구조가 단단함. 지금 열려면 디캔팅 2시간. #9 팔머 2008과 나란히 놓으면 그랑뱅/알테르 에고 대비가 명확.",
+   "display": "Alter Ego de Palmer",
+   "peak_from": 2030,
+   "profile": {
+    "style": "현대적인 마고",
+    "tasting": "붉은 과실과 제비꽃, 신선한 향신료. 팔머의 세컨이지만 그랑뱅의 축소판이 아니라 과실 표현을 앞세운 별도 스타일로 만든다. 2019의 농축도 때문에 지금은 힘이 앞선다.",
+    "story": "2002년부터 팔머가 세컨의 개념을 바꿔 내놓은 큐베. '또 다른 자아'라는 이름 그대로 다른 성격을 의도했다.",
+    "serve": {
+     "temp": "17–18°C",
+     "decant": "2시간 (2029년 이후가 본령)",
+     "glass": "보르도"
+    },
+    "pair": [
+     "양갈비",
+     "오리 가슴살",
+     "버섯 요리"
+    ]
+   },
+   "price": {
+    "avg_usd": 122,
+    "basis": "750ml, ex-tax",
+    "confidence": "unverified",
+    "note": "미확인. 같은 방식으로 읽은 카농 2000이 실제 $220 대신 $603으로 나왔던 전례가 있어 오차 가능성이 크다.",
+    "source": "웹 검색 결과에서 읽은 값 — Wine-Searcher 페이지로 확인되지 않음",
+    "source_kind": "search"
+   },
+   "ws_url": "https://www.wine-searcher.com/find/palmer+alter+ego+de+margaux+medoc+bordeaux+france/2019"
+  },
+  {
+   "id": 28,
+   "producer": "Château Lynch-Bages",
+   "wine": "Château Lynch-Bages",
+   "vintage": 2011,
+   "country": "France",
+   "region": "Pauillac, Bordeaux",
+   "classification": "5ème Cru Classé",
+   "category": "보르도 (레드)",
+   "type": "red",
+   "grapes": [
+    "Cabernet Sauvignon",
+    "Merlot",
+    "Cabernet Franc",
+    "Petit Verdot"
+   ],
+   "qty": 1,
+   "drink_from": 2021,
+   "drink_to": 2035,
+   "status": "peak",
+   "short": "중간급 빈티지라 일찍 열림, 지금이 좋은 구간",
+   "notes": "'가난한 자의 무통'이라 불리는 포이약 5등급. 2011은 2009·2010 사이에 낀 중간급 빈티지로 숙성이 빨라 지금 접근하기 좋음. 15년차, 디캔팅 1~1.5시간. 등심·양갈비에 잘 맞음.",
+   "display": "Château Lynch-Bages",
+   "profile": {
+    "style": "전형적인 포이약",
+    "tasting": "카시스와 연필심, 삼나무와 담뱃잎 — 포이약의 교과서 같은 향. 린치 바주는 그 안에서도 과실이 풍만한 쪽이다. 2011은 중간급 빈티지라 숙성이 빨라 지금 접근하기 좋다.",
+    "story": "'가난한 자의 무통'이라 불리는 5등급. 오랫동안 등급을 뛰어넘는 품질로 평가받아 왔다.",
+    "serve": {
+     "temp": "17–18°C",
+     "decant": "1.5시간",
+     "glass": "보르도"
+    },
+    "pair": [
+     "등심 스테이크",
+     "양갈비",
+     "숙성 치즈"
+    ]
+   },
+   "price": {
+    "avg_usd": 166,
+    "basis": "750ml, ex-tax",
+    "confidence": "unverified",
+    "note": "미확인. 같은 방식으로 읽은 카농 2000이 실제 $220 대신 $603으로 나왔던 전례가 있어 오차 가능성이 크다.",
+    "source": "웹 검색 결과에서 읽은 값 — Wine-Searcher 페이지로 확인되지 않음",
+    "source_kind": "search"
+   },
+   "ws_url": "https://www.wine-searcher.com/find/lynch+bages+pauillac+medoc+bordeaux+france/2011"
+  },
+  {
+   "id": 29,
+   "producer": "Jean Pabiot (Domaine des Fines Caillottes)",
+   "wine": "Pouilly-Fumé",
+   "vintage": 2024,
+   "country": "France",
+   "region": "Pouilly-Fumé, Loire",
+   "category": "루아르",
+   "type": "white",
+   "grapes": [
+    "Sauvignon Blanc"
+   ],
+   "qty": 1,
+   "drink_from": 2025,
+   "drink_to": 2027,
+   "status": "drink_now",
+   "short": "소비뇽 블랑, 신선할 때가 전부. 1년 내 소비",
+   "notes": "라벨 표기 정정: Fines Caillions → Domaine des Fines Caillottes. 석회질 자갈(caillottes) 토양에서 오는 부싯돌·시트러스 계열. 2024는 아주 어림 = 지금이 정점. 보관 이득 전혀 없으니 1년 내 소비. 8~10°C, 굴·염소치즈·샐러드.",
+   "display": "Jean Pabiot Pouilly-Fumé (Fines Caillottes)",
+   "profile": {
+    "style": "미네랄 중심 소비뇽 블랑",
+    "tasting": "자몽과 구스베리, 부싯돌과 분필 같은 미네랄. 루아르 소비뇽의 날카로운 산도가 중심이고 오크는 쓰지 않는다. 2024는 갓 나온 상태라 지금이 정확히 정점이다.",
+    "story": "도멘의 이름 'Fines Caillottes'는 이 밭의 석회질 자갈 토양을 가리킨다. 푸이 퓌메의 미네랄 성격이 여기서 나온다.",
+    "serve": {
+     "temp": "8–10°C",
+     "decant": "불필요",
+     "glass": "화이트 와인 잔"
+    },
+    "pair": [
+     "굴",
+     "염소 치즈",
+     "아스파라거스"
+    ]
+   },
+   "price": {
+    "avg_usd": 31,
+    "basis": "750ml, ex-tax",
+    "confidence": "unverified",
+    "source": "웹 검색 결과에서 읽은 값 — Wine-Searcher 페이지로 확인되지 않음",
+    "source_kind": "search",
+    "note": "미확인. 같은 방식으로 읽은 카농 2000이 실제 $220 대신 $603으로 나왔던 전례가 있어 오차 가능성이 크다."
+   },
+   "ws_url": "https://www.wine-searcher.com/find/jean+pabiot+dom+de+fines+caillottes+pouilly+fume+upper+loire+france/2024"
+  },
+  {
+   "id": 30,
+   "producer": "Château Canon",
+   "wine": "Château Canon",
+   "vintage": 2000,
+   "country": "France",
+   "region": "Saint-Émilion, Bordeaux",
+   "classification": "1er Grand Cru Classé B",
+   "category": "보르도 (레드)",
+   "type": "red",
+   "grapes": [
+    "Merlot",
+    "Cabernet Franc"
+   ],
+   "qty": 1,
+   "drink_from": 2012,
+   "drink_to": 2032,
+   "status": "peak",
+   "short": "피크 구간이나 병차(bottle variation) 주의 — 아래 설명",
+   "notes": "주의할 점이 있음: 카농은 1990년대 셀러 목재의 TCA(코르크 냄새) 오염으로 심각한 문제를 겪었고, 1996년 샤넬 인수 후 대대적으로 셀러를 철거·재건했음. 품질이 확실히 궤도에 오른 건 2000년대 중후반 이후라 2000 빈티지는 과도기에 걸쳐 있음. 빈티지 자체는 훌륭하고 좋은 병은 지금 아주 좋지만, 병에 따른 편차 가능성을 감안할 것. 중요한 자리에 단독으로 올리기보다 예비 병이 있는 자리에서 여는 걸 권함. 디캔팅 1시간.",
+   "display": "Château Canon",
+   "profile": {
+    "style": "석회질 생테밀리옹",
+    "tasting": "붉은 과실과 제비꽃, 석회질에서 오는 곧은 미네랄. 카농은 생테밀리옹 중에서도 힘보다 섬세함과 긴장감으로 가는 스타일이다. 다만 이 빈티지는 아래 주의사항을 확인할 것.",
+    "story": "1996년 샤넬이 인수한 생테밀리옹 1등급 B. 인수 당시 셀러의 TCA 오염이 심각해 대대적으로 철거·재건했고, 품질이 확실히 궤도에 오른 것은 2000년대 중후반부터다.",
+    "serve": {
+     "temp": "17–18°C",
+     "decant": "1시간",
+     "glass": "보르도"
+    },
+    "pair": [
+     "로스트 비프",
+     "오리",
+     "버섯 요리"
+    ]
+   },
+   "price": {
+    "avg_usd": 220,
+    "basis": "750ml, ex-tax",
+    "confidence": "verified",
+    "source": "보유자가 Wine-Searcher 화면에서 직접 확인 (2026-09)",
+    "verified": "보유자가 Wine-Searcher 화면에서 직접 확인 (2026-09)",
+    "source_kind": "screenshot"
+   },
+   "ws_url": "https://www.wine-searcher.com/find/canon+st+emilion+grand+cru+bordeaux+france/2000"
+  },
+  {
+   "id": 31,
+   "producer": "Château Coutet",
+   "wine": "Château Coutet",
+   "vintage": 2002,
+   "country": "France",
+   "region": "Barsac, Sauternes, Bordeaux",
+   "classification": "1er Cru Classé",
+   "category": "보르도 (스위트)",
+   "type": "sweet white",
+   "grapes": [
+    "Sémillon",
+    "Sauvignon Blanc",
+    "Muscadelle"
+   ],
+   "qty": 1,
+   "format_ml": 375,
+   "drink_from": 2010,
+   "drink_to": 2035,
+   "status": "peak",
+   "short": "하프보틀이라 숙성이 빠름, 지금이 좋음",
+   "notes": "375ml 하프보틀(확인됨). 바르삭의 1등급, 소테른 중 가장 산도가 높고 날렵한 스타일. 하프보틀은 750ml보다 산화가 2배 가까이 빨라 숙성 속도가 빠름 → 24년차면 충분히 무르익었고 더 기다릴 이유 없음. 8~10°C, 푸아그라·블루치즈·타르트 타탱. 개봉 후 냉장 1주일 가능.",
+   "display": "Château Coutet",
+   "profile": {
+    "style": "날렵한 바르삭",
+    "tasting": "살구와 오렌지 마멀레이드, 꿀에 바르삭 특유의 높은 산도가 칼처럼 지나간다. 소테른 중 가장 가볍고 신선한 스타일이라 단맛이 무겁게 남지 않는다. 375ml라 숙성이 빨라 지금이 좋다.",
+    "story": "바르삭의 1등급. 바르삭은 소테른 AOC 안에 있지만 토양이 더 석회질이라 산도가 높고 윤곽이 또렷한 스위트 와인이 나온다.",
+    "serve": {
+     "temp": "8–10°C",
+     "decant": "불필요",
+     "glass": "화이트 와인 잔"
+    },
+    "pair": [
+     "푸아그라",
+     "블루치즈",
+     "타르트 타탱"
+    ]
+   },
+   "price": {
+    "avg_usd": 50,
+    "basis": "750ml, ex-tax",
+    "confidence": "unverified",
+    "note": "미확인. 같은 방식으로 읽은 카농 2000이 실제 $220 대신 $603으로 나왔던 전례가 있어 오차 가능성이 크다.",
+    "source": "웹 검색 결과에서 읽은 값 — Wine-Searcher 페이지로 확인되지 않음",
+    "source_kind": "search"
+   },
+   "ws_url": "https://www.wine-searcher.com/find/coutet+barsac+sauternes+bordeaux+france/2002"
+  },
+  {
+   "id": 32,
+   "producer": "Moulin Touchais",
+   "wine": "Coteaux du Layon",
+   "vintage": 1981,
+   "country": "France",
+   "region": "Coteaux du Layon, Anjou, Loire",
+   "category": "루아르",
+   "type": "sweet white",
+   "grapes": [
+    "Chenin Blanc"
+   ],
+   "qty": 1,
+   "drink_from": 1995,
+   "drink_to": 2045,
+   "status": "peak",
+   "short": "45년차지만 정상 범위. 셀러에서 가장 오래 갈 병",
+   "notes": "물랭 투셰는 최소 10년 이상 자가 숙성 후 출시하는 것으로 유명한 집이라 45년차는 이 집 기준 이상 없음. 슈냉 블랑의 강한 산도 덕에 스위트 와인 중에서도 극단적으로 장수함 — 앞으로 20년 더 가능. 셀러에서 가장 여유 있는 병. 꿀·모과·카라멜 계열에 산도가 받쳐주는 구조. 10~12°C, 디캔팅 불필요. 단독 또는 과일 타르트.",
+   "display": "Moulin Touchais Coteaux du Layon",
+   "profile": {
+    "style": "장수형 루아르 스위트",
+    "tasting": "꿀과 모과, 말린 살구와 카라멜에 슈냉 블랑의 강한 산도가 관통한다. 45년이 지났지만 이 집 기준으로는 정상 범위이고, 산도 덕에 앞으로 20년 더 간다. 셀러에서 가장 여유 있는 병.",
+    "story": "물랭 투셰는 수확 후 최소 10년 이상 셀러에 두었다가 출시하는 것으로 유명하다. 1981처럼 40년이 넘은 빈티지가 시장에 정상 유통되는 몇 안 되는 생산자다.",
+    "serve": {
+     "temp": "10–12°C",
+     "decant": "불필요",
+     "glass": "화이트 와인 잔"
+    },
+    "pair": [
+     "과일 타르트",
+     "푸아그라",
+     "단독"
+    ]
+   },
+   "price": {
+    "avg_usd": 50,
+    "basis": "750ml, ex-tax",
+    "confidence": "unverified",
+    "note": "미확인. 같은 방식으로 읽은 카농 2000이 실제 $220 대신 $603으로 나왔던 전례가 있어 오차 가능성이 크다.",
+    "source": "웹 검색 결과에서 읽은 값 — Wine-Searcher 페이지로 확인되지 않음",
+    "source_kind": "search"
+   },
+   "ws_url": "https://www.wine-searcher.com/find/moulin+touchais+coteaux+du+layon+anjou+loire+france/1981"
+  },
+  {
+   "id": 33,
+   "producer": "Caves Naveran",
+   "wine": "Dama de Naveran Extra Brut Cava",
+   "display": "Naveran Dama de Naveran Extra Brut Cava",
+   "short": "Four bottles. The everyday pour.",
+   "vintage": 2022,
+   "country": "Spain",
+   "region": "Penedès, Catalonia",
+   "category": "Cava",
+   "type": "sparkling",
+   "grapes": [
+    "Chardonnay",
+    "Pinot Noir"
+   ],
+   "qty": 4,
+   "format_ml": 750,
+   "drink_from": 2024,
+   "drink_to": 2028,
+   "status": "drink_now",
+   "peak_from": 2025,
+   "notes": "Four bottles, so this is the one that gets opened without a reason. Drink over the next two years.",
+   "profile": {
+    "style": "Crisp, citrus-led Cava",
+    "tasting": "Green apple and lemon peel over a fine, insistent bead, with a light bready note from lees ageing. Extra Brut dosage means almost no sugar, so it finishes dry and clean rather than soft. Built for appetite, not contemplation.",
+    "story": "Caves Naveran is a family estate in Torrelavit, Penedès, working single-estate fruit rather than bought-in grapes — unusual for Cava, where scale usually wins. Dama is their Chardonnay-led cuvée.",
+    "serve": {
+     "temp": "6–8°C",
+     "decant": "None",
+     "glass": "Tulip"
+    },
+    "pair": [
+     "Jamón ibérico",
+     "Fried seafood",
+     "Salted almonds"
+    ]
+   },
+   "price": {
+    "avg_usd": 20,
+    "confidence": "unverified",
+    "source_kind": "search",
+    "source": "Value read from web search results — not confirmed on a Wine-Searcher page",
+    "note": "Estimated from recollection of retail pricing. Cava at this level sits around $18–22.",
+    "basis": "750ml, ex-tax"
+   },
+   "ws_url": "https://www.wine-searcher.com/find/naveran+dama+naveran+extra+brut+cava+penedes+spain/2022"
+  },
+  {
+   "id": 34,
+   "producer": "Caves Bohigas",
+   "wine": "Cava Brut Reserva",
+   "display": "Bohigas Cava Brut Reserva",
+   "short": "Classic Penedès trio, traditional Cava.",
+   "vintage": null,
+   "vintage_label": "NV",
+   "country": "Spain",
+   "region": "Penedès, Catalonia",
+   "category": "Cava",
+   "type": "sparkling",
+   "grapes": [
+    "Macabeo",
+    "Xarel·lo",
+    "Parellada"
+   ],
+   "qty": 1,
+   "format_ml": 750,
+   "drink_from": 2024,
+   "drink_to": 2027,
+   "status": "drink_now",
+   "peak_from": 2024,
+   "notes": "Cuvée not confirmed — recorded as Brut Reserva. Check the label.",
+   "profile": {
+    "style": "Traditional Penedès Cava",
+    "tasting": "The classic Macabeo–Xarel·lo–Parellada signature: quince, almond skin and a faintly bitter herbal edge that keeps it savoury. Less fruit-forward than Chardonnay-led Cava, more texture.",
+    "story": "Bohigas farms in Òdena, in the higher inland part of Penedès, where cooler nights hold acidity. The estate has been in the same family since the fifteenth century.",
+    "serve": {
+     "temp": "6–8°C",
+     "decant": "None",
+     "glass": "Tulip"
+    },
+    "pair": [
+     "Tortilla española",
+     "Grilled vegetables",
+     "Manchego"
+    ]
+   },
+   "price": {
+    "avg_usd": 15,
+    "confidence": "unverified",
+    "source_kind": "search",
+    "source": "Value read from web search results — not confirmed on a Wine-Searcher page",
+    "note": "Estimated from recollection of retail pricing, and the exact cuvée is unconfirmed.",
+    "basis": "750ml, ex-tax"
+   },
+   "ws_url": "https://www.wine-searcher.com/find/bohigas+cava+brut+reserva+penedes+spain"
+  },
+  {
+   "id": 35,
+   "producer": "Cloudy Bay",
+   "wine": "Sauvignon Blanc",
+   "display": "Cloudy Bay Sauvignon Blanc",
+   "short": "Magnum. The only large format in the cellar.",
+   "vintage": 2023,
+   "country": "New Zealand",
+   "region": "Marlborough",
+   "category": "New Zealand",
+   "type": "white",
+   "grapes": [
+    "Sauvignon Blanc"
+   ],
+   "qty": 1,
+   "format_ml": 1500,
+   "drink_from": 2024,
+   "drink_to": 2029,
+   "status": "drink_now",
+   "peak_from": 2025,
+   "notes": "Magnum, so it ages more slowly than the 750ml and holds a year or two longer. A large format needs a table of six or more — plan it.",
+   "profile": {
+    "style": "Marlborough Sauvignon Blanc, magnum",
+    "tasting": "Passionfruit, grapefruit and cut grass over a taut line of acidity, with a saline finish that keeps it from turning sweet-fruited. The magnum format slows oxidation, so this shows a shade more restraint than the 750ml of the same vintage.",
+    "story": "The wine that made Marlborough famous in 1985 and effectively created the international market for New Zealand Sauvignon Blanc. Now owned by LVMH, still the reference point for the style.",
+    "serve": {
+     "temp": "8–10°C",
+     "decant": "None",
+     "glass": "White wine"
+    },
+    "pair": [
+     "Oysters",
+     "Goat cheese",
+     "Green asparagus",
+     "Ceviche"
+    ]
+   },
+   "price": {
+    "avg_usd": 32,
+    "confidence": "unverified",
+    "source_kind": "search",
+    "source": "Value read from web search results — not confirmed on a Wine-Searcher page",
+    "note": "Estimated 750ml-basis price from recollection. The magnum is valued at twice the 750ml average.",
+    "basis": "750ml, ex-tax"
+   },
+   "ws_url": "https://www.wine-searcher.com/find/cloudy+bay+sauvignon+blanc+marlborough+new+zealand/2023"
+  }
+ ],
+ "summary": "풀보디 카베르네와 프레스티지 샴페인이 중심축. 최근 추가로 루아르 화이트·스위트와 보르도 우안이 보강되면서 균형이 나아졌다. 여전히 부르고뉴 피노 누아와 론은 공백.",
+ "flags": [
+  {
+   "id": 30,
+   "title": "병차(bottle variation) 가능성",
+   "text": "카농은 1990년대 셀러 목재의 TCA 오염으로 고생했고 1996년 샤넬 인수 후 셀러를 재건했다. 품질이 궤도에 오른 건 2000년대 중후반이라 2000 빈티지는 과도기. 중요한 자리에 단독으로 올리지 말 것."
+  },
+  {
+   "id": 33,
+   "title": "블렌드 확인 필요",
+   "text": "다마 데 나베란의 품종 구성을 라벨에서 확인할 것. 샤르도네 주도에 피노 누아가 들어간다고 기록했으나 확정하지 못했다."
+  },
+  {
+   "id": 34,
+   "title": "큐베 확인 필요",
+   "text": "보히가스 카바의 큐베명을 확인할 것. 브뤼 레세르바로 기록했다."
+  }
+ ],
+ "storage": {
+  "temp_c": 10,
+  "note": "셀러 10°C 고정. 장기 보관에 안전하며 이상적 구간(12–14°C)보다 약간 낮아 숙성이 조금 더 천천히 진행된다 — 음용 창의 뒤쪽 끝은 표기보다 여유 있다고 봐도 된다. 다만 레드는 서빙 온도가 16–18°C이므로 개봉 40~60분 전에 셀러에서 꺼내 둘 것."
+ },
+ "price_note": "가격은 Wine-Searcher 전세계 평균가를 목표로 한다. 자동 접근이 캡차로 막혀 있어 세 등급으로 관리한다: 확인됨 = Wine-Searcher 페이지 직접 확인(2종) · 추정 = 실제 판매처 호가 여러 곳을 삼각측량한 중앙값(멀티에이전트 수집, 빈티지 일치 호가 기준, 이상치 제거) · 미확인 = 예전 단일 검색값(5종, 워크플로가 세션 한도로 못 미친 것). 추정치는 판매처 실호가에 앵커돼 예전 단일 스니펫보다 정확하며, 카농에서 스니펫이 $603으로 2.7배 부풀었던 오류를 교정한 방식이다. 확정 전세계 평균은 Wine-Searcher API 키나 페이지 직접 확인으로만 얻을 수 있다.",
+ "gaps": [
+  {
+   "title": "부르고뉴 피노 누아",
+   "severity": "high",
+   "why": "셀러 레드 21병이 전부 카베르네·메를로·산지오베제 기반이다. 가볍고 향 중심으로 가는 자리에 낼 카드가 하나도 없고, 버섯·오리·연어나 간장 베이스 한식에서 특히 아쉽다. 지금은 그런 자리에도 풀보디 카베르네를 열게 된다.",
+   "picks": [
+    "Gevrey-Chambertin 빌라주 (도멘 급) · $80~120",
+    "Volnay 1er Cru · $120~200",
+    "Nuits-Saint-Georges · $100~160"
+   ]
+  },
+  {
+   "title": "북부 론 시라",
+   "severity": "high",
+   "why": "후추·올리브·훈연 계열의 사바리(savory) 축이 전무하다. 카베르네와 가장 다른 방향이라 셀러 다양성을 가장 크게 늘려주는 한 병이다.",
+   "picks": [
+    "Crozes-Hermitage · $40~70",
+    "Cornas · $80~140",
+    "Côte-Rôtie · $120~250"
+   ]
+  },
+  {
+   "title": "숙성형 드라이 화이트",
+   "severity": "medium",
+   "why": "화이트가 푸이 퓌메 2024와 빌라주 백부르고뉴 2022 두 병뿐이고 둘 다 3년 내 소진 대상이다. 셀러에 눕혀둘 화이트가 없다.",
+   "picks": [
+    "Chablis 1er Cru · $50~90",
+    "Alsace Riesling Grand Cru · $50~100",
+    "Meursault / Puligny 1er Cru · $150~250"
+   ]
+  },
+  {
+   "title": "평일용 레드",
+   "severity": "medium",
+   "why": "$70 이하가 오스틴 호프 한 병뿐이다. 가볍게 열 병이 없으면 결국 아껴야 할 병을 열게 되고, 그게 셀러가 계획보다 빨리 비는 가장 흔한 이유다.",
+   "picks": [
+    "Côtes du Rhône Villages · $20~35",
+    "Chianti Classico · $25~40",
+    "Bourgogne Rouge · $35~55"
+   ]
+  }
+ ]
 }
