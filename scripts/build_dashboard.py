@@ -461,6 +461,18 @@ def main():
     page.write_text(PAGE.replace("__BODY__", body))
     (page.parent / ".nojekyll").write_text("")
 
+    # Pages can be pointed at the branch root or at /docs. This makes the clean
+    # URL land on the standalone document under either setting, and keeps anyone
+    # who followed a repo path off web/dashboard.html, which is the Artifact body
+    # and renders in quirks mode with no viewport when served raw.
+    (ROOT / ".nojekyll").write_text("")
+    (ROOT / "index.html").write_text(
+        '<!doctype html>\n<html lang="en">\n<head>\n<meta charset="utf-8">\n'
+        '<title>CellarOS</title>\n'
+        '<meta http-equiv="refresh" content="0; url=docs/index.html">\n'
+        '<link rel="canonical" href="docs/index.html">\n</head>\n'
+        '<body><p><a href="docs/index.html">CellarOS</a></p></body>\n</html>\n')
+
     for f in (out, page):
         print(f"{f.relative_to(ROOT)}: {n} bottles · {len(d['bottles'])} labels · "
               f"{f.stat().st_size / 1024:.0f} KB")
