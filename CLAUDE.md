@@ -87,6 +87,13 @@ There is no `#` column. The id is an insertion-order key, not a rack position,
 and once rows can be sorted it reads as noise; it survives in the data, in each
 opened note, and nowhere else.
 
+Quantity belongs beside the **name**, as a tag, not only in the value column —
+it has been moved twice and it belongs where the eye already is. The value cell
+carries the arithmetic instead (`$1,008` over `2 × $504`), which is a different
+question asked in a different place. Value is always the line total, so the
+column sums to the cellar total in the masthead; don't switch it to per-bottle
+without changing that figure too.
+
 Verify changes by rendering the file in headless Chromium and pre-checking a
 radio (`id="f-rg-bordeaux" checked`) to inspect a filter state. Note that
 headless reports `innerWidth` 500 regardless of `--window-size`, so apparent

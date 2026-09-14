@@ -95,7 +95,12 @@ h1{font-size:21px;font-weight:700;letter-spacing:-.012em;margin:0;text-wrap:bala
   letter-spacing:-.01em}
 .nm{color:var(--ink);font-weight:500}
 .w[open] .nm{font-weight:600}
-.fmt{color:var(--ink-3);font-weight:400;font-size:12.5px}
+/* Bottle tags. Only the few rows that hold more than one, or something other
+   than a 750, carry one — so the marks stay sparse enough to catch. */
+.tag{display:inline-block;font-size:11px;font-weight:400;line-height:1.5;
+  padding:0 5px;border-radius:3px;background:var(--rule-2);color:var(--ink-2);
+  vertical-align:1px;white-space:nowrap}
+.tag.qty{font-weight:600;color:var(--ink);font-variant-numeric:tabular-nums}
 .mult{display:block;color:var(--ink-3);font-size:11.5px;margin-top:2px}
 .st{white-space:nowrap;font-weight:500}
 .car{color:var(--ink-3);font-size:10px;line-height:2;transition:transform .14s ease}
@@ -923,7 +928,7 @@ h1{font-size:21px;font-weight:700;letter-spacing:-.012em;margin:0;text-wrap:bala
 <dt>Bottle</dt><dd class="q">#24 · Krug · Pinot Noir · Chardonnay · Pinot Meunier · 750ml · <a href="https://www.wine-searcher.com/find/krug+vintage+brut+champagne+france/2002" target="_blank" rel="noopener">Wine-Searcher</a></dd>
 </dl></div></details>
 <details class="w w31 rg-bordeaux ap-barsac k-peak" style="counter-increment:bb 1 ll 1">
-<summary class="row"><span class="car">▶</span><span class="yr">2002</span><span class="nm">Château Coutet <span class="fmt">375ml</span></span><span class="c-region">Barsac, Sauternes, Bordeaux</span><span class="st s-peak">Peak</span><span class="num c-window">2010–2035<span class="wb s-peak" style="--p:64%"></span></span><span class="num">$25</span><span class="c-basis">unverified</span></summary>
+<summary class="row"><span class="car">▶</span><span class="yr">2002</span><span class="nm">Château Coutet <span class="tag">375ml</span></span><span class="c-region">Barsac, Sauternes, Bordeaux</span><span class="st s-peak">Peak</span><span class="num c-window">2010–2035<span class="wb s-peak" style="--p:64%"></span></span><span class="num">$25</span><span class="c-basis">unverified</span></summary>
 <div class="body"><dl>
 <dt>Region</dt><dd class="lead">Barsac, Sauternes, Bordeaux · France</dd>
 <dt>Style</dt><dd class="lead">Lean Barsac</dd>
@@ -965,7 +970,7 @@ h1{font-size:21px;font-weight:700;letter-spacing:-.012em;margin:0;text-wrap:bala
 <dt>Bottle</dt><dd class="q">#22 · Pommery · Chardonnay · Pinot Noir · 750ml · <a href="https://www.wine-searcher.com/find/pommery+cuvee+louise+brut+millesime+champagne+france/2006" target="_blank" rel="noopener">Wine-Searcher</a></dd>
 </dl></div></details>
 <details class="w w11 rg-napa ap-oakville k-peak" style="counter-increment:bb 2 ll 1">
-<summary class="row"><span class="car">▶</span><span class="yr">2007</span><span class="nm">Opus One</span><span class="c-region">Oakville, Napa Valley</span><span class="st s-peak">Peak</span><span class="num c-window">2020–2038<span class="wb s-peak" style="--p:33%"></span></span><span class="num">$1,008<span class="mult">2 × $504</span></span><span class="c-basis">estimated</span></summary>
+<summary class="row"><span class="car">▶</span><span class="yr">2007</span><span class="nm">Opus One <span class="tag qty">×2</span></span><span class="c-region">Oakville, Napa Valley</span><span class="st s-peak">Peak</span><span class="num c-window">2020–2038<span class="wb s-peak" style="--p:33%"></span></span><span class="num">$1,008<span class="mult">2 × $504</span></span><span class="c-basis">estimated</span></summary>
 <div class="body"><dl>
 <dt>Region</dt><dd class="lead">Oakville, Napa Valley · USA</dd>
 <dt>Style</dt><dd class="lead">Opus One in maturity</dd>
@@ -1203,7 +1208,7 @@ h1{font-size:21px;font-weight:700;letter-spacing:-.012em;margin:0;text-wrap:bala
 <dt>Bottle</dt><dd class="q">#23 · Charles Noëllat (négociant) · Village · Chardonnay · 12.5% · 750ml · <a href="https://www.wine-searcher.com/find/charles+noellat" target="_blank" rel="noopener">Wine-Searcher</a></dd>
 </dl></div></details>
 <details class="w w33 rg-penedes ap-penedes k-peak" style="counter-increment:bb 4 ll 1">
-<summary class="row"><span class="car">▶</span><span class="yr">2022</span><span class="nm">Naveran Dama de Naveran Extra Brut Cava</span><span class="c-region">Penedès, Catalonia</span><span class="st s-peak">Peak</span><span class="num c-window">2024–2028<span class="wb s-peak" style="--p:50%"></span></span><span class="num">$120<span class="mult">4 × $30</span></span><span class="c-basis">estimated</span></summary>
+<summary class="row"><span class="car">▶</span><span class="yr">2022</span><span class="nm">Naveran Dama de Naveran Extra Brut Cava <span class="tag qty">×4</span></span><span class="c-region">Penedès, Catalonia</span><span class="st s-peak">Peak</span><span class="num c-window">2024–2028<span class="wb s-peak" style="--p:50%"></span></span><span class="num">$120<span class="mult">4 × $30</span></span><span class="c-basis">estimated</span></summary>
 <div class="body"><dl>
 <dt>Region</dt><dd class="lead">Penedès, Catalonia · Spain</dd>
 <dt>Style</dt><dd class="lead">Chardonnay-led vintage Cava</dd>
@@ -1217,7 +1222,7 @@ h1{font-size:21px;font-weight:700;letter-spacing:-.012em;margin:0;text-wrap:bala
 <dt>Bottle</dt><dd class="q">#33 · Caves Naveran · Chardonnay · Parellada · 12.5% · 750ml · <a href="https://www.wine-searcher.com/find/naveran+dama+naveran+extra+brut+cava+penedes+spain/2022" target="_blank" rel="noopener">Wine-Searcher</a></dd>
 </dl></div></details>
 <details class="w w35 rg-marlborough ap-marlborough k-peak" style="counter-increment:bb 1 ll 1">
-<summary class="row"><span class="car">▶</span><span class="yr">2023</span><span class="nm">Cloudy Bay Sauvignon Blanc <span class="fmt">1.5L</span></span><span class="c-region">Marlborough</span><span class="st s-peak">Peak</span><span class="num c-window">2024–2029<span class="wb s-peak" style="--p:40%"></span></span><span class="num">$64</span><span class="c-basis">unverified</span></summary>
+<summary class="row"><span class="car">▶</span><span class="yr">2023</span><span class="nm">Cloudy Bay Sauvignon Blanc <span class="tag">1.5L</span></span><span class="c-region">Marlborough</span><span class="st s-peak">Peak</span><span class="num c-window">2024–2029<span class="wb s-peak" style="--p:40%"></span></span><span class="num">$64</span><span class="c-basis">unverified</span></summary>
 <div class="body"><dl>
 <dt>Region</dt><dd class="lead">Marlborough · New Zealand</dd>
 <dt>Style</dt><dd class="lead">Marlborough Sauvignon Blanc, magnum</dd>
@@ -1245,7 +1250,7 @@ h1{font-size:21px;font-weight:700;letter-spacing:-.012em;margin:0;text-wrap:bala
 <dt>Bottle</dt><dd class="q">#29 · Jean Pabiot (Domaine des Fines Caillottes) · Sauvignon Blanc · 750ml · <a href="https://www.wine-searcher.com/find/jean+pabiot+dom+de+fines+caillottes+pouilly+fume+upper+loire+france/2024" target="_blank" rel="noopener">Wine-Searcher</a></dd>
 </dl></div></details>
 <details class="w w12 rg-napa ap-napa-valley k-peak" style="counter-increment:bb 2 ll 1">
-<summary class="row"><span class="car">▶</span><span class="yr">NV</span><span class="nm">Opus One Overture</span><span class="c-region">Napa Valley</span><span class="st s-peak">Peak</span><span class="num c-window">2023–2029<span class="wb s-peak" style="--p:50%"></span></span><span class="num">$400<span class="mult">2 × $200</span></span><span class="c-basis">estimated</span></summary>
+<summary class="row"><span class="car">▶</span><span class="yr">NV</span><span class="nm">Opus One Overture <span class="tag qty">×2</span></span><span class="c-region">Napa Valley</span><span class="st s-peak">Peak</span><span class="num c-window">2023–2029<span class="wb s-peak" style="--p:50%"></span></span><span class="num">$400<span class="mult">2 × $200</span></span><span class="c-basis">estimated</span></summary>
 <div class="body"><dl>
 <dt>Region</dt><dd class="lead">Napa Valley · USA</dd>
 <dt>Style</dt><dd class="lead">The entry point to Opus One</dd>

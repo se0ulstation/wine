@@ -135,7 +135,12 @@ h1{font-size:21px;font-weight:700;letter-spacing:-.012em;margin:0;text-wrap:bala
   letter-spacing:-.01em}
 .nm{color:var(--ink);font-weight:500}
 .w[open] .nm{font-weight:600}
-.fmt{color:var(--ink-3);font-weight:400;font-size:12.5px}
+/* Bottle tags. Only the few rows that hold more than one, or something other
+   than a 750, carry one — so the marks stay sparse enough to catch. */
+.tag{display:inline-block;font-size:11px;font-weight:400;line-height:1.5;
+  padding:0 5px;border-radius:3px;background:var(--rule-2);color:var(--ink-2);
+  vertical-align:1px;white-space:nowrap}
+.tag.qty{font-weight:600;color:var(--ink);font-variant-numeric:tabular-nums}
 .mult{display:block;color:var(--ink-3);font-size:11.5px;margin-top:2px}
 .st{white-space:nowrap;font-weight:500}
 .car{color:var(--ink-3);font-size:10px;line-height:2;transition:transform .14s ease}
@@ -330,8 +335,9 @@ def render(d):
         lo, hi = b["drink_from"], b["drink_to"]
         through = min(max((NOW - lo) / max(hi - lo, 1), 0), 1)
         ml = b.get("format_ml", 750)
-        fm = (f' <span class="fmt">{"1.5L" if ml == 1500 else f"{ml}ml"}</span>'
+        fm = (f' <span class="tag">{"1.5L" if ml == 1500 else f"{ml}ml"}</span>'
               if ml != 750 else "")
+        qt = (f' <span class="tag qty">×{qty(b)}</span>' if qty(b) > 1 else "")
         each = value(b) / qty(b)
         mult = (f'<span class="mult">{qty(b)} × {usd(each)}</span>'
                 if qty(b) > 1 else "")
@@ -339,7 +345,7 @@ def render(d):
           f'style="counter-increment:bb {qty(b)} ll 1">')
         A(f'<summary class="row"><span class="car">▶</span>'
           f'<span class="yr">{vintage(b)}</span>'
-          f'<span class="nm">{esc(b["display"])}{fm}</span>'
+          f'<span class="nm">{esc(b["display"])}{qt}{fm}</span>'
           f'<span class="c-region">{esc(b["region"])}</span>'
           f'<span class="st {CLS[k]}">{LABEL[k]}</span>'
           f'<span class="num c-window">{lo}–{hi}'
