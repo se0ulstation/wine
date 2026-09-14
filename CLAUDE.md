@@ -144,8 +144,20 @@ profile. The prose is long and confident, which makes a wrong premise expensive.
 
 ## Publishing
 
-The dashboard is a published Artifact. Republishing `web/dashboard.html` keeps
-the same URL: https://claude.ai/code/artifact/aeb0a766-9914-40bd-a841-1d7f055d955e
+One render, two outputs. `web/dashboard.html` is the body only — the Artifact
+host supplies the doctype, charset and viewport. `docs/index.html` is the same
+body wrapped in a real document, because GitHub Pages serves the file raw.
+Never let those diverge: both come from `render()` in the same build.
+
+- **Artifact** — republish `web/dashboard.html` and the URL stays the same:
+  https://claude.ai/code/artifact/aeb0a766-9914-40bd-a841-1d7f055d955e
+  Changing that file's path would create a *new* artifact and orphan the link.
+- **GitHub Pages** — https://se0ulstation.github.io/wine/ , served from `/docs`
+  on the default branch. Every push republishes it.
+
+The repository is **public**, so the cellar and its valuations are readable by
+anyone. That is a deliberate choice, not an oversight — if it changes, Pages on
+a private repo needs a paid plan and the site would have to move.
 
 Work happens on `claude/loving-shannon-3b2a6l`.
 

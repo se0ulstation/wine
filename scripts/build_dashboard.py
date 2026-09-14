@@ -429,13 +429,41 @@ def render(d):
     return "\n".join(o)
 
 
+# GitHub Pages serves a raw file, so the standalone copy needs the document
+# scaffolding the Artifact host supplies for the other one.
+PAGE = """<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light">
+<link rel="icon" href="data:image/svg+xml,\
+%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E\
+%3Ctext y='14' font-size='14'%3E%F0%9F%8D%B7%3C/text%3E%3C/svg%3E">
+<style>html,body{margin:0}</style>
+</head>
+<body>
+__BODY__
+</body>
+</html>
+"""
+
+
 def main():
     d = load()
-    out = ROOT / "web" / "dashboard.html"
-    out.write_text(render(d))
+    body = render(d)
     n = sum(qty(b) for b in d["bottles"])
-    print(f"{out.relative_to(ROOT)}: {n} bottles · {len(d['bottles'])} labels · "
-          f"{out.stat().st_size / 1024:.0f} KB")
+
+    out = ROOT / "web" / "dashboard.html"        # Artifact: host wraps it
+    out.write_text(body)
+    page = ROOT / "docs" / "index.html"          # GitHub Pages: standalone
+    page.parent.mkdir(exist_ok=True)
+    page.write_text(PAGE.replace("__BODY__", body))
+    (page.parent / ".nojekyll").write_text("")
+
+    for f in (out, page):
+        print(f"{f.relative_to(ROOT)}: {n} bottles · {len(d['bottles'])} labels · "
+              f"{f.stat().st_size / 1024:.0f} KB")
 
 
 if __name__ == "__main__":

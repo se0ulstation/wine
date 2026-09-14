@@ -17,7 +17,8 @@ python3 scripts/build_dashboard.py  # -> web/dashboard.html
 | [`scripts/cellar.py`](scripts/cellar.py) | Shared domain: status, value, regions, appellations. Every generator imports it. |
 | [`CELLAR.md`](CELLAR.md) | The cellar as a document. Generated. |
 | [`PRICES.md`](PRICES.md) | Which prices still need confirming. Generated. |
-| [`web/dashboard.html`](web/dashboard.html) | The dashboard. Generated, published as an Artifact. |
+| [`web/dashboard.html`](web/dashboard.html) | The dashboard body. Generated, published as an Artifact. |
+| [`docs/index.html`](docs/index.html) | The same page, standalone, served by GitHub Pages. Generated. |
 
 The dashboard is a static document — no client-side script. Filtering, sorting
 and the expanding rows are hidden radios and `<details>` read by CSS sibling
