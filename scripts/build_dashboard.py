@@ -21,14 +21,18 @@ from cellar import (CLS, LABEL, NOW, ROOT, STATUS, appellations, load, qty,
 
 BASIS = {"verified": "confirmed", "estimate": "estimated", "unverified": "unverified"}
 
-# key, chip label, sort key. Cellar order needs no rules — it is document order.
+# key, chip label, sort key. The first is the default: rows are emitted in that
+# order, so it costs no rules and is what the page shows before anything is
+# clicked. Non-vintage bottles sort to the end rather than to 0.
 SORTS = [
     ("vintage", "Vintage", lambda b, g: (b.get("vintage") or 9999, b["id"])),
     ("value", "Value", lambda b, g: (value(b), b["id"])),
     ("window", "Window", lambda b, g: (b["drink_to"], b["drink_from"], b["id"])),
     ("region", "Region", lambda b, g: (g[b["_rg"]]["name"], b["display"].lower())),
     ("name", "Name", lambda b, g: (b["display"].lower(), b.get("vintage") or 0)),
+    ("catalogued", "Catalogued", lambda b, g: b["id"]),
 ]
+DEFAULT_SORT = SORTS[0][0]
 
 
 def esc(x):
@@ -57,7 +61,7 @@ CSS = """
   --wash:#faf9f7;
   --urgent:#a8321f;
   --peak:#2d6a4a;
-  --cols:15px 26px 52px minmax(0,2.15fr) minmax(0,1.5fr) 78px 96px 70px 78px;
+  --cols:15px 52px minmax(0,2.3fr) minmax(0,1.55fr) 78px 96px 70px 78px;
 }
 *{box-sizing:border-box}
 html,body{background:var(--bg);color:var(--ink)}
@@ -120,7 +124,6 @@ h1{font-size:21px;font-weight:700;letter-spacing:-.012em;margin:0;text-wrap:bala
 .hd{order:0;font-size:10.5px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;
   color:var(--ink-3);padding:0 2px 7px;border-bottom:1px solid var(--ink)}
 .w{border-bottom:1px solid var(--rule-2)}
-.w:last-child{border-bottom:0}
 .row{font-size:13.5px;padding:9px 2px;cursor:pointer;list-style:none;
   color:var(--ink-2);transition:background .1s}
 .row::-webkit-details-marker{display:none}
@@ -128,12 +131,12 @@ h1{font-size:21px;font-weight:700;letter-spacing:-.012em;margin:0;text-wrap:bala
 .w[open]{background:var(--wash);border-bottom-color:var(--rule)}
 .w[open]>.row{background:none}
 .num{text-align:right;white-space:nowrap}
-.idx{color:var(--ink-3);font-size:12px}
 .yr{font-weight:700;font-size:14.5px;color:var(--ink);white-space:nowrap;
   letter-spacing:-.01em}
 .nm{color:var(--ink);font-weight:500}
 .w[open] .nm{font-weight:600}
 .fmt{color:var(--ink-3);font-weight:400;font-size:12.5px}
+.mult{display:block;color:var(--ink-3);font-size:11.5px;margin-top:2px}
 .st{white-space:nowrap;font-weight:500}
 .car{color:var(--ink-3);font-size:10px;line-height:2;transition:transform .14s ease}
 .w[open] .car{transform:rotate(90deg);color:var(--ink)}
@@ -168,7 +171,7 @@ h1{font-size:21px;font-weight:700;letter-spacing:-.012em;margin:0;text-wrap:bala
 .method p{color:var(--ink-3);font-size:12px;line-height:1.6;max-width:760px}
 
 @media (max-width:760px){
-  :root{--cols:15px 24px 48px minmax(0,1fr) 76px 64px}
+  :root{--cols:15px 48px minmax(0,1fr) 76px 64px}
   body{padding-inline:16px}
   .tbl{min-width:0}
   .c-region,.c-window,.c-basis{display:none}
@@ -219,6 +222,8 @@ def render(d):
     # Sort: one `order` per row per key. Direction is a single axis flip, with the
     # header pushed to the far end so it stays on top either way.
     for key, _, fn in SORTS:
+        if key == DEFAULT_SORT:
+            continue                                    # already the document order
         for i, b in enumerate(sorted(B, key=lambda x: fn(x, groups)), start=1):
             rules.append(f'#f-so-{key}:checked ~ .main .w{b["id"]:02d}{{order:{i}}}')
     rules += ['#f-dir-desc:checked ~ .main .tbl{flex-direction:column-reverse}',
@@ -239,7 +244,7 @@ def render(d):
                       f'#{rid}:checked ~ .nav label[for="{sid}"]{{opacity:.32}}']
 
     # Last, so a chosen option beats a dim rule aimed at it.
-    everything = RV + SV + [("f-so-cellar", None)] + [(f"f-so-{k}", None) for k, _, _ in SORTS]
+    everything = RV + SV + [(f"f-so-{k}", None) for k, _, _ in SORTS]
     everything += [("f-dir-asc", None), ("f-dir-desc", None)]
     for vid, _ in everything:
         rules.append(f'#{vid}:checked ~ .nav label[for="{vid}"],'
@@ -278,9 +283,9 @@ def render(d):
     A('<input class="f" type="radio" name="st" id="f-st-all" checked>')
     for k in st_order:
         A(f'<input class="f" type="radio" name="st" id="f-st-{k}">')
-    A('<input class="f" type="radio" name="so" id="f-so-cellar" checked>')
     for k, _, _ in SORTS:
-        A(f'<input class="f" type="radio" name="so" id="f-so-{k}">')
+        ck = " checked" if k == DEFAULT_SORT else ""
+        A(f'<input class="f" type="radio" name="so" id="f-so-{k}"{ck}>')
     A('<input class="f" type="radio" name="dir" id="f-dir-asc" checked>')
     A('<input class="f" type="radio" name="dir" id="f-dir-desc">')
 
@@ -304,8 +309,7 @@ def render(d):
     A('<div class="nav"><span class="lbl">Status</span>'
       '<span class="opts">' + "\n".join(st_chips) + "</span></div>")
 
-    so_chips = ['<label for="f-so-cellar">Cellar #</label>']
-    so_chips += [f'<label for="f-so-{k}">{t}</label>' for k, t, _ in SORTS]
+    so_chips = [f'<label for="f-so-{k}">{t}</label>' for k, t, _ in SORTS]
     so_chips += ['<span class="dirsep" aria-hidden="true"></span>',
                  '<label for="f-dir-asc">↑<span class="sr"> Ascending</span></label>',
                  '<label for="f-dir-desc">↓<span class="sr"> Descending</span></label>']
@@ -314,31 +318,33 @@ def render(d):
 
     A('<div class="main">')
     A('<h2 class="sec">Inventory</h2><div class="tw"><div class="tbl">')
-    A('<div class="hd" aria-hidden="true"><span></span><span class="num">#</span>'
+    A('<div class="hd" aria-hidden="true"><span></span>'
       '<span>Vintage</span><span>Wine</span><span class="c-region">Region</span>'
       '<span>Status</span><span class="num c-window">Window</span>'
       '<span class="num">Value</span><span class="c-basis">Basis</span></div>')
 
-    for b in B:
+    dom = sorted(B, key=lambda x: SORTS[0][2](x, groups))
+    for b in dom:
         k = status(b)
         pf, pr = b["profile"], b["price"]
         lo, hi = b["drink_from"], b["drink_to"]
         through = min(max((NOW - lo) / max(hi - lo, 1), 0), 1)
-        n = f' <span class="fmt">×{qty(b)}</span>' if qty(b) > 1 else ""
         ml = b.get("format_ml", 750)
         fm = (f' <span class="fmt">{"1.5L" if ml == 1500 else f"{ml}ml"}</span>'
               if ml != 750 else "")
+        each = value(b) / qty(b)
+        mult = (f'<span class="mult">{qty(b)} × {usd(each)}</span>'
+                if qty(b) > 1 else "")
         A(f'<details class="w w{b["id"]:02d} rg-{b["_rg"]} ap-{b["_ap"]} k-{k}" '
           f'style="counter-increment:bb {qty(b)} ll 1">')
         A(f'<summary class="row"><span class="car">▶</span>'
-          f'<span class="num idx">{b["id"]:02d}</span>'
           f'<span class="yr">{vintage(b)}</span>'
-          f'<span class="nm">{esc(b["display"])}{n}{fm}</span>'
+          f'<span class="nm">{esc(b["display"])}{fm}</span>'
           f'<span class="c-region">{esc(b["region"])}</span>'
           f'<span class="st {CLS[k]}">{LABEL[k]}</span>'
           f'<span class="num c-window">{lo}–{hi}'
           f'<span class="wb {CLS[k]}" style="--p:{through:.0%}"></span></span>'
-          f'<span class="num">{usd(value(b))}</span>'
+          f'<span class="num">{usd(value(b))}{mult}</span>'
           f'<span class="c-basis">{BASIS[pr["confidence"]]}</span></summary>')
 
         A('<div class="body"><dl>')
@@ -358,9 +364,11 @@ def render(d):
             src += f' · {e["n_listings"]} listings {usd(e["low"])}–{usd(e["high"])}'
             if e.get("ws_snippet"):
                 src += f' · WS snippet {usd(e["ws_snippet"])}'
-        A(f'<dt>Price</dt><dd>{usd(pr["avg_usd"])} per 750ml'
-          f'<span class="q"> · {BASIS[pr["confidence"]]} — {src}</span></dd>')
-        meta = [esc(b["producer"])]
+        held = (f'{qty(b)} bottles, {usd(value(b))} in total · '
+                if qty(b) > 1 else "")
+        A(f'<dt>Price</dt><dd>{usd(pr["avg_usd"])} per 750ml · {held}'
+          f'<span class="q">{BASIS[pr["confidence"]]} — {src}</span></dd>')
+        meta = [f'#{b["id"]:02d}', esc(b["producer"])]
         if b.get("classification"):
             meta.append(esc(b["classification"]))
         if b.get("grapes"):
@@ -382,7 +390,8 @@ def render(d):
     if d.get("flags"):
         A('<h2 class="sec">Check</h2><ul class="flags">')
         for f in d["flags"]:
-            A(f'<li><b>{f["id"]:02d} · {esc(byid[f["id"]]["display"])} — '
+            fb = byid[f["id"]]
+            A(f'<li><b>{esc(fb["display"])} {vintage(fb)} — '
               f'{esc(f["title"])}</b><p>{esc(f["text"])}</p></li>')
         A("</ul>")
 

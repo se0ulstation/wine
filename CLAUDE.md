@@ -77,6 +77,16 @@ column-reverse` with the header pinned at `order:9999`. The "showing N of 40"
 line is a CSS counter — rows hidden by a filter are not counted, so it stays
 true without script. Don't replace any of this with JS to "simplify" it.
 
+**The default sort is free because rows are emitted in it.** `SORTS[0]` is the
+default (vintage); the render loop sorts the DOM by it and emits no `order`
+rules for it. Change `SORTS[0]` and the DOM order follows automatically — but
+never reorder `SORTS` without checking that, or the page loads showing one
+order while claiming another.
+
+There is no `#` column. The id is an insertion-order key, not a rack position,
+and once rows can be sorted it reads as noise; it survives in the data, in each
+opened note, and nowhere else.
+
 Verify changes by rendering the file in headless Chromium and pre-checking a
 radio (`id="f-rg-bordeaux" checked`) to inspect a filter state. Note that
 headless reports `innerWidth` 500 regardless of `--window-size`, so apparent
@@ -112,4 +122,5 @@ Work happens on `claude/loving-shannon-3b2a6l`.
 - Non-vintage windows are soft — without a disgorgement date there is nothing
   to anchor them to. Bottles 12, 20 and 34.
 - Not tracked: purchase price, merchant, date acquired, rack position, tasting
-  history.
+  history. A real rack position would be worth a column; the insertion-order id
+  never was.
