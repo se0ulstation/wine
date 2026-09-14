@@ -266,10 +266,12 @@ def render(d, font):
 
     A("<hr>")
     A('<p class="foot">Status is derived from the drinking window, not stored by hand: '
-      'past the window is post peak; a year or less left — or two years that are the last '
-      'third of the window — is urgent; not yet open is hold; a quarter of the way in, or '
-      'five years past the opening, is peak; everything else is drink now. Value scales a '
-      '750ml average price by the actual bottle format.</p>')
+      'past the window is post peak; inside its last quarter is urgent; not yet open is '
+      'hold; a quarter of the way in, or five years past the opening, is peak; everything '
+      'else is drink now. Urgency is relative to the window rather than a fixed countdown, '
+      'because a year left on a Cava is a third of its life and a year left on a 1996 Napa '
+      'Cabernet is four per cent of it. Value scales a 750ml average price by the actual '
+      'bottle format.</p>')
     A(f'<p class="foot">{esc(d["price_note"])}</p>')
     A(f'<p class="foot">{esc(d["storage"]["note"])}</p>')
     return "\n".join(o)

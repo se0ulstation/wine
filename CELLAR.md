@@ -20,7 +20,7 @@ As of 2026-09-11 · 40 bottles / 35 labels · est. $8,051 · stored at 10°C
 | Paso Robles | 1 | $50 |
 
 
-## Urgent (6)
+## Urgent (4)
 
 | # | Wine | Vintage | Window | Note |
 |---|---|---|---|---|
@@ -28,8 +28,6 @@ As of 2026-09-11 · 40 bottles / 35 labels · est. $8,051 · stored at 10°C
 | 13 | Ornellaia | 1996 | 2005-2028 | 30 years old, end of the drinking window |
 | 15 | Silver Oak Napa Valley Cabernet Sauvignon | 1996 | 2001-2027 | Early-drinking style plus 30 years of age |
 | 26 | Château du Domaine de l'Église | 1996 | 2004-2027 | 30 years old plus a vintage that hurt the Right Bank, no ageing left |
-| 29 | Jean Pabiot Pouilly-Fumé (Fines Caillottes) | 2024 | 2025-2027 | Sauvignon Blanc, freshness is the whole point. Drink within a year |
-| 34 | Bohigas Cava Brut Reserva | NV | 2024-2027 | Classic Penedès trio, traditional Cava. |
 
 ## Drink now (6)
 
@@ -42,7 +40,7 @@ As of 2026-09-11 · 40 bottles / 35 labels · est. $8,051 · stored at 10°C
 | 18 | Dom Pérignon | 2013 | 2023-2036 | High acidity and tension, good now and good for longer |
 | 27 | Alter Ego de Palmer | 2019 | 2026-2040 | Strong 2019 vintage, drinkable now but it hits its stride after 2029 |
 
-## Peak (22)
+## Peak (24)
 
 | # | Wine | Vintage | Window | Note |
 |---|---|---|---|---|
@@ -58,10 +56,12 @@ As of 2026-09-11 · 40 bottles / 35 labels · est. $8,051 · stored at 10°C
 | 23 | Charles Noëllat Chassagne-Montrachet | 2022 | 2024-2028 | Négociant village level plus a low-acid vintage, not for keeping |
 | 24 | Krug Vintage | 2002 | 2020-2050 | One of the century's best Champagne vintages. The highlight of the cellar |
 | 28 | Château Lynch-Bages | 2011 | 2021-2035 | Middling vintage so it opened early, a good window now |
+| 29 | Jean Pabiot Pouilly-Fumé (Fines Caillottes) | 2024 | 2025-2027 | Sauvignon Blanc, freshness is the whole point. Drink within a year |
 | 30 | Château Canon | 2000 | 2012-2032 | At peak, but watch for bottle variation — see below |
 | 31 | Château Coutet (375ml) | 2002 | 2010-2035 | A half bottle, so it ages fast; good now |
 | 32 | Moulin Touchais Coteaux du Layon | 1981 | 1995-2045 | 45 years old but within normal range. The longest-lived bottle in the cellar |
 | 33 | Naveran Dama de Naveran Extra Brut Cava x4 | 2022 | 2024-2028 | Four bottles. The everyday pour. |
+| 34 | Bohigas Cava Brut Reserva | NV | 2024-2029 | Classic Penedès trio, Xarel·lo-led. |
 | 35 | Cloudy Bay Sauvignon Blanc (1500ml) | 2023 | 2024-2029 | Magnum. The only large format in the cellar. |
 
 ## Hold (6)
@@ -109,15 +109,15 @@ As of 2026-09-11 · 40 bottles / 35 labels · est. $8,051 · stored at 10°C
 | 26 | 1996 | Château du Domaine de l'Église | Pomerol, Bordeaux | Urgent | 2004-2027 | $102 |
 | 27 | 2019 | Alter Ego de Palmer | Margaux, Bordeaux | Drink now | 2026-2040 | $122 |
 | 28 | 2011 | Château Lynch-Bages | Pauillac, Bordeaux | Peak | 2021-2035 | $166 |
-| 29 | 2024 | Jean Pabiot Pouilly-Fumé (Fines Caillottes) | Pouilly-Fumé, Loire | Urgent | 2025-2027 | $31 |
+| 29 | 2024 | Jean Pabiot Pouilly-Fumé (Fines Caillottes) | Pouilly-Fumé, Loire | Peak | 2025-2027 | $31 |
 | 30 | 2000 | Château Canon | Saint-Émilion, Bordeaux | Peak | 2012-2032 | $220 |
 | 31 | 2002 | Château Coutet (375ml) | Barsac, Sauternes, Bordeaux | Peak | 2010-2035 | $25 |
 | 32 | 1981 | Moulin Touchais Coteaux du Layon | Coteaux du Layon, Anjou, Loire | Peak | 1995-2045 | $50 |
 | 33 | 2022 | Naveran Dama de Naveran Extra Brut Cava x4 | Penedès, Catalonia | Peak | 2024-2028 | $120 |
-| 34 | NV | Bohigas Cava Brut Reserva | Penedès, Catalonia | Urgent | 2024-2027 | $19 |
+| 34 | NV | Bohigas Cava Brut Reserva | Penedès, Catalonia | Peak | 2024-2029 | $19 |
 | 35 | 2023 | Cloudy Bay Sauvignon Blanc (1500ml) | Marlborough | Peak | 2024-2029 | $64 |
 
-> Status is derived from the drinking window, not stored: past the window is post peak; two years or less left is urgent; not yet open is hold; a quarter of the way in — or five years past the opening — is peak; everything else is drink now.
+> Status is derived from the drinking window, not stored: past the window is post peak; inside its last quarter is urgent; not yet open is hold; a quarter of the way in — or five years past the opening — is peak; everything else is drink now. Urgency is relative to the window, not a fixed countdown.
 
 > Cellar held at a steady 10°C. Safe for long-term storage, and slightly below the ideal band (12–14°C), so ageing runs a little slower — the far end of each drinking window can be taken as having more room than the figures show. Reds serve at 16–18°C, though, so take them out of the cellar 40–60 minutes before opening.
 

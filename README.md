@@ -42,9 +42,14 @@ and republish to the same file path and the Artifact link stays the same.
 | `ws_url` | Wine-Searcher page for this wine and vintage |
 
 **Status is not stored.** It is derived from the drinking window every build:
-past the window is post peak; two years or less left is urgent; not yet open is
+past the window is post peak; inside its last quarter is urgent; not yet open is
 hold; a quarter of the way in — or five years past the opening — is peak;
 everything else is drink now. A stored status would be wrong within a year.
+
+Urgency is **relative to the window, not a fixed countdown**. A year left on a
+Cava is a third of its life; a year left on a 1996 Napa Cabernet is four per
+cent of it. An absolute threshold puts those two in the same bucket, which is
+wrong in both directions.
 
 **`price.confidence`** is honest about provenance: `verified` was read off a
 Wine-Searcher page, `estimate` is a triangulated median of real merchant

@@ -137,6 +137,10 @@ hr{border:0;border-top:1px solid #e3e3e3;margin:34px 0 12px}
 #f-rg-champagne:checked ~ #f-st-urgent:checked ~ .empty{display:block}
 #f-st-urgent:checked ~ .nav label[for="f-rg-champagne"]{opacity:.32}
 #f-rg-champagne:checked ~ .nav label[for="f-st-urgent"]{opacity:.32}
+#f-rg-penedes:checked ~ #f-st-urgent:checked ~ .main{display:none}
+#f-rg-penedes:checked ~ #f-st-urgent:checked ~ .empty{display:block}
+#f-st-urgent:checked ~ .nav label[for="f-rg-penedes"]{opacity:.32}
+#f-rg-penedes:checked ~ .nav label[for="f-st-urgent"]{opacity:.32}
 #f-rg-penedes:checked ~ #f-st-now:checked ~ .main{display:none}
 #f-rg-penedes:checked ~ #f-st-now:checked ~ .empty{display:block}
 #f-st-now:checked ~ .nav label[for="f-rg-penedes"]{opacity:.32}
@@ -149,6 +153,10 @@ hr{border:0;border-top:1px solid #e3e3e3;margin:34px 0 12px}
 #f-rg-tuscany:checked ~ #f-st-peak:checked ~ .empty{display:block}
 #f-st-peak:checked ~ .nav label[for="f-rg-tuscany"]{opacity:.32}
 #f-rg-tuscany:checked ~ .nav label[for="f-st-peak"]{opacity:.32}
+#f-rg-loire:checked ~ #f-st-urgent:checked ~ .main{display:none}
+#f-rg-loire:checked ~ #f-st-urgent:checked ~ .empty{display:block}
+#f-st-urgent:checked ~ .nav label[for="f-rg-loire"]{opacity:.32}
+#f-rg-loire:checked ~ .nav label[for="f-st-urgent"]{opacity:.32}
 #f-rg-loire:checked ~ #f-st-now:checked ~ .main{display:none}
 #f-rg-loire:checked ~ #f-st-now:checked ~ .empty{display:block}
 #f-st-now:checked ~ .nav label[for="f-rg-loire"]{opacity:.32}
@@ -365,14 +373,14 @@ hr{border:0;border-top:1px solid #e3e3e3;margin:34px 0 12px}
 #f-ap-coteaux-du-layon:checked ~ #f-st-hold:checked ~ .empty{display:block}
 #f-st-hold:checked ~ .nav label[for="f-ap-coteaux-du-layon"]{opacity:.32}
 #f-ap-coteaux-du-layon:checked ~ .nav label[for="f-st-hold"]{opacity:.32}
+#f-ap-pouilly-fume:checked ~ #f-st-urgent:checked ~ .main{display:none}
+#f-ap-pouilly-fume:checked ~ #f-st-urgent:checked ~ .empty{display:block}
+#f-st-urgent:checked ~ .nav label[for="f-ap-pouilly-fume"]{opacity:.32}
+#f-ap-pouilly-fume:checked ~ .nav label[for="f-st-urgent"]{opacity:.32}
 #f-ap-pouilly-fume:checked ~ #f-st-now:checked ~ .main{display:none}
 #f-ap-pouilly-fume:checked ~ #f-st-now:checked ~ .empty{display:block}
 #f-st-now:checked ~ .nav label[for="f-ap-pouilly-fume"]{opacity:.32}
 #f-ap-pouilly-fume:checked ~ .nav label[for="f-st-now"]{opacity:.32}
-#f-ap-pouilly-fume:checked ~ #f-st-peak:checked ~ .main{display:none}
-#f-ap-pouilly-fume:checked ~ #f-st-peak:checked ~ .empty{display:block}
-#f-st-peak:checked ~ .nav label[for="f-ap-pouilly-fume"]{opacity:.32}
-#f-ap-pouilly-fume:checked ~ .nav label[for="f-st-peak"]{opacity:.32}
 #f-ap-pouilly-fume:checked ~ #f-st-hold:checked ~ .main{display:none}
 #f-ap-pouilly-fume:checked ~ #f-st-hold:checked ~ .empty{display:block}
 #f-st-hold:checked ~ .nav label[for="f-ap-pouilly-fume"]{opacity:.32}
@@ -446,7 +454,7 @@ hr{border:0;border-top:1px solid #e3e3e3;margin:34px 0 12px}
 <h1>CellarOS</h1>
 <p class="meta">40 bottles · 35 labels · est. $8,051 · vintages 1981–2024 · cellar 10°C · as of 2026-09-11</p>
 <h2>Summary</h2>
-<p><span class="s-urgent">Urgent 6</span> · <span class="s-now">Drink now 6</span> · <span class="s-peak">Peak 22</span> · <span class="s-hold">Hold 6</span>.<br><span class="q">Prices — 2 confirmed · 27 estimated · 6 unverified.</span></p>
+<p><span class="s-urgent">Urgent 4</span> · <span class="s-now">Drink now 6</span> · <span class="s-peak">Peak 24</span> · <span class="s-hold">Hold 6</span>.<br><span class="q">Prices — 2 confirmed · 27 estimated · 6 unverified.</span></p>
 <input class="f" type="radio" name="rg" id="f-rg-all" checked>
 <input class="f" type="radio" name="rg" id="f-rg-bordeaux">
 <input class="f" type="radio" name="rg" id="f-rg-champagne">
@@ -513,9 +521,9 @@ hr{border:0;border-top:1px solid #e3e3e3;margin:34px 0 12px}
 <label class="sub sub-loire" for="f-ap-pouilly-fume">Pouilly-Fumé <span class="n">1</span></label></p>
 <p class="nav"><span class="lbl">Status</span>
 <label for="f-st-all">Any</label>
-<label for="f-st-urgent"><span class="s-urgent">Urgent</span> <span class="n">6</span></label>
+<label for="f-st-urgent"><span class="s-urgent">Urgent</span> <span class="n">4</span></label>
 <label for="f-st-now"><span class="s-now">Drink now</span> <span class="n">6</span></label>
-<label for="f-st-peak"><span class="s-peak">Peak</span> <span class="n">22</span></label>
+<label for="f-st-peak"><span class="s-peak">Peak</span> <span class="n">24</span></label>
 <label for="f-st-hold"><span class="s-hold">Hold</span> <span class="n">6</span></label></p>
 <div class="main">
 <h2>Inventory</h2><div class="tw"><table><thead>
@@ -549,12 +557,12 @@ hr{border:0;border-top:1px solid #e3e3e3;margin:34px 0 12px}
 <tr class="rg-bordeaux ap-pomerol k-urgent" style="counter-increment:bb 1 ll 1"><td class="num">26</td><td class="yr">1996</td><td><a href="https://www.wine-searcher.com/find/domaine+de+l+eglise+pomerol+bordeaux+france/1996" target="_blank" rel="noopener">Château du Domaine de l&#x27;Église</a></td><td>Pomerol, Bordeaux</td><td class="st s-urgent">Urgent</td><td class="num">2004–2027</td><td class="num">$102</td><td class="q">confirmed</td></tr>
 <tr class="rg-bordeaux ap-margaux k-now" style="counter-increment:bb 1 ll 1"><td class="num">27</td><td class="yr">2019</td><td><a href="https://www.wine-searcher.com/find/palmer+alter+ego+de+margaux+medoc+bordeaux+france/2019" target="_blank" rel="noopener">Alter Ego de Palmer</a></td><td>Margaux, Bordeaux</td><td class="st s-now">Drink now</td><td class="num">2026–2040</td><td class="num">$122</td><td class="q">unverified</td></tr>
 <tr class="rg-bordeaux ap-pauillac k-peak" style="counter-increment:bb 1 ll 1"><td class="num">28</td><td class="yr">2011</td><td><a href="https://www.wine-searcher.com/find/lynch+bages+pauillac+medoc+bordeaux+france/2011" target="_blank" rel="noopener">Château Lynch-Bages</a></td><td>Pauillac, Bordeaux</td><td class="st s-peak">Peak</td><td class="num">2021–2035</td><td class="num">$166</td><td class="q">unverified</td></tr>
-<tr class="rg-loire ap-pouilly-fume k-urgent" style="counter-increment:bb 1 ll 1"><td class="num">29</td><td class="yr">2024</td><td><a href="https://www.wine-searcher.com/find/jean+pabiot+dom+de+fines+caillottes+pouilly+fume+upper+loire+france/2024" target="_blank" rel="noopener">Jean Pabiot Pouilly-Fumé (Fines Caillottes)</a></td><td>Pouilly-Fumé, Loire</td><td class="st s-urgent">Urgent</td><td class="num">2025–2027</td><td class="num">$31</td><td class="q">unverified</td></tr>
+<tr class="rg-loire ap-pouilly-fume k-peak" style="counter-increment:bb 1 ll 1"><td class="num">29</td><td class="yr">2024</td><td><a href="https://www.wine-searcher.com/find/jean+pabiot+dom+de+fines+caillottes+pouilly+fume+upper+loire+france/2024" target="_blank" rel="noopener">Jean Pabiot Pouilly-Fumé (Fines Caillottes)</a></td><td>Pouilly-Fumé, Loire</td><td class="st s-peak">Peak</td><td class="num">2025–2027</td><td class="num">$31</td><td class="q">unverified</td></tr>
 <tr class="rg-bordeaux ap-saint-emilion k-peak" style="counter-increment:bb 1 ll 1"><td class="num">30</td><td class="yr">2000</td><td><a href="https://www.wine-searcher.com/find/canon+st+emilion+grand+cru+bordeaux+france/2000" target="_blank" rel="noopener">Château Canon</a></td><td>Saint-Émilion, Bordeaux</td><td class="st s-peak">Peak</td><td class="num">2012–2032</td><td class="num">$220</td><td class="q">confirmed</td></tr>
 <tr class="rg-bordeaux ap-barsac k-peak" style="counter-increment:bb 1 ll 1"><td class="num">31</td><td class="yr">2002</td><td><a href="https://www.wine-searcher.com/find/coutet+barsac+sauternes+bordeaux+france/2002" target="_blank" rel="noopener">Château Coutet</a> <span class="q">375ml</span></td><td>Barsac, Sauternes, Bordeaux</td><td class="st s-peak">Peak</td><td class="num">2010–2035</td><td class="num">$25</td><td class="q">unverified</td></tr>
 <tr class="rg-loire ap-coteaux-du-layon k-peak" style="counter-increment:bb 1 ll 1"><td class="num">32</td><td class="yr">1981</td><td><a href="https://www.wine-searcher.com/find/moulin+touchais+coteaux+du+layon+anjou+loire+france/1981" target="_blank" rel="noopener">Moulin Touchais Coteaux du Layon</a></td><td>Coteaux du Layon, Anjou, Loire</td><td class="st s-peak">Peak</td><td class="num">1995–2045</td><td class="num">$50</td><td class="q">unverified</td></tr>
 <tr class="rg-penedes ap-penedes k-peak" style="counter-increment:bb 4 ll 1"><td class="num">33</td><td class="yr">2022</td><td><a href="https://www.wine-searcher.com/find/naveran+dama+naveran+extra+brut+cava+penedes+spain/2022" target="_blank" rel="noopener">Naveran Dama de Naveran Extra Brut Cava</a> <span class="q">×4</span></td><td>Penedès, Catalonia</td><td class="st s-peak">Peak</td><td class="num">2024–2028</td><td class="num">$120</td><td class="q">estimated</td></tr>
-<tr class="rg-penedes ap-penedes k-urgent" style="counter-increment:bb 1 ll 1"><td class="num">34</td><td class="yr">NV</td><td><a href="https://www.wine-searcher.com/find/bohigas+cava+brut+reserva+penedes+spain" target="_blank" rel="noopener">Bohigas Cava Brut Reserva</a></td><td>Penedès, Catalonia</td><td class="st s-urgent">Urgent</td><td class="num">2024–2027</td><td class="num">$19</td><td class="q">estimated</td></tr>
+<tr class="rg-penedes ap-penedes k-peak" style="counter-increment:bb 1 ll 1"><td class="num">34</td><td class="yr">NV</td><td><a href="https://www.wine-searcher.com/find/bohigas+cava+brut+reserva+penedes+spain" target="_blank" rel="noopener">Bohigas Cava Brut Reserva</a></td><td>Penedès, Catalonia</td><td class="st s-peak">Peak</td><td class="num">2024–2029</td><td class="num">$19</td><td class="q">estimated</td></tr>
 <tr class="rg-marlborough ap-marlborough k-peak" style="counter-increment:bb 1 ll 1"><td class="num">35</td><td class="yr">2023</td><td><a href="https://www.wine-searcher.com/find/cloudy+bay+sauvignon+blanc+marlborough+new+zealand/2023" target="_blank" rel="noopener">Cloudy Bay Sauvignon Blanc</a> <span class="q">1.5L</span></td><td>Marlborough</td><td class="st s-peak">Peak</td><td class="num">2024–2029</td><td class="num">$64</td><td class="q">unverified</td></tr>
 </tbody></table></div>
 <p class="readout">Showing <span class="cb"></span> of 40 bottles · <span class="cl"></span> of 35 labels</p>
@@ -895,7 +903,7 @@ hr{border:0;border-top:1px solid #e3e3e3;margin:34px 0 12px}
 <dt>Price basis</dt><dd>unverified — Value read from web search results — not confirmed on a Wine-Searcher page</dd>
 <dt>Detail</dt><dd class="q">Château Lynch-Bages · 5ème Cru Classé · Cabernet Sauvignon · Merlot · Cabernet Franc · Petit Verdot · 750ml · <a href="https://www.wine-searcher.com/find/lynch+bages+pauillac+medoc+bordeaux+france/2011" target="_blank" rel="noopener">Wine-Searcher</a></dd>
 </dl></div></details>
-<details class="note rg-loire ap-pouilly-fume k-urgent"><summary><b>2024</b> · Jean Pabiot Pouilly-Fumé (Fines Caillottes) <span class="q">— Pouilly-Fumé · <span class="s-urgent">Urgent</span> · $31</span></summary>
+<details class="note rg-loire ap-pouilly-fume k-peak"><summary><b>2024</b> · Jean Pabiot Pouilly-Fumé (Fines Caillottes) <span class="q">— Pouilly-Fumé · <span class="s-peak">Peak</span> · $31</span></summary>
 <div class="body"><dl>
 <dt>Region</dt><dd class="place">Pouilly-Fumé, Loire · France</dd>
 <dt>Style</dt><dd>Mineral-driven Sauvignon Blanc</dd>
@@ -955,7 +963,7 @@ hr{border:0;border-top:1px solid #e3e3e3;margin:34px 0 12px}
 <dt>Price basis</dt><dd>estimated — Median of US retailer listings seen directly (USD/750ml)</dd>
 <dt>Detail</dt><dd class="q">Caves Naveran · Chardonnay · Parellada · 12.5% · 750ml · <a href="https://www.wine-searcher.com/find/naveran+dama+naveran+extra+brut+cava+penedes+spain/2022" target="_blank" rel="noopener">Wine-Searcher</a></dd>
 </dl></div></details>
-<details class="note rg-penedes ap-penedes k-urgent"><summary><b>NV</b> · Bohigas Cava Brut Reserva <span class="q">— Penedès · <span class="s-urgent">Urgent</span> · $19</span></summary>
+<details class="note rg-penedes ap-penedes k-peak"><summary><b>NV</b> · Bohigas Cava Brut Reserva <span class="q">— Penedès · <span class="s-peak">Peak</span> · $19</span></summary>
 <div class="body"><dl>
 <dt>Region</dt><dd class="place">Penedès, Catalonia · Spain</dd>
 <dt>Style</dt><dd>Traditional Penedès Cava</dd>
@@ -963,7 +971,7 @@ hr{border:0;border-top:1px solid #e3e3e3;margin:34px 0 12px}
 <dt>Background</dt><dd>Caves Bohigas, also known as Fermí Bohigas, has been bottling since 1870 and works 35 hectares of estate vineyards at Òdena, in the higher inland part of Penedès where cooler nights hold acidity. The Brut Reserva is 55% Xarel·lo, 30% Macabeo and 15% Parellada, aged a minimum of 24 months.</dd>
 <dt>Serving</dt><dd>6–8°C · decant None · Tulip glass</dd>
 <dt>Pairing</dt><dd>Tortilla española · Grilled vegetables · Manchego</dd>
-<dt>Note</dt><dd>Bohigas&#x27; most widely distributed cuvée. Drink it young while the lees texture is still fresh.</dd>
+<dt>Note</dt><dd>Bohigas&#x27; most widely distributed cuvée. The window is soft: this is non-vintage, so without a disgorgement date there is nothing to anchor it to — read it as roughly four years from a 2024 purchase.</dd>
 <dt>Price basis</dt><dd>estimated — US retailer listings seen directly (USD/750ml)</dd>
 <dt>Detail</dt><dd class="q">Caves Bohigas · Xarel·lo · Macabeo · Parellada · 750ml · <a href="https://www.wine-searcher.com/find/bohigas+cava+brut+reserva+penedes+spain" target="_blank" rel="noopener">Wine-Searcher</a></dd>
 </dl></div></details>
@@ -985,6 +993,6 @@ hr{border:0;border-top:1px solid #e3e3e3;margin:34px 0 12px}
 <li><b>30. Château Canon — Possible bottle variation</b><br><span class="q">Canon struggled with TCA contamination in the cellar&#x27;s woodwork through the 1990s and rebuilt the cellars after Chanel bought the estate in 1996. Quality got back on track in the mid-to-late 2000s, so the 2000 vintage falls in the transition. Don&#x27;t put it up alone at an important dinner.</span></li>
 </ul>
 <hr>
-<p class="foot">Status is derived from the drinking window, not stored by hand: past the window is post peak; a year or less left — or two years that are the last third of the window — is urgent; not yet open is hold; a quarter of the way in, or five years past the opening, is peak; everything else is drink now. Value scales a 750ml average price by the actual bottle format.</p>
+<p class="foot">Status is derived from the drinking window, not stored by hand: past the window is post peak; inside its last quarter is urgent; not yet open is hold; a quarter of the way in, or five years past the opening, is peak; everything else is drink now. Urgency is relative to the window rather than a fixed countdown, because a year left on a Cava is a third of its life and a year left on a 1996 Napa Cabernet is four per cent of it. Value scales a 750ml average price by the actual bottle format.</p>
 <p class="foot">Prices aim at the Wine-Searcher worldwide average. Automated access is blocked by a CAPTCHA, so they are kept in three grades. Confirmed means the figure was read directly off the Wine-Searcher page. Estimated means a median of actual retailer listings for the matching vintage, outliers removed. Unverified means an older single search value, which has been wrong by a factor of 2.7 — a snippet put Château Canon 2000 at $603 against an actual $220, which is what prompted the listing-based method. A definitive worldwide average needs a Wine-Searcher API key, or the page checked by hand. PRICES.md lists what is still outstanding, worst first.</p>
 <p class="foot">Cellar held at a steady 10°C. Safe for long-term storage, and slightly below the ideal band (12–14°C), so ageing runs a little slower — the far end of each drinking window can be taken as having more room than the figures show. Reds serve at 16–18°C, though, so take them out of the cellar 40–60 minutes before opening.</p>

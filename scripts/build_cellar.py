@@ -73,8 +73,9 @@ def main():
     L += [
         "",
         "> Status is derived from the drinking window, not stored: past the window is post "
-        "peak; two years or less left is urgent; not yet open is hold; a quarter of the way "
-        "in — or five years past the opening — is peak; everything else is drink now.",
+        "peak; inside its last quarter is urgent; not yet open is hold; a quarter of the way "
+        "in — or five years past the opening — is peak; everything else is drink now. "
+        "Urgency is relative to the window, not a fixed countdown.",
         "",
         f"> {d['storage']['note']}",
         "",

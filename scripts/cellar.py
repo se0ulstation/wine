@@ -70,9 +70,11 @@ def status(b):
     left = hi - NOW
     if left < 0:
         return "post"
-    # Urgent is relative to the window, not an absolute countdown: two years left
-    # on a Bordeaux is the end of the road, two years left on a Cava is half of it.
-    if left <= 1 or (left <= 2 and left / span <= 0.3):
+    # Urgent is purely relative: the last quarter of whatever window the wine has.
+    # An absolute countdown gets this wrong in both directions — a year left on a
+    # Cava is a third of its life, a year left on a 1996 Napa Cabernet is 4% of it,
+    # and they are not the same situation.
+    if left / span <= 0.25:
         return "urgent"
     if NOW < lo:
         return "hold"
