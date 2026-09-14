@@ -120,9 +120,14 @@ source, so where one is shaky the text says so outright (bottle 32, Layon
 
 Two errors worth not repeating, both from assuming the common case:
 
-- **Chassagne-Montrachet is not automatically white.** Bottle 23 is red Pinot
-  Noir; it was catalogued as Chardonnay, and every tasting note, pairing and
-  serving temperature written for it was wrong as a result.
+- **A label beats an aggregator.** Bottle 23 was catalogued correctly as a
+  white village Chassagne, then rewritten as a red Premier Cru on the strength
+  of a Vivino page and a stock label image for a different bottling — both
+  wrong. The owner's own photo shows `APPELLATION CHASSAGNE MONTRACHET
+  CONTRÔLÉE`, 12.5%, white. It is true that Chassagne makes red as well as
+  white, which is what made the wrong answer plausible; that is exactly why a
+  photo of the bottle outranks a search result. Ask for one before rewriting a
+  record.
 - **"Domaine des Fines Caillottes" is an estate name, not a cuvée.** It was
   written as a parenthetical on bottle 29. The Pabiot family use it to tell
   themselves apart from the six other Pabiots in Pouilly.

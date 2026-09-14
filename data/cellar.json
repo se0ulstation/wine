@@ -1280,34 +1280,33 @@
    "vintage": 2022,
    "country": "France",
    "region": "Chassagne-Montrachet, Côte de Beaune, Burgundy",
-   "type": "red",
+   "type": "white",
    "grapes": [
-    "Pinot Noir"
+    "Chardonnay"
    ],
    "qty": 1,
-   "drink_from": 2025,
-   "drink_to": 2032,
+   "drink_from": 2024,
+   "drink_to": 2028,
    "status": "drink_now",
-   "notes": "Red Chassagne, not white — the appellation is better known for Chardonnay but has always made Pinot Noir. Village level from a négociant, so drink it rather than wait on it.",
+   "notes": "Label checked (2022, white, 12.5%). The historic Domaine Charles Noëllat was sold to Leroy in 1988 and ceased to exist, but the name survives as a négociant brand → not a domaine wine but a négociant-bottled village-level wine. 2022 was a hot vintage, so acidity is low and the fruit full. Not suitable for keeping, drink by 2027. 12–13°C, white Burgundy glass.",
    "classification": "Village",
    "abv": 12.5,
    "category": "Burgundy (white)",
-   "short": "Village red Burgundy from a négociant label. Drink, don't keep.",
-   "display": "Charles Noëllat Chassagne-Montrachet Rouge",
+   "short": "Négociant village level plus a low-acid vintage, not for keeping",
+   "display": "Charles Noëllat Chassagne-Montrachet",
    "profile": {
-    "style": "Village red Burgundy",
-    "tasting": "Red cherry and raspberry over a savoury, earthy base, with the light tannin and high acidity of village-level Pinot Noir. Chassagne's reds sit on heavier soil than its whites and come out firmer and less perfumed than Volnay or Beaune. 2022 gives it more flesh than the appellation usually shows.",
-    "story": "Domaine Charles Noëllat was a famous Vosne-Romanée estate until Lalou Bize-Leroy bought it in 1988 to found Domaine Leroy. The name survived as a négociant label and is still in use; this is that label, not the old domaine.",
+    "style": "Village-level white Burgundy",
+    "tasting": "Yellow apple and citrus, light hazelnut and butter. 2022 was a hot year, so acidity is low and the fruit full, at the cost of tension. It is négociant village level, so set expectations at an easy everyday white Burgundy.",
+    "story": "Domaine Charles Noëllat disappeared when it was sold to Leroy in 1988, but the name stayed on as a négociant brand and is still in use. This bottle is that brand's bottling.",
     "serve": {
-     "temp": "14–16°C",
-     "decant": "30 minutes",
-     "glass": "Burgundy"
+     "temp": "12–13°C",
+     "decant": "None",
+     "glass": "Burgundy (white)"
     },
     "pair": [
+     "Scallops in butter sauce",
      "Roast chicken",
-     "Mushroom dishes",
-     "Duck",
-     "Comté"
+     "Goat cheese"
     ]
    },
    "price": {
@@ -1329,7 +1328,7 @@
    "ws_url": "https://www.wine-searcher.com/find/charles+noellat",
    "vintage_note": {
     "rating": "very good",
-    "text": "A hot, dry year that made far better wine than the weather suggested — the vines adapted and the reds came in ripe and plush with fair freshness. Generous now rather than a keeper."
+    "text": "A hot, dry year that made better wine than the weather suggested. The whites came in ripe and generous but short on acidity, so 2022 white Burgundy is open early and not a vintage to hold — which is the main thing to know about this bottle."
    }
   },
   {

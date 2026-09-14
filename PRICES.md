@@ -31,7 +31,7 @@ Wine-Searcher blocks automated access, so these averages cannot be fetched. Open
 | 19 | 04 | Château Calon Ségur | 2005 | $155 | estimated | [open](https://www.wine-searcher.com/find/calon+segur+st+estephe+medoc+bordeaux+france/2005) |
 | 20 | 15 | Silver Oak Napa Valley Cabernet Sauvignon | 1996 | $153 | estimated | [open](https://www.wine-searcher.com/find/silver+oak+cellars+cab+sauv+napa+valley+county+north+coast+california+usa/1996) |
 | 21 | 01 | Orin Swift Mercury Head Cabernet Sauvignon | 2018 | $132 | estimated | [open](https://www.wine-searcher.com/find/orin+swift+mercurey+head+cab+sauv+napa+valley+county+north+coast+california+usa/2018) |
-| 22 | 23 | Charles Noëllat Chassagne-Montrachet Rouge | 2022 | $126 | estimated | [open](https://www.wine-searcher.com/find/charles+noellat) |
+| 22 | 23 | Charles Noëllat Chassagne-Montrachet | 2022 | $126 | estimated | [open](https://www.wine-searcher.com/find/charles+noellat) |
 | 23 | 05 | Shafer One Point Five Cabernet Sauvignon | 2021 | $125 | estimated | [open](https://www.wine-searcher.com/find/shafer+one+point+five+cab+sauv+stags+leap+district+napa+valley+county+north+coast+california+usa/2021) |
 | 24 | 27 | Alter Ego de Palmer | 2019 | $122 | unverified | [open](https://www.wine-searcher.com/find/palmer+alter+ego+de+margaux+medoc+bordeaux+france/2019) |
 | 25 | 33 | Naveran Dama de Naveran Extra Brut Cava | 2022 | $30 | estimated | [open](https://www.wine-searcher.com/find/naveran+dama+naveran+extra+brut+cava+penedes+spain/2022) |
