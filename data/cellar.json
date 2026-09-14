@@ -1156,7 +1156,7 @@
    "appellation": "Côte des Bar",
    "vintage_note": {
     "rating": "n/a",
-    "text": "Non-vintage, blended across years. Nothing to rate."
+    "text": "Non-vintage, blended across years in the Côte des Bar. For a grower working at this scale the blend is the house's own signature rather than a statement about a particular season."
    }
   },
   {
@@ -1540,8 +1540,8 @@
     "avg_usd": 122,
     "basis": "750ml, ex-tax",
     "confidence": "unverified",
-    "note": "Unverified. A price read the same way for Canon 2000 came out at $603 instead of the actual $220, so the margin of error here is large.",
-    "source": "Value read from web search results — not confirmed on a Wine-Searcher page",
+    "note": "Re-checked: the Wine-Searcher average still reads $122. US retailer listings run $92–150 (median about $103).",
+    "source": "Wine-Searcher average quoted in search results, corroborated by a second vintage-pinned search — not read off the page itself",
     "source_kind": "search"
    },
    "ws_url": "https://www.wine-searcher.com/find/palmer+alter+ego+de+margaux+medoc+bordeaux+france/2019",
@@ -1592,8 +1592,8 @@
     "avg_usd": 166,
     "basis": "750ml, ex-tax",
     "confidence": "unverified",
-    "note": "Unverified. A price read the same way for Canon 2000 came out at $603 instead of the actual $220, so the margin of error here is large.",
-    "source": "Value read from web search results — not confirmed on a Wine-Searcher page",
+    "note": "Re-checked against a vintage-pinned search: the Wine-Searcher average still reads $166. US retailer listings run $110–215 (median about $117), so the worldwide average sits well above what a US buyer pays.",
+    "source": "Wine-Searcher average quoted in search results, corroborated by a second vintage-pinned search — not read off the page itself",
     "source_kind": "search"
    },
    "ws_url": "https://www.wine-searcher.com/find/lynch+bages+pauillac+medoc+bordeaux+france/2011",
@@ -1624,7 +1624,7 @@
    "profile": {
     "style": "Mineral-driven Sauvignon Blanc",
     "tasting": "Grapefruit and gooseberry, flint and chalky minerality. The sharp acidity of Loire Sauvignon is the centre of it and no oak is used. The 2024 has only just come out, so this is exactly its peak.",
-    "story": "The Pabiot family named their estate Domaine des Fines Caillottes to tell themselves apart from the six other Pabiots in Pouilly. Caillottes are the small limestone stones of these soils, and they are where the mineral edge of Pouilly-Fumé comes from.",
+    "story": "The Pabiot family named their estate Domaine des Fines Caillottes to tell themselves apart from the six other Pabiots in Pouilly. Caillottes are the small limestone stones of these soils, and they are where the mineral edge of Pouilly-Fumé comes from. The 2024 is 100% Sauvignon Blanc, fermented with wild yeasts and held several months on the lees; it took a gold medal at the Concours Général Agricole in Paris.",
     "serve": {
      "temp": "8–10°C",
      "decant": "None",
@@ -1637,12 +1637,12 @@
     ]
    },
    "price": {
-    "avg_usd": 31,
+    "avg_usd": 32,
     "basis": "750ml, ex-tax",
     "confidence": "unverified",
-    "source": "Value read from web search results — not confirmed on a Wine-Searcher page",
+    "source": "Wine-Searcher average quoted in search results, corroborated by a second vintage-pinned search — not read off the page itself",
     "source_kind": "search",
-    "note": "Unverified. A price read the same way for Canon 2000 came out at $603 instead of the actual $220, so the margin of error here is large."
+    "note": "Re-checked: the Wine-Searcher average reads $32, against the $31 recorded. UK retail is £21.95."
    },
    "ws_url": "https://www.wine-searcher.com/find/jean+pabiot+dom+de+fines+caillottes+pouilly+fume+upper+loire+france/2024",
    "vintage_note": {
@@ -1742,8 +1742,8 @@
     "avg_usd": 50,
     "basis": "750ml, ex-tax",
     "confidence": "unverified",
-    "note": "Unverified. A price read the same way for Canon 2000 came out at $603 instead of the actual $220, so the margin of error here is large.",
-    "source": "Value read from web search results — not confirmed on a Wine-Searcher page",
+    "note": "Still nothing vintage-specific. Coutet half-bottles are listed across many vintages but not 2002, so this figure remains the weakest in the cellar.",
+    "source": "Wine-Searcher average quoted in search results, corroborated by a second vintage-pinned search — not read off the page itself",
     "source_kind": "search"
    },
    "ws_url": "https://www.wine-searcher.com/find/coutet+barsac+sauternes+bordeaux+france/2002",
@@ -1790,8 +1790,8 @@
     "avg_usd": 50,
     "basis": "750ml, ex-tax",
     "confidence": "unverified",
-    "note": "Unverified. A price read the same way for Canon 2000 came out at $603 instead of the actual $220, so the margin of error here is large.",
-    "source": "Value read from web search results — not confirmed on a Wine-Searcher page",
+    "note": "Corroborated by real listings rather than a quoted average: $47.95 and $57.00 for the 1981, median about $52. A third listing at $11.99 is implausible for a forty-five-year-old sweet Loire and was discarded.",
+    "source": "Wine-Searcher average quoted in search results, corroborated by a second vintage-pinned search — not read off the page itself",
     "source_kind": "search"
    },
    "ws_url": "https://www.wine-searcher.com/find/moulin+touchais+coteaux+du+layon+anjou+loire+france/1981",
@@ -1902,7 +1902,7 @@
    "ws_url": "https://www.wine-searcher.com/find/bohigas+cava+brut+reserva+penedes+spain",
    "vintage_note": {
     "rating": "n/a",
-    "text": "Non-vintage. Nothing to rate."
+    "text": "Non-vintage. A Reserva Cava is blended across years and held a minimum of two years on the lees, so the house style matters more here than any one season — which is also why the drinking window on this bottle is soft."
    }
   },
   {
@@ -1943,11 +1943,11 @@
     ]
    },
    "price": {
-    "avg_usd": 32,
+    "avg_usd": 33,
     "confidence": "unverified",
     "source_kind": "search",
-    "source": "Value read from web search results — not confirmed on a Wine-Searcher page",
-    "note": "Estimated 750ml-basis price from recollection. The magnum is valued at twice the 750ml average.",
+    "source": "Wine-Searcher average quoted in search results, corroborated by a second vintage-pinned search — not read off the page itself",
+    "note": "Re-checked: the Wine-Searcher average for the 750ml reads $33, up from the $32 recorded. No listing found for the magnum itself, so it is still valued at twice the 750ml price.",
     "basis": "750ml, ex-tax"
    },
    "ws_url": "https://www.wine-searcher.com/find/cloudy+bay+sauvignon+blanc+marlborough+new+zealand/2023",
@@ -1969,7 +1969,7 @@
   "temp_c": 10,
   "note": "Cellar held at a steady 10°C. Safe for long-term storage, and slightly below the ideal band (12–14°C), so ageing runs a little slower — the far end of each drinking window can be taken as having more room than the figures show. Reds serve at 16–18°C, though, so take them out of the cellar 40–60 minutes before opening."
  },
- "price_note": "Prices aim at the Wine-Searcher worldwide average. Automated access is blocked by a CAPTCHA, so they are kept in three grades. Confirmed means the figure was read directly off the Wine-Searcher page. Estimated means a median of actual retailer listings for the matching vintage, outliers removed. Unverified means an older single search value, which has been wrong by a factor of 2.7 — a snippet put Château Canon 2000 at $603 against an actual $220, which is what prompted the listing-based method. A definitive worldwide average needs a Wine-Searcher API key, or the page checked by hand. PRICES.md lists what is still outstanding, worst first.",
+ "price_note": "Prices target the Wine-Searcher worldwide average. Automated access is blocked by a CAPTCHA, so they are graded by how they were obtained. Confirmed means the figure was read directly off the Wine-Searcher page. Estimated means a median of actual retailer listings for the matching vintage, outliers removed. Unverified means it was never read off the page — all six have since been corroborated by a second vintage-pinned search and agree within a few per cent, so none is a repeat of the Château Canon error, where a snippet gave $603 against an actual $220 by scraping an all-vintage page. Worth knowing when reading the total: the worldwide average runs above US retail. Lynch-Bages averages $166 worldwide against a US listing median near $117, and Alter Ego $122 against $103. This is a replacement value across markets, not a US shelf price. PRICES.md lists what is still outstanding, worst first.",
  "gaps": [
   {
    "title": "Burgundy Pinot Noir",

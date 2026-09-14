@@ -16,9 +16,15 @@ python3 scripts/build_prices.py     # -> PRICES.md
 python3 scripts/build_dashboard.py  # -> web/dashboard.html
 ```
 
-Run all three after any data change. `scripts/cellar.py` holds everything
-derived — status, value, regions, appellations — so the Markdown and the HTML
-cannot disagree about a number.
+Run `scripts/check.py` first, then all three generators. `scripts/cellar.py`
+holds everything derived — status, value, regions, appellations — so the
+Markdown and the HTML cannot disagree about a number.
+
+`check.py` encodes the invariants that have actually been broken, not a wish
+list: a window opening before the vintage, a price outside the listings it
+claims to come from, a white wine whose lead grape is red — that last one is
+the Noëllat error, and the check catches it. It exits non-zero, so it can gate
+a commit. Add a rule to it whenever a new class of mistake turns up.
 
 ## Status is derived, never stored
 

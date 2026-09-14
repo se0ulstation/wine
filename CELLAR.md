@@ -2,7 +2,7 @@
 
 # Cellar
 
-As of 2026-09-11 · 40 bottles / 35 labels · est. $8,051 · stored at 10°C
+As of 2026-09-11 · 40 bottles / 35 labels · est. $8,054 · stored at 10°C
 
 ## By region
 
@@ -13,10 +13,10 @@ As of 2026-09-11 · 40 bottles / 35 labels · est. $8,051 · stored at 10°C
 | Napa Valley | 7 | $1,818 |
 | Penedès | 5 | $139 |
 | Tuscany | 4 | $1,172 |
-| Loire | 2 | $81 |
+| Loire | 2 | $82 |
 | Australia | 1 | $93 |
 | Burgundy | 1 | $126 |
-| Marlborough | 1 | $64 |
+| Marlborough | 1 | $66 |
 | Paso Robles | 1 | $50 |
 
 
@@ -109,13 +109,13 @@ As of 2026-09-11 · 40 bottles / 35 labels · est. $8,051 · stored at 10°C
 | 26 | 1996 | Château du Domaine de l'Église | Pomerol, Bordeaux | Urgent | 2004-2027 | $102 |
 | 27 | 2019 | Alter Ego de Palmer | Margaux, Bordeaux | Drink now | 2026-2040 | $122 |
 | 28 | 2011 | Château Lynch-Bages | Pauillac, Bordeaux | Peak | 2021-2035 | $166 |
-| 29 | 2024 | Jean Pabiot Domaine des Fines Caillottes | Pouilly-Fumé, Loire | Peak | 2025-2027 | $31 |
+| 29 | 2024 | Jean Pabiot Domaine des Fines Caillottes | Pouilly-Fumé, Loire | Peak | 2025-2027 | $32 |
 | 30 | 2000 | Château Canon | Saint-Émilion, Bordeaux | Peak | 2012-2032 | $220 |
 | 31 | 2002 | Château Coutet (375ml) | Barsac, Sauternes, Bordeaux | Peak | 2010-2035 | $25 |
 | 32 | 1981 | Moulin Touchais Coteaux du Layon | Coteaux du Layon, Anjou, Loire | Peak | 1995-2045 | $50 |
 | 33 | 2022 | Naveran Dama de Naveran Extra Brut Cava x4 | Penedès, Catalonia | Peak | 2024-2028 | $120 |
 | 34 | NV | Bohigas Cava Brut Reserva | Penedès, Catalonia | Peak | 2024-2029 | $19 |
-| 35 | 2023 | Cloudy Bay Sauvignon Blanc (1500ml) | Marlborough | Peak | 2024-2029 | $64 |
+| 35 | 2023 | Cloudy Bay Sauvignon Blanc (1500ml) | Marlborough | Peak | 2024-2029 | $66 |
 
 > Status is derived from the drinking window, not stored: past the window is post peak; inside its last quarter is urgent; not yet open is hold; a quarter of the way in — or five years past the opening — is peak; everything else is drink now. Urgency is relative to the window, not a fixed countdown.
 
