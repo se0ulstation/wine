@@ -210,7 +210,9 @@ def render(d, font):
     for s in order:
         g = groups[s]
         nav.append(f'<a href="#rg-{s}">{esc(g["name"])} <span class="n">{g["n"]}</span></a>')
-    A('<p class="rgnav">' + "".join(nav) + "</p>")
+    # Joined on newlines: without a break opportunity between the nowrap links the
+    # whole row is one unbreakable run and the page scrolls sideways on a phone.
+    A('<p class="rgnav">' + "\n".join(nav) + "</p>")
 
     # Inventory
     A('<h2>Inventory</h2><div class="tw"><table><thead>')
