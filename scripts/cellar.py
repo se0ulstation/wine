@@ -7,6 +7,7 @@ written by hand is duplicated in either output.
 """
 import json
 import re
+import unicodedata
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -39,7 +40,6 @@ REGIONS = [
     ("Margaret River", "Australia", "australia", 140.83, -37.29, "oz"),
     ("Marlborough", "Marlborough", "marlborough", 173.86, -41.52, "oz"),
 ]
-PANELS = [("eu", "Western Europe"), ("ca", "California"), ("oz", "Australia & New Zealand")]
 
 
 def load():
@@ -102,3 +102,25 @@ def regions(bottles):
         g["v"] += value(b)
         b["_rg"] = slug
     return out, sorted(out, key=lambda s: (-out[s]["n"], out[s]["name"]))
+
+
+def slugify(name):
+    flat = unicodedata.normalize("NFKD", name).encode("ascii", "ignore").decode()
+    return re.sub(r"[^a-z0-9]+", "-", flat.lower()).strip("-") or "x"
+
+
+def appellation_of(b):
+    """The narrow origin: an explicit override, else the leading part of region."""
+    name = b.get("appellation") or b["region"].split(",")[0].strip()
+    return name, slugify(name)
+
+
+def appellations(bottles):
+    """slug -> {name, slug, rg, n}, in region order then by bottle count."""
+    out = {}
+    for b in bottles:
+        name, slug = appellation_of(b)
+        a = out.setdefault(slug, {"name": name, "slug": slug, "rg": b["_rg"], "n": 0})
+        a["n"] += qty(b)
+        b["_ap"] = slug
+    return out

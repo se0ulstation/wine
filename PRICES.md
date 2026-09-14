@@ -34,15 +34,15 @@ Wine-Searcher blocks automated access, so these averages cannot be fetched. Open
 | 22 | 23 | Charles Noëllat Chassagne-Montrachet | 2022 | $126 | estimated | [open](https://www.wine-searcher.com/find/charles+noellat) |
 | 23 | 05 | Shafer One Point Five Cabernet Sauvignon | 2021 | $125 | estimated | [open](https://www.wine-searcher.com/find/shafer+one+point+five+cab+sauv+stags+leap+district+napa+valley+county+north+coast+california+usa/2021) |
 | 24 | 27 | Alter Ego de Palmer | 2019 | $122 | unverified | [open](https://www.wine-searcher.com/find/palmer+alter+ego+de+margaux+medoc+bordeaux+france/2019) |
-| 25 | 02 | Hardys Thomas Hardy Cabernet Sauvignon | 2017 | $93 | estimated | [open](https://www.wine-searcher.com/find/hardys+thomas+cab+sauv+australia) |
-| 26 | 33 | Naveran Dama de Naveran Extra Brut Cava | 2022 | $20 | unverified | [open](https://www.wine-searcher.com/find/naveran+dama+naveran+extra+brut+cava+penedes+spain/2022) |
+| 25 | 33 | Naveran Dama de Naveran Extra Brut Cava | 2022 | $30 | estimated | [open](https://www.wine-searcher.com/find/naveran+dama+naveran+extra+brut+cava+penedes+spain/2022) |
+| 26 | 02 | Hardys Thomas Hardy Cabernet Sauvignon | 2017 | $93 | estimated | [open](https://www.wine-searcher.com/find/hardys+thomas+cab+sauv+australia) |
 | 27 | 35 | Cloudy Bay Sauvignon Blanc | 2023 | $32 | unverified | [open](https://www.wine-searcher.com/find/cloudy+bay+sauvignon+blanc+marlborough+new+zealand/2023) |
 | 28 | 03 | Austin Hope Cabernet Sauvignon | 2020 | $50 | estimated | [open](https://www.wine-searcher.com/find/austinhope+cab+sauv+paso+robles+st+luis+obispo+county+central+coast+california+usa/2020) |
 | 29 | 32 | Moulin Touchais Coteaux du Layon | 1981 | $50 | unverified | [open](https://www.wine-searcher.com/find/moulin+touchais+coteaux+du+layon+anjou+loire+france/1981) |
 | 30 | 20 | Monial Libera Me Brut (Blanc de Noirs) | NV | $33 | estimated | [open](https://www.wine-searcher.com/find/mondiale+libera+mer+brut+champagne+france) |
 | 31 | 29 | Jean Pabiot Pouilly-Fumé (Fines Caillottes) | 2024 | $31 | unverified | [open](https://www.wine-searcher.com/find/jean+pabiot+dom+de+fines+caillottes+pouilly+fume+upper+loire+france/2024) |
 | 32 | 31 | Château Coutet | 2002 | $50 | unverified | [open](https://www.wine-searcher.com/find/coutet+barsac+sauternes+bordeaux+france/2002) |
-| 33 | 34 | Bohigas Cava Brut Reserva | NV | $15 | unverified | [open](https://www.wine-searcher.com/find/bohigas+cava+brut+reserva+penedes+spain) |
+| 33 | 34 | Bohigas Cava Brut Reserva | NV | $19 | estimated | [open](https://www.wine-searcher.com/find/bohigas+cava+brut+reserva+penedes+spain) |
 
 ## Confirmed
 

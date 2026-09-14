@@ -1076,7 +1076,8 @@
      "flag": ""
     }
    },
-   "ws_url": "https://www.wine-searcher.com/find/mondiale+libera+mer+brut+champagne+france"
+   "ws_url": "https://www.wine-searcher.com/find/mondiale+libera+mer+brut+champagne+france",
+   "appellation": "Côte des Bar"
   },
   {
    "id": 21,
@@ -1684,7 +1685,7 @@
    "type": "sparkling",
    "grapes": [
     "Chardonnay",
-    "Pinot Noir"
+    "Parellada"
    ],
    "qty": 4,
    "format_ml": 750,
@@ -1694,9 +1695,9 @@
    "peak_from": 2025,
    "notes": "Four bottles, so this is the one that gets opened without a reason. Drink over the next two years.",
    "profile": {
-    "style": "Crisp, citrus-led Cava",
-    "tasting": "Green apple and lemon peel over a fine, insistent bead, with a light bready note from lees ageing. Extra Brut dosage means almost no sugar, so it finishes dry and clean rather than soft. Built for appetite, not contemplation.",
-    "story": "Caves Naveran is a family estate in Torrelavit, Penedès, working single-estate fruit rather than bought-in grapes — unusual for Cava, where scale usually wins. Dama is their Chardonnay-led cuvée.",
+    "style": "Chardonnay-led vintage Cava",
+    "tasting": "Green apple and lemon peel over a fine, insistent bead, with a light bready note from two years on the lees. The Chardonnay carries it and the Parellada keeps the finish lifted; the low dosage means it lands dry and clean rather than soft.",
+    "story": "Caves Naveran is a family estate in Torrelavit, in the Alt Penedès, working its own organically farmed fruit rather than bought-in grapes — unusual for Cava, where scale usually wins. Dama is 85% Chardonnay with 15% Parellada, aged 18 to 24 months on the lees.",
     "serve": {
      "temp": "6–8°C",
      "decant": "None",
@@ -1709,14 +1710,15 @@
     ]
    },
    "price": {
-    "avg_usd": 20,
-    "confidence": "unverified",
-    "source_kind": "search",
-    "source": "Value read from web search results — not confirmed on a Wine-Searcher page",
-    "note": "Estimated from recollection of retail pricing. Cava at this level sits around $18–22.",
+    "avg_usd": 30,
+    "confidence": "estimate",
+    "source_kind": "triangulated",
+    "source": "Median of US retailer listings seen directly (USD/750ml)",
+    "note": "Retailers seen at $29.99 (Flatiron SF) and $34.00 (Solano Cellars), with around $30 quoted as the average. Not read off a Wine-Searcher page.",
     "basis": "750ml, ex-tax"
    },
-   "ws_url": "https://www.wine-searcher.com/find/naveran+dama+naveran+extra+brut+cava+penedes+spain/2022"
+   "ws_url": "https://www.wine-searcher.com/find/naveran+dama+naveran+extra+brut+cava+penedes+spain/2022",
+   "abv": 12.5
   },
   {
    "id": 34,
@@ -1731,8 +1733,8 @@
    "category": "Cava",
    "type": "sparkling",
    "grapes": [
-    "Macabeo",
     "Xarel·lo",
+    "Macabeo",
     "Parellada"
    ],
    "qty": 1,
@@ -1741,11 +1743,11 @@
    "drink_to": 2027,
    "status": "drink_now",
    "peak_from": 2024,
-   "notes": "Cuvée not confirmed — recorded as Brut Reserva. Check the label.",
+   "notes": "Bohigas' most widely distributed cuvée. Drink it young while the lees texture is still fresh.",
    "profile": {
     "style": "Traditional Penedès Cava",
-    "tasting": "The classic Macabeo–Xarel·lo–Parellada signature: quince, almond skin and a faintly bitter herbal edge that keeps it savoury. Less fruit-forward than Chardonnay-led Cava, more texture.",
-    "story": "Bohigas farms in Òdena, in the higher inland part of Penedès, where cooler nights hold acidity. The estate has been in the same family since the fifteenth century.",
+    "tasting": "The classic Penedès signature, Xarel·lo-led: quince, almond skin and a faintly bitter herbal edge that keeps it savoury. Two years on the lees give it texture rather than fruit. Less forward than Chardonnay-led Cava, and better at the table for it.",
+    "story": "Caves Bohigas, also known as Fermí Bohigas, has been bottling since 1870 and works 35 hectares of estate vineyards at Òdena, in the higher inland part of Penedès where cooler nights hold acidity. The Brut Reserva is 55% Xarel·lo, 30% Macabeo and 15% Parellada, aged a minimum of 24 months.",
     "serve": {
      "temp": "6–8°C",
      "decant": "None",
@@ -1758,11 +1760,11 @@
     ]
    },
    "price": {
-    "avg_usd": 15,
-    "confidence": "unverified",
-    "source_kind": "search",
-    "source": "Value read from web search results — not confirmed on a Wine-Searcher page",
-    "note": "Estimated from recollection of retail pricing, and the exact cuvée is unconfirmed.",
+    "avg_usd": 19,
+    "confidence": "estimate",
+    "source_kind": "triangulated",
+    "source": "US retailer listings seen directly (USD/750ml)",
+    "note": "Listings seen from $13.99 to $18.99, with $19 quoted as the ex-tax average. Not read off a Wine-Searcher page.",
     "basis": "750ml, ex-tax"
    },
    "ws_url": "https://www.wine-searcher.com/find/bohigas+cava+brut+reserva+penedes+spain"
@@ -1821,23 +1823,13 @@
    "id": 30,
    "title": "Possible bottle variation",
    "text": "Canon struggled with TCA contamination in the cellar's woodwork through the 1990s and rebuilt the cellars after Chanel bought the estate in 1996. Quality got back on track in the mid-to-late 2000s, so the 2000 vintage falls in the transition. Don't put it up alone at an important dinner."
-  },
-  {
-   "id": 33,
-   "title": "Blend needs checking",
-   "text": "Check the grape breakdown for Dama de Naveran on the label. Recorded as Chardonnay-led with Pinot Noir, but not confirmed."
-  },
-  {
-   "id": 34,
-   "title": "Cuvée needs checking",
-   "text": "Check the cuvée name on the Bohigas Cava. Recorded as Brut Reserva."
   }
  ],
  "storage": {
   "temp_c": 10,
   "note": "Cellar held at a steady 10°C. Safe for long-term storage, and slightly below the ideal band (12–14°C), so ageing runs a little slower — the far end of each drinking window can be taken as having more room than the figures show. Reds serve at 16–18°C, though, so take them out of the cellar 40–60 minutes before opening."
  },
- "price_note": "Prices aim at the Wine-Searcher worldwide average. Automated access is blocked by a CAPTCHA, so they are kept in three grades: confirmed = checked directly on the Wine-Searcher page (2 wines) · estimate = median of several actual retailer listings, triangulated (multi-agent collection, vintage-matched listings only, outliers removed) · unverified = older single search values (5 wines, where the workflow ran into the session limit). The estimates are anchored to real retailer listings and are more accurate than the old single snippets; this is the method that corrected the Canon error, where the snippet was inflated 2.7x to $603. A definitive worldwide average can only come from a Wine-Searcher API key or from checking the page directly.",
+ "price_note": "Prices aim at the Wine-Searcher worldwide average. Automated access is blocked by a CAPTCHA, so they are kept in three grades. Confirmed means the figure was read directly off the Wine-Searcher page. Estimated means a median of actual retailer listings for the matching vintage, outliers removed. Unverified means an older single search value, which has been wrong by a factor of 2.7 — a snippet put Château Canon 2000 at $603 against an actual $220, which is what prompted the listing-based method. A definitive worldwide average needs a Wine-Searcher API key, or the page checked by hand. PRICES.md lists what is still outstanding, worst first.",
  "gaps": [
   {
    "title": "Burgundy Pinot Noir",

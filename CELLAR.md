@@ -2,7 +2,7 @@
 
 # Cellar
 
-As of 2026-09-11 · 40 bottles / 35 labels · est. $8,007 · stored at 10°C
+As of 2026-09-11 · 40 bottles / 35 labels · est. $8,051 · stored at 10°C
 
 ## By region
 
@@ -11,7 +11,7 @@ As of 2026-09-11 · 40 bottles / 35 labels · est. $8,007 · stored at 10°C
 | Bordeaux | 11 | $2,427 |
 | Champagne | 7 | $2,081 |
 | Napa Valley | 7 | $1,818 |
-| Penedès | 5 | $95 |
+| Penedès | 5 | $139 |
 | Tuscany | 4 | $1,172 |
 | Loire | 2 | $81 |
 | Australia | 1 | $93 |
@@ -113,8 +113,8 @@ As of 2026-09-11 · 40 bottles / 35 labels · est. $8,007 · stored at 10°C
 | 30 | 2000 | Château Canon | Saint-Émilion, Bordeaux | Peak | 2012-2032 | $220 |
 | 31 | 2002 | Château Coutet (375ml) | Barsac, Sauternes, Bordeaux | Peak | 2010-2035 | $25 |
 | 32 | 1981 | Moulin Touchais Coteaux du Layon | Coteaux du Layon, Anjou, Loire | Peak | 1995-2045 | $50 |
-| 33 | 2022 | Naveran Dama de Naveran Extra Brut Cava x4 | Penedès, Catalonia | Peak | 2024-2028 | $80 |
-| 34 | NV | Bohigas Cava Brut Reserva | Penedès, Catalonia | Urgent | 2024-2027 | $15 |
+| 33 | 2022 | Naveran Dama de Naveran Extra Brut Cava x4 | Penedès, Catalonia | Peak | 2024-2028 | $120 |
+| 34 | NV | Bohigas Cava Brut Reserva | Penedès, Catalonia | Urgent | 2024-2027 | $19 |
 | 35 | 2023 | Cloudy Bay Sauvignon Blanc (1500ml) | Marlborough | Peak | 2024-2029 | $64 |
 
 > Status is derived from the drinking window, not stored: past the window is post peak; two years or less left is urgent; not yet open is hold; a quarter of the way in — or five years past the opening — is peak; everything else is drink now.

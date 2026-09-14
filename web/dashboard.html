@@ -6,7 +6,8 @@
 html,body{background:#fff;color:#111}
 body{font-family:Pretendard,-apple-system,BlinkMacSystemFont,system-ui,sans-serif;
   font-size:15px;line-height:1.65;margin:0;padding:28px 20px 72px;
-  max-width:880px;margin-inline:auto;-webkit-text-size-adjust:100%}
+  max-width:880px;margin-inline:auto;-webkit-text-size-adjust:100%;
+  counter-reset:bb 0 ll 0}
 h1{font-size:20px;margin:0 0 2px}
 h2{font-size:15px;margin:34px 0 8px;padding-bottom:4px;border-bottom:1px solid #111}
 p{margin:0 0 10px}
@@ -37,184 +38,528 @@ summary b{font-variant-numeric:tabular-nums;margin-right:2px}
 dl{margin:0}
 hr{border:0;border-top:1px solid #e3e3e3;margin:34px 0 12px}
 .foot{color:#666;font-size:12.5px}
-.rgt{display:block;height:0}
-.map{display:flex;flex-wrap:wrap;gap:14px;margin:10px 0 4px}
-.map figure{margin:0}
-.map figcaption{color:#666;font-size:12px;margin-top:2px}
-.map svg{display:block;border:1px solid #e3e3e3;background:#fff}
-.map .grid{stroke:#eee;stroke-width:1}
-.map .pin circle{fill:#111}
-.map .pin text{fill:#111;font-size:10px;font-family:inherit}
-.map .pin{cursor:pointer}
-.map .pin:hover circle{fill:#0b57d0}
-.map .pin:hover text{fill:#0b57d0}
-.map .sb line{stroke:#111;stroke-width:1.5}
-.map .sb text{fill:#666;font-size:9px;font-family:inherit}
-.rgnav{font-size:13.5px;margin:8px 0 0;line-height:2}
-.rgnav a{margin-right:14px;white-space:nowrap}
-.rgnav a .n{color:#666;font-variant-numeric:tabular-nums}
 
-#rg-bordeaux:target ~ .tw tbody tr:not(.rg-bordeaux){display:none}
-#rg-bordeaux:target ~ .note:not(.rg-bordeaux){display:none}
-#rg-bordeaux:target ~ .rgnav a[href="#rg-bordeaux"]{font-weight:700;color:#111}
-#rg-bordeaux:target ~ .map .pin:not(.rg-bordeaux){opacity:.3}
-#rg-champagne:target ~ .tw tbody tr:not(.rg-champagne){display:none}
-#rg-champagne:target ~ .note:not(.rg-champagne){display:none}
-#rg-champagne:target ~ .rgnav a[href="#rg-champagne"]{font-weight:700;color:#111}
-#rg-champagne:target ~ .map .pin:not(.rg-champagne){opacity:.3}
-#rg-napa:target ~ .tw tbody tr:not(.rg-napa){display:none}
-#rg-napa:target ~ .note:not(.rg-napa){display:none}
-#rg-napa:target ~ .rgnav a[href="#rg-napa"]{font-weight:700;color:#111}
-#rg-napa:target ~ .map .pin:not(.rg-napa){opacity:.3}
-#rg-penedes:target ~ .tw tbody tr:not(.rg-penedes){display:none}
-#rg-penedes:target ~ .note:not(.rg-penedes){display:none}
-#rg-penedes:target ~ .rgnav a[href="#rg-penedes"]{font-weight:700;color:#111}
-#rg-penedes:target ~ .map .pin:not(.rg-penedes){opacity:.3}
-#rg-tuscany:target ~ .tw tbody tr:not(.rg-tuscany){display:none}
-#rg-tuscany:target ~ .note:not(.rg-tuscany){display:none}
-#rg-tuscany:target ~ .rgnav a[href="#rg-tuscany"]{font-weight:700;color:#111}
-#rg-tuscany:target ~ .map .pin:not(.rg-tuscany){opacity:.3}
-#rg-loire:target ~ .tw tbody tr:not(.rg-loire){display:none}
-#rg-loire:target ~ .note:not(.rg-loire){display:none}
-#rg-loire:target ~ .rgnav a[href="#rg-loire"]{font-weight:700;color:#111}
-#rg-loire:target ~ .map .pin:not(.rg-loire){opacity:.3}
-#rg-australia:target ~ .tw tbody tr:not(.rg-australia){display:none}
-#rg-australia:target ~ .note:not(.rg-australia){display:none}
-#rg-australia:target ~ .rgnav a[href="#rg-australia"]{font-weight:700;color:#111}
-#rg-australia:target ~ .map .pin:not(.rg-australia){opacity:.3}
-#rg-burgundy:target ~ .tw tbody tr:not(.rg-burgundy){display:none}
-#rg-burgundy:target ~ .note:not(.rg-burgundy){display:none}
-#rg-burgundy:target ~ .rgnav a[href="#rg-burgundy"]{font-weight:700;color:#111}
-#rg-burgundy:target ~ .map .pin:not(.rg-burgundy){opacity:.3}
-#rg-marlborough:target ~ .tw tbody tr:not(.rg-marlborough){display:none}
-#rg-marlborough:target ~ .note:not(.rg-marlborough){display:none}
-#rg-marlborough:target ~ .rgnav a[href="#rg-marlborough"]{font-weight:700;color:#111}
-#rg-marlborough:target ~ .map .pin:not(.rg-marlborough){opacity:.3}
-#rg-paso:target ~ .tw tbody tr:not(.rg-paso){display:none}
-#rg-paso:target ~ .note:not(.rg-paso){display:none}
-#rg-paso:target ~ .rgnav a[href="#rg-paso"]{font-weight:700;color:#111}
-#rg-paso:target ~ .map .pin:not(.rg-paso){opacity:.3}</style>
+/* Filter state. Kept in the page rather than in a script: hidden radios that
+   sibling selectors read. Visually hidden, not display:none, so they stay
+   reachable by keyboard. */
+.f{position:absolute;width:1px;height:1px;margin:-1px;padding:0;border:0;
+  clip-path:inset(50%);overflow:hidden;white-space:nowrap}
+.nav{font-size:13.5px;line-height:2.1;margin:6px 0 0}
+.nav .lbl{color:#666;font-size:12.5px;font-weight:600;margin-right:8px}
+.nav label{margin-right:14px;white-space:nowrap;cursor:pointer;color:#0b57d0;
+  text-decoration:underline;text-underline-offset:2px}
+.nav label:hover{color:#083a8c}
+.nav label .n{color:#666;font-variant-numeric:tabular-nums}
+.apnav{display:none;padding-left:14px}
+.apnav .sub{display:none}
+.readout{color:#666;font-size:12.5px;margin:10px 0 0}
+.readout .cb::before{content:counter(bb)}
+.readout .cl::before{content:counter(ll)}
+.empty{display:none;color:#666;margin-top:16px}
+
+#f-rg-bordeaux:checked ~ .main tbody tr:not(.rg-bordeaux){display:none}
+#f-rg-bordeaux:checked ~ .main .note:not(.rg-bordeaux){display:none}
+#f-rg-champagne:checked ~ .main tbody tr:not(.rg-champagne){display:none}
+#f-rg-champagne:checked ~ .main .note:not(.rg-champagne){display:none}
+#f-rg-napa:checked ~ .main tbody tr:not(.rg-napa){display:none}
+#f-rg-napa:checked ~ .main .note:not(.rg-napa){display:none}
+#f-rg-penedes:checked ~ .main tbody tr:not(.rg-penedes){display:none}
+#f-rg-penedes:checked ~ .main .note:not(.rg-penedes){display:none}
+#f-rg-tuscany:checked ~ .main tbody tr:not(.rg-tuscany){display:none}
+#f-rg-tuscany:checked ~ .main .note:not(.rg-tuscany){display:none}
+#f-rg-loire:checked ~ .main tbody tr:not(.rg-loire){display:none}
+#f-rg-loire:checked ~ .main .note:not(.rg-loire){display:none}
+#f-rg-australia:checked ~ .main tbody tr:not(.rg-australia){display:none}
+#f-rg-australia:checked ~ .main .note:not(.rg-australia){display:none}
+#f-rg-burgundy:checked ~ .main tbody tr:not(.rg-burgundy){display:none}
+#f-rg-burgundy:checked ~ .main .note:not(.rg-burgundy){display:none}
+#f-rg-marlborough:checked ~ .main tbody tr:not(.rg-marlborough){display:none}
+#f-rg-marlborough:checked ~ .main .note:not(.rg-marlborough){display:none}
+#f-rg-paso:checked ~ .main tbody tr:not(.rg-paso){display:none}
+#f-rg-paso:checked ~ .main .note:not(.rg-paso){display:none}
+#f-ap-margaux:checked ~ .main tbody tr:not(.ap-margaux){display:none}
+#f-ap-margaux:checked ~ .main .note:not(.ap-margaux){display:none}
+#f-ap-pauillac:checked ~ .main tbody tr:not(.ap-pauillac){display:none}
+#f-ap-pauillac:checked ~ .main .note:not(.ap-pauillac){display:none}
+#f-ap-saint-estephe:checked ~ .main tbody tr:not(.ap-saint-estephe){display:none}
+#f-ap-saint-estephe:checked ~ .main .note:not(.ap-saint-estephe){display:none}
+#f-ap-barsac:checked ~ .main tbody tr:not(.ap-barsac){display:none}
+#f-ap-barsac:checked ~ .main .note:not(.ap-barsac){display:none}
+#f-ap-pessac-leognan:checked ~ .main tbody tr:not(.ap-pessac-leognan){display:none}
+#f-ap-pessac-leognan:checked ~ .main .note:not(.ap-pessac-leognan){display:none}
+#f-ap-pomerol:checked ~ .main tbody tr:not(.ap-pomerol){display:none}
+#f-ap-pomerol:checked ~ .main .note:not(.ap-pomerol){display:none}
+#f-ap-saint-emilion:checked ~ .main tbody tr:not(.ap-saint-emilion){display:none}
+#f-ap-saint-emilion:checked ~ .main .note:not(.ap-saint-emilion){display:none}
+#f-ap-champagne:checked ~ .main tbody tr:not(.ap-champagne){display:none}
+#f-ap-champagne:checked ~ .main .note:not(.ap-champagne){display:none}
+#f-ap-cote-des-bar:checked ~ .main tbody tr:not(.ap-cote-des-bar){display:none}
+#f-ap-cote-des-bar:checked ~ .main .note:not(.ap-cote-des-bar){display:none}
+#f-ap-napa-valley:checked ~ .main tbody tr:not(.ap-napa-valley){display:none}
+#f-ap-napa-valley:checked ~ .main .note:not(.ap-napa-valley){display:none}
+#f-ap-oakville:checked ~ .main tbody tr:not(.ap-oakville){display:none}
+#f-ap-oakville:checked ~ .main .note:not(.ap-oakville){display:none}
+#f-ap-stags-leap-district:checked ~ .main tbody tr:not(.ap-stags-leap-district){display:none}
+#f-ap-stags-leap-district:checked ~ .main .note:not(.ap-stags-leap-district){display:none}
+#f-ap-toscana-igt:checked ~ .main tbody tr:not(.ap-toscana-igt){display:none}
+#f-ap-toscana-igt:checked ~ .main .note:not(.ap-toscana-igt){display:none}
+#f-ap-bolgheri-sassicaia-doc:checked ~ .main tbody tr:not(.ap-bolgheri-sassicaia-doc){display:none}
+#f-ap-bolgheri-sassicaia-doc:checked ~ .main .note:not(.ap-bolgheri-sassicaia-doc){display:none}
+#f-ap-bolgheri-superiore-doc:checked ~ .main tbody tr:not(.ap-bolgheri-superiore-doc){display:none}
+#f-ap-bolgheri-superiore-doc:checked ~ .main .note:not(.ap-bolgheri-superiore-doc){display:none}
+#f-ap-coteaux-du-layon:checked ~ .main tbody tr:not(.ap-coteaux-du-layon){display:none}
+#f-ap-coteaux-du-layon:checked ~ .main .note:not(.ap-coteaux-du-layon){display:none}
+#f-ap-pouilly-fume:checked ~ .main tbody tr:not(.ap-pouilly-fume){display:none}
+#f-ap-pouilly-fume:checked ~ .main .note:not(.ap-pouilly-fume){display:none}
+#f-st-urgent:checked ~ .main tbody tr:not(.k-urgent){display:none}
+#f-st-urgent:checked ~ .main .note:not(.k-urgent){display:none}
+#f-st-now:checked ~ .main tbody tr:not(.k-now){display:none}
+#f-st-now:checked ~ .main .note:not(.k-now){display:none}
+#f-st-peak:checked ~ .main tbody tr:not(.k-peak){display:none}
+#f-st-peak:checked ~ .main .note:not(.k-peak){display:none}
+#f-st-hold:checked ~ .main tbody tr:not(.k-hold){display:none}
+#f-st-hold:checked ~ .main .note:not(.k-hold){display:none}
+#f-rg-bordeaux:checked ~ .apnav, #f-ap-margaux:checked ~ .apnav, #f-ap-pauillac:checked ~ .apnav, #f-ap-saint-estephe:checked ~ .apnav, #f-ap-barsac:checked ~ .apnav, #f-ap-pessac-leognan:checked ~ .apnav, #f-ap-pomerol:checked ~ .apnav, #f-ap-saint-emilion:checked ~ .apnav{display:block}
+#f-rg-bordeaux:checked ~ .apnav .sub-bordeaux, #f-ap-margaux:checked ~ .apnav .sub-bordeaux, #f-ap-pauillac:checked ~ .apnav .sub-bordeaux, #f-ap-saint-estephe:checked ~ .apnav .sub-bordeaux, #f-ap-barsac:checked ~ .apnav .sub-bordeaux, #f-ap-pessac-leognan:checked ~ .apnav .sub-bordeaux, #f-ap-pomerol:checked ~ .apnav .sub-bordeaux, #f-ap-saint-emilion:checked ~ .apnav .sub-bordeaux{display:inline}
+#f-rg-champagne:checked ~ .apnav, #f-ap-champagne:checked ~ .apnav, #f-ap-cote-des-bar:checked ~ .apnav{display:block}
+#f-rg-champagne:checked ~ .apnav .sub-champagne, #f-ap-champagne:checked ~ .apnav .sub-champagne, #f-ap-cote-des-bar:checked ~ .apnav .sub-champagne{display:inline}
+#f-rg-napa:checked ~ .apnav, #f-ap-napa-valley:checked ~ .apnav, #f-ap-oakville:checked ~ .apnav, #f-ap-stags-leap-district:checked ~ .apnav{display:block}
+#f-rg-napa:checked ~ .apnav .sub-napa, #f-ap-napa-valley:checked ~ .apnav .sub-napa, #f-ap-oakville:checked ~ .apnav .sub-napa, #f-ap-stags-leap-district:checked ~ .apnav .sub-napa{display:inline}
+#f-rg-tuscany:checked ~ .apnav, #f-ap-toscana-igt:checked ~ .apnav, #f-ap-bolgheri-sassicaia-doc:checked ~ .apnav, #f-ap-bolgheri-superiore-doc:checked ~ .apnav{display:block}
+#f-rg-tuscany:checked ~ .apnav .sub-tuscany, #f-ap-toscana-igt:checked ~ .apnav .sub-tuscany, #f-ap-bolgheri-sassicaia-doc:checked ~ .apnav .sub-tuscany, #f-ap-bolgheri-superiore-doc:checked ~ .apnav .sub-tuscany{display:inline}
+#f-rg-loire:checked ~ .apnav, #f-ap-coteaux-du-layon:checked ~ .apnav, #f-ap-pouilly-fume:checked ~ .apnav{display:block}
+#f-rg-loire:checked ~ .apnav .sub-loire, #f-ap-coteaux-du-layon:checked ~ .apnav .sub-loire, #f-ap-pouilly-fume:checked ~ .apnav .sub-loire{display:inline}
+#f-rg-bordeaux:checked ~ #f-st-hold:checked ~ .main{display:none}
+#f-rg-bordeaux:checked ~ #f-st-hold:checked ~ .empty{display:block}
+#f-st-hold:checked ~ .nav label[for="f-rg-bordeaux"]{opacity:.32}
+#f-rg-bordeaux:checked ~ .nav label[for="f-st-hold"]{opacity:.32}
+#f-rg-champagne:checked ~ #f-st-urgent:checked ~ .main{display:none}
+#f-rg-champagne:checked ~ #f-st-urgent:checked ~ .empty{display:block}
+#f-st-urgent:checked ~ .nav label[for="f-rg-champagne"]{opacity:.32}
+#f-rg-champagne:checked ~ .nav label[for="f-st-urgent"]{opacity:.32}
+#f-rg-penedes:checked ~ #f-st-now:checked ~ .main{display:none}
+#f-rg-penedes:checked ~ #f-st-now:checked ~ .empty{display:block}
+#f-st-now:checked ~ .nav label[for="f-rg-penedes"]{opacity:.32}
+#f-rg-penedes:checked ~ .nav label[for="f-st-now"]{opacity:.32}
+#f-rg-penedes:checked ~ #f-st-hold:checked ~ .main{display:none}
+#f-rg-penedes:checked ~ #f-st-hold:checked ~ .empty{display:block}
+#f-st-hold:checked ~ .nav label[for="f-rg-penedes"]{opacity:.32}
+#f-rg-penedes:checked ~ .nav label[for="f-st-hold"]{opacity:.32}
+#f-rg-tuscany:checked ~ #f-st-peak:checked ~ .main{display:none}
+#f-rg-tuscany:checked ~ #f-st-peak:checked ~ .empty{display:block}
+#f-st-peak:checked ~ .nav label[for="f-rg-tuscany"]{opacity:.32}
+#f-rg-tuscany:checked ~ .nav label[for="f-st-peak"]{opacity:.32}
+#f-rg-loire:checked ~ #f-st-now:checked ~ .main{display:none}
+#f-rg-loire:checked ~ #f-st-now:checked ~ .empty{display:block}
+#f-st-now:checked ~ .nav label[for="f-rg-loire"]{opacity:.32}
+#f-rg-loire:checked ~ .nav label[for="f-st-now"]{opacity:.32}
+#f-rg-loire:checked ~ #f-st-hold:checked ~ .main{display:none}
+#f-rg-loire:checked ~ #f-st-hold:checked ~ .empty{display:block}
+#f-st-hold:checked ~ .nav label[for="f-rg-loire"]{opacity:.32}
+#f-rg-loire:checked ~ .nav label[for="f-st-hold"]{opacity:.32}
+#f-rg-australia:checked ~ #f-st-urgent:checked ~ .main{display:none}
+#f-rg-australia:checked ~ #f-st-urgent:checked ~ .empty{display:block}
+#f-st-urgent:checked ~ .nav label[for="f-rg-australia"]{opacity:.32}
+#f-rg-australia:checked ~ .nav label[for="f-st-urgent"]{opacity:.32}
+#f-rg-australia:checked ~ #f-st-now:checked ~ .main{display:none}
+#f-rg-australia:checked ~ #f-st-now:checked ~ .empty{display:block}
+#f-st-now:checked ~ .nav label[for="f-rg-australia"]{opacity:.32}
+#f-rg-australia:checked ~ .nav label[for="f-st-now"]{opacity:.32}
+#f-rg-australia:checked ~ #f-st-peak:checked ~ .main{display:none}
+#f-rg-australia:checked ~ #f-st-peak:checked ~ .empty{display:block}
+#f-st-peak:checked ~ .nav label[for="f-rg-australia"]{opacity:.32}
+#f-rg-australia:checked ~ .nav label[for="f-st-peak"]{opacity:.32}
+#f-rg-burgundy:checked ~ #f-st-urgent:checked ~ .main{display:none}
+#f-rg-burgundy:checked ~ #f-st-urgent:checked ~ .empty{display:block}
+#f-st-urgent:checked ~ .nav label[for="f-rg-burgundy"]{opacity:.32}
+#f-rg-burgundy:checked ~ .nav label[for="f-st-urgent"]{opacity:.32}
+#f-rg-burgundy:checked ~ #f-st-now:checked ~ .main{display:none}
+#f-rg-burgundy:checked ~ #f-st-now:checked ~ .empty{display:block}
+#f-st-now:checked ~ .nav label[for="f-rg-burgundy"]{opacity:.32}
+#f-rg-burgundy:checked ~ .nav label[for="f-st-now"]{opacity:.32}
+#f-rg-burgundy:checked ~ #f-st-hold:checked ~ .main{display:none}
+#f-rg-burgundy:checked ~ #f-st-hold:checked ~ .empty{display:block}
+#f-st-hold:checked ~ .nav label[for="f-rg-burgundy"]{opacity:.32}
+#f-rg-burgundy:checked ~ .nav label[for="f-st-hold"]{opacity:.32}
+#f-rg-marlborough:checked ~ #f-st-urgent:checked ~ .main{display:none}
+#f-rg-marlborough:checked ~ #f-st-urgent:checked ~ .empty{display:block}
+#f-st-urgent:checked ~ .nav label[for="f-rg-marlborough"]{opacity:.32}
+#f-rg-marlborough:checked ~ .nav label[for="f-st-urgent"]{opacity:.32}
+#f-rg-marlborough:checked ~ #f-st-now:checked ~ .main{display:none}
+#f-rg-marlborough:checked ~ #f-st-now:checked ~ .empty{display:block}
+#f-st-now:checked ~ .nav label[for="f-rg-marlborough"]{opacity:.32}
+#f-rg-marlborough:checked ~ .nav label[for="f-st-now"]{opacity:.32}
+#f-rg-marlborough:checked ~ #f-st-hold:checked ~ .main{display:none}
+#f-rg-marlborough:checked ~ #f-st-hold:checked ~ .empty{display:block}
+#f-st-hold:checked ~ .nav label[for="f-rg-marlborough"]{opacity:.32}
+#f-rg-marlborough:checked ~ .nav label[for="f-st-hold"]{opacity:.32}
+#f-rg-paso:checked ~ #f-st-urgent:checked ~ .main{display:none}
+#f-rg-paso:checked ~ #f-st-urgent:checked ~ .empty{display:block}
+#f-st-urgent:checked ~ .nav label[for="f-rg-paso"]{opacity:.32}
+#f-rg-paso:checked ~ .nav label[for="f-st-urgent"]{opacity:.32}
+#f-rg-paso:checked ~ #f-st-now:checked ~ .main{display:none}
+#f-rg-paso:checked ~ #f-st-now:checked ~ .empty{display:block}
+#f-st-now:checked ~ .nav label[for="f-rg-paso"]{opacity:.32}
+#f-rg-paso:checked ~ .nav label[for="f-st-now"]{opacity:.32}
+#f-rg-paso:checked ~ #f-st-hold:checked ~ .main{display:none}
+#f-rg-paso:checked ~ #f-st-hold:checked ~ .empty{display:block}
+#f-st-hold:checked ~ .nav label[for="f-rg-paso"]{opacity:.32}
+#f-rg-paso:checked ~ .nav label[for="f-st-hold"]{opacity:.32}
+#f-ap-margaux:checked ~ #f-st-urgent:checked ~ .main{display:none}
+#f-ap-margaux:checked ~ #f-st-urgent:checked ~ .empty{display:block}
+#f-st-urgent:checked ~ .nav label[for="f-ap-margaux"]{opacity:.32}
+#f-ap-margaux:checked ~ .nav label[for="f-st-urgent"]{opacity:.32}
+#f-ap-margaux:checked ~ #f-st-hold:checked ~ .main{display:none}
+#f-ap-margaux:checked ~ #f-st-hold:checked ~ .empty{display:block}
+#f-st-hold:checked ~ .nav label[for="f-ap-margaux"]{opacity:.32}
+#f-ap-margaux:checked ~ .nav label[for="f-st-hold"]{opacity:.32}
+#f-ap-pauillac:checked ~ #f-st-now:checked ~ .main{display:none}
+#f-ap-pauillac:checked ~ #f-st-now:checked ~ .empty{display:block}
+#f-st-now:checked ~ .nav label[for="f-ap-pauillac"]{opacity:.32}
+#f-ap-pauillac:checked ~ .nav label[for="f-st-now"]{opacity:.32}
+#f-ap-pauillac:checked ~ #f-st-hold:checked ~ .main{display:none}
+#f-ap-pauillac:checked ~ #f-st-hold:checked ~ .empty{display:block}
+#f-st-hold:checked ~ .nav label[for="f-ap-pauillac"]{opacity:.32}
+#f-ap-pauillac:checked ~ .nav label[for="f-st-hold"]{opacity:.32}
+#f-ap-saint-estephe:checked ~ #f-st-urgent:checked ~ .main{display:none}
+#f-ap-saint-estephe:checked ~ #f-st-urgent:checked ~ .empty{display:block}
+#f-st-urgent:checked ~ .nav label[for="f-ap-saint-estephe"]{opacity:.32}
+#f-ap-saint-estephe:checked ~ .nav label[for="f-st-urgent"]{opacity:.32}
+#f-ap-saint-estephe:checked ~ #f-st-hold:checked ~ .main{display:none}
+#f-ap-saint-estephe:checked ~ #f-st-hold:checked ~ .empty{display:block}
+#f-st-hold:checked ~ .nav label[for="f-ap-saint-estephe"]{opacity:.32}
+#f-ap-saint-estephe:checked ~ .nav label[for="f-st-hold"]{opacity:.32}
+#f-ap-barsac:checked ~ #f-st-urgent:checked ~ .main{display:none}
+#f-ap-barsac:checked ~ #f-st-urgent:checked ~ .empty{display:block}
+#f-st-urgent:checked ~ .nav label[for="f-ap-barsac"]{opacity:.32}
+#f-ap-barsac:checked ~ .nav label[for="f-st-urgent"]{opacity:.32}
+#f-ap-barsac:checked ~ #f-st-now:checked ~ .main{display:none}
+#f-ap-barsac:checked ~ #f-st-now:checked ~ .empty{display:block}
+#f-st-now:checked ~ .nav label[for="f-ap-barsac"]{opacity:.32}
+#f-ap-barsac:checked ~ .nav label[for="f-st-now"]{opacity:.32}
+#f-ap-barsac:checked ~ #f-st-hold:checked ~ .main{display:none}
+#f-ap-barsac:checked ~ #f-st-hold:checked ~ .empty{display:block}
+#f-st-hold:checked ~ .nav label[for="f-ap-barsac"]{opacity:.32}
+#f-ap-barsac:checked ~ .nav label[for="f-st-hold"]{opacity:.32}
+#f-ap-pessac-leognan:checked ~ #f-st-urgent:checked ~ .main{display:none}
+#f-ap-pessac-leognan:checked ~ #f-st-urgent:checked ~ .empty{display:block}
+#f-st-urgent:checked ~ .nav label[for="f-ap-pessac-leognan"]{opacity:.32}
+#f-ap-pessac-leognan:checked ~ .nav label[for="f-st-urgent"]{opacity:.32}
+#f-ap-pessac-leognan:checked ~ #f-st-now:checked ~ .main{display:none}
+#f-ap-pessac-leognan:checked ~ #f-st-now:checked ~ .empty{display:block}
+#f-st-now:checked ~ .nav label[for="f-ap-pessac-leognan"]{opacity:.32}
+#f-ap-pessac-leognan:checked ~ .nav label[for="f-st-now"]{opacity:.32}
+#f-ap-pessac-leognan:checked ~ #f-st-hold:checked ~ .main{display:none}
+#f-ap-pessac-leognan:checked ~ #f-st-hold:checked ~ .empty{display:block}
+#f-st-hold:checked ~ .nav label[for="f-ap-pessac-leognan"]{opacity:.32}
+#f-ap-pessac-leognan:checked ~ .nav label[for="f-st-hold"]{opacity:.32}
+#f-ap-pomerol:checked ~ #f-st-now:checked ~ .main{display:none}
+#f-ap-pomerol:checked ~ #f-st-now:checked ~ .empty{display:block}
+#f-st-now:checked ~ .nav label[for="f-ap-pomerol"]{opacity:.32}
+#f-ap-pomerol:checked ~ .nav label[for="f-st-now"]{opacity:.32}
+#f-ap-pomerol:checked ~ #f-st-peak:checked ~ .main{display:none}
+#f-ap-pomerol:checked ~ #f-st-peak:checked ~ .empty{display:block}
+#f-st-peak:checked ~ .nav label[for="f-ap-pomerol"]{opacity:.32}
+#f-ap-pomerol:checked ~ .nav label[for="f-st-peak"]{opacity:.32}
+#f-ap-pomerol:checked ~ #f-st-hold:checked ~ .main{display:none}
+#f-ap-pomerol:checked ~ #f-st-hold:checked ~ .empty{display:block}
+#f-st-hold:checked ~ .nav label[for="f-ap-pomerol"]{opacity:.32}
+#f-ap-pomerol:checked ~ .nav label[for="f-st-hold"]{opacity:.32}
+#f-ap-saint-emilion:checked ~ #f-st-urgent:checked ~ .main{display:none}
+#f-ap-saint-emilion:checked ~ #f-st-urgent:checked ~ .empty{display:block}
+#f-st-urgent:checked ~ .nav label[for="f-ap-saint-emilion"]{opacity:.32}
+#f-ap-saint-emilion:checked ~ .nav label[for="f-st-urgent"]{opacity:.32}
+#f-ap-saint-emilion:checked ~ #f-st-now:checked ~ .main{display:none}
+#f-ap-saint-emilion:checked ~ #f-st-now:checked ~ .empty{display:block}
+#f-st-now:checked ~ .nav label[for="f-ap-saint-emilion"]{opacity:.32}
+#f-ap-saint-emilion:checked ~ .nav label[for="f-st-now"]{opacity:.32}
+#f-ap-saint-emilion:checked ~ #f-st-hold:checked ~ .main{display:none}
+#f-ap-saint-emilion:checked ~ #f-st-hold:checked ~ .empty{display:block}
+#f-st-hold:checked ~ .nav label[for="f-ap-saint-emilion"]{opacity:.32}
+#f-ap-saint-emilion:checked ~ .nav label[for="f-st-hold"]{opacity:.32}
+#f-ap-champagne:checked ~ #f-st-urgent:checked ~ .main{display:none}
+#f-ap-champagne:checked ~ #f-st-urgent:checked ~ .empty{display:block}
+#f-st-urgent:checked ~ .nav label[for="f-ap-champagne"]{opacity:.32}
+#f-ap-champagne:checked ~ .nav label[for="f-st-urgent"]{opacity:.32}
+#f-ap-cote-des-bar:checked ~ #f-st-urgent:checked ~ .main{display:none}
+#f-ap-cote-des-bar:checked ~ #f-st-urgent:checked ~ .empty{display:block}
+#f-st-urgent:checked ~ .nav label[for="f-ap-cote-des-bar"]{opacity:.32}
+#f-ap-cote-des-bar:checked ~ .nav label[for="f-st-urgent"]{opacity:.32}
+#f-ap-cote-des-bar:checked ~ #f-st-now:checked ~ .main{display:none}
+#f-ap-cote-des-bar:checked ~ #f-st-now:checked ~ .empty{display:block}
+#f-st-now:checked ~ .nav label[for="f-ap-cote-des-bar"]{opacity:.32}
+#f-ap-cote-des-bar:checked ~ .nav label[for="f-st-now"]{opacity:.32}
+#f-ap-cote-des-bar:checked ~ #f-st-hold:checked ~ .main{display:none}
+#f-ap-cote-des-bar:checked ~ #f-st-hold:checked ~ .empty{display:block}
+#f-st-hold:checked ~ .nav label[for="f-ap-cote-des-bar"]{opacity:.32}
+#f-ap-cote-des-bar:checked ~ .nav label[for="f-st-hold"]{opacity:.32}
+#f-ap-napa-valley:checked ~ #f-st-hold:checked ~ .main{display:none}
+#f-ap-napa-valley:checked ~ #f-st-hold:checked ~ .empty{display:block}
+#f-st-hold:checked ~ .nav label[for="f-ap-napa-valley"]{opacity:.32}
+#f-ap-napa-valley:checked ~ .nav label[for="f-st-hold"]{opacity:.32}
+#f-ap-oakville:checked ~ #f-st-urgent:checked ~ .main{display:none}
+#f-ap-oakville:checked ~ #f-st-urgent:checked ~ .empty{display:block}
+#f-st-urgent:checked ~ .nav label[for="f-ap-oakville"]{opacity:.32}
+#f-ap-oakville:checked ~ .nav label[for="f-st-urgent"]{opacity:.32}
+#f-ap-oakville:checked ~ #f-st-now:checked ~ .main{display:none}
+#f-ap-oakville:checked ~ #f-st-now:checked ~ .empty{display:block}
+#f-st-now:checked ~ .nav label[for="f-ap-oakville"]{opacity:.32}
+#f-ap-oakville:checked ~ .nav label[for="f-st-now"]{opacity:.32}
+#f-ap-oakville:checked ~ #f-st-hold:checked ~ .main{display:none}
+#f-ap-oakville:checked ~ #f-st-hold:checked ~ .empty{display:block}
+#f-st-hold:checked ~ .nav label[for="f-ap-oakville"]{opacity:.32}
+#f-ap-oakville:checked ~ .nav label[for="f-st-hold"]{opacity:.32}
+#f-ap-stags-leap-district:checked ~ #f-st-urgent:checked ~ .main{display:none}
+#f-ap-stags-leap-district:checked ~ #f-st-urgent:checked ~ .empty{display:block}
+#f-st-urgent:checked ~ .nav label[for="f-ap-stags-leap-district"]{opacity:.32}
+#f-ap-stags-leap-district:checked ~ .nav label[for="f-st-urgent"]{opacity:.32}
+#f-ap-stags-leap-district:checked ~ #f-st-now:checked ~ .main{display:none}
+#f-ap-stags-leap-district:checked ~ #f-st-now:checked ~ .empty{display:block}
+#f-st-now:checked ~ .nav label[for="f-ap-stags-leap-district"]{opacity:.32}
+#f-ap-stags-leap-district:checked ~ .nav label[for="f-st-now"]{opacity:.32}
+#f-ap-stags-leap-district:checked ~ #f-st-peak:checked ~ .main{display:none}
+#f-ap-stags-leap-district:checked ~ #f-st-peak:checked ~ .empty{display:block}
+#f-st-peak:checked ~ .nav label[for="f-ap-stags-leap-district"]{opacity:.32}
+#f-ap-stags-leap-district:checked ~ .nav label[for="f-st-peak"]{opacity:.32}
+#f-ap-toscana-igt:checked ~ #f-st-urgent:checked ~ .main{display:none}
+#f-ap-toscana-igt:checked ~ #f-st-urgent:checked ~ .empty{display:block}
+#f-st-urgent:checked ~ .nav label[for="f-ap-toscana-igt"]{opacity:.32}
+#f-ap-toscana-igt:checked ~ .nav label[for="f-st-urgent"]{opacity:.32}
+#f-ap-toscana-igt:checked ~ #f-st-peak:checked ~ .main{display:none}
+#f-ap-toscana-igt:checked ~ #f-st-peak:checked ~ .empty{display:block}
+#f-st-peak:checked ~ .nav label[for="f-ap-toscana-igt"]{opacity:.32}
+#f-ap-toscana-igt:checked ~ .nav label[for="f-st-peak"]{opacity:.32}
+#f-ap-bolgheri-sassicaia-doc:checked ~ #f-st-urgent:checked ~ .main{display:none}
+#f-ap-bolgheri-sassicaia-doc:checked ~ #f-st-urgent:checked ~ .empty{display:block}
+#f-st-urgent:checked ~ .nav label[for="f-ap-bolgheri-sassicaia-doc"]{opacity:.32}
+#f-ap-bolgheri-sassicaia-doc:checked ~ .nav label[for="f-st-urgent"]{opacity:.32}
+#f-ap-bolgheri-sassicaia-doc:checked ~ #f-st-now:checked ~ .main{display:none}
+#f-ap-bolgheri-sassicaia-doc:checked ~ #f-st-now:checked ~ .empty{display:block}
+#f-st-now:checked ~ .nav label[for="f-ap-bolgheri-sassicaia-doc"]{opacity:.32}
+#f-ap-bolgheri-sassicaia-doc:checked ~ .nav label[for="f-st-now"]{opacity:.32}
+#f-ap-bolgheri-sassicaia-doc:checked ~ #f-st-peak:checked ~ .main{display:none}
+#f-ap-bolgheri-sassicaia-doc:checked ~ #f-st-peak:checked ~ .empty{display:block}
+#f-st-peak:checked ~ .nav label[for="f-ap-bolgheri-sassicaia-doc"]{opacity:.32}
+#f-ap-bolgheri-sassicaia-doc:checked ~ .nav label[for="f-st-peak"]{opacity:.32}
+#f-ap-bolgheri-superiore-doc:checked ~ #f-st-now:checked ~ .main{display:none}
+#f-ap-bolgheri-superiore-doc:checked ~ #f-st-now:checked ~ .empty{display:block}
+#f-st-now:checked ~ .nav label[for="f-ap-bolgheri-superiore-doc"]{opacity:.32}
+#f-ap-bolgheri-superiore-doc:checked ~ .nav label[for="f-st-now"]{opacity:.32}
+#f-ap-bolgheri-superiore-doc:checked ~ #f-st-peak:checked ~ .main{display:none}
+#f-ap-bolgheri-superiore-doc:checked ~ #f-st-peak:checked ~ .empty{display:block}
+#f-st-peak:checked ~ .nav label[for="f-ap-bolgheri-superiore-doc"]{opacity:.32}
+#f-ap-bolgheri-superiore-doc:checked ~ .nav label[for="f-st-peak"]{opacity:.32}
+#f-ap-bolgheri-superiore-doc:checked ~ #f-st-hold:checked ~ .main{display:none}
+#f-ap-bolgheri-superiore-doc:checked ~ #f-st-hold:checked ~ .empty{display:block}
+#f-st-hold:checked ~ .nav label[for="f-ap-bolgheri-superiore-doc"]{opacity:.32}
+#f-ap-bolgheri-superiore-doc:checked ~ .nav label[for="f-st-hold"]{opacity:.32}
+#f-ap-coteaux-du-layon:checked ~ #f-st-urgent:checked ~ .main{display:none}
+#f-ap-coteaux-du-layon:checked ~ #f-st-urgent:checked ~ .empty{display:block}
+#f-st-urgent:checked ~ .nav label[for="f-ap-coteaux-du-layon"]{opacity:.32}
+#f-ap-coteaux-du-layon:checked ~ .nav label[for="f-st-urgent"]{opacity:.32}
+#f-ap-coteaux-du-layon:checked ~ #f-st-now:checked ~ .main{display:none}
+#f-ap-coteaux-du-layon:checked ~ #f-st-now:checked ~ .empty{display:block}
+#f-st-now:checked ~ .nav label[for="f-ap-coteaux-du-layon"]{opacity:.32}
+#f-ap-coteaux-du-layon:checked ~ .nav label[for="f-st-now"]{opacity:.32}
+#f-ap-coteaux-du-layon:checked ~ #f-st-hold:checked ~ .main{display:none}
+#f-ap-coteaux-du-layon:checked ~ #f-st-hold:checked ~ .empty{display:block}
+#f-st-hold:checked ~ .nav label[for="f-ap-coteaux-du-layon"]{opacity:.32}
+#f-ap-coteaux-du-layon:checked ~ .nav label[for="f-st-hold"]{opacity:.32}
+#f-ap-pouilly-fume:checked ~ #f-st-now:checked ~ .main{display:none}
+#f-ap-pouilly-fume:checked ~ #f-st-now:checked ~ .empty{display:block}
+#f-st-now:checked ~ .nav label[for="f-ap-pouilly-fume"]{opacity:.32}
+#f-ap-pouilly-fume:checked ~ .nav label[for="f-st-now"]{opacity:.32}
+#f-ap-pouilly-fume:checked ~ #f-st-peak:checked ~ .main{display:none}
+#f-ap-pouilly-fume:checked ~ #f-st-peak:checked ~ .empty{display:block}
+#f-st-peak:checked ~ .nav label[for="f-ap-pouilly-fume"]{opacity:.32}
+#f-ap-pouilly-fume:checked ~ .nav label[for="f-st-peak"]{opacity:.32}
+#f-ap-pouilly-fume:checked ~ #f-st-hold:checked ~ .main{display:none}
+#f-ap-pouilly-fume:checked ~ #f-st-hold:checked ~ .empty{display:block}
+#f-st-hold:checked ~ .nav label[for="f-ap-pouilly-fume"]{opacity:.32}
+#f-ap-pouilly-fume:checked ~ .nav label[for="f-st-hold"]{opacity:.32}
+#f-rg-all:checked ~ .nav label[for="f-rg-all"],#f-rg-all:checked ~ .nav label[for="f-rg-all"] span{color:#111;font-weight:700;text-decoration:none;opacity:1}
+#f-rg-all:focus-visible ~ .nav label[for="f-rg-all"]{outline:2px solid #0b57d0;outline-offset:3px}
+#f-rg-bordeaux:checked ~ .nav label[for="f-rg-bordeaux"],#f-rg-bordeaux:checked ~ .nav label[for="f-rg-bordeaux"] span{color:#111;font-weight:700;text-decoration:none;opacity:1}
+#f-rg-bordeaux:focus-visible ~ .nav label[for="f-rg-bordeaux"]{outline:2px solid #0b57d0;outline-offset:3px}
+#f-rg-champagne:checked ~ .nav label[for="f-rg-champagne"],#f-rg-champagne:checked ~ .nav label[for="f-rg-champagne"] span{color:#111;font-weight:700;text-decoration:none;opacity:1}
+#f-rg-champagne:focus-visible ~ .nav label[for="f-rg-champagne"]{outline:2px solid #0b57d0;outline-offset:3px}
+#f-rg-napa:checked ~ .nav label[for="f-rg-napa"],#f-rg-napa:checked ~ .nav label[for="f-rg-napa"] span{color:#111;font-weight:700;text-decoration:none;opacity:1}
+#f-rg-napa:focus-visible ~ .nav label[for="f-rg-napa"]{outline:2px solid #0b57d0;outline-offset:3px}
+#f-rg-penedes:checked ~ .nav label[for="f-rg-penedes"],#f-rg-penedes:checked ~ .nav label[for="f-rg-penedes"] span{color:#111;font-weight:700;text-decoration:none;opacity:1}
+#f-rg-penedes:focus-visible ~ .nav label[for="f-rg-penedes"]{outline:2px solid #0b57d0;outline-offset:3px}
+#f-rg-tuscany:checked ~ .nav label[for="f-rg-tuscany"],#f-rg-tuscany:checked ~ .nav label[for="f-rg-tuscany"] span{color:#111;font-weight:700;text-decoration:none;opacity:1}
+#f-rg-tuscany:focus-visible ~ .nav label[for="f-rg-tuscany"]{outline:2px solid #0b57d0;outline-offset:3px}
+#f-rg-loire:checked ~ .nav label[for="f-rg-loire"],#f-rg-loire:checked ~ .nav label[for="f-rg-loire"] span{color:#111;font-weight:700;text-decoration:none;opacity:1}
+#f-rg-loire:focus-visible ~ .nav label[for="f-rg-loire"]{outline:2px solid #0b57d0;outline-offset:3px}
+#f-rg-australia:checked ~ .nav label[for="f-rg-australia"],#f-rg-australia:checked ~ .nav label[for="f-rg-australia"] span{color:#111;font-weight:700;text-decoration:none;opacity:1}
+#f-rg-australia:focus-visible ~ .nav label[for="f-rg-australia"]{outline:2px solid #0b57d0;outline-offset:3px}
+#f-rg-burgundy:checked ~ .nav label[for="f-rg-burgundy"],#f-rg-burgundy:checked ~ .nav label[for="f-rg-burgundy"] span{color:#111;font-weight:700;text-decoration:none;opacity:1}
+#f-rg-burgundy:focus-visible ~ .nav label[for="f-rg-burgundy"]{outline:2px solid #0b57d0;outline-offset:3px}
+#f-rg-marlborough:checked ~ .nav label[for="f-rg-marlborough"],#f-rg-marlborough:checked ~ .nav label[for="f-rg-marlborough"] span{color:#111;font-weight:700;text-decoration:none;opacity:1}
+#f-rg-marlborough:focus-visible ~ .nav label[for="f-rg-marlborough"]{outline:2px solid #0b57d0;outline-offset:3px}
+#f-rg-paso:checked ~ .nav label[for="f-rg-paso"],#f-rg-paso:checked ~ .nav label[for="f-rg-paso"] span{color:#111;font-weight:700;text-decoration:none;opacity:1}
+#f-rg-paso:focus-visible ~ .nav label[for="f-rg-paso"]{outline:2px solid #0b57d0;outline-offset:3px}
+#f-ap-margaux:checked ~ .nav label[for="f-ap-margaux"],#f-ap-margaux:checked ~ .nav label[for="f-ap-margaux"] span{color:#111;font-weight:700;text-decoration:none;opacity:1}
+#f-ap-margaux:focus-visible ~ .nav label[for="f-ap-margaux"]{outline:2px solid #0b57d0;outline-offset:3px}
+#f-ap-pauillac:checked ~ .nav label[for="f-ap-pauillac"],#f-ap-pauillac:checked ~ .nav label[for="f-ap-pauillac"] span{color:#111;font-weight:700;text-decoration:none;opacity:1}
+#f-ap-pauillac:focus-visible ~ .nav label[for="f-ap-pauillac"]{outline:2px solid #0b57d0;outline-offset:3px}
+#f-ap-saint-estephe:checked ~ .nav label[for="f-ap-saint-estephe"],#f-ap-saint-estephe:checked ~ .nav label[for="f-ap-saint-estephe"] span{color:#111;font-weight:700;text-decoration:none;opacity:1}
+#f-ap-saint-estephe:focus-visible ~ .nav label[for="f-ap-saint-estephe"]{outline:2px solid #0b57d0;outline-offset:3px}
+#f-ap-barsac:checked ~ .nav label[for="f-ap-barsac"],#f-ap-barsac:checked ~ .nav label[for="f-ap-barsac"] span{color:#111;font-weight:700;text-decoration:none;opacity:1}
+#f-ap-barsac:focus-visible ~ .nav label[for="f-ap-barsac"]{outline:2px solid #0b57d0;outline-offset:3px}
+#f-ap-pessac-leognan:checked ~ .nav label[for="f-ap-pessac-leognan"],#f-ap-pessac-leognan:checked ~ .nav label[for="f-ap-pessac-leognan"] span{color:#111;font-weight:700;text-decoration:none;opacity:1}
+#f-ap-pessac-leognan:focus-visible ~ .nav label[for="f-ap-pessac-leognan"]{outline:2px solid #0b57d0;outline-offset:3px}
+#f-ap-pomerol:checked ~ .nav label[for="f-ap-pomerol"],#f-ap-pomerol:checked ~ .nav label[for="f-ap-pomerol"] span{color:#111;font-weight:700;text-decoration:none;opacity:1}
+#f-ap-pomerol:focus-visible ~ .nav label[for="f-ap-pomerol"]{outline:2px solid #0b57d0;outline-offset:3px}
+#f-ap-saint-emilion:checked ~ .nav label[for="f-ap-saint-emilion"],#f-ap-saint-emilion:checked ~ .nav label[for="f-ap-saint-emilion"] span{color:#111;font-weight:700;text-decoration:none;opacity:1}
+#f-ap-saint-emilion:focus-visible ~ .nav label[for="f-ap-saint-emilion"]{outline:2px solid #0b57d0;outline-offset:3px}
+#f-ap-champagne:checked ~ .nav label[for="f-ap-champagne"],#f-ap-champagne:checked ~ .nav label[for="f-ap-champagne"] span{color:#111;font-weight:700;text-decoration:none;opacity:1}
+#f-ap-champagne:focus-visible ~ .nav label[for="f-ap-champagne"]{outline:2px solid #0b57d0;outline-offset:3px}
+#f-ap-cote-des-bar:checked ~ .nav label[for="f-ap-cote-des-bar"],#f-ap-cote-des-bar:checked ~ .nav label[for="f-ap-cote-des-bar"] span{color:#111;font-weight:700;text-decoration:none;opacity:1}
+#f-ap-cote-des-bar:focus-visible ~ .nav label[for="f-ap-cote-des-bar"]{outline:2px solid #0b57d0;outline-offset:3px}
+#f-ap-napa-valley:checked ~ .nav label[for="f-ap-napa-valley"],#f-ap-napa-valley:checked ~ .nav label[for="f-ap-napa-valley"] span{color:#111;font-weight:700;text-decoration:none;opacity:1}
+#f-ap-napa-valley:focus-visible ~ .nav label[for="f-ap-napa-valley"]{outline:2px solid #0b57d0;outline-offset:3px}
+#f-ap-oakville:checked ~ .nav label[for="f-ap-oakville"],#f-ap-oakville:checked ~ .nav label[for="f-ap-oakville"] span{color:#111;font-weight:700;text-decoration:none;opacity:1}
+#f-ap-oakville:focus-visible ~ .nav label[for="f-ap-oakville"]{outline:2px solid #0b57d0;outline-offset:3px}
+#f-ap-stags-leap-district:checked ~ .nav label[for="f-ap-stags-leap-district"],#f-ap-stags-leap-district:checked ~ .nav label[for="f-ap-stags-leap-district"] span{color:#111;font-weight:700;text-decoration:none;opacity:1}
+#f-ap-stags-leap-district:focus-visible ~ .nav label[for="f-ap-stags-leap-district"]{outline:2px solid #0b57d0;outline-offset:3px}
+#f-ap-toscana-igt:checked ~ .nav label[for="f-ap-toscana-igt"],#f-ap-toscana-igt:checked ~ .nav label[for="f-ap-toscana-igt"] span{color:#111;font-weight:700;text-decoration:none;opacity:1}
+#f-ap-toscana-igt:focus-visible ~ .nav label[for="f-ap-toscana-igt"]{outline:2px solid #0b57d0;outline-offset:3px}
+#f-ap-bolgheri-sassicaia-doc:checked ~ .nav label[for="f-ap-bolgheri-sassicaia-doc"],#f-ap-bolgheri-sassicaia-doc:checked ~ .nav label[for="f-ap-bolgheri-sassicaia-doc"] span{color:#111;font-weight:700;text-decoration:none;opacity:1}
+#f-ap-bolgheri-sassicaia-doc:focus-visible ~ .nav label[for="f-ap-bolgheri-sassicaia-doc"]{outline:2px solid #0b57d0;outline-offset:3px}
+#f-ap-bolgheri-superiore-doc:checked ~ .nav label[for="f-ap-bolgheri-superiore-doc"],#f-ap-bolgheri-superiore-doc:checked ~ .nav label[for="f-ap-bolgheri-superiore-doc"] span{color:#111;font-weight:700;text-decoration:none;opacity:1}
+#f-ap-bolgheri-superiore-doc:focus-visible ~ .nav label[for="f-ap-bolgheri-superiore-doc"]{outline:2px solid #0b57d0;outline-offset:3px}
+#f-ap-coteaux-du-layon:checked ~ .nav label[for="f-ap-coteaux-du-layon"],#f-ap-coteaux-du-layon:checked ~ .nav label[for="f-ap-coteaux-du-layon"] span{color:#111;font-weight:700;text-decoration:none;opacity:1}
+#f-ap-coteaux-du-layon:focus-visible ~ .nav label[for="f-ap-coteaux-du-layon"]{outline:2px solid #0b57d0;outline-offset:3px}
+#f-ap-pouilly-fume:checked ~ .nav label[for="f-ap-pouilly-fume"],#f-ap-pouilly-fume:checked ~ .nav label[for="f-ap-pouilly-fume"] span{color:#111;font-weight:700;text-decoration:none;opacity:1}
+#f-ap-pouilly-fume:focus-visible ~ .nav label[for="f-ap-pouilly-fume"]{outline:2px solid #0b57d0;outline-offset:3px}
+#f-st-all:checked ~ .nav label[for="f-st-all"],#f-st-all:checked ~ .nav label[for="f-st-all"] span{color:#111;font-weight:700;text-decoration:none;opacity:1}
+#f-st-all:focus-visible ~ .nav label[for="f-st-all"]{outline:2px solid #0b57d0;outline-offset:3px}
+#f-st-urgent:checked ~ .nav label[for="f-st-urgent"],#f-st-urgent:checked ~ .nav label[for="f-st-urgent"] span{color:#111;font-weight:700;text-decoration:none;opacity:1}
+#f-st-urgent:focus-visible ~ .nav label[for="f-st-urgent"]{outline:2px solid #0b57d0;outline-offset:3px}
+#f-st-now:checked ~ .nav label[for="f-st-now"],#f-st-now:checked ~ .nav label[for="f-st-now"] span{color:#111;font-weight:700;text-decoration:none;opacity:1}
+#f-st-now:focus-visible ~ .nav label[for="f-st-now"]{outline:2px solid #0b57d0;outline-offset:3px}
+#f-st-peak:checked ~ .nav label[for="f-st-peak"],#f-st-peak:checked ~ .nav label[for="f-st-peak"] span{color:#111;font-weight:700;text-decoration:none;opacity:1}
+#f-st-peak:focus-visible ~ .nav label[for="f-st-peak"]{outline:2px solid #0b57d0;outline-offset:3px}
+#f-st-hold:checked ~ .nav label[for="f-st-hold"],#f-st-hold:checked ~ .nav label[for="f-st-hold"] span{color:#111;font-weight:700;text-decoration:none;opacity:1}
+#f-st-hold:focus-visible ~ .nav label[for="f-st-hold"]{outline:2px solid #0b57d0;outline-offset:3px}</style>
 <h1>CellarOS</h1>
-<p class="meta">40 bottles · 35 labels · est. $8,007 · vintages 1981–2024 · cellar 10°C · as of 2026-09-11</p>
+<p class="meta">40 bottles · 35 labels · est. $8,051 · vintages 1981–2024 · cellar 10°C · as of 2026-09-11</p>
 <h2>Summary</h2>
-<p><span class="s-urgent">Urgent 6</span> · <span class="s-now">Drink now 6</span> · <span class="s-peak">Peak 22</span> · <span class="s-hold">Hold 6</span>.<br><span class="q">Prices — 2 confirmed · 25 estimated · 8 unverified.</span></p>
-<i class="rgt" id="rg-all"></i>
-<i class="rgt" id="rg-bordeaux"></i>
-<i class="rgt" id="rg-champagne"></i>
-<i class="rgt" id="rg-napa"></i>
-<i class="rgt" id="rg-penedes"></i>
-<i class="rgt" id="rg-tuscany"></i>
-<i class="rgt" id="rg-loire"></i>
-<i class="rgt" id="rg-australia"></i>
-<i class="rgt" id="rg-burgundy"></i>
-<i class="rgt" id="rg-marlborough"></i>
-<i class="rgt" id="rg-paso"></i>
-<h2>Regions</h2>
-<div class="map">
-<figure><svg width="214" height="150" viewBox="0 0 214 150" role="img" aria-label="Western Europe">
-<line class="grid" x1="22.1" y1="0" x2="22.1" y2="150"/>
-<line class="grid" x1="64.5" y1="0" x2="64.5" y2="150"/>
-<line class="grid" x1="106.9" y1="0" x2="106.9" y2="150"/>
-<line class="grid" x1="149.3" y1="0" x2="149.3" y2="150"/>
-<line class="grid" x1="191.8" y1="0" x2="191.8" y2="150"/>
-<line class="grid" x1="0" y1="133.6" x2="214" y2="133.6"/>
-<line class="grid" x1="0" y1="73.0" x2="214" y2="73.0"/>
-<line class="grid" x1="0" y1="12.5" x2="214" y2="12.5"/>
-<a class="pin rg-bordeaux" href="#rg-bordeaux"><circle cx="59.6" cy="75.0" r="6.9" stroke="#fff" stroke-width="1.5"/><text x="59.6" y="92.9" text-anchor="middle">Bordeaux 11</text></a>
-<a class="pin rg-tuscany" href="#rg-tuscany"><circle cx="154.4" cy="94.8" r="5.2" stroke="#fff" stroke-width="1.5"/><text x="154.4" y="111.0" text-anchor="middle">Tuscany 4</text></a>
-<a class="pin rg-champagne" href="#rg-champagne"><circle cx="98.7" cy="24.0" r="6.0" stroke="#fff" stroke-width="1.5"/><text x="98.7" y="41.0" text-anchor="middle">Champagne 7</text></a>
-<a class="pin rg-burgundy" href="#rg-burgundy"><circle cx="105.5" cy="48.2" r="3.9" stroke="#fff" stroke-width="1.5"/><text x="105.5" y="63.1" text-anchor="middle">Burgundy 1</text></a>
-<a class="pin rg-loire" href="#rg-loire"><circle cx="72.1" cy="44.6" r="4.4" stroke="#fff" stroke-width="1.5"/><text x="62.7" y="48.1" text-anchor="end">Loire 2</text></a>
-<a class="pin rg-penedes" href="#rg-penedes"><circle cx="78.9" cy="116.0" r="5.5" stroke="#fff" stroke-width="1.5"/><text x="78.9" y="132.5" text-anchor="middle">Penedès 5</text></a>
-<g class="sb"><line x1="9" y1="141" x2="63.4" y2="141"/><text x="68.4" y="144">500 km</text></g>
-</svg><figcaption>Western Europe</figcaption></figure>
-<figure><svg width="214" height="150" viewBox="0 0 214 150" role="img" aria-label="California">
-<line class="grid" x1="24.5" y1="0" x2="24.5" y2="150"/>
-<line class="grid" x1="50.0" y1="0" x2="50.0" y2="150"/>
-<line class="grid" x1="75.5" y1="0" x2="75.5" y2="150"/>
-<line class="grid" x1="101.0" y1="0" x2="101.0" y2="150"/>
-<line class="grid" x1="126.5" y1="0" x2="126.5" y2="150"/>
-<line class="grid" x1="151.9" y1="0" x2="151.9" y2="150"/>
-<line class="grid" x1="0" y1="136.1" x2="214" y2="136.1"/>
-<line class="grid" x1="0" y1="104.2" x2="214" y2="104.2"/>
-<line class="grid" x1="0" y1="72.2" x2="214" y2="72.2"/>
-<line class="grid" x1="0" y1="40.3" x2="214" y2="40.3"/>
-<line class="grid" x1="0" y1="8.3" x2="214" y2="8.3"/>
-<a class="pin rg-napa" href="#rg-napa"><circle cx="67.1" cy="24.0" r="6.0" stroke="#fff" stroke-width="1.5"/><text x="67.1" y="41.0" text-anchor="middle">Napa Valley 7</text></a>
-<a class="pin rg-paso" href="#rg-paso"><circle cx="108.9" cy="116.0" r="3.9" stroke="#fff" stroke-width="1.5"/><text x="108.9" y="130.9" text-anchor="middle">Paso Robles 1</text></a>
-<g class="sb"><line x1="9" y1="141" x2="66.4" y2="141"/><text x="71.4" y="144">200 km</text></g>
-</svg><figcaption>California</figcaption></figure>
-<figure><svg width="214" height="150" viewBox="0 0 214 150" role="img" aria-label="Australia &amp; New Zealand">
-<line class="grid" x1="19.8" y1="0" x2="19.8" y2="150"/>
-<line class="grid" x1="45.0" y1="0" x2="45.0" y2="150"/>
-<line class="grid" x1="70.1" y1="0" x2="70.1" y2="150"/>
-<line class="grid" x1="95.2" y1="0" x2="95.2" y2="150"/>
-<line class="grid" x1="120.3" y1="0" x2="120.3" y2="150"/>
-<line class="grid" x1="145.5" y1="0" x2="145.5" y2="150"/>
-<line class="grid" x1="170.6" y1="0" x2="170.6" y2="150"/>
-<line class="grid" x1="195.7" y1="0" x2="195.7" y2="150"/>
-<line class="grid" x1="0" y1="138.9" x2="214" y2="138.9"/>
-<line class="grid" x1="0" y1="106.4" x2="214" y2="106.4"/>
-<line class="grid" x1="0" y1="73.9" x2="214" y2="73.9"/>
-<line class="grid" x1="0" y1="41.3" x2="214" y2="41.3"/>
-<line class="grid" x1="0" y1="8.8" x2="214" y2="8.8"/>
-<a class="pin rg-australia" href="#rg-australia"><circle cx="24.0" cy="56.2" r="3.9" stroke="#fff" stroke-width="1.5"/><text x="32.9" y="59.7" text-anchor="start">Australia 1</text></a>
-<a class="pin rg-marlborough" href="#rg-marlborough"><circle cx="190.0" cy="83.8" r="3.9" stroke="#fff" stroke-width="1.5"/><text x="181.1" y="87.3" text-anchor="end">Marlborough 1</text></a>
-<g class="sb"><line x1="9" y1="141" x2="67.4" y2="141"/><text x="72.4" y="144">1000 km</text></g>
-</svg><figcaption>Australia &amp; New Zealand</figcaption></figure>
-</div>
-<p class="rgnav"><a href="#rg-all">All</a>
-<a href="#rg-bordeaux">Bordeaux <span class="n">11</span></a>
-<a href="#rg-champagne">Champagne <span class="n">7</span></a>
-<a href="#rg-napa">Napa Valley <span class="n">7</span></a>
-<a href="#rg-penedes">Penedès <span class="n">5</span></a>
-<a href="#rg-tuscany">Tuscany <span class="n">4</span></a>
-<a href="#rg-loire">Loire <span class="n">2</span></a>
-<a href="#rg-australia">Australia <span class="n">1</span></a>
-<a href="#rg-burgundy">Burgundy <span class="n">1</span></a>
-<a href="#rg-marlborough">Marlborough <span class="n">1</span></a>
-<a href="#rg-paso">Paso Robles <span class="n">1</span></a></p>
+<p><span class="s-urgent">Urgent 6</span> · <span class="s-now">Drink now 6</span> · <span class="s-peak">Peak 22</span> · <span class="s-hold">Hold 6</span>.<br><span class="q">Prices — 2 confirmed · 27 estimated · 6 unverified.</span></p>
+<input class="f" type="radio" name="rg" id="f-rg-all" checked>
+<input class="f" type="radio" name="rg" id="f-rg-bordeaux">
+<input class="f" type="radio" name="rg" id="f-rg-champagne">
+<input class="f" type="radio" name="rg" id="f-rg-napa">
+<input class="f" type="radio" name="rg" id="f-rg-penedes">
+<input class="f" type="radio" name="rg" id="f-rg-tuscany">
+<input class="f" type="radio" name="rg" id="f-rg-loire">
+<input class="f" type="radio" name="rg" id="f-rg-australia">
+<input class="f" type="radio" name="rg" id="f-rg-burgundy">
+<input class="f" type="radio" name="rg" id="f-rg-marlborough">
+<input class="f" type="radio" name="rg" id="f-rg-paso">
+<input class="f" type="radio" name="rg" id="f-ap-margaux">
+<input class="f" type="radio" name="rg" id="f-ap-pauillac">
+<input class="f" type="radio" name="rg" id="f-ap-saint-estephe">
+<input class="f" type="radio" name="rg" id="f-ap-barsac">
+<input class="f" type="radio" name="rg" id="f-ap-pessac-leognan">
+<input class="f" type="radio" name="rg" id="f-ap-pomerol">
+<input class="f" type="radio" name="rg" id="f-ap-saint-emilion">
+<input class="f" type="radio" name="rg" id="f-ap-champagne">
+<input class="f" type="radio" name="rg" id="f-ap-cote-des-bar">
+<input class="f" type="radio" name="rg" id="f-ap-napa-valley">
+<input class="f" type="radio" name="rg" id="f-ap-oakville">
+<input class="f" type="radio" name="rg" id="f-ap-stags-leap-district">
+<input class="f" type="radio" name="rg" id="f-ap-toscana-igt">
+<input class="f" type="radio" name="rg" id="f-ap-bolgheri-sassicaia-doc">
+<input class="f" type="radio" name="rg" id="f-ap-bolgheri-superiore-doc">
+<input class="f" type="radio" name="rg" id="f-ap-coteaux-du-layon">
+<input class="f" type="radio" name="rg" id="f-ap-pouilly-fume">
+<input class="f" type="radio" name="st" id="f-st-all" checked>
+<input class="f" type="radio" name="st" id="f-st-urgent">
+<input class="f" type="radio" name="st" id="f-st-now">
+<input class="f" type="radio" name="st" id="f-st-peak">
+<input class="f" type="radio" name="st" id="f-st-hold">
+<h2>Browse</h2>
+<p class="nav"><span class="lbl">Region</span>
+<label for="f-rg-all">All</label>
+<label for="f-rg-bordeaux">Bordeaux <span class="n">11</span></label>
+<label for="f-rg-champagne">Champagne <span class="n">7</span></label>
+<label for="f-rg-napa">Napa Valley <span class="n">7</span></label>
+<label for="f-rg-penedes">Penedès <span class="n">5</span></label>
+<label for="f-rg-tuscany">Tuscany <span class="n">4</span></label>
+<label for="f-rg-loire">Loire <span class="n">2</span></label>
+<label for="f-rg-australia">Australia <span class="n">1</span></label>
+<label for="f-rg-burgundy">Burgundy <span class="n">1</span></label>
+<label for="f-rg-marlborough">Marlborough <span class="n">1</span></label>
+<label for="f-rg-paso">Paso Robles <span class="n">1</span></label></p>
+<p class="nav apnav"><span class="lbl">Within</span>
+<label class="sub sub-bordeaux" for="f-ap-margaux">Margaux <span class="n">3</span></label>
+<label class="sub sub-bordeaux" for="f-ap-pauillac">Pauillac <span class="n">2</span></label>
+<label class="sub sub-bordeaux" for="f-ap-saint-estephe">Saint-Estèphe <span class="n">2</span></label>
+<label class="sub sub-bordeaux" for="f-ap-barsac">Barsac <span class="n">1</span></label>
+<label class="sub sub-bordeaux" for="f-ap-pessac-leognan">Pessac-Léognan <span class="n">1</span></label>
+<label class="sub sub-bordeaux" for="f-ap-pomerol">Pomerol <span class="n">1</span></label>
+<label class="sub sub-bordeaux" for="f-ap-saint-emilion">Saint-Émilion <span class="n">1</span></label>
+<label class="sub sub-champagne" for="f-ap-champagne">Champagne <span class="n">6</span></label>
+<label class="sub sub-champagne" for="f-ap-cote-des-bar">Côte des Bar <span class="n">1</span></label>
+<label class="sub sub-napa" for="f-ap-napa-valley">Napa Valley <span class="n">4</span></label>
+<label class="sub sub-napa" for="f-ap-oakville">Oakville <span class="n">2</span></label>
+<label class="sub sub-napa" for="f-ap-stags-leap-district">Stags Leap District <span class="n">1</span></label>
+<label class="sub sub-tuscany" for="f-ap-toscana-igt">Toscana IGT <span class="n">2</span></label>
+<label class="sub sub-tuscany" for="f-ap-bolgheri-sassicaia-doc">Bolgheri Sassicaia DOC <span class="n">1</span></label>
+<label class="sub sub-tuscany" for="f-ap-bolgheri-superiore-doc">Bolgheri Superiore DOC <span class="n">1</span></label>
+<label class="sub sub-loire" for="f-ap-coteaux-du-layon">Coteaux du Layon <span class="n">1</span></label>
+<label class="sub sub-loire" for="f-ap-pouilly-fume">Pouilly-Fumé <span class="n">1</span></label></p>
+<p class="nav"><span class="lbl">Status</span>
+<label for="f-st-all">Any</label>
+<label for="f-st-urgent"><span class="s-urgent">Urgent</span> <span class="n">6</span></label>
+<label for="f-st-now"><span class="s-now">Drink now</span> <span class="n">6</span></label>
+<label for="f-st-peak"><span class="s-peak">Peak</span> <span class="n">22</span></label>
+<label for="f-st-hold"><span class="s-hold">Hold</span> <span class="n">6</span></label></p>
+<div class="main">
 <h2>Inventory</h2><div class="tw"><table><thead>
 <tr><th class="num">#</th><th class="num">Vintage</th><th>Wine</th><th>Region</th><th>Status</th><th class="num">Window</th><th class="num">Value</th><th>Basis</th></tr>
 </thead><tbody>
-<tr class="rg-napa"><td class="num">01</td><td class="yr">2018</td><td><a href="https://www.wine-searcher.com/find/orin+swift+mercurey+head+cab+sauv+napa+valley+county+north+coast+california+usa/2018" target="_blank" rel="noopener">Orin Swift Mercury Head Cabernet Sauvignon</a></td><td>Napa Valley</td><td class="st s-now">Drink now</td><td class="num">2024–2035</td><td class="num">$132</td><td class="q">estimated</td></tr>
-<tr class="rg-australia"><td class="num">02</td><td class="yr">2017</td><td><a href="https://www.wine-searcher.com/find/hardys+thomas+cab+sauv+australia" target="_blank" rel="noopener">Hardys Thomas Hardy Cabernet Sauvignon</a></td><td>Coonawarra / Margaret River</td><td class="st s-hold">Hold</td><td class="num">2027–2042</td><td class="num">$93</td><td class="q">estimated</td></tr>
-<tr class="rg-paso"><td class="num">03</td><td class="yr">2020</td><td><a href="https://www.wine-searcher.com/find/austinhope+cab+sauv+paso+robles+st+luis+obispo+county+central+coast+california+usa/2020" target="_blank" rel="noopener">Austin Hope Cabernet Sauvignon</a></td><td>Paso Robles</td><td class="st s-peak">Peak</td><td class="num">2023–2030</td><td class="num">$50</td><td class="q">estimated</td></tr>
-<tr class="rg-bordeaux"><td class="num">04</td><td class="yr">2005</td><td><a href="https://www.wine-searcher.com/find/calon+segur+st+estephe+medoc+bordeaux+france/2005" target="_blank" rel="noopener">Château Calon Ségur</a></td><td>Saint-Estèphe, Bordeaux</td><td class="st s-now">Drink now</td><td class="num">2024–2048</td><td class="num">$155</td><td class="q">estimated</td></tr>
-<tr class="rg-napa"><td class="num">05</td><td class="yr">2021</td><td><a href="https://www.wine-searcher.com/find/shafer+one+point+five+cab+sauv+stags+leap+district+napa+valley+county+north+coast+california+usa/2021" target="_blank" rel="noopener">Shafer One Point Five Cabernet Sauvignon</a></td><td>Stags Leap District, Napa Valley</td><td class="st s-hold">Hold</td><td class="num">2027–2038</td><td class="num">$125</td><td class="q">estimated</td></tr>
-<tr class="rg-tuscany"><td class="num">06</td><td class="yr">2020</td><td><a href="https://www.wine-searcher.com/find/marchesi+antinori+tignanello+tuscany+igp+italy/2020" target="_blank" rel="noopener">Antinori Tignanello</a></td><td>Toscana IGT</td><td class="st s-now">Drink now</td><td class="num">2026–2038</td><td class="num">$162</td><td class="q">estimated</td></tr>
-<tr class="rg-bordeaux"><td class="num">07</td><td class="yr">2000</td><td><a href="https://www.wine-searcher.com/find/calon+segur+st+estephe+medoc+bordeaux+france/2000" target="_blank" rel="noopener">Château Calon Ségur</a></td><td>Saint-Estèphe, Bordeaux</td><td class="st s-peak">Peak</td><td class="num">2020–2040</td><td class="num">$217</td><td class="q">estimated</td></tr>
-<tr class="rg-bordeaux"><td class="num">08</td><td class="yr">2013</td><td><a href="https://www.wine-searcher.com/find/le+petit+mouton+de+rothschild+pauillac+medoc+bordeaux+france/2013" target="_blank" rel="noopener">Le Petit Mouton de Mouton Rothschild</a></td><td>Pauillac, Bordeaux</td><td class="st s-urgent">Urgent</td><td class="num">2020–2028</td><td class="num">$245</td><td class="q">estimated</td></tr>
-<tr class="rg-bordeaux"><td class="num">09</td><td class="yr">2008</td><td><a href="https://www.wine-searcher.com/find/palmer+margaux+medoc+bordeaux+france/2008" target="_blank" rel="noopener">Château Palmer</a></td><td>Margaux, Bordeaux</td><td class="st s-now">Drink now</td><td class="num">2024–2045</td><td class="num">$290</td><td class="q">estimated</td></tr>
-<tr class="rg-bordeaux"><td class="num">10</td><td class="yr">2000</td><td><a href="https://www.wine-searcher.com/find/pavillon+rouge+du+margaux+medoc+bordeaux+france/2000" target="_blank" rel="noopener">Pavillon Rouge du Château Margaux</a></td><td>Margaux, Bordeaux</td><td class="st s-peak">Peak</td><td class="num">2015–2032</td><td class="num">$272</td><td class="q">estimated</td></tr>
-<tr class="rg-napa"><td class="num">11</td><td class="yr">2007</td><td><a href="https://www.wine-searcher.com/find/opus+one+napa+valley+county+north+coast+california+usa/2007" target="_blank" rel="noopener">Opus One</a> <span class="q">×2</span></td><td>Oakville, Napa Valley</td><td class="st s-peak">Peak</td><td class="num">2020–2038</td><td class="num">$1,008</td><td class="q">estimated</td></tr>
-<tr class="rg-napa"><td class="num">12</td><td class="yr">NV</td><td><a href="https://www.wine-searcher.com/find/opus+one+overture+napa+valley+county+north+coast+california+usa/0" target="_blank" rel="noopener">Opus One Overture</a> <span class="q">×2</span></td><td>Napa Valley</td><td class="st s-peak">Peak</td><td class="num">2023–2029</td><td class="num">$400</td><td class="q">estimated</td></tr>
-<tr class="rg-tuscany"><td class="num">13</td><td class="yr">1996</td><td><a href="https://www.wine-searcher.com/find/ornellaia+superior+bolgheri+tuscany+italy/1996" target="_blank" rel="noopener">Ornellaia</a></td><td>Bolgheri Superiore DOC</td><td class="st s-urgent">Urgent</td><td class="num">2005–2028</td><td class="num">$277</td><td class="q">estimated</td></tr>
-<tr class="rg-bordeaux"><td class="num">14</td><td class="yr">1996</td><td><a href="https://www.wine-searcher.com/find/haut+brion+pessac+leognan+bordeaux+france/1996" target="_blank" rel="noopener">Château Haut-Brion</a></td><td>Pessac-Léognan, Bordeaux</td><td class="st s-peak">Peak</td><td class="num">2015–2045</td><td class="num">$613</td><td class="q">estimated</td></tr>
-<tr class="rg-napa"><td class="num">15</td><td class="yr">1996</td><td><a href="https://www.wine-searcher.com/find/silver+oak+cellars+cab+sauv+napa+valley+county+north+coast+california+usa/1996" target="_blank" rel="noopener">Silver Oak Napa Valley Cabernet Sauvignon</a></td><td>Napa Valley</td><td class="st s-urgent">Urgent</td><td class="num">2001–2027</td><td class="num">$153</td><td class="q">estimated</td></tr>
-<tr class="rg-tuscany"><td class="num">16</td><td class="yr">2019</td><td><a href="https://www.wine-searcher.com/find/tenute+st+guido+sassicaia+bolgheri+tuscany+italy/2019" target="_blank" rel="noopener">Sassicaia</a></td><td>Bolgheri Sassicaia DOC</td><td class="st s-hold">Hold</td><td class="num">2027–2048</td><td class="num">$333</td><td class="q">estimated</td></tr>
-<tr class="rg-champagne"><td class="num">17</td><td class="yr">2010</td><td><a href="https://www.wine-searcher.com/find/dom+perignon+brut+champagne+france/2010" target="_blank" rel="noopener">Dom Pérignon</a></td><td>Champagne</td><td class="st s-peak">Peak</td><td class="num">2020–2032</td><td class="num">$295</td><td class="q">estimated</td></tr>
-<tr class="rg-champagne"><td class="num">18</td><td class="yr">2013</td><td><a href="https://www.wine-searcher.com/find/dom+perignon+brut+champagne+france/2013" target="_blank" rel="noopener">Dom Pérignon</a></td><td>Champagne</td><td class="st s-now">Drink now</td><td class="num">2023–2036</td><td class="num">$275</td><td class="q">estimated</td></tr>
-<tr class="rg-champagne"><td class="num">19</td><td class="yr">2017</td><td><a href="https://www.wine-searcher.com/find/dom+perignon+brut+champagne+france/2017" target="_blank" rel="noopener">Dom Pérignon</a></td><td>Champagne</td><td class="st s-hold">Hold</td><td class="num">2027–2040</td><td class="num">$269</td><td class="q">estimated</td></tr>
-<tr class="rg-champagne"><td class="num">20</td><td class="yr">NV</td><td><a href="https://www.wine-searcher.com/find/mondiale+libera+mer+brut+champagne+france" target="_blank" rel="noopener">Monial Libera Me Brut (Blanc de Noirs)</a></td><td>Colombé-le-Sec, Côte des Bar (Aube), Champagne</td><td class="st s-peak">Peak</td><td class="num">2024–2029</td><td class="num">$33</td><td class="q">estimated</td></tr>
-<tr class="rg-champagne"><td class="num">21</td><td class="yr">2016</td><td><a href="https://www.wine-searcher.com/find/louis+roederer+cristal+millesime+brut+champagne+france/2016" target="_blank" rel="noopener">Louis Roederer Cristal</a></td><td>Champagne</td><td class="st s-hold">Hold</td><td class="num">2028–2048</td><td class="num">$330</td><td class="q">estimated</td></tr>
-<tr class="rg-champagne"><td class="num">22</td><td class="yr">2006</td><td><a href="https://www.wine-searcher.com/find/pommery+cuvee+louise+brut+millesime+champagne+france/2006" target="_blank" rel="noopener">Pommery Cuvée Louise</a></td><td>Champagne</td><td class="st s-peak">Peak</td><td class="num">2016–2032</td><td class="num">$310</td><td class="q">estimated</td></tr>
-<tr class="rg-burgundy"><td class="num">23</td><td class="yr">2022</td><td><a href="https://www.wine-searcher.com/find/charles+noellat" target="_blank" rel="noopener">Charles Noëllat Chassagne-Montrachet</a></td><td>Chassagne-Montrachet, Côte de Beaune, Burgundy</td><td class="st s-peak">Peak</td><td class="num">2024–2028</td><td class="num">$126</td><td class="q">estimated</td></tr>
-<tr class="rg-champagne"><td class="num">24</td><td class="yr">2002</td><td><a href="https://www.wine-searcher.com/find/krug+vintage+brut+champagne+france/2002" target="_blank" rel="noopener">Krug Vintage</a></td><td>Champagne</td><td class="st s-peak">Peak</td><td class="num">2020–2050</td><td class="num">$569</td><td class="q">estimated</td></tr>
-<tr class="rg-tuscany"><td class="num">25</td><td class="yr">2021</td><td><a href="https://www.wine-searcher.com/find/marchesi+antinori+solaia+tuscany+igp+italy/2021" target="_blank" rel="noopener">Antinori Solaia</a></td><td>Toscana IGT</td><td class="st s-hold">Hold</td><td class="num">2029–2050</td><td class="num">$400</td><td class="q">estimated</td></tr>
-<tr class="rg-bordeaux"><td class="num">26</td><td class="yr">1996</td><td><a href="https://www.wine-searcher.com/find/domaine+de+l+eglise+pomerol+bordeaux+france/1996" target="_blank" rel="noopener">Château du Domaine de l&#x27;Église</a></td><td>Pomerol, Bordeaux</td><td class="st s-urgent">Urgent</td><td class="num">2004–2027</td><td class="num">$102</td><td class="q">confirmed</td></tr>
-<tr class="rg-bordeaux"><td class="num">27</td><td class="yr">2019</td><td><a href="https://www.wine-searcher.com/find/palmer+alter+ego+de+margaux+medoc+bordeaux+france/2019" target="_blank" rel="noopener">Alter Ego de Palmer</a></td><td>Margaux, Bordeaux</td><td class="st s-now">Drink now</td><td class="num">2026–2040</td><td class="num">$122</td><td class="q">unverified</td></tr>
-<tr class="rg-bordeaux"><td class="num">28</td><td class="yr">2011</td><td><a href="https://www.wine-searcher.com/find/lynch+bages+pauillac+medoc+bordeaux+france/2011" target="_blank" rel="noopener">Château Lynch-Bages</a></td><td>Pauillac, Bordeaux</td><td class="st s-peak">Peak</td><td class="num">2021–2035</td><td class="num">$166</td><td class="q">unverified</td></tr>
-<tr class="rg-loire"><td class="num">29</td><td class="yr">2024</td><td><a href="https://www.wine-searcher.com/find/jean+pabiot+dom+de+fines+caillottes+pouilly+fume+upper+loire+france/2024" target="_blank" rel="noopener">Jean Pabiot Pouilly-Fumé (Fines Caillottes)</a></td><td>Pouilly-Fumé, Loire</td><td class="st s-urgent">Urgent</td><td class="num">2025–2027</td><td class="num">$31</td><td class="q">unverified</td></tr>
-<tr class="rg-bordeaux"><td class="num">30</td><td class="yr">2000</td><td><a href="https://www.wine-searcher.com/find/canon+st+emilion+grand+cru+bordeaux+france/2000" target="_blank" rel="noopener">Château Canon</a></td><td>Saint-Émilion, Bordeaux</td><td class="st s-peak">Peak</td><td class="num">2012–2032</td><td class="num">$220</td><td class="q">confirmed</td></tr>
-<tr class="rg-bordeaux"><td class="num">31</td><td class="yr">2002</td><td><a href="https://www.wine-searcher.com/find/coutet+barsac+sauternes+bordeaux+france/2002" target="_blank" rel="noopener">Château Coutet</a> <span class="q">375ml</span></td><td>Barsac, Sauternes, Bordeaux</td><td class="st s-peak">Peak</td><td class="num">2010–2035</td><td class="num">$25</td><td class="q">unverified</td></tr>
-<tr class="rg-loire"><td class="num">32</td><td class="yr">1981</td><td><a href="https://www.wine-searcher.com/find/moulin+touchais+coteaux+du+layon+anjou+loire+france/1981" target="_blank" rel="noopener">Moulin Touchais Coteaux du Layon</a></td><td>Coteaux du Layon, Anjou, Loire</td><td class="st s-peak">Peak</td><td class="num">1995–2045</td><td class="num">$50</td><td class="q">unverified</td></tr>
-<tr class="rg-penedes"><td class="num">33</td><td class="yr">2022</td><td><a href="https://www.wine-searcher.com/find/naveran+dama+naveran+extra+brut+cava+penedes+spain/2022" target="_blank" rel="noopener">Naveran Dama de Naveran Extra Brut Cava</a> <span class="q">×4</span></td><td>Penedès, Catalonia</td><td class="st s-peak">Peak</td><td class="num">2024–2028</td><td class="num">$80</td><td class="q">unverified</td></tr>
-<tr class="rg-penedes"><td class="num">34</td><td class="yr">NV</td><td><a href="https://www.wine-searcher.com/find/bohigas+cava+brut+reserva+penedes+spain" target="_blank" rel="noopener">Bohigas Cava Brut Reserva</a></td><td>Penedès, Catalonia</td><td class="st s-urgent">Urgent</td><td class="num">2024–2027</td><td class="num">$15</td><td class="q">unverified</td></tr>
-<tr class="rg-marlborough"><td class="num">35</td><td class="yr">2023</td><td><a href="https://www.wine-searcher.com/find/cloudy+bay+sauvignon+blanc+marlborough+new+zealand/2023" target="_blank" rel="noopener">Cloudy Bay Sauvignon Blanc</a> <span class="q">1.5L</span></td><td>Marlborough</td><td class="st s-peak">Peak</td><td class="num">2024–2029</td><td class="num">$64</td><td class="q">unverified</td></tr>
+<tr class="rg-napa ap-napa-valley k-now" style="counter-increment:bb 1 ll 1"><td class="num">01</td><td class="yr">2018</td><td><a href="https://www.wine-searcher.com/find/orin+swift+mercurey+head+cab+sauv+napa+valley+county+north+coast+california+usa/2018" target="_blank" rel="noopener">Orin Swift Mercury Head Cabernet Sauvignon</a></td><td>Napa Valley</td><td class="st s-now">Drink now</td><td class="num">2024–2035</td><td class="num">$132</td><td class="q">estimated</td></tr>
+<tr class="rg-australia ap-coonawarra-margaret-river k-hold" style="counter-increment:bb 1 ll 1"><td class="num">02</td><td class="yr">2017</td><td><a href="https://www.wine-searcher.com/find/hardys+thomas+cab+sauv+australia" target="_blank" rel="noopener">Hardys Thomas Hardy Cabernet Sauvignon</a></td><td>Coonawarra / Margaret River</td><td class="st s-hold">Hold</td><td class="num">2027–2042</td><td class="num">$93</td><td class="q">estimated</td></tr>
+<tr class="rg-paso ap-paso-robles k-peak" style="counter-increment:bb 1 ll 1"><td class="num">03</td><td class="yr">2020</td><td><a href="https://www.wine-searcher.com/find/austinhope+cab+sauv+paso+robles+st+luis+obispo+county+central+coast+california+usa/2020" target="_blank" rel="noopener">Austin Hope Cabernet Sauvignon</a></td><td>Paso Robles</td><td class="st s-peak">Peak</td><td class="num">2023–2030</td><td class="num">$50</td><td class="q">estimated</td></tr>
+<tr class="rg-bordeaux ap-saint-estephe k-now" style="counter-increment:bb 1 ll 1"><td class="num">04</td><td class="yr">2005</td><td><a href="https://www.wine-searcher.com/find/calon+segur+st+estephe+medoc+bordeaux+france/2005" target="_blank" rel="noopener">Château Calon Ségur</a></td><td>Saint-Estèphe, Bordeaux</td><td class="st s-now">Drink now</td><td class="num">2024–2048</td><td class="num">$155</td><td class="q">estimated</td></tr>
+<tr class="rg-napa ap-stags-leap-district k-hold" style="counter-increment:bb 1 ll 1"><td class="num">05</td><td class="yr">2021</td><td><a href="https://www.wine-searcher.com/find/shafer+one+point+five+cab+sauv+stags+leap+district+napa+valley+county+north+coast+california+usa/2021" target="_blank" rel="noopener">Shafer One Point Five Cabernet Sauvignon</a></td><td>Stags Leap District, Napa Valley</td><td class="st s-hold">Hold</td><td class="num">2027–2038</td><td class="num">$125</td><td class="q">estimated</td></tr>
+<tr class="rg-tuscany ap-toscana-igt k-now" style="counter-increment:bb 1 ll 1"><td class="num">06</td><td class="yr">2020</td><td><a href="https://www.wine-searcher.com/find/marchesi+antinori+tignanello+tuscany+igp+italy/2020" target="_blank" rel="noopener">Antinori Tignanello</a></td><td>Toscana IGT</td><td class="st s-now">Drink now</td><td class="num">2026–2038</td><td class="num">$162</td><td class="q">estimated</td></tr>
+<tr class="rg-bordeaux ap-saint-estephe k-peak" style="counter-increment:bb 1 ll 1"><td class="num">07</td><td class="yr">2000</td><td><a href="https://www.wine-searcher.com/find/calon+segur+st+estephe+medoc+bordeaux+france/2000" target="_blank" rel="noopener">Château Calon Ségur</a></td><td>Saint-Estèphe, Bordeaux</td><td class="st s-peak">Peak</td><td class="num">2020–2040</td><td class="num">$217</td><td class="q">estimated</td></tr>
+<tr class="rg-bordeaux ap-pauillac k-urgent" style="counter-increment:bb 1 ll 1"><td class="num">08</td><td class="yr">2013</td><td><a href="https://www.wine-searcher.com/find/le+petit+mouton+de+rothschild+pauillac+medoc+bordeaux+france/2013" target="_blank" rel="noopener">Le Petit Mouton de Mouton Rothschild</a></td><td>Pauillac, Bordeaux</td><td class="st s-urgent">Urgent</td><td class="num">2020–2028</td><td class="num">$245</td><td class="q">estimated</td></tr>
+<tr class="rg-bordeaux ap-margaux k-now" style="counter-increment:bb 1 ll 1"><td class="num">09</td><td class="yr">2008</td><td><a href="https://www.wine-searcher.com/find/palmer+margaux+medoc+bordeaux+france/2008" target="_blank" rel="noopener">Château Palmer</a></td><td>Margaux, Bordeaux</td><td class="st s-now">Drink now</td><td class="num">2024–2045</td><td class="num">$290</td><td class="q">estimated</td></tr>
+<tr class="rg-bordeaux ap-margaux k-peak" style="counter-increment:bb 1 ll 1"><td class="num">10</td><td class="yr">2000</td><td><a href="https://www.wine-searcher.com/find/pavillon+rouge+du+margaux+medoc+bordeaux+france/2000" target="_blank" rel="noopener">Pavillon Rouge du Château Margaux</a></td><td>Margaux, Bordeaux</td><td class="st s-peak">Peak</td><td class="num">2015–2032</td><td class="num">$272</td><td class="q">estimated</td></tr>
+<tr class="rg-napa ap-oakville k-peak" style="counter-increment:bb 2 ll 1"><td class="num">11</td><td class="yr">2007</td><td><a href="https://www.wine-searcher.com/find/opus+one+napa+valley+county+north+coast+california+usa/2007" target="_blank" rel="noopener">Opus One</a> <span class="q">×2</span></td><td>Oakville, Napa Valley</td><td class="st s-peak">Peak</td><td class="num">2020–2038</td><td class="num">$1,008</td><td class="q">estimated</td></tr>
+<tr class="rg-napa ap-napa-valley k-peak" style="counter-increment:bb 2 ll 1"><td class="num">12</td><td class="yr">NV</td><td><a href="https://www.wine-searcher.com/find/opus+one+overture+napa+valley+county+north+coast+california+usa/0" target="_blank" rel="noopener">Opus One Overture</a> <span class="q">×2</span></td><td>Napa Valley</td><td class="st s-peak">Peak</td><td class="num">2023–2029</td><td class="num">$400</td><td class="q">estimated</td></tr>
+<tr class="rg-tuscany ap-bolgheri-superiore-doc k-urgent" style="counter-increment:bb 1 ll 1"><td class="num">13</td><td class="yr">1996</td><td><a href="https://www.wine-searcher.com/find/ornellaia+superior+bolgheri+tuscany+italy/1996" target="_blank" rel="noopener">Ornellaia</a></td><td>Bolgheri Superiore DOC</td><td class="st s-urgent">Urgent</td><td class="num">2005–2028</td><td class="num">$277</td><td class="q">estimated</td></tr>
+<tr class="rg-bordeaux ap-pessac-leognan k-peak" style="counter-increment:bb 1 ll 1"><td class="num">14</td><td class="yr">1996</td><td><a href="https://www.wine-searcher.com/find/haut+brion+pessac+leognan+bordeaux+france/1996" target="_blank" rel="noopener">Château Haut-Brion</a></td><td>Pessac-Léognan, Bordeaux</td><td class="st s-peak">Peak</td><td class="num">2015–2045</td><td class="num">$613</td><td class="q">estimated</td></tr>
+<tr class="rg-napa ap-napa-valley k-urgent" style="counter-increment:bb 1 ll 1"><td class="num">15</td><td class="yr">1996</td><td><a href="https://www.wine-searcher.com/find/silver+oak+cellars+cab+sauv+napa+valley+county+north+coast+california+usa/1996" target="_blank" rel="noopener">Silver Oak Napa Valley Cabernet Sauvignon</a></td><td>Napa Valley</td><td class="st s-urgent">Urgent</td><td class="num">2001–2027</td><td class="num">$153</td><td class="q">estimated</td></tr>
+<tr class="rg-tuscany ap-bolgheri-sassicaia-doc k-hold" style="counter-increment:bb 1 ll 1"><td class="num">16</td><td class="yr">2019</td><td><a href="https://www.wine-searcher.com/find/tenute+st+guido+sassicaia+bolgheri+tuscany+italy/2019" target="_blank" rel="noopener">Sassicaia</a></td><td>Bolgheri Sassicaia DOC</td><td class="st s-hold">Hold</td><td class="num">2027–2048</td><td class="num">$333</td><td class="q">estimated</td></tr>
+<tr class="rg-champagne ap-champagne k-peak" style="counter-increment:bb 1 ll 1"><td class="num">17</td><td class="yr">2010</td><td><a href="https://www.wine-searcher.com/find/dom+perignon+brut+champagne+france/2010" target="_blank" rel="noopener">Dom Pérignon</a></td><td>Champagne</td><td class="st s-peak">Peak</td><td class="num">2020–2032</td><td class="num">$295</td><td class="q">estimated</td></tr>
+<tr class="rg-champagne ap-champagne k-now" style="counter-increment:bb 1 ll 1"><td class="num">18</td><td class="yr">2013</td><td><a href="https://www.wine-searcher.com/find/dom+perignon+brut+champagne+france/2013" target="_blank" rel="noopener">Dom Pérignon</a></td><td>Champagne</td><td class="st s-now">Drink now</td><td class="num">2023–2036</td><td class="num">$275</td><td class="q">estimated</td></tr>
+<tr class="rg-champagne ap-champagne k-hold" style="counter-increment:bb 1 ll 1"><td class="num">19</td><td class="yr">2017</td><td><a href="https://www.wine-searcher.com/find/dom+perignon+brut+champagne+france/2017" target="_blank" rel="noopener">Dom Pérignon</a></td><td>Champagne</td><td class="st s-hold">Hold</td><td class="num">2027–2040</td><td class="num">$269</td><td class="q">estimated</td></tr>
+<tr class="rg-champagne ap-cote-des-bar k-peak" style="counter-increment:bb 1 ll 1"><td class="num">20</td><td class="yr">NV</td><td><a href="https://www.wine-searcher.com/find/mondiale+libera+mer+brut+champagne+france" target="_blank" rel="noopener">Monial Libera Me Brut (Blanc de Noirs)</a></td><td>Colombé-le-Sec, Côte des Bar (Aube), Champagne</td><td class="st s-peak">Peak</td><td class="num">2024–2029</td><td class="num">$33</td><td class="q">estimated</td></tr>
+<tr class="rg-champagne ap-champagne k-hold" style="counter-increment:bb 1 ll 1"><td class="num">21</td><td class="yr">2016</td><td><a href="https://www.wine-searcher.com/find/louis+roederer+cristal+millesime+brut+champagne+france/2016" target="_blank" rel="noopener">Louis Roederer Cristal</a></td><td>Champagne</td><td class="st s-hold">Hold</td><td class="num">2028–2048</td><td class="num">$330</td><td class="q">estimated</td></tr>
+<tr class="rg-champagne ap-champagne k-peak" style="counter-increment:bb 1 ll 1"><td class="num">22</td><td class="yr">2006</td><td><a href="https://www.wine-searcher.com/find/pommery+cuvee+louise+brut+millesime+champagne+france/2006" target="_blank" rel="noopener">Pommery Cuvée Louise</a></td><td>Champagne</td><td class="st s-peak">Peak</td><td class="num">2016–2032</td><td class="num">$310</td><td class="q">estimated</td></tr>
+<tr class="rg-burgundy ap-chassagne-montrachet k-peak" style="counter-increment:bb 1 ll 1"><td class="num">23</td><td class="yr">2022</td><td><a href="https://www.wine-searcher.com/find/charles+noellat" target="_blank" rel="noopener">Charles Noëllat Chassagne-Montrachet</a></td><td>Chassagne-Montrachet, Côte de Beaune, Burgundy</td><td class="st s-peak">Peak</td><td class="num">2024–2028</td><td class="num">$126</td><td class="q">estimated</td></tr>
+<tr class="rg-champagne ap-champagne k-peak" style="counter-increment:bb 1 ll 1"><td class="num">24</td><td class="yr">2002</td><td><a href="https://www.wine-searcher.com/find/krug+vintage+brut+champagne+france/2002" target="_blank" rel="noopener">Krug Vintage</a></td><td>Champagne</td><td class="st s-peak">Peak</td><td class="num">2020–2050</td><td class="num">$569</td><td class="q">estimated</td></tr>
+<tr class="rg-tuscany ap-toscana-igt k-hold" style="counter-increment:bb 1 ll 1"><td class="num">25</td><td class="yr">2021</td><td><a href="https://www.wine-searcher.com/find/marchesi+antinori+solaia+tuscany+igp+italy/2021" target="_blank" rel="noopener">Antinori Solaia</a></td><td>Toscana IGT</td><td class="st s-hold">Hold</td><td class="num">2029–2050</td><td class="num">$400</td><td class="q">estimated</td></tr>
+<tr class="rg-bordeaux ap-pomerol k-urgent" style="counter-increment:bb 1 ll 1"><td class="num">26</td><td class="yr">1996</td><td><a href="https://www.wine-searcher.com/find/domaine+de+l+eglise+pomerol+bordeaux+france/1996" target="_blank" rel="noopener">Château du Domaine de l&#x27;Église</a></td><td>Pomerol, Bordeaux</td><td class="st s-urgent">Urgent</td><td class="num">2004–2027</td><td class="num">$102</td><td class="q">confirmed</td></tr>
+<tr class="rg-bordeaux ap-margaux k-now" style="counter-increment:bb 1 ll 1"><td class="num">27</td><td class="yr">2019</td><td><a href="https://www.wine-searcher.com/find/palmer+alter+ego+de+margaux+medoc+bordeaux+france/2019" target="_blank" rel="noopener">Alter Ego de Palmer</a></td><td>Margaux, Bordeaux</td><td class="st s-now">Drink now</td><td class="num">2026–2040</td><td class="num">$122</td><td class="q">unverified</td></tr>
+<tr class="rg-bordeaux ap-pauillac k-peak" style="counter-increment:bb 1 ll 1"><td class="num">28</td><td class="yr">2011</td><td><a href="https://www.wine-searcher.com/find/lynch+bages+pauillac+medoc+bordeaux+france/2011" target="_blank" rel="noopener">Château Lynch-Bages</a></td><td>Pauillac, Bordeaux</td><td class="st s-peak">Peak</td><td class="num">2021–2035</td><td class="num">$166</td><td class="q">unverified</td></tr>
+<tr class="rg-loire ap-pouilly-fume k-urgent" style="counter-increment:bb 1 ll 1"><td class="num">29</td><td class="yr">2024</td><td><a href="https://www.wine-searcher.com/find/jean+pabiot+dom+de+fines+caillottes+pouilly+fume+upper+loire+france/2024" target="_blank" rel="noopener">Jean Pabiot Pouilly-Fumé (Fines Caillottes)</a></td><td>Pouilly-Fumé, Loire</td><td class="st s-urgent">Urgent</td><td class="num">2025–2027</td><td class="num">$31</td><td class="q">unverified</td></tr>
+<tr class="rg-bordeaux ap-saint-emilion k-peak" style="counter-increment:bb 1 ll 1"><td class="num">30</td><td class="yr">2000</td><td><a href="https://www.wine-searcher.com/find/canon+st+emilion+grand+cru+bordeaux+france/2000" target="_blank" rel="noopener">Château Canon</a></td><td>Saint-Émilion, Bordeaux</td><td class="st s-peak">Peak</td><td class="num">2012–2032</td><td class="num">$220</td><td class="q">confirmed</td></tr>
+<tr class="rg-bordeaux ap-barsac k-peak" style="counter-increment:bb 1 ll 1"><td class="num">31</td><td class="yr">2002</td><td><a href="https://www.wine-searcher.com/find/coutet+barsac+sauternes+bordeaux+france/2002" target="_blank" rel="noopener">Château Coutet</a> <span class="q">375ml</span></td><td>Barsac, Sauternes, Bordeaux</td><td class="st s-peak">Peak</td><td class="num">2010–2035</td><td class="num">$25</td><td class="q">unverified</td></tr>
+<tr class="rg-loire ap-coteaux-du-layon k-peak" style="counter-increment:bb 1 ll 1"><td class="num">32</td><td class="yr">1981</td><td><a href="https://www.wine-searcher.com/find/moulin+touchais+coteaux+du+layon+anjou+loire+france/1981" target="_blank" rel="noopener">Moulin Touchais Coteaux du Layon</a></td><td>Coteaux du Layon, Anjou, Loire</td><td class="st s-peak">Peak</td><td class="num">1995–2045</td><td class="num">$50</td><td class="q">unverified</td></tr>
+<tr class="rg-penedes ap-penedes k-peak" style="counter-increment:bb 4 ll 1"><td class="num">33</td><td class="yr">2022</td><td><a href="https://www.wine-searcher.com/find/naveran+dama+naveran+extra+brut+cava+penedes+spain/2022" target="_blank" rel="noopener">Naveran Dama de Naveran Extra Brut Cava</a> <span class="q">×4</span></td><td>Penedès, Catalonia</td><td class="st s-peak">Peak</td><td class="num">2024–2028</td><td class="num">$120</td><td class="q">estimated</td></tr>
+<tr class="rg-penedes ap-penedes k-urgent" style="counter-increment:bb 1 ll 1"><td class="num">34</td><td class="yr">NV</td><td><a href="https://www.wine-searcher.com/find/bohigas+cava+brut+reserva+penedes+spain" target="_blank" rel="noopener">Bohigas Cava Brut Reserva</a></td><td>Penedès, Catalonia</td><td class="st s-urgent">Urgent</td><td class="num">2024–2027</td><td class="num">$19</td><td class="q">estimated</td></tr>
+<tr class="rg-marlborough ap-marlborough k-peak" style="counter-increment:bb 1 ll 1"><td class="num">35</td><td class="yr">2023</td><td><a href="https://www.wine-searcher.com/find/cloudy+bay+sauvignon+blanc+marlborough+new+zealand/2023" target="_blank" rel="noopener">Cloudy Bay Sauvignon Blanc</a> <span class="q">1.5L</span></td><td>Marlborough</td><td class="st s-peak">Peak</td><td class="num">2024–2029</td><td class="num">$64</td><td class="q">unverified</td></tr>
 </tbody></table></div>
+<p class="readout">Showing <span class="cb"></span> of 40 bottles · <span class="cl"></span> of 35 labels</p>
 <h2>Notes</h2>
-<details class="note rg-napa"><summary><b>2018</b> · Orin Swift Mercury Head Cabernet Sauvignon <span class="q">— Napa Valley · <span class="s-now">Drink now</span> · $132</span></summary>
+<details class="note rg-napa ap-napa-valley k-now"><summary><b>2018</b> · Orin Swift Mercury Head Cabernet Sauvignon <span class="q">— Napa Valley · <span class="s-now">Drink now</span> · $132</span></summary>
 <div class="body"><dl>
 <dt>Region</dt><dd class="place">Napa Valley · USA</dd>
 <dt>Style</dt><dd>Dense Napa Cabernet</dd>
@@ -226,7 +571,7 @@ hr{border:0;border-top:1px solid #e3e3e3;margin:34px 0 12px}
 <dt>Price basis</dt><dd>estimated — Median of 6 actual retailer listings, triangulated (USD/750ml) · 6 listings $105–$175 · WS snippet $164</dd>
 <dt>Detail</dt><dd class="q">Orin Swift · Cabernet Sauvignon · 750ml · <a href="https://www.wine-searcher.com/find/orin+swift+mercurey+head+cab+sauv+napa+valley+county+north+coast+california+usa/2018" target="_blank" rel="noopener">Wine-Searcher</a></dd>
 </dl></div></details>
-<details class="note rg-australia"><summary><b>2017</b> · Hardys Thomas Hardy Cabernet Sauvignon <span class="q">— Australia · <span class="s-hold">Hold</span> · $93</span></summary>
+<details class="note rg-australia ap-coonawarra-margaret-river k-hold"><summary><b>2017</b> · Hardys Thomas Hardy Cabernet Sauvignon <span class="q">— Coonawarra / Margaret River · <span class="s-hold">Hold</span> · $93</span></summary>
 <div class="body"><dl>
 <dt>Region</dt><dd class="place">Coonawarra / Margaret River · Australia</dd>
 <dt>Style</dt><dd>Structured Australian Cabernet</dd>
@@ -238,7 +583,7 @@ hr{border:0;border-top:1px solid #e3e3e3;margin:34px 0 12px}
 <dt>Price basis</dt><dd>estimated — Median of 4 actual retailer listings, triangulated (USD/750ml) · 4 listings $72–$101 · WS snippet $97</dd>
 <dt>Detail</dt><dd class="q">Hardys · Cabernet Sauvignon · 750ml · <a href="https://www.wine-searcher.com/find/hardys+thomas+cab+sauv+australia" target="_blank" rel="noopener">Wine-Searcher</a></dd>
 </dl></div></details>
-<details class="note rg-paso"><summary><b>2020</b> · Austin Hope Cabernet Sauvignon <span class="q">— Paso Robles · <span class="s-peak">Peak</span> · $50</span></summary>
+<details class="note rg-paso ap-paso-robles k-peak"><summary><b>2020</b> · Austin Hope Cabernet Sauvignon <span class="q">— Paso Robles · <span class="s-peak">Peak</span> · $50</span></summary>
 <div class="body"><dl>
 <dt>Region</dt><dd class="place">Paso Robles · USA</dd>
 <dt>Style</dt><dd>Straightforward Paso Robles Cabernet</dd>
@@ -250,7 +595,7 @@ hr{border:0;border-top:1px solid #e3e3e3;margin:34px 0 12px}
 <dt>Price basis</dt><dd>estimated — Median of 5 actual retailer listings, triangulated (USD/750ml) · 5 listings $50–$78 · WS snippet $66</dd>
 <dt>Detail</dt><dd class="q">Austin Hope · Cabernet Sauvignon · 750ml · <a href="https://www.wine-searcher.com/find/austinhope+cab+sauv+paso+robles+st+luis+obispo+county+central+coast+california+usa/2020" target="_blank" rel="noopener">Wine-Searcher</a></dd>
 </dl></div></details>
-<details class="note rg-bordeaux"><summary><b>2005</b> · Château Calon Ségur <span class="q">— Bordeaux · <span class="s-now">Drink now</span> · $155</span></summary>
+<details class="note rg-bordeaux ap-saint-estephe k-now"><summary><b>2005</b> · Château Calon Ségur <span class="q">— Saint-Estèphe · <span class="s-now">Drink now</span> · $155</span></summary>
 <div class="body"><dl>
 <dt>Region</dt><dd class="place">Saint-Estèphe, Bordeaux · France</dd>
 <dt>Style</dt><dd>Classical Saint-Estèphe</dd>
@@ -262,7 +607,7 @@ hr{border:0;border-top:1px solid #e3e3e3;margin:34px 0 12px}
 <dt>Price basis</dt><dd>estimated — Median of 8 actual retailer listings, triangulated (USD/750ml) · 8 listings $94–$280 · WS snippet $210</dd>
 <dt>Detail</dt><dd class="q">Château Calon Ségur · 3ème Cru Classé · Cabernet Sauvignon · Merlot · Cabernet Franc · 750ml · <a href="https://www.wine-searcher.com/find/calon+segur+st+estephe+medoc+bordeaux+france/2005" target="_blank" rel="noopener">Wine-Searcher</a></dd>
 </dl></div></details>
-<details class="note rg-napa"><summary><b>2021</b> · Shafer One Point Five Cabernet Sauvignon <span class="q">— Napa Valley · <span class="s-hold">Hold</span> · $125</span></summary>
+<details class="note rg-napa ap-stags-leap-district k-hold"><summary><b>2021</b> · Shafer One Point Five Cabernet Sauvignon <span class="q">— Stags Leap District · <span class="s-hold">Hold</span> · $125</span></summary>
 <div class="body"><dl>
 <dt>Region</dt><dd class="place">Stags Leap District, Napa Valley · USA</dd>
 <dt>Style</dt><dd>Stags Leap Cabernet</dd>
@@ -274,7 +619,7 @@ hr{border:0;border-top:1px solid #e3e3e3;margin:34px 0 12px}
 <dt>Price basis</dt><dd>estimated — Median of 8 actual retailer listings, triangulated (USD/750ml) · 8 listings $97–$150 · WS snippet $140</dd>
 <dt>Detail</dt><dd class="q">Shafer · Cabernet Sauvignon · 750ml · <a href="https://www.wine-searcher.com/find/shafer+one+point+five+cab+sauv+stags+leap+district+napa+valley+county+north+coast+california+usa/2021" target="_blank" rel="noopener">Wine-Searcher</a></dd>
 </dl></div></details>
-<details class="note rg-tuscany"><summary><b>2020</b> · Antinori Tignanello <span class="q">— Tuscany · <span class="s-now">Drink now</span> · $162</span></summary>
+<details class="note rg-tuscany ap-toscana-igt k-now"><summary><b>2020</b> · Antinori Tignanello <span class="q">— Toscana IGT · <span class="s-now">Drink now</span> · $162</span></summary>
 <div class="body"><dl>
 <dt>Region</dt><dd class="place">Toscana IGT · Italy</dd>
 <dt>Style</dt><dd>Sangiovese-based Super Tuscan</dd>
@@ -286,7 +631,7 @@ hr{border:0;border-top:1px solid #e3e3e3;margin:34px 0 12px}
 <dt>Price basis</dt><dd>estimated — Median of 12 actual retailer listings, triangulated (USD/750ml) · 12 listings $150–$213 · WS snippet $183</dd>
 <dt>Detail</dt><dd class="q">Marchesi Antinori · Sangiovese · Cabernet Sauvignon · Cabernet Franc · 750ml · <a href="https://www.wine-searcher.com/find/marchesi+antinori+tignanello+tuscany+igp+italy/2020" target="_blank" rel="noopener">Wine-Searcher</a></dd>
 </dl></div></details>
-<details class="note rg-bordeaux"><summary><b>2000</b> · Château Calon Ségur <span class="q">— Bordeaux · <span class="s-peak">Peak</span> · $217</span></summary>
+<details class="note rg-bordeaux ap-saint-estephe k-peak"><summary><b>2000</b> · Château Calon Ségur <span class="q">— Saint-Estèphe · <span class="s-peak">Peak</span> · $217</span></summary>
 <div class="body"><dl>
 <dt>Region</dt><dd class="place">Saint-Estèphe, Bordeaux · France</dd>
 <dt>Style</dt><dd>Mature Saint-Estèphe</dd>
@@ -298,7 +643,7 @@ hr{border:0;border-top:1px solid #e3e3e3;margin:34px 0 12px}
 <dt>Price basis</dt><dd>estimated — Median of 4 actual retailer listings, triangulated (USD/750ml) · 4 listings $173–$280 · WS snippet $226</dd>
 <dt>Detail</dt><dd class="q">Château Calon Ségur · 3ème Cru Classé · Cabernet Sauvignon · Merlot · Cabernet Franc · 750ml · <a href="https://www.wine-searcher.com/find/calon+segur+st+estephe+medoc+bordeaux+france/2000" target="_blank" rel="noopener">Wine-Searcher</a></dd>
 </dl></div></details>
-<details class="note rg-bordeaux"><summary><b>2013</b> · Le Petit Mouton de Mouton Rothschild <span class="q">— Bordeaux · <span class="s-urgent">Urgent</span> · $245</span></summary>
+<details class="note rg-bordeaux ap-pauillac k-urgent"><summary><b>2013</b> · Le Petit Mouton de Mouton Rothschild <span class="q">— Pauillac · <span class="s-urgent">Urgent</span> · $245</span></summary>
 <div class="body"><dl>
 <dt>Region</dt><dd class="place">Pauillac, Bordeaux · France</dd>
 <dt>Style</dt><dd>Approachable Pauillac</dd>
@@ -310,7 +655,7 @@ hr{border:0;border-top:1px solid #e3e3e3;margin:34px 0 12px}
 <dt>Price basis</dt><dd>estimated — Median of 5 actual retailer listings, triangulated (USD/750ml) · 5 listings $183–$527 · WS snippet $258</dd>
 <dt>Detail</dt><dd class="q">Château Mouton Rothschild · Second Wine · Cabernet Sauvignon · Merlot · 750ml · <a href="https://www.wine-searcher.com/find/le+petit+mouton+de+rothschild+pauillac+medoc+bordeaux+france/2013" target="_blank" rel="noopener">Wine-Searcher</a></dd>
 </dl></div></details>
-<details class="note rg-bordeaux"><summary><b>2008</b> · Château Palmer <span class="q">— Bordeaux · <span class="s-now">Drink now</span> · $290</span></summary>
+<details class="note rg-bordeaux ap-margaux k-now"><summary><b>2008</b> · Château Palmer <span class="q">— Margaux · <span class="s-now">Drink now</span> · $290</span></summary>
 <div class="body"><dl>
 <dt>Region</dt><dd class="place">Margaux, Bordeaux · France</dd>
 <dt>Style</dt><dd>Margaux with a high proportion of Merlot</dd>
@@ -322,7 +667,7 @@ hr{border:0;border-top:1px solid #e3e3e3;margin:34px 0 12px}
 <dt>Price basis</dt><dd>estimated — Median of 5 actual retailer listings, triangulated (USD/750ml) · 5 listings $217–$319 · WS snippet $340</dd>
 <dt>Detail</dt><dd class="q">Château Palmer · 3ème Cru Classé · Merlot · Cabernet Sauvignon · Petit Verdot · 750ml · <a href="https://www.wine-searcher.com/find/palmer+margaux+medoc+bordeaux+france/2008" target="_blank" rel="noopener">Wine-Searcher</a></dd>
 </dl></div></details>
-<details class="note rg-bordeaux"><summary><b>2000</b> · Pavillon Rouge du Château Margaux <span class="q">— Bordeaux · <span class="s-peak">Peak</span> · $272</span></summary>
+<details class="note rg-bordeaux ap-margaux k-peak"><summary><b>2000</b> · Pavillon Rouge du Château Margaux <span class="q">— Margaux · <span class="s-peak">Peak</span> · $272</span></summary>
 <div class="body"><dl>
 <dt>Region</dt><dd class="place">Margaux, Bordeaux · France</dd>
 <dt>Style</dt><dd>Elegant Margaux second wine</dd>
@@ -334,7 +679,7 @@ hr{border:0;border-top:1px solid #e3e3e3;margin:34px 0 12px}
 <dt>Price basis</dt><dd>estimated — Median of 9 actual retailer listings, triangulated (USD/750ml) · 9 listings $172–$450 · WS snippet $307</dd>
 <dt>Detail</dt><dd class="q">Château Margaux · Second Wine · Cabernet Sauvignon · Merlot · 750ml · <a href="https://www.wine-searcher.com/find/pavillon+rouge+du+margaux+medoc+bordeaux+france/2000" target="_blank" rel="noopener">Wine-Searcher</a></dd>
 </dl></div></details>
-<details class="note rg-napa"><summary><b>2007</b> · Opus One <span class="q">— Napa Valley · <span class="s-peak">Peak</span> · $504</span></summary>
+<details class="note rg-napa ap-oakville k-peak"><summary><b>2007</b> · Opus One <span class="q">— Oakville · <span class="s-peak">Peak</span> · $504</span></summary>
 <div class="body"><dl>
 <dt>Region</dt><dd class="place">Oakville, Napa Valley · USA</dd>
 <dt>Style</dt><dd>Opus One in maturity</dd>
@@ -346,7 +691,7 @@ hr{border:0;border-top:1px solid #e3e3e3;margin:34px 0 12px}
 <dt>Price basis</dt><dd>estimated — Median of 8 actual retailer listings, triangulated (USD/750ml) · 8 listings $395–$1,050 · WS snippet $545</dd>
 <dt>Detail</dt><dd class="q">Opus One · Cabernet Sauvignon · Merlot · Petit Verdot · Cabernet Franc · 750ml · <a href="https://www.wine-searcher.com/find/opus+one+napa+valley+county+north+coast+california+usa/2007" target="_blank" rel="noopener">Wine-Searcher</a></dd>
 </dl></div></details>
-<details class="note rg-napa"><summary><b>NV</b> · Opus One Overture <span class="q">— Napa Valley · <span class="s-peak">Peak</span> · $200</span></summary>
+<details class="note rg-napa ap-napa-valley k-peak"><summary><b>NV</b> · Opus One Overture <span class="q">— Napa Valley · <span class="s-peak">Peak</span> · $200</span></summary>
 <div class="body"><dl>
 <dt>Region</dt><dd class="place">Napa Valley · USA</dd>
 <dt>Style</dt><dd>The entry point to Opus One</dd>
@@ -358,7 +703,7 @@ hr{border:0;border-top:1px solid #e3e3e3;margin:34px 0 12px}
 <dt>Price basis</dt><dd>estimated — Median of 11 actual retailer listings, triangulated (USD/750ml) · 11 listings $169–$250 · WS snippet $201</dd>
 <dt>Detail</dt><dd class="q">Opus One · Cabernet Sauvignon · 750ml · <a href="https://www.wine-searcher.com/find/opus+one+overture+napa+valley+county+north+coast+california+usa/0" target="_blank" rel="noopener">Wine-Searcher</a></dd>
 </dl></div></details>
-<details class="note rg-tuscany"><summary><b>1996</b> · Ornellaia <span class="q">— Tuscany · <span class="s-urgent">Urgent</span> · $277</span></summary>
+<details class="note rg-tuscany ap-bolgheri-superiore-doc k-urgent"><summary><b>1996</b> · Ornellaia <span class="q">— Bolgheri Superiore DOC · <span class="s-urgent">Urgent</span> · $277</span></summary>
 <div class="body"><dl>
 <dt>Region</dt><dd class="place">Bolgheri Superiore DOC · Italy</dd>
 <dt>Style</dt><dd>Mature Bolgheri</dd>
@@ -370,7 +715,7 @@ hr{border:0;border-top:1px solid #e3e3e3;margin:34px 0 12px}
 <dt>Price basis</dt><dd>estimated — Median of 4 actual retailer listings, triangulated (USD/750ml) · 4 listings $250–$548 · WS snippet $256</dd>
 <dt>Detail</dt><dd class="q">Tenuta dell&#x27;Ornellaia · Cabernet Sauvignon · Merlot · Cabernet Franc · 750ml · <a href="https://www.wine-searcher.com/find/ornellaia+superior+bolgheri+tuscany+italy/1996" target="_blank" rel="noopener">Wine-Searcher</a></dd>
 </dl></div></details>
-<details class="note rg-bordeaux"><summary><b>1996</b> · Château Haut-Brion <span class="q">— Bordeaux · <span class="s-peak">Peak</span> · $613</span></summary>
+<details class="note rg-bordeaux ap-pessac-leognan k-peak"><summary><b>1996</b> · Château Haut-Brion <span class="q">— Pessac-Léognan · <span class="s-peak">Peak</span> · $613</span></summary>
 <div class="body"><dl>
 <dt>Region</dt><dd class="place">Pessac-Léognan, Bordeaux · France</dd>
 <dt>Style</dt><dd>The first growth of Pessac-Léognan</dd>
@@ -382,7 +727,7 @@ hr{border:0;border-top:1px solid #e3e3e3;margin:34px 0 12px}
 <dt>Price basis</dt><dd>estimated — Median of 6 actual retailer listings, triangulated (USD/750ml) · 6 listings $580–$685 · WS snippet $613</dd>
 <dt>Detail</dt><dd class="q">Château Haut-Brion · 1er Cru Classé · Cabernet Sauvignon · Merlot · Cabernet Franc · 750ml · <a href="https://www.wine-searcher.com/find/haut+brion+pessac+leognan+bordeaux+france/1996" target="_blank" rel="noopener">Wine-Searcher</a></dd>
 </dl></div></details>
-<details class="note rg-napa"><summary><b>1996</b> · Silver Oak Napa Valley Cabernet Sauvignon <span class="q">— Napa Valley · <span class="s-urgent">Urgent</span> · $153</span></summary>
+<details class="note rg-napa ap-napa-valley k-urgent"><summary><b>1996</b> · Silver Oak Napa Valley Cabernet Sauvignon <span class="q">— Napa Valley · <span class="s-urgent">Urgent</span> · $153</span></summary>
 <div class="body"><dl>
 <dt>Region</dt><dd class="place">Napa Valley · USA</dd>
 <dt>Style</dt><dd>Napa Cabernet in American oak</dd>
@@ -394,7 +739,7 @@ hr{border:0;border-top:1px solid #e3e3e3;margin:34px 0 12px}
 <dt>Price basis</dt><dd>estimated — Median of 4 actual retailer listings, triangulated (USD/750ml) · 4 listings $148–$200 · WS snippet $226</dd>
 <dt>Detail</dt><dd class="q">Silver Oak · Cabernet Sauvignon · 750ml · <a href="https://www.wine-searcher.com/find/silver+oak+cellars+cab+sauv+napa+valley+county+north+coast+california+usa/1996" target="_blank" rel="noopener">Wine-Searcher</a></dd>
 </dl></div></details>
-<details class="note rg-tuscany"><summary><b>2019</b> · Sassicaia <span class="q">— Tuscany · <span class="s-hold">Hold</span> · $333</span></summary>
+<details class="note rg-tuscany ap-bolgheri-sassicaia-doc k-hold"><summary><b>2019</b> · Sassicaia <span class="q">— Bolgheri Sassicaia DOC · <span class="s-hold">Hold</span> · $333</span></summary>
 <div class="body"><dl>
 <dt>Region</dt><dd class="place">Bolgheri Sassicaia DOC · Italy</dd>
 <dt>Style</dt><dd>The original Bolgheri</dd>
@@ -406,7 +751,7 @@ hr{border:0;border-top:1px solid #e3e3e3;margin:34px 0 12px}
 <dt>Price basis</dt><dd>estimated — Median of 12 actual retailer listings, triangulated (USD/750ml) · 12 listings $250–$460 · WS snippet $322</dd>
 <dt>Detail</dt><dd class="q">Tenuta San Guido · Cabernet Sauvignon · Cabernet Franc · 750ml · <a href="https://www.wine-searcher.com/find/tenute+st+guido+sassicaia+bolgheri+tuscany+italy/2019" target="_blank" rel="noopener">Wine-Searcher</a></dd>
 </dl></div></details>
-<details class="note rg-champagne"><summary><b>2010</b> · Dom Pérignon <span class="q">— Champagne · <span class="s-peak">Peak</span> · $295</span></summary>
+<details class="note rg-champagne ap-champagne k-peak"><summary><b>2010</b> · Dom Pérignon <span class="q">— Champagne · <span class="s-peak">Peak</span> · $295</span></summary>
 <div class="body"><dl>
 <dt>Region</dt><dd class="place">Champagne · France</dd>
 <dt>Style</dt><dd>Mature prestige Champagne</dd>
@@ -418,7 +763,7 @@ hr{border:0;border-top:1px solid #e3e3e3;margin:34px 0 12px}
 <dt>Price basis</dt><dd>estimated — Median of 5 actual retailer listings, triangulated (USD/750ml) · 5 listings $270–$320 · WS snippet $352</dd>
 <dt>Detail</dt><dd class="q">Moët &amp; Chandon · Chardonnay · Pinot Noir · 750ml · <a href="https://www.wine-searcher.com/find/dom+perignon+brut+champagne+france/2010" target="_blank" rel="noopener">Wine-Searcher</a></dd>
 </dl></div></details>
-<details class="note rg-champagne"><summary><b>2013</b> · Dom Pérignon <span class="q">— Champagne · <span class="s-now">Drink now</span> · $275</span></summary>
+<details class="note rg-champagne ap-champagne k-now"><summary><b>2013</b> · Dom Pérignon <span class="q">— Champagne · <span class="s-now">Drink now</span> · $275</span></summary>
 <div class="body"><dl>
 <dt>Region</dt><dd class="place">Champagne · France</dd>
 <dt>Style</dt><dd>Taut prestige Champagne</dd>
@@ -430,7 +775,7 @@ hr{border:0;border-top:1px solid #e3e3e3;margin:34px 0 12px}
 <dt>Price basis</dt><dd>estimated — Median of 12 actual retailer listings, triangulated (USD/750ml) · 12 listings $191–$400 · WS snippet $312</dd>
 <dt>Detail</dt><dd class="q">Moët &amp; Chandon · Chardonnay · Pinot Noir · 750ml · <a href="https://www.wine-searcher.com/find/dom+perignon+brut+champagne+france/2013" target="_blank" rel="noopener">Wine-Searcher</a></dd>
 </dl></div></details>
-<details class="note rg-champagne"><summary><b>2017</b> · Dom Pérignon <span class="q">— Champagne · <span class="s-hold">Hold</span> · $269</span></summary>
+<details class="note rg-champagne ap-champagne k-hold"><summary><b>2017</b> · Dom Pérignon <span class="q">— Champagne · <span class="s-hold">Hold</span> · $269</span></summary>
 <div class="body"><dl>
 <dt>Region</dt><dd class="place">Champagne · France</dd>
 <dt>Style</dt><dd>Young prestige Champagne</dd>
@@ -442,7 +787,7 @@ hr{border:0;border-top:1px solid #e3e3e3;margin:34px 0 12px}
 <dt>Price basis</dt><dd>estimated — Median of 9 actual retailer listings, triangulated (USD/750ml) · 9 listings $240–$308 · WS snippet $277</dd>
 <dt>Detail</dt><dd class="q">Moët &amp; Chandon · Chardonnay · Pinot Noir · 750ml · <a href="https://www.wine-searcher.com/find/dom+perignon+brut+champagne+france/2017" target="_blank" rel="noopener">Wine-Searcher</a></dd>
 </dl></div></details>
-<details class="note rg-champagne"><summary><b>NV</b> · Monial Libera Me Brut (Blanc de Noirs) <span class="q">— Champagne · <span class="s-peak">Peak</span> · $33</span></summary>
+<details class="note rg-champagne ap-cote-des-bar k-peak"><summary><b>NV</b> · Monial Libera Me Brut (Blanc de Noirs) <span class="q">— Côte des Bar · <span class="s-peak">Peak</span> · $33</span></summary>
 <div class="body"><dl>
 <dt>Region</dt><dd class="place">Colombé-le-Sec, Côte des Bar (Aube), Champagne · France</dd>
 <dt>Style</dt><dd>Pinot Noir-based grower Champagne</dd>
@@ -454,7 +799,7 @@ hr{border:0;border-top:1px solid #e3e3e3;margin:34px 0 12px}
 <dt>Price basis</dt><dd>estimated — Median of 4 actual retailer listings, triangulated (USD/750ml) · 4 listings $24–$36 · WS snippet $19</dd>
 <dt>Detail</dt><dd class="q">Champagne Monial (Emmanuel &amp; Agnès Calon) · Pinot Noir · 12.5% · 750ml · <a href="https://www.wine-searcher.com/find/mondiale+libera+mer+brut+champagne+france" target="_blank" rel="noopener">Wine-Searcher</a></dd>
 </dl></div></details>
-<details class="note rg-champagne"><summary><b>2016</b> · Louis Roederer Cristal <span class="q">— Champagne · <span class="s-hold">Hold</span> · $330</span></summary>
+<details class="note rg-champagne ap-champagne k-hold"><summary><b>2016</b> · Louis Roederer Cristal <span class="q">— Champagne · <span class="s-hold">Hold</span> · $330</span></summary>
 <div class="body"><dl>
 <dt>Region</dt><dd class="place">Champagne · France</dd>
 <dt>Style</dt><dd>The longest-ageing prestige Champagne</dd>
@@ -466,7 +811,7 @@ hr{border:0;border-top:1px solid #e3e3e3;margin:34px 0 12px}
 <dt>Price basis</dt><dd>estimated — Median of 15 actual retailer listings, triangulated (USD/750ml) · 15 listings $270–$460 · WS snippet $347</dd>
 <dt>Detail</dt><dd class="q">Louis Roederer · Pinot Noir · Chardonnay · 750ml · <a href="https://www.wine-searcher.com/find/louis+roederer+cristal+millesime+brut+champagne+france/2016" target="_blank" rel="noopener">Wine-Searcher</a></dd>
 </dl></div></details>
-<details class="note rg-champagne"><summary><b>2006</b> · Pommery Cuvée Louise <span class="q">— Champagne · <span class="s-peak">Peak</span> · $310</span></summary>
+<details class="note rg-champagne ap-champagne k-peak"><summary><b>2006</b> · Pommery Cuvée Louise <span class="q">— Champagne · <span class="s-peak">Peak</span> · $310</span></summary>
 <div class="body"><dl>
 <dt>Region</dt><dd class="place">Champagne · France</dd>
 <dt>Style</dt><dd>Mature Chardonnay-led prestige cuvée</dd>
@@ -478,7 +823,7 @@ hr{border:0;border-top:1px solid #e3e3e3;margin:34px 0 12px}
 <dt>Price basis</dt><dd>estimated — Median of 4 actual retailer listings, triangulated (USD/750ml) · 4 listings $241–$330</dd>
 <dt>Detail</dt><dd class="q">Pommery · Chardonnay · Pinot Noir · 750ml · <a href="https://www.wine-searcher.com/find/pommery+cuvee+louise+brut+millesime+champagne+france/2006" target="_blank" rel="noopener">Wine-Searcher</a></dd>
 </dl></div></details>
-<details class="note rg-burgundy"><summary><b>2022</b> · Charles Noëllat Chassagne-Montrachet <span class="q">— Burgundy · <span class="s-peak">Peak</span> · $126</span></summary>
+<details class="note rg-burgundy ap-chassagne-montrachet k-peak"><summary><b>2022</b> · Charles Noëllat Chassagne-Montrachet <span class="q">— Chassagne-Montrachet · <span class="s-peak">Peak</span> · $126</span></summary>
 <div class="body"><dl>
 <dt>Region</dt><dd class="place">Chassagne-Montrachet, Côte de Beaune, Burgundy · France</dd>
 <dt>Style</dt><dd>Village-level white Burgundy</dd>
@@ -490,7 +835,7 @@ hr{border:0;border-top:1px solid #e3e3e3;margin:34px 0 12px}
 <dt>Price basis</dt><dd>estimated — Median of 2 actual retailer listings, triangulated (USD/750ml) · 2 listings $116–$136</dd>
 <dt>Detail</dt><dd class="q">Charles Noëllat (négociant) · Village · Chardonnay · 12.5% · 750ml · <a href="https://www.wine-searcher.com/find/charles+noellat" target="_blank" rel="noopener">Wine-Searcher</a></dd>
 </dl></div></details>
-<details class="note rg-champagne"><summary><b>2002</b> · Krug Vintage <span class="q">— Champagne · <span class="s-peak">Peak</span> · $569</span></summary>
+<details class="note rg-champagne ap-champagne k-peak"><summary><b>2002</b> · Krug Vintage <span class="q">— Champagne · <span class="s-peak">Peak</span> · $569</span></summary>
 <div class="body"><dl>
 <dt>Region</dt><dd class="place">Champagne · France</dd>
 <dt>Style</dt><dd>The summit of the cellar</dd>
@@ -502,7 +847,7 @@ hr{border:0;border-top:1px solid #e3e3e3;margin:34px 0 12px}
 <dt>Price basis</dt><dd>estimated — Median of 10 actual retailer listings, triangulated (USD/750ml) · 10 listings $485–$918 · WS snippet $724</dd>
 <dt>Detail</dt><dd class="q">Krug · Pinot Noir · Chardonnay · Pinot Meunier · 750ml · <a href="https://www.wine-searcher.com/find/krug+vintage+brut+champagne+france/2002" target="_blank" rel="noopener">Wine-Searcher</a></dd>
 </dl></div></details>
-<details class="note rg-tuscany"><summary><b>2021</b> · Antinori Solaia <span class="q">— Tuscany · <span class="s-hold">Hold</span> · $400</span></summary>
+<details class="note rg-tuscany ap-toscana-igt k-hold"><summary><b>2021</b> · Antinori Solaia <span class="q">— Toscana IGT · <span class="s-hold">Hold</span> · $400</span></summary>
 <div class="body"><dl>
 <dt>Region</dt><dd class="place">Toscana IGT · Italy</dd>
 <dt>Style</dt><dd>The summit of Antinori</dd>
@@ -514,7 +859,7 @@ hr{border:0;border-top:1px solid #e3e3e3;margin:34px 0 12px}
 <dt>Price basis</dt><dd>estimated — Median of 7 actual retailer listings, triangulated (USD/750ml) · 7 listings $359–$565</dd>
 <dt>Detail</dt><dd class="q">Marchesi Antinori · Cabernet Sauvignon · Sangiovese · Cabernet Franc · 750ml · <a href="https://www.wine-searcher.com/find/marchesi+antinori+solaia+tuscany+igp+italy/2021" target="_blank" rel="noopener">Wine-Searcher</a></dd>
 </dl></div></details>
-<details class="note rg-bordeaux"><summary><b>1996</b> · Château du Domaine de l&#x27;Église <span class="q">— Bordeaux · <span class="s-urgent">Urgent</span> · $102</span></summary>
+<details class="note rg-bordeaux ap-pomerol k-urgent"><summary><b>1996</b> · Château du Domaine de l&#x27;Église <span class="q">— Pomerol · <span class="s-urgent">Urgent</span> · $102</span></summary>
 <div class="body"><dl>
 <dt>Region</dt><dd class="place">Pomerol, Bordeaux · France</dd>
 <dt>Style</dt><dd>Mature Pomerol</dd>
@@ -526,7 +871,7 @@ hr{border:0;border-top:1px solid #e3e3e3;margin:34px 0 12px}
 <dt>Price basis</dt><dd>confirmed — Confirmed by the owner directly on the Wine-Searcher screen (2026-09)</dd>
 <dt>Detail</dt><dd class="q">Château du Domaine de l&#x27;Église · Pomerol (no classification) · Merlot · Cabernet Franc · 12.5% · 750ml · <a href="https://www.wine-searcher.com/find/domaine+de+l+eglise+pomerol+bordeaux+france/1996" target="_blank" rel="noopener">Wine-Searcher</a></dd>
 </dl></div></details>
-<details class="note rg-bordeaux"><summary><b>2019</b> · Alter Ego de Palmer <span class="q">— Bordeaux · <span class="s-now">Drink now</span> · $122</span></summary>
+<details class="note rg-bordeaux ap-margaux k-now"><summary><b>2019</b> · Alter Ego de Palmer <span class="q">— Margaux · <span class="s-now">Drink now</span> · $122</span></summary>
 <div class="body"><dl>
 <dt>Region</dt><dd class="place">Margaux, Bordeaux · France</dd>
 <dt>Style</dt><dd>Modern Margaux</dd>
@@ -538,7 +883,7 @@ hr{border:0;border-top:1px solid #e3e3e3;margin:34px 0 12px}
 <dt>Price basis</dt><dd>unverified — Value read from web search results — not confirmed on a Wine-Searcher page</dd>
 <dt>Detail</dt><dd class="q">Château Palmer · Second Wine · Merlot · Cabernet Sauvignon · Petit Verdot · 750ml · <a href="https://www.wine-searcher.com/find/palmer+alter+ego+de+margaux+medoc+bordeaux+france/2019" target="_blank" rel="noopener">Wine-Searcher</a></dd>
 </dl></div></details>
-<details class="note rg-bordeaux"><summary><b>2011</b> · Château Lynch-Bages <span class="q">— Bordeaux · <span class="s-peak">Peak</span> · $166</span></summary>
+<details class="note rg-bordeaux ap-pauillac k-peak"><summary><b>2011</b> · Château Lynch-Bages <span class="q">— Pauillac · <span class="s-peak">Peak</span> · $166</span></summary>
 <div class="body"><dl>
 <dt>Region</dt><dd class="place">Pauillac, Bordeaux · France</dd>
 <dt>Style</dt><dd>Textbook Pauillac</dd>
@@ -550,7 +895,7 @@ hr{border:0;border-top:1px solid #e3e3e3;margin:34px 0 12px}
 <dt>Price basis</dt><dd>unverified — Value read from web search results — not confirmed on a Wine-Searcher page</dd>
 <dt>Detail</dt><dd class="q">Château Lynch-Bages · 5ème Cru Classé · Cabernet Sauvignon · Merlot · Cabernet Franc · Petit Verdot · 750ml · <a href="https://www.wine-searcher.com/find/lynch+bages+pauillac+medoc+bordeaux+france/2011" target="_blank" rel="noopener">Wine-Searcher</a></dd>
 </dl></div></details>
-<details class="note rg-loire"><summary><b>2024</b> · Jean Pabiot Pouilly-Fumé (Fines Caillottes) <span class="q">— Loire · <span class="s-urgent">Urgent</span> · $31</span></summary>
+<details class="note rg-loire ap-pouilly-fume k-urgent"><summary><b>2024</b> · Jean Pabiot Pouilly-Fumé (Fines Caillottes) <span class="q">— Pouilly-Fumé · <span class="s-urgent">Urgent</span> · $31</span></summary>
 <div class="body"><dl>
 <dt>Region</dt><dd class="place">Pouilly-Fumé, Loire · France</dd>
 <dt>Style</dt><dd>Mineral-driven Sauvignon Blanc</dd>
@@ -562,7 +907,7 @@ hr{border:0;border-top:1px solid #e3e3e3;margin:34px 0 12px}
 <dt>Price basis</dt><dd>unverified — Value read from web search results — not confirmed on a Wine-Searcher page</dd>
 <dt>Detail</dt><dd class="q">Jean Pabiot (Domaine des Fines Caillottes) · Sauvignon Blanc · 750ml · <a href="https://www.wine-searcher.com/find/jean+pabiot+dom+de+fines+caillottes+pouilly+fume+upper+loire+france/2024" target="_blank" rel="noopener">Wine-Searcher</a></dd>
 </dl></div></details>
-<details class="note rg-bordeaux"><summary><b>2000</b> · Château Canon <span class="q">— Bordeaux · <span class="s-peak">Peak</span> · $220</span></summary>
+<details class="note rg-bordeaux ap-saint-emilion k-peak"><summary><b>2000</b> · Château Canon <span class="q">— Saint-Émilion · <span class="s-peak">Peak</span> · $220</span></summary>
 <div class="body"><dl>
 <dt>Region</dt><dd class="place">Saint-Émilion, Bordeaux · France</dd>
 <dt>Style</dt><dd>Limestone Saint-Émilion</dd>
@@ -574,7 +919,7 @@ hr{border:0;border-top:1px solid #e3e3e3;margin:34px 0 12px}
 <dt>Price basis</dt><dd>confirmed — Confirmed by the owner directly on the Wine-Searcher screen (2026-09)</dd>
 <dt>Detail</dt><dd class="q">Château Canon · 1er Grand Cru Classé B · Merlot · Cabernet Franc · 750ml · <a href="https://www.wine-searcher.com/find/canon+st+emilion+grand+cru+bordeaux+france/2000" target="_blank" rel="noopener">Wine-Searcher</a></dd>
 </dl></div></details>
-<details class="note rg-bordeaux"><summary><b>2002</b> · Château Coutet <span class="q">— Bordeaux · <span class="s-peak">Peak</span> · $50</span></summary>
+<details class="note rg-bordeaux ap-barsac k-peak"><summary><b>2002</b> · Château Coutet <span class="q">— Barsac · <span class="s-peak">Peak</span> · $50</span></summary>
 <div class="body"><dl>
 <dt>Region</dt><dd class="place">Barsac, Sauternes, Bordeaux · France</dd>
 <dt>Style</dt><dd>Lean Barsac</dd>
@@ -586,7 +931,7 @@ hr{border:0;border-top:1px solid #e3e3e3;margin:34px 0 12px}
 <dt>Price basis</dt><dd>unverified — Value read from web search results — not confirmed on a Wine-Searcher page</dd>
 <dt>Detail</dt><dd class="q">Château Coutet · 1er Cru Classé · Sémillon · Sauvignon Blanc · Muscadelle · 375ml · <a href="https://www.wine-searcher.com/find/coutet+barsac+sauternes+bordeaux+france/2002" target="_blank" rel="noopener">Wine-Searcher</a></dd>
 </dl></div></details>
-<details class="note rg-loire"><summary><b>1981</b> · Moulin Touchais Coteaux du Layon <span class="q">— Loire · <span class="s-peak">Peak</span> · $50</span></summary>
+<details class="note rg-loire ap-coteaux-du-layon k-peak"><summary><b>1981</b> · Moulin Touchais Coteaux du Layon <span class="q">— Coteaux du Layon · <span class="s-peak">Peak</span> · $50</span></summary>
 <div class="body"><dl>
 <dt>Region</dt><dd class="place">Coteaux du Layon, Anjou, Loire · France</dd>
 <dt>Style</dt><dd>Long-lived Loire sweet wine</dd>
@@ -598,31 +943,31 @@ hr{border:0;border-top:1px solid #e3e3e3;margin:34px 0 12px}
 <dt>Price basis</dt><dd>unverified — Value read from web search results — not confirmed on a Wine-Searcher page</dd>
 <dt>Detail</dt><dd class="q">Moulin Touchais · Chenin Blanc · 750ml · <a href="https://www.wine-searcher.com/find/moulin+touchais+coteaux+du+layon+anjou+loire+france/1981" target="_blank" rel="noopener">Wine-Searcher</a></dd>
 </dl></div></details>
-<details class="note rg-penedes"><summary><b>2022</b> · Naveran Dama de Naveran Extra Brut Cava <span class="q">— Penedès · <span class="s-peak">Peak</span> · $20</span></summary>
+<details class="note rg-penedes ap-penedes k-peak"><summary><b>2022</b> · Naveran Dama de Naveran Extra Brut Cava <span class="q">— Penedès · <span class="s-peak">Peak</span> · $30</span></summary>
 <div class="body"><dl>
 <dt>Region</dt><dd class="place">Penedès, Catalonia · Spain</dd>
-<dt>Style</dt><dd>Crisp, citrus-led Cava</dd>
-<dt>Tasting</dt><dd>Green apple and lemon peel over a fine, insistent bead, with a light bready note from lees ageing. Extra Brut dosage means almost no sugar, so it finishes dry and clean rather than soft. Built for appetite, not contemplation.</dd>
-<dt>Background</dt><dd>Caves Naveran is a family estate in Torrelavit, Penedès, working single-estate fruit rather than bought-in grapes — unusual for Cava, where scale usually wins. Dama is their Chardonnay-led cuvée.</dd>
+<dt>Style</dt><dd>Chardonnay-led vintage Cava</dd>
+<dt>Tasting</dt><dd>Green apple and lemon peel over a fine, insistent bead, with a light bready note from two years on the lees. The Chardonnay carries it and the Parellada keeps the finish lifted; the low dosage means it lands dry and clean rather than soft.</dd>
+<dt>Background</dt><dd>Caves Naveran is a family estate in Torrelavit, in the Alt Penedès, working its own organically farmed fruit rather than bought-in grapes — unusual for Cava, where scale usually wins. Dama is 85% Chardonnay with 15% Parellada, aged 18 to 24 months on the lees.</dd>
 <dt>Serving</dt><dd>6–8°C · decant None · Tulip glass</dd>
 <dt>Pairing</dt><dd>Jamón ibérico · Fried seafood · Salted almonds</dd>
 <dt>Note</dt><dd>Four bottles, so this is the one that gets opened without a reason. Drink over the next two years.</dd>
-<dt>Price basis</dt><dd>unverified — Value read from web search results — not confirmed on a Wine-Searcher page</dd>
-<dt>Detail</dt><dd class="q">Caves Naveran · Chardonnay · Pinot Noir · 750ml · <a href="https://www.wine-searcher.com/find/naveran+dama+naveran+extra+brut+cava+penedes+spain/2022" target="_blank" rel="noopener">Wine-Searcher</a></dd>
+<dt>Price basis</dt><dd>estimated — Median of US retailer listings seen directly (USD/750ml)</dd>
+<dt>Detail</dt><dd class="q">Caves Naveran · Chardonnay · Parellada · 12.5% · 750ml · <a href="https://www.wine-searcher.com/find/naveran+dama+naveran+extra+brut+cava+penedes+spain/2022" target="_blank" rel="noopener">Wine-Searcher</a></dd>
 </dl></div></details>
-<details class="note rg-penedes"><summary><b>NV</b> · Bohigas Cava Brut Reserva <span class="q">— Penedès · <span class="s-urgent">Urgent</span> · $15</span></summary>
+<details class="note rg-penedes ap-penedes k-urgent"><summary><b>NV</b> · Bohigas Cava Brut Reserva <span class="q">— Penedès · <span class="s-urgent">Urgent</span> · $19</span></summary>
 <div class="body"><dl>
 <dt>Region</dt><dd class="place">Penedès, Catalonia · Spain</dd>
 <dt>Style</dt><dd>Traditional Penedès Cava</dd>
-<dt>Tasting</dt><dd>The classic Macabeo–Xarel·lo–Parellada signature: quince, almond skin and a faintly bitter herbal edge that keeps it savoury. Less fruit-forward than Chardonnay-led Cava, more texture.</dd>
-<dt>Background</dt><dd>Bohigas farms in Òdena, in the higher inland part of Penedès, where cooler nights hold acidity. The estate has been in the same family since the fifteenth century.</dd>
+<dt>Tasting</dt><dd>The classic Penedès signature, Xarel·lo-led: quince, almond skin and a faintly bitter herbal edge that keeps it savoury. Two years on the lees give it texture rather than fruit. Less forward than Chardonnay-led Cava, and better at the table for it.</dd>
+<dt>Background</dt><dd>Caves Bohigas, also known as Fermí Bohigas, has been bottling since 1870 and works 35 hectares of estate vineyards at Òdena, in the higher inland part of Penedès where cooler nights hold acidity. The Brut Reserva is 55% Xarel·lo, 30% Macabeo and 15% Parellada, aged a minimum of 24 months.</dd>
 <dt>Serving</dt><dd>6–8°C · decant None · Tulip glass</dd>
 <dt>Pairing</dt><dd>Tortilla española · Grilled vegetables · Manchego</dd>
-<dt>Note</dt><dd>Cuvée not confirmed — recorded as Brut Reserva. Check the label.</dd>
-<dt>Price basis</dt><dd>unverified — Value read from web search results — not confirmed on a Wine-Searcher page</dd>
-<dt>Detail</dt><dd class="q">Caves Bohigas · Macabeo · Xarel·lo · Parellada · 750ml · <a href="https://www.wine-searcher.com/find/bohigas+cava+brut+reserva+penedes+spain" target="_blank" rel="noopener">Wine-Searcher</a></dd>
+<dt>Note</dt><dd>Bohigas&#x27; most widely distributed cuvée. Drink it young while the lees texture is still fresh.</dd>
+<dt>Price basis</dt><dd>estimated — US retailer listings seen directly (USD/750ml)</dd>
+<dt>Detail</dt><dd class="q">Caves Bohigas · Xarel·lo · Macabeo · Parellada · 750ml · <a href="https://www.wine-searcher.com/find/bohigas+cava+brut+reserva+penedes+spain" target="_blank" rel="noopener">Wine-Searcher</a></dd>
 </dl></div></details>
-<details class="note rg-marlborough"><summary><b>2023</b> · Cloudy Bay Sauvignon Blanc <span class="q">— Marlborough · <span class="s-peak">Peak</span> · $32</span></summary>
+<details class="note rg-marlborough ap-marlborough k-peak"><summary><b>2023</b> · Cloudy Bay Sauvignon Blanc <span class="q">— Marlborough · <span class="s-peak">Peak</span> · $32</span></summary>
 <div class="body"><dl>
 <dt>Region</dt><dd class="place">Marlborough · New Zealand</dd>
 <dt>Style</dt><dd>Marlborough Sauvignon Blanc, magnum</dd>
@@ -634,12 +979,12 @@ hr{border:0;border-top:1px solid #e3e3e3;margin:34px 0 12px}
 <dt>Price basis</dt><dd>unverified — Value read from web search results — not confirmed on a Wine-Searcher page</dd>
 <dt>Detail</dt><dd class="q">Cloudy Bay · Sauvignon Blanc · 1500ml · <a href="https://www.wine-searcher.com/find/cloudy+bay+sauvignon+blanc+marlborough+new+zealand/2023" target="_blank" rel="noopener">Wine-Searcher</a></dd>
 </dl></div></details>
+</div>
+<p class="empty">Nothing in the cellar matches that combination.</p>
 <h2>Check</h2><ul>
 <li><b>30. Château Canon — Possible bottle variation</b><br><span class="q">Canon struggled with TCA contamination in the cellar&#x27;s woodwork through the 1990s and rebuilt the cellars after Chanel bought the estate in 1996. Quality got back on track in the mid-to-late 2000s, so the 2000 vintage falls in the transition. Don&#x27;t put it up alone at an important dinner.</span></li>
-<li><b>33. Naveran Dama de Naveran Extra Brut Cava — Blend needs checking</b><br><span class="q">Check the grape breakdown for Dama de Naveran on the label. Recorded as Chardonnay-led with Pinot Noir, but not confirmed.</span></li>
-<li><b>34. Bohigas Cava Brut Reserva — Cuvée needs checking</b><br><span class="q">Check the cuvée name on the Bohigas Cava. Recorded as Brut Reserva.</span></li>
 </ul>
 <hr>
-<p class="foot">Status is derived from the drinking window, not stored by hand: past the window is post peak; two years or less left is urgent; not yet open is hold; a quarter of the way in — or five years past the opening — is peak; everything else is drink now. Value scales a 750ml average price by the actual bottle format.</p>
-<p class="foot">Prices aim at the Wine-Searcher worldwide average. Automated access is blocked by a CAPTCHA, so they are kept in three grades: confirmed = checked directly on the Wine-Searcher page (2 wines) · estimate = median of several actual retailer listings, triangulated (multi-agent collection, vintage-matched listings only, outliers removed) · unverified = older single search values (5 wines, where the workflow ran into the session limit). The estimates are anchored to real retailer listings and are more accurate than the old single snippets; this is the method that corrected the Canon error, where the snippet was inflated 2.7x to $603. A definitive worldwide average can only come from a Wine-Searcher API key or from checking the page directly.</p>
+<p class="foot">Status is derived from the drinking window, not stored by hand: past the window is post peak; a year or less left — or two years that are the last third of the window — is urgent; not yet open is hold; a quarter of the way in, or five years past the opening, is peak; everything else is drink now. Value scales a 750ml average price by the actual bottle format.</p>
+<p class="foot">Prices aim at the Wine-Searcher worldwide average. Automated access is blocked by a CAPTCHA, so they are kept in three grades. Confirmed means the figure was read directly off the Wine-Searcher page. Estimated means a median of actual retailer listings for the matching vintage, outliers removed. Unverified means an older single search value, which has been wrong by a factor of 2.7 — a snippet put Château Canon 2000 at $603 against an actual $220, which is what prompted the listing-based method. A definitive worldwide average needs a Wine-Searcher API key, or the page checked by hand. PRICES.md lists what is still outstanding, worst first.</p>
 <p class="foot">Cellar held at a steady 10°C. Safe for long-term storage, and slightly below the ideal band (12–14°C), so ageing runs a little slower — the far end of each drinking window can be taken as having more room than the figures show. Reds serve at 16–18°C, though, so take them out of the cellar 40–60 minutes before opening.</p>
