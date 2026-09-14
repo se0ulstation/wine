@@ -24,56 +24,56 @@ As of 2026-09-11 · 40 bottles / 35 labels · est. $8,007 · stored at 10°C
 
 | # | Wine | Vintage | Window | Note |
 |---|---|---|---|---|
-| 8 | Le Petit Mouton de Mouton Rothschild | 2013 | 2020-2028 | 약한 빈티지, 더 기다릴 이유 없음 |
-| 13 | Ornellaia | 1996 | 2005-2028 | 30년차, 음용 창 끝자락 |
-| 15 | Silver Oak Napa Valley Cabernet Sauvignon | 1996 | 2001-2027 | 조기 음용형 스타일 + 30년차 |
-| 26 | Château du Domaine de l'Église | 1996 | 2004-2027 | 30년차 + 우안에 불리했던 빈티지, 숙성 여력 없음 |
-| 29 | Jean Pabiot Pouilly-Fumé (Fines Caillottes) | 2024 | 2025-2027 | 소비뇽 블랑, 신선할 때가 전부. 1년 내 소비 |
+| 8 | Le Petit Mouton de Mouton Rothschild | 2013 | 2020-2028 | Weak vintage, no reason to wait |
+| 13 | Ornellaia | 1996 | 2005-2028 | 30 years old, end of the drinking window |
+| 15 | Silver Oak Napa Valley Cabernet Sauvignon | 1996 | 2001-2027 | Early-drinking style plus 30 years of age |
+| 26 | Château du Domaine de l'Église | 1996 | 2004-2027 | 30 years old plus a vintage that hurt the Right Bank, no ageing left |
+| 29 | Jean Pabiot Pouilly-Fumé (Fines Caillottes) | 2024 | 2025-2027 | Sauvignon Blanc, freshness is the whole point. Drink within a year |
 | 34 | Bohigas Cava Brut Reserva | NV | 2024-2027 | Classic Penedès trio, traditional Cava. |
 
-## Drink now (5)
+## Drink now (6)
 
 | # | Wine | Vintage | Window | Note |
 |---|---|---|---|---|
-| 1 | Orin Swift Mercury Head Cabernet Sauvignon | 2018 | 2024-2035 | 2018 나파 최상급, 지금도 좋고 더 가도 됨 |
-| 6 | Antinori Tignanello | 2020 | 2026-2038 | 지금 열려면 디캔팅 2시간, 2028 이후가 더 좋음 |
-| 9 | Château Palmer | 2008 | 2024-2045 | 저평가 빈티지지만 팔머는 예외적으로 훌륭 |
-| 18 | Dom Pérignon | 2013 | 2023-2036 | 산도 높고 긴장감 있음, 지금도 좋고 더 가도 좋음 |
-| 27 | Alter Ego de Palmer | 2019 | 2026-2040 | 2019 강세 빈티지, 지금도 가능하나 2029 이후가 본령 |
+| 1 | Orin Swift Mercury Head Cabernet Sauvignon | 2018 | 2024-2035 | Top-tier 2018 Napa, good now and will keep |
+| 4 | Château Calon Ségur | 2005 | 2024-2048 | Legendary 2005 vintage, the window is open but it hits its stride in the 2030s |
+| 6 | Antinori Tignanello | 2020 | 2026-2038 | Decant 2 hours if opening now, better after 2028 |
+| 9 | Château Palmer | 2008 | 2024-2045 | Underrated vintage, but Palmer is exceptionally good |
+| 18 | Dom Pérignon | 2013 | 2023-2036 | High acidity and tension, good now and good for longer |
+| 27 | Alter Ego de Palmer | 2019 | 2026-2040 | Strong 2019 vintage, drinkable now but it hits its stride after 2029 |
 
 ## Peak (22)
 
 | # | Wine | Vintage | Window | Note |
 |---|---|---|---|---|
-| 3 | Austin Hope Cabernet Sauvignon | 2020 | 2023-2030 | 데일리급, 지금이 제일 맛있음 |
-| 7 | Château Calon Ségur | 2000 | 2020-2040 | 밀레니엄 빈티지 26년차, 정확히 피크 |
-| 10 | Pavillon Rouge du Château Margaux | 2000 | 2015-2032 | 세컨 와인 26년차, 피크 후반부 |
-| 11 | Opus One x2 | 2007 | 2020-2038 | 오퍼스 원 역대 최고 빈티지 중 하나 |
-| 12 | Opus One Overture x2 | NV | 2023-2029 | 멀티빈티지 블렌드, 숙성용 아님 |
-| 14 | Château Haut-Brion | 1996 | 2015-2045 | 1급 그랑크뤼 30년차, 클래식 피크. 특별한 자리용 |
-| 17 | Dom Pérignon | 2010 | 2020-2032 | DP 3병 중 가장 먼저 열 것 |
-| 20 | Monial Libera Me Brut (Blanc de Noirs) | NV | 2024-2029 | 논빈티지 그로워 샴페인, 숙성 이득 없음 |
-| 22 | Pommery Cuvée Louise | 2006 | 2016-2032 | 20년차 프레스티지 퀴베 |
-| 23 | Charles Noëllat Chassagne-Montrachet | 2022 | 2024-2028 | 네고시앙 빌라주급 + 저산도 빈티지, 장기 보관 부적합 |
-| 24 | Krug Vintage | 2002 | 2020-2050 | 금세기 최고 샴페인 빈티지 중 하나. 셀러의 하이라이트 |
-| 28 | Château Lynch-Bages | 2011 | 2021-2035 | 중간급 빈티지라 일찍 열림, 지금이 좋은 구간 |
-| 30 | Château Canon | 2000 | 2012-2032 | 피크 구간이나 병차(bottle variation) 주의 — 아래 설명 |
-| 31 | Château Coutet (375ml) | 2002 | 2010-2035 | 하프보틀이라 숙성이 빠름, 지금이 좋음 |
-| 32 | Moulin Touchais Coteaux du Layon | 1981 | 1995-2045 | 45년차지만 정상 범위. 셀러에서 가장 오래 갈 병 |
+| 3 | Austin Hope Cabernet Sauvignon | 2020 | 2023-2030 | Everyday bottle, best right now |
+| 7 | Château Calon Ségur | 2000 | 2020-2040 | Millennium vintage at 26 years, right at peak |
+| 10 | Pavillon Rouge du Château Margaux | 2000 | 2015-2032 | Second wine at 26 years, late in its peak |
+| 11 | Opus One x2 | 2007 | 2020-2038 | One of the best Opus One vintages ever |
+| 12 | Opus One Overture x2 | NV | 2023-2029 | Multi-vintage blend, not for ageing |
+| 14 | Château Haut-Brion | 1996 | 2015-2045 | First growth at 30 years, classic peak. For a special occasion |
+| 17 | Dom Pérignon | 2010 | 2020-2032 | Open this first of the three DPs |
+| 20 | Monial Libera Me Brut (Blanc de Noirs) | NV | 2024-2029 | Non-vintage grower Champagne, nothing to gain by keeping it |
+| 22 | Pommery Cuvée Louise | 2006 | 2016-2032 | Prestige cuvée at 20 years |
+| 23 | Charles Noëllat Chassagne-Montrachet | 2022 | 2024-2028 | Négociant village level plus a low-acid vintage, not for keeping |
+| 24 | Krug Vintage | 2002 | 2020-2050 | One of the century's best Champagne vintages. The highlight of the cellar |
+| 28 | Château Lynch-Bages | 2011 | 2021-2035 | Middling vintage so it opened early, a good window now |
+| 30 | Château Canon | 2000 | 2012-2032 | At peak, but watch for bottle variation — see below |
+| 31 | Château Coutet (375ml) | 2002 | 2010-2035 | A half bottle, so it ages fast; good now |
+| 32 | Moulin Touchais Coteaux du Layon | 1981 | 1995-2045 | 45 years old but within normal range. The longest-lived bottle in the cellar |
 | 33 | Naveran Dama de Naveran Extra Brut Cava x4 | 2022 | 2024-2028 | Four bottles. The everyday pour. |
 | 35 | Cloudy Bay Sauvignon Blanc (1500ml) | 2023 | 2024-2029 | Magnum. The only large format in the cellar. |
 
-## Hold (7)
+## Hold (6)
 
 | # | Wine | Vintage | Window | Note |
 |---|---|---|---|---|
-| 2 | Hardys Thomas Hardy Cabernet Sauvignon | 2017 | 2027-2042 | 아직 어림, 최소 2~3년 더 |
-| 4 | Château Calon Ségur | 2005 | 2030-2048 | 2005 전설적 빈티지, 창은 열렸지만 본령은 2030년대 |
-| 5 | Shafer One Point Five Cabernet Sauvignon | 2021 | 2027-2038 | 2021 나파 초강세, 지금 열면 아까움 |
-| 16 | Sassicaia | 2019 | 2027-2048 | 역대급 빈티지, 지금 열면 손해 |
-| 19 | Dom Pérignon | 2017 | 2027-2040 | 가장 어린 DP |
-| 21 | Louis Roederer Cristal | 2016 | 2028-2048 | 셀러 샴페인 중 최장기 보관 대상 |
-| 25 | Antinori Solaia | 2021 | 2029-2050 | 핵심 구간 2032–2045 |
+| 2 | Hardys Thomas Hardy Cabernet Sauvignon | 2017 | 2027-2042 | Still young, another two or three years at least |
+| 5 | Shafer One Point Five Cabernet Sauvignon | 2021 | 2027-2038 | Very strong 2021 Napa, a waste to open now |
+| 16 | Sassicaia | 2019 | 2027-2048 | All-time vintage, a loss to open now |
+| 19 | Dom Pérignon | 2017 | 2027-2040 | The youngest DP |
+| 21 | Louis Roederer Cristal | 2016 | 2028-2048 | The longest keeper among the cellar's Champagnes |
+| 25 | Antinori Solaia | 2021 | 2029-2050 | Core window 2032–2045 |
 
 ---
 
@@ -84,7 +84,7 @@ As of 2026-09-11 · 40 bottles / 35 labels · est. $8,007 · stored at 10°C
 | 1 | 2018 | Orin Swift Mercury Head Cabernet Sauvignon | Napa Valley | Drink now | 2024-2035 | $132 |
 | 2 | 2017 | Hardys Thomas Hardy Cabernet Sauvignon | Coonawarra / Margaret River | Hold | 2027-2042 | $93 |
 | 3 | 2020 | Austin Hope Cabernet Sauvignon | Paso Robles | Peak | 2023-2030 | $50 |
-| 4 | 2005 | Château Calon Ségur | Saint-Estèphe, Bordeaux | Hold | 2030-2048 | $155 |
+| 4 | 2005 | Château Calon Ségur | Saint-Estèphe, Bordeaux | Drink now | 2024-2048 | $155 |
 | 5 | 2021 | Shafer One Point Five Cabernet Sauvignon | Stags Leap District, Napa Valley | Hold | 2027-2038 | $125 |
 | 6 | 2020 | Antinori Tignanello | Toscana IGT | Drink now | 2026-2038 | $162 |
 | 7 | 2000 | Château Calon Ségur | Saint-Estèphe, Bordeaux | Peak | 2020-2040 | $217 |
@@ -119,5 +119,5 @@ As of 2026-09-11 · 40 bottles / 35 labels · est. $8,007 · stored at 10°C
 
 > Status is derived from the drinking window, not stored: past the window is post peak; two years or less left is urgent; not yet open is hold; a quarter of the way in — or five years past the opening — is peak; everything else is drink now.
 
-> 셀러 10°C 고정. 장기 보관에 안전하며 이상적 구간(12–14°C)보다 약간 낮아 숙성이 조금 더 천천히 진행된다 — 음용 창의 뒤쪽 끝은 표기보다 여유 있다고 봐도 된다. 다만 레드는 서빙 온도가 16–18°C이므로 개봉 40~60분 전에 셀러에서 꺼내 둘 것.
+> Cellar held at a steady 10°C. Safe for long-term storage, and slightly below the ideal band (12–14°C), so ageing runs a little slower — the far end of each drinking window can be taken as having more room than the figures show. Reds serve at 16–18°C, though, so take them out of the cellar 40–60 minutes before opening.
 
