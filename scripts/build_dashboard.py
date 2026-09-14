@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """data/cellar.json -> web/dashboard.html
 
-A plain static document: white background, black text, links. No client-side
-script.
+A plain static document: white ground, Aptos where the reader has it, no
+client-side script and no embedded font.
 
 The inventory is one list of disclosure widgets whose summaries share a grid
 template, so it reads as a table but every row opens onto its own note. Filter,
@@ -16,8 +16,8 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from cellar import (CLS, LABEL, ROOT, STATUS, appellations, load, qty, regions,
-                    status, usd, value, vintage)
+from cellar import (CLS, LABEL, NOW, ROOT, STATUS, appellations, load, qty,
+                    regions, status, usd, value, vintage)
 
 BASIS = {"verified": "confirmed", "estimate": "estimated", "unverified": "unverified"}
 
@@ -36,90 +36,159 @@ def esc(x):
 
 
 CSS = """
-@font-face{font-family:Pretendard;font-weight:45 930;font-style:normal;font-display:swap;
-  src:url(data:font/woff2;base64,__FONT__) format("woff2")}
-:root{color-scheme:light;
-  --cols:14px 28px 54px minmax(0,2.1fr) minmax(0,1.55fr) 84px 94px 70px 80px}
-html,body{background:#fff;color:#111}
-body{font-family:Pretendard,-apple-system,BlinkMacSystemFont,system-ui,sans-serif;
-  font-size:15px;line-height:1.65;margin:0;padding:28px 20px 72px;
-  max-width:920px;margin-inline:auto;-webkit-text-size-adjust:100%;
-  counter-reset:bb 0 ll 0}
-h1{font-size:20px;margin:0 0 2px}
-h2{font-size:15px;margin:34px 0 8px;padding-bottom:4px;border-bottom:1px solid #111}
-p{margin:0 0 10px}
-a{color:#0b57d0}
-a:hover{color:#083a8c}
-.meta{color:#666;font-size:13px;margin-bottom:0}
-.q{color:#666}
-.s-urgent,.s-post{color:#c2352b}
-.s-peak{color:#1b7f4e}
-.s-hold{color:#888}
+/* Aptos is Microsoft's, proprietary, and not licensed for self-hosting as a
+   webfont — and it is not on Google Fonts, the only external font host the
+   artifact CSP admits. So it is asked for locally: anyone with Microsoft 365,
+   Office or Windows 11 has it installed and sees it, and everyone else lands on
+   the nearest humanist sans their system already has. Nothing is embedded. */
 
-/* The inventory. A flex column so a row's sort position is one `order`, and a
-   flip of the axis reverses every row at once. */
-.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
-.tbl{display:flex;flex-direction:column;min-width:760px;margin-top:6px}
-.hd,.row{display:grid;grid-template-columns:var(--cols);gap:0 8px;align-items:start}
-.hd{order:0;color:#666;font-size:12.5px;font-weight:600;
-  border-bottom:1px solid #111;padding:0 2px 4px}
-.w{border-bottom:1px solid #e3e3e3}
-.row{font-size:13.5px;padding:6px 2px;cursor:pointer;list-style:none}
-.row::-webkit-details-marker{display:none}
-.w:hover .row{background:#fafafa}
-.row .num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
-.row .yr{font-weight:700;font-size:14.5px;font-variant-numeric:tabular-nums;
-  white-space:nowrap}
-.row .nm{color:#111}
-.w[open] .row .nm{font-weight:600}
-.row .st{white-space:nowrap}
-.car{color:#888;transition:transform .12s;line-height:1.5}
-.w[open] .car{transform:rotate(90deg)}
-.body{padding:4px 2px 14px 42px;font-size:14px;max-width:660px}
-.body dt{color:#666;font-size:12.5px;margin-top:8px}
-.body dd{margin:0}
-.body dd.place{font-size:15px}
-dl{margin:0}
-ul{margin:0 0 10px;padding-left:20px}
-li{margin-bottom:5px}
-hr{border:0;border-top:1px solid #e3e3e3;margin:34px 0 12px}
-.foot{color:#666;font-size:12.5px}
+/* Committed to light. The cellar list is a paper document and the owner asked
+   for a white ground; the neutrals carry a slight warm bias so they read as
+   chosen rather than inherited. Red and green are the only hues, and they mean
+   status — nothing decorative gets to use them. */
+:root{
+  color-scheme:light;
+  --bg:#fff;
+  --ink:#15130f;
+  --ink-2:#6d675d;
+  --ink-3:#9b958c;
+  --rule:#e7e4de;
+  --rule-2:#f1efea;
+  --wash:#faf9f7;
+  --urgent:#a8321f;
+  --peak:#2d6a4a;
+  --cols:15px 26px 52px minmax(0,2.15fr) minmax(0,1.5fr) 78px 96px 70px 78px;
+}
+*{box-sizing:border-box}
+html,body{background:var(--bg);color:var(--ink)}
+body{font-family:Aptos,"Segoe UI Variable Text","Segoe UI",system-ui,
+    -apple-system,BlinkMacSystemFont,"Helvetica Neue",sans-serif;
+  font-size:15px;font-weight:400;line-height:1.6;margin:0;
+  padding-block:30px 80px;padding-inline:20px;
+  max-width:940px;margin-inline:auto;-webkit-text-size-adjust:100%;
+  counter-reset:bb 0 ll 0;
+  font-variant-numeric:tabular-nums}
+p{margin:0}
+a{color:inherit;text-decoration:underline;text-decoration-color:var(--ink-3);
+  text-underline-offset:2px}
+a:hover{text-decoration-color:var(--ink)}
+:focus-visible{outline:2px solid var(--ink);outline-offset:3px;border-radius:1px}
+.sr{position:absolute;width:1px;height:1px;clip-path:inset(50%);overflow:hidden}
 
-/* Filter, sort and direction state. Hidden radios that sibling selectors read,
-   kept visually hidden rather than display:none so they stay keyboard reachable. */
+/* Masthead */
+.top{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px;
+  padding-bottom:16px;border-bottom:1px solid var(--ink)}
+h1{font-size:21px;font-weight:700;letter-spacing:-.012em;margin:0;text-wrap:balance}
+.meta{color:var(--ink-2);font-size:12.5px;line-height:1.5}
+
+/* Section labels do the work the old black rules were doing. */
+.sec{display:block;font-size:11px;font-weight:600;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink-3);margin:30px 0 10px}
+
+/* Summary — figures first, names second. */
+.sum{display:flex;flex-wrap:wrap;gap:6px 26px;align-items:baseline}
+.fig{display:inline-flex;align-items:baseline;gap:6px;font-size:13px;color:var(--ink-2)}
+.fig b{font-size:20px;font-weight:700;letter-spacing:-.01em;color:inherit}
+.s-urgent,.s-post{color:var(--urgent)}
+.s-peak{color:var(--peak)}
+.s-now{color:var(--ink)}
+.s-hold{color:var(--ink-3)}
+.prices{color:var(--ink-2);font-size:12.5px;margin-top:9px}
+
+/* Controls. One label gutter so every row starts on the same line. */
 .f{position:absolute;width:1px;height:1px;margin:-1px;padding:0;border:0;
   clip-path:inset(50%);overflow:hidden;white-space:nowrap}
-.nav{font-size:13.5px;line-height:2.1;margin:6px 0 0}
-.nav .lbl{color:#666;font-size:12.5px;font-weight:600;margin-right:8px}
-.nav label{margin-right:14px;white-space:nowrap;cursor:pointer;color:#0b57d0;
-  text-decoration:underline;text-underline-offset:2px}
-.nav label:hover{color:#083a8c}
-.nav label .n{color:#666;font-variant-numeric:tabular-nums}
-.apnav{display:none;padding-left:14px}
+.nav{display:grid;grid-template-columns:58px minmax(0,1fr);gap:0 14px;
+  align-items:baseline;margin-bottom:7px}
+.nav .lbl{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--ink-3);padding-top:1px}
+.opts{display:flex;flex-wrap:wrap;gap:2px 15px}
+.opts label{font-size:13.5px;cursor:pointer;color:var(--ink-2);
+  text-decoration:underline;text-decoration-color:var(--rule);text-underline-offset:3px;
+  white-space:nowrap}
+.opts label:hover{color:var(--ink);text-decoration-color:var(--ink-3)}
+.opts label .n{font-size:12px;color:var(--ink-3)}
+.apnav{display:none}
 .apnav .sub{display:none}
-.readout{color:#666;font-size:12.5px;margin:10px 0 0}
+.dirsep{width:1px;align-self:stretch;background:var(--rule);margin:2px 1px}
+
+/* Inventory. A flex column, so a row's sort position is one `order` and the
+   direction is one axis flip. */
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tbl{display:flex;flex-direction:column;min-width:770px}
+.hd,.row{display:grid;grid-template-columns:var(--cols);gap:0 10px;align-items:baseline}
+.hd{order:0;font-size:10.5px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;
+  color:var(--ink-3);padding:0 2px 7px;border-bottom:1px solid var(--ink)}
+.w{border-bottom:1px solid var(--rule-2)}
+.w:last-child{border-bottom:0}
+.row{font-size:13.5px;padding:9px 2px;cursor:pointer;list-style:none;
+  color:var(--ink-2);transition:background .1s}
+.row::-webkit-details-marker{display:none}
+.w:hover>.row{background:var(--wash)}
+.w[open]{background:var(--wash);border-bottom-color:var(--rule)}
+.w[open]>.row{background:none}
+.num{text-align:right;white-space:nowrap}
+.idx{color:var(--ink-3);font-size:12px}
+.yr{font-weight:700;font-size:14.5px;color:var(--ink);white-space:nowrap;
+  letter-spacing:-.01em}
+.nm{color:var(--ink);font-weight:500}
+.w[open] .nm{font-weight:600}
+.fmt{color:var(--ink-3);font-weight:400;font-size:12.5px}
+.st{white-space:nowrap;font-weight:500}
+.car{color:var(--ink-3);font-size:10px;line-height:2;transition:transform .14s ease}
+.w[open] .car{transform:rotate(90deg);color:var(--ink)}
+
+/* How far through its life this bottle is. The one thing on the page that is
+   about wine rather than about rows. */
+.wb{display:block;height:2px;margin-top:4px;background:var(--rule);border-radius:2px}
+.wb::before{content:"";display:block;height:100%;width:var(--p);
+  background:currentColor;opacity:.55;border-radius:2px}
+
+/* The note, opened in place. */
+.body{padding:2px 2px 20px 44px}
+.body dl{display:grid;grid-template-columns:84px minmax(0,1fr);gap:9px 20px;
+  align-items:baseline;margin:0;max-width:700px}
+.body dt{font-size:10.5px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;
+  color:var(--ink-3);text-align:right;line-height:1.9}
+.body dd{margin:0;font-size:14px;line-height:1.65}
+.body dd.lead{font-size:15px}
+.body .q{color:var(--ink-2);font-size:13px}
+
+.readout{color:var(--ink-3);font-size:12px;margin-top:12px}
 .readout .cb::before{content:counter(bb)}
 .readout .cl::before{content:counter(ll)}
-.empty{display:none;color:#666;margin-top:16px}
+.empty{display:none;color:var(--ink-2);margin-top:20px}
 
-/* Narrow: drop the columns that the open note repeats anyway, rather than
-   making the page scroll sideways. */
+/* Flags and method notes. */
+.flags{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:14px}
+.flags b{font-weight:600}
+.flags p{color:var(--ink-2);font-size:13.5px;margin-top:2px;max-width:700px}
+.method{margin-top:34px;padding-top:16px;border-top:1px solid var(--rule);
+  display:flex;flex-direction:column;gap:11px}
+.method p{color:var(--ink-3);font-size:12px;line-height:1.6;max-width:760px}
+
 @media (max-width:760px){
-  :root{--cols:14px 26px 50px minmax(0,1fr) 82px 66px}
+  :root{--cols:15px 24px 48px minmax(0,1fr) 76px 64px}
+  body{padding-inline:16px}
   .tbl{min-width:0}
   .c-region,.c-window,.c-basis{display:none}
-  .body{padding-left:16px}
+  .nav{grid-template-columns:1fr;gap:1px}
+  .body{padding-left:18px}
+  .body dl{grid-template-columns:minmax(0,1fr);gap:1px}
+  .body dt{text-align:left;margin-top:11px;line-height:1.6}
 }
+
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
 
 @media print{
   .tbl{display:block;min-width:0}
-  .nav,.readout{display:none}
-  .w{break-inside:avoid}
+  .nav,.readout,.car{display:none}
+  .w{break-inside:avoid;background:none}
 }
 """
 
 
-def render(d, font):
+def render(d):
     B = sorted(d["bottles"], key=lambda b: b["id"])
     total = sum(qty(b) for b in B)
     worth = sum(value(b) for b in B)
@@ -182,27 +251,29 @@ def render(d, font):
     o = []
     A = o.append
     A("<title>CellarOS</title>")
-    A("<style>" + CSS.replace("__FONT__", font) + "\n" + "\n".join(rules) + "</style>")
-    A("<h1>CellarOS</h1>")
-    A(f'<p class="meta">{total} bottles · {len(B)} labels · est. {usd(worth)} · '
+    A("<style>" + CSS + "\n" + "\n".join(rules) + "</style>")
+
+    A('<div class="top"><h1>CellarOS</h1>'
+      f'<p class="meta">{total} bottles · {len(B)} labels · est. {usd(worth)} · '
       f'vintages {min(yrs)}–{max(yrs)} · cellar {d["storage"]["temp_c"]}°C · '
-      f'as of {d["updated"]}</p>')
+      f'as of {d["updated"]}</p></div>')
 
     tiers = {}
     for b in B:
         tiers[b["price"]["confidence"]] = tiers.get(b["price"]["confidence"], 0) + 1
-    A("<h2>Summary</h2>")
-    A('<p>' + " · ".join(f'<span class="{CLS[k]}">{t} {st_n[k]}</span>'
-                         for k, t, _ in STATUS if st_n[k]) + '.<br>'
-      f'<span class="q">Prices — {tiers.get("verified",0)} confirmed · '
-      f'{tiers.get("estimate",0)} estimated · {tiers.get("unverified",0)} unverified.</span></p>')
+    A('<h2 class="sec">Summary</h2>')
+    A('<div class="sum">' + "".join(
+        f'<span class="fig {CLS[k]}"><b>{st_n[k]}</b> {t}</span>'
+        for k, t, _ in STATUS if st_n[k]) + "</div>")
+    A(f'<p class="prices">Prices — {tiers.get("verified",0)} confirmed · '
+      f'{tiers.get("estimate",0)} estimated · {tiers.get("unverified",0)} unverified.</p>')
 
     # Region group first, then status, so the sibling selectors can pair them.
     A('<input class="f" type="radio" name="rg" id="f-rg-all" checked>')
-    for s in order:
-        A(f'<input class="f" type="radio" name="rg" id="f-rg-{s}">')
-    for s in multi:
-        for a in subs[s]:
+    for s_ in order:
+        A(f'<input class="f" type="radio" name="rg" id="f-rg-{s_}">')
+    for s_ in multi:
+        for a in subs[s_]:
             A(f'<input class="f" type="radio" name="rg" id="f-ap-{a["slug"]}">')
     A('<input class="f" type="radio" name="st" id="f-st-all" checked>')
     for k in st_order:
@@ -213,35 +284,36 @@ def render(d, font):
     A('<input class="f" type="radio" name="dir" id="f-dir-asc" checked>')
     A('<input class="f" type="radio" name="dir" id="f-dir-desc">')
 
-    A("<h2>Browse</h2>")
-    chips = ['<span class="lbl">Region</span>', '<label for="f-rg-all">All</label>']
-    for s in order:
-        chips.append(f'<label for="f-rg-{s}">{esc(groups[s]["name"])} '
-                     f'<span class="n">{groups[s]["n"]}</span></label>')
-    A('<p class="nav">' + "\n".join(chips) + "</p>")
+    A('<h2 class="sec">Browse</h2>')
 
-    sub_chips = ['<span class="lbl">Within</span>']
-    for s in multi:
-        for a in subs[s]:
-            sub_chips.append(f'<label class="sub sub-{s}" for="f-ap-{a["slug"]}">'
-                             f'{esc(a["name"])} <span class="n">{a["n"]}</span></label>')
-    A('<p class="nav apnav">' + "\n".join(sub_chips) + "</p>")
+    chips = ['<label for="f-rg-all">All</label>']
+    chips += [f'<label for="f-rg-{s_}">{esc(groups[s_]["name"])} '
+              f'<span class="n">{groups[s_]["n"]}</span></label>' for s_ in order]
+    A('<div class="nav"><span class="lbl">Region</span>'
+      '<span class="opts">' + "\n".join(chips) + "</span></div>")
 
-    st_chips = ['<span class="lbl">Status</span>', '<label for="f-st-all">Any</label>']
-    for k in st_order:
-        st_chips.append(f'<label for="f-st-{k}"><span class="{CLS[k]}">{LABEL[k]}</span> '
-                        f'<span class="n">{st_n[k]}</span></label>')
-    A('<p class="nav">' + "\n".join(st_chips) + "</p>")
+    sub_chips = [f'<label class="sub sub-{s_}" for="f-ap-{a["slug"]}">'
+                 f'{esc(a["name"])} <span class="n">{a["n"]}</span></label>'
+                 for s_ in multi for a in subs[s_]]
+    A('<div class="nav apnav"><span class="lbl">Within</span>'
+      '<span class="opts">' + "\n".join(sub_chips) + "</span></div>")
 
-    so_chips = ['<span class="lbl">Sort</span>', '<label for="f-so-cellar">Cellar #</label>']
+    st_chips = ['<label for="f-st-all">Any</label>']
+    st_chips += [f'<label for="f-st-{k}"><span class="{CLS[k]}">{LABEL[k]}</span> '
+                 f'<span class="n">{st_n[k]}</span></label>' for k in st_order]
+    A('<div class="nav"><span class="lbl">Status</span>'
+      '<span class="opts">' + "\n".join(st_chips) + "</span></div>")
+
+    so_chips = ['<label for="f-so-cellar">Cellar #</label>']
     so_chips += [f'<label for="f-so-{k}">{t}</label>' for k, t, _ in SORTS]
-    so_chips += ['<span class="lbl" style="margin-left:10px">Order</span>',
-                 '<label for="f-dir-asc">↑ Ascending</label>',
-                 '<label for="f-dir-desc">↓ Descending</label>']
-    A('<p class="nav">' + "\n".join(so_chips) + "</p>")
+    so_chips += ['<span class="dirsep" aria-hidden="true"></span>',
+                 '<label for="f-dir-asc">↑<span class="sr"> Ascending</span></label>',
+                 '<label for="f-dir-desc">↓<span class="sr"> Descending</span></label>']
+    A('<div class="nav"><span class="lbl">Sort</span>'
+      '<span class="opts">' + "\n".join(so_chips) + "</span></div>")
 
     A('<div class="main">')
-    A('<h2>Inventory</h2><div class="tw"><div class="tbl">')
+    A('<h2 class="sec">Inventory</h2><div class="tw"><div class="tbl">')
     A('<div class="hd" aria-hidden="true"><span></span><span class="num">#</span>'
       '<span>Vintage</span><span>Wine</span><span class="c-region">Region</span>'
       '<span>Status</span><span class="num c-window">Window</span>'
@@ -250,30 +322,35 @@ def render(d, font):
     for b in B:
         k = status(b)
         pf, pr = b["profile"], b["price"]
-        n = f' <span class="q">×{qty(b)}</span>' if qty(b) > 1 else ""
+        lo, hi = b["drink_from"], b["drink_to"]
+        through = min(max((NOW - lo) / max(hi - lo, 1), 0), 1)
+        n = f' <span class="fmt">×{qty(b)}</span>' if qty(b) > 1 else ""
         ml = b.get("format_ml", 750)
-        fm = f' <span class="q">{"1.5L" if ml == 1500 else f"{ml}ml"}</span>' if ml != 750 else ""
+        fm = (f' <span class="fmt">{"1.5L" if ml == 1500 else f"{ml}ml"}</span>'
+              if ml != 750 else "")
         A(f'<details class="w w{b["id"]:02d} rg-{b["_rg"]} ap-{b["_ap"]} k-{k}" '
           f'style="counter-increment:bb {qty(b)} ll 1">')
-        A(f'<summary class="row"><span class="car">▸</span>'
-          f'<span class="num q">{b["id"]:02d}</span>'
+        A(f'<summary class="row"><span class="car">▶</span>'
+          f'<span class="num idx">{b["id"]:02d}</span>'
           f'<span class="yr">{vintage(b)}</span>'
           f'<span class="nm">{esc(b["display"])}{n}{fm}</span>'
-          f'<span class="c-region q">{esc(b["region"])}</span>'
+          f'<span class="c-region">{esc(b["region"])}</span>'
           f'<span class="st {CLS[k]}">{LABEL[k]}</span>'
-          f'<span class="num c-window q">{b["drink_from"]}–{b["drink_to"]}</span>'
+          f'<span class="num c-window">{lo}–{hi}'
+          f'<span class="wb {CLS[k]}" style="--p:{through:.0%}"></span></span>'
           f'<span class="num">{usd(value(b))}</span>'
-          f'<span class="c-basis q">{BASIS[pr["confidence"]]}</span></summary>')
+          f'<span class="c-basis">{BASIS[pr["confidence"]]}</span></summary>')
+
         A('<div class="body"><dl>')
-        A(f'<dt>Region</dt><dd class="place">{esc(b["region"])} · {esc(b["country"])}</dd>')
-        A(f'<dt>Style</dt><dd>{esc(pf["style"])}</dd>')
+        A(f'<dt>Region</dt><dd class="lead">{esc(b["region"])} · {esc(b["country"])}</dd>')
+        A(f'<dt>Style</dt><dd class="lead">{esc(pf["style"])}</dd>')
         A(f'<dt>Tasting</dt><dd>{esc(pf["tasting"])}</dd>')
         A(f'<dt>Background</dt><dd>{esc(pf["story"])}</dd>')
-        A(f'<dt>Serving</dt><dd>{esc(pf["serve"]["temp"])} · decant {esc(pf["serve"]["decant"])} · '
-          f'{esc(pf["serve"]["glass"])} glass</dd>')
+        A(f'<dt>Serving</dt><dd>{esc(pf["serve"]["temp"])} · decant '
+          f'{esc(pf["serve"]["decant"])} · {esc(pf["serve"]["glass"])} glass</dd>')
         A(f'<dt>Pairing</dt><dd>{esc(" · ".join(pf["pair"]))}</dd>')
-        A(f'<dt>Drinking window</dt><dd>{b["drink_from"]}–{b["drink_to"]} · '
-          f'<span class="{CLS[k]}">{LABEL[k]}</span></dd>')
+        A(f'<dt>Window</dt><dd>{lo}–{hi} · <span class="{CLS[k]}">{LABEL[k]}</span>'
+          f'<span class="q"> · {through:.0%} through</span></dd>')
         A(f'<dt>Note</dt><dd>{esc(b["notes"])}</dd>')
         e = pr.get("est")
         src = esc(pr.get("source", ""))
@@ -281,8 +358,8 @@ def render(d, font):
             src += f' · {e["n_listings"]} listings {usd(e["low"])}–{usd(e["high"])}'
             if e.get("ws_snippet"):
                 src += f' · WS snippet {usd(e["ws_snippet"])}'
-        A(f'<dt>Price</dt><dd>{usd(pr["avg_usd"])} per 750ml · '
-          f'{BASIS[pr["confidence"]]} — {src}</dd>')
+        A(f'<dt>Price</dt><dd>{usd(pr["avg_usd"])} per 750ml'
+          f'<span class="q"> · {BASIS[pr["confidence"]]} — {src}</span></dd>')
         meta = [esc(b["producer"])]
         if b.get("classification"):
             meta.append(esc(b["classification"]))
@@ -290,8 +367,8 @@ def render(d, font):
             meta.append(esc(" · ".join(b["grapes"])))
         if b.get("abv"):
             meta.append(f'{b["abv"]}%')
-        meta.append(f'{ml}ml')
-        A(f'<dt>Detail</dt><dd class="q">{" · ".join(meta)} · '
+        meta.append(f"{ml}ml")
+        A(f'<dt>Bottle</dt><dd class="q">{" · ".join(meta)} · '
           f'<a href="{esc(b["ws_url"])}" target="_blank" rel="noopener">Wine-Searcher</a></dd>')
         A("</dl></div></details>")
 
@@ -303,30 +380,31 @@ def render(d, font):
 
     byid = {b["id"]: b for b in B}
     if d.get("flags"):
-        A("<h2>Check</h2><ul>")
+        A('<h2 class="sec">Check</h2><ul class="flags">')
         for f in d["flags"]:
-            A(f'<li><b>{f["id"]:02d}. {esc(byid[f["id"]]["display"])} — {esc(f["title"])}</b><br>'
-              f'<span class="q">{esc(f["text"])}</span></li>')
+            A(f'<li><b>{f["id"]:02d} · {esc(byid[f["id"]]["display"])} — '
+              f'{esc(f["title"])}</b><p>{esc(f["text"])}</p></li>')
         A("</ul>")
 
-    A("<hr>")
-    A('<p class="foot">Status is derived from the drinking window, not stored by hand: '
-      'past the window is post peak; inside its last quarter is urgent; not yet open is '
-      'hold; a quarter of the way in, or five years past the opening, is peak; everything '
-      'else is drink now. Urgency is relative to the window rather than a fixed countdown, '
-      'because a year left on a Cava is a third of its life and a year left on a 1996 Napa '
-      'Cabernet is four per cent of it. Value scales a 750ml average price by the actual '
-      'bottle format.</p>')
-    A(f'<p class="foot">{esc(d["price_note"])}</p>')
-    A(f'<p class="foot">{esc(d["storage"]["note"])}</p>')
+    A('<div class="method">')
+    A('<p>Status is derived from the drinking window, not stored by hand: past the '
+      'window is post peak; inside its last quarter is urgent; not yet open is hold; a '
+      'quarter of the way in, or five years past the opening, is peak; everything else '
+      'is drink now. Urgency is relative to the window rather than a fixed countdown, '
+      'because a year left on a Cava is a third of its life and a year left on a 1996 '
+      'Napa Cabernet is four per cent of it. The bar under each window shows how far '
+      'through that span the wine is today. Value scales a 750ml average price by the '
+      'actual bottle format.</p>')
+    A(f'<p>{esc(d["price_note"])}</p>')
+    A(f'<p>{esc(d["storage"]["note"])}</p>')
+    A("</div>")
     return "\n".join(o)
 
 
 def main():
     d = load()
-    font = (ROOT / "web" / "font" / "pretendard.b64").read_text().strip()
     out = ROOT / "web" / "dashboard.html"
-    out.write_text(render(d, font))
+    out.write_text(render(d))
     n = sum(qty(b) for b in d["bottles"])
     print(f"{out.relative_to(ROOT)}: {n} bottles · {len(d['bottles'])} labels · "
           f"{out.stat().st_size / 1024:.0f} KB")

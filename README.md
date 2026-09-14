@@ -14,14 +14,19 @@ python3 scripts/build_dashboard.py  # -> web/dashboard.html
 | Path | |
 |---|---|
 | [`data/cellar.json`](data/cellar.json) | **Source of truth.** Edit the inventory here and nowhere else. |
-| [`scripts/cellar.py`](scripts/cellar.py) | Shared domain: status, value, regions. Both generators import it. |
+| [`scripts/cellar.py`](scripts/cellar.py) | Shared domain: status, value, regions, appellations. Every generator imports it. |
 | [`CELLAR.md`](CELLAR.md) | The cellar as a document. Generated. |
 | [`PRICES.md`](PRICES.md) | Which prices still need confirming. Generated. |
 | [`web/dashboard.html`](web/dashboard.html) | The dashboard. Generated, published as an Artifact. |
 
-The dashboard is a static document — no client-side script. Region browsing is
-CSS `:target`, so it works with JavaScript off and prints as it reads. Rebuild
-and republish to the same file path and the Artifact link stays the same.
+The dashboard is a static document — no client-side script. Filtering, sorting
+and the expanding rows are hidden radios and `<details>` read by CSS sibling
+selectors, so it works with JavaScript off and prints as it reads. Rebuild and
+republish to the same file path and the Artifact link stays the same.
+
+Type is Aptos where the reader has it, falling back through Segoe UI to the
+system sans. Nothing is embedded: Aptos is proprietary, not licensed for
+self-hosting as a webfont, and not on Google Fonts.
 
 ## Schema
 
