@@ -34,8 +34,8 @@ Wine-Searcher blocks automated access, so these averages cannot be fetched. Open
 | 22 | 23 | Charles Noëllat Chassagne-Montrachet | 2022 | $126 | estimated | [open](https://www.wine-searcher.com/find/charles+noellat+chassagne+montrachet+cote+de+beaune+burgundy+france/2022) |
 | 23 | 05 | Shafer One Point Five Cabernet Sauvignon | 2021 | $125 | estimated | [open](https://www.wine-searcher.com/find/shafer+one+point+five+cab+sauv+stags+leap+district+napa+valley+county+north+coast+california+usa/2021) |
 | 24 | 27 | Alter Ego de Palmer | 2019 | $122 | unverified | [open](https://www.wine-searcher.com/find/palmer+alter+ego+de+margaux+medoc+bordeaux+france/2019) |
-| 25 | 33 | Naveran Dama de Naveran Extra Brut Cava | 2022 | $30 | estimated | [open](https://www.wine-searcher.com/find/naveran+dama+naveran+extra+brut+cava+penedes+spain/2022) |
-| 26 | 02 | Hardys Thomas Hardy Cabernet Sauvignon | 2017 | $93 | estimated | [open](https://www.wine-searcher.com/find/hardys+thomas+hardy+cabernet+sauvignon+australia/2017) |
+| 25 | 02 | Hardys Thomas Hardy Cabernet Sauvignon | 2017 | $93 | estimated | [open](https://www.wine-searcher.com/find/hardys+thomas+hardy+cabernet+sauvignon+australia/2017) |
+| 26 | 33 | Naveran Dama de Naveran Extra Brut Cava | 2022 | $30 | estimated | [open](https://www.wine-searcher.com/find/naveran+dama+naveran+extra+brut+cava+penedes+spain/2022) |
 | 27 | 35 | Cloudy Bay Sauvignon Blanc | 2023 | $33 | unverified | [open](https://www.wine-searcher.com/find/cloudy+bay+sauvignon+blanc+marlborough+new+zealand/2023) |
 | 28 | 03 | Austin Hope Cabernet Sauvignon | 2020 | $50 | estimated | [open](https://www.wine-searcher.com/find/austinhope+cab+sauv+paso+robles+st+luis+obispo+county+central+coast+california+usa/2020) |
 | 29 | 32 | Moulin Touchais Coteaux du Layon | 1981 | $50 | unverified | [open](https://www.wine-searcher.com/find/moulin+touchais+coteaux+du+layon+anjou+loire+france/1981) |

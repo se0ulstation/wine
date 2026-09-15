@@ -1,6 +1,6 @@
 {
  "owner": "jungyoonkim96",
- "updated": "2026-09-11",
+ "updated": "2026-09-15",
  "notes": "Where quantity is unconfirmed, qty=1 is assumed. Purchase price, source and date of arrival to be added later.",
  "bottles": [
   {
@@ -1805,7 +1805,7 @@
    "producer": "Caves Naveran",
    "wine": "Dama de Naveran Extra Brut Cava",
    "display": "Naveran Dama de Naveran Extra Brut Cava",
-   "short": "Four bottles. The everyday pour.",
+   "short": "Three bottles left. The everyday pour.",
    "vintage": 2022,
    "country": "Spain",
    "region": "Penedès, Catalonia",
@@ -1815,13 +1815,13 @@
     "Chardonnay",
     "Parellada"
    ],
-   "qty": 4,
+   "qty": 3,
    "format_ml": 750,
    "drink_from": 2024,
    "drink_to": 2028,
    "status": "drink_now",
    "peak_from": 2025,
-   "notes": "Four bottles, so this is the one that gets opened without a reason. Drink over the next two years.",
+   "notes": "Three left of the original four, so this is still the one that gets opened without a reason. Drink over the next two years.",
    "profile": {
     "style": "Chardonnay-led vintage Cava",
     "tasting": "Green apple and lemon peel over a fine, insistent bead, with a light bready note from two years on the lees. The Chardonnay carries it and the Parellada keeps the finish lifted; the low dosage means it lands dry and clean rather than soft.",
