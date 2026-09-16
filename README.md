@@ -6,17 +6,17 @@ A personal cellar: what is in it, when to drink it, and what it is worth.
 so the numbers in the Markdown and in the dashboard can never drift apart.
 
 ```
-python3 scripts/check.py            # validate data/cellar.json first
-python3 scripts/build_cellar.py     # -> CELLAR.md
-python3 scripts/build_prices.py     # -> PRICES.md
-python3 scripts/build_dashboard.py  # -> web/dashboard.html
+python3 scripts/build.py    # validate, then regenerate everything
 ```
+
+The check runs first and a failure stops the build, so a bad edit never reaches
+the outputs.
 
 | Path | |
 |---|---|
 | [`data/cellar.json`](data/cellar.json) | **Source of truth.** Edit the inventory here and nowhere else. |
 | [`scripts/cellar.py`](scripts/cellar.py) | Shared domain: status, value, regions, appellations. Every generator imports it. |
-| [`scripts/check.py`](scripts/check.py) | Invariants the generators assume. Run it before building. |
+| [`scripts/check.py`](scripts/check.py) | Invariants the generators assume. `build.py` runs it for you. |
 | [`CELLAR.md`](CELLAR.md) | The cellar as a document. Generated. |
 | [`PRICES.md`](PRICES.md) | Which prices still need confirming. Generated. |
 | [`web/dashboard.html`](web/dashboard.html) | The dashboard body. Generated, published as an Artifact. |

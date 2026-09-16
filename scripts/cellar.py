@@ -5,13 +5,19 @@ Everything derived from the inventory lives here so the Markdown and the HTML
 can never disagree. data/cellar.json is the only source of truth; nothing
 written by hand is duplicated in either output.
 """
+import datetime
 import json
+import os
 import re
 import unicodedata
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-NOW = 2026
+
+# The current year, not a constant. Status is derived precisely so it cannot go
+# stale, and a pinned year would quietly break that every January. CELLAR_YEAR
+# overrides it so a test can ask what the cellar looks like in 2030.
+NOW = int(os.environ.get("CELLAR_YEAR") or datetime.date.today().year)
 
 # key, label, css class
 STATUS = [
@@ -118,11 +124,16 @@ def appellation_of(b):
 
 
 def appellations(bottles):
-    """slug -> {name, slug, rg, n}, in region order then by bottle count."""
+    """slug -> {name, slug, rg, n}, in region order then by bottle count.
+
+    Resolves the parent region itself rather than reading the `_rg` that
+    regions() happens to leave behind, so the two can be called in either order.
+    """
     out = {}
     for b in bottles:
         name, slug = appellation_of(b)
-        a = out.setdefault(slug, {"name": name, "slug": slug, "rg": b["_rg"], "n": 0})
+        rg = b.get("_rg") or region_of(b)[1]
+        a = out.setdefault(slug, {"name": name, "slug": slug, "rg": rg, "n": 0})
         a["n"] += qty(b)
         b["_ap"] = slug
     return out

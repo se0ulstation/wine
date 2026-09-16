@@ -1,7 +1,10 @@
 # CellarOS
 
 A personal wine cellar: what is in it, when to drink it, what it is worth.
-40 bottles across 35 labels.
+
+No live figure — count, value, region tally — belongs in this file. They go
+stale the moment a bottle is drunk, and one already had. `scripts/check.py`
+prints the current ones.
 
 ## The one rule
 
@@ -11,14 +14,13 @@ file — the change is gone at the next build, and the two documents drift apart
 which is the failure this layout exists to prevent.
 
 ```
-python3 scripts/build_cellar.py     # -> CELLAR.md
-python3 scripts/build_prices.py     # -> PRICES.md
-python3 scripts/build_dashboard.py  # -> web/dashboard.html
+python3 scripts/build.py     # check, then regenerate everything
 ```
 
-Run `scripts/check.py` first, then all three generators. `scripts/cellar.py`
-holds everything derived — status, value, regions, appellations — so the
-Markdown and the HTML cannot disagree about a number.
+That validates first and stops on failure, so a bad edit never reaches the
+outputs. Run the individual generators only when you know why — running one
+alone is how the outputs drift apart. `scripts/cellar.py` holds everything
+derived, so the Markdown and the HTML cannot disagree about a number.
 
 `check.py` encodes the invariants that have actually been broken, not a wish
 list: a window opening before the vintage, a price outside the listings it
@@ -30,6 +32,11 @@ a commit. Add a rule to it whenever a new class of mistake turns up.
 
 `scripts/cellar.py::status()` computes it from the drinking window at build
 time. There is no `status` field to trust; a stored one is wrong within a year.
+
+`NOW` is the **system year**, not a constant — a pinned one would break that
+same promise every January, which it silently did until it was caught. Set
+`CELLAR_YEAR=2034` to ask what the cellar looks like later; that is also how
+`post peak`, currently an empty state, was confirmed to work.
 
 Urgency is **relative to the window, not an absolute countdown**. A year left
 on a Cava is a third of its life; a year left on a 1996 Napa Cabernet is four
@@ -44,10 +51,13 @@ touching `STATUS` in `cellar.py` and nothing else.
 
 `price.confidence` is one of:
 
-- **`verified`** — read directly off the Wine-Searcher page. Two wines.
+- **`verified`** — read directly off the Wine-Searcher page.
 - **`estimate`** — median of real retailer listings for the matching vintage,
   outliers removed.
-- **`unverified`** — a single web-search value.
+- **`unverified`** — never read off the page. All of these have since been
+  corroborated by a second vintage-pinned search and agree within a few per
+  cent, so the tier now means unconfirmed rather than unsupported. The evidence
+  sits in each bottle's `price.note`.
 
 **Never promote a price without the evidence to match.** A search snippet put
 Château Canon 2000 at **$603** when the real Wine-Searcher average is **$220** —
@@ -62,6 +72,10 @@ Wine-Searcher blocks automated access with a CAPTCHA; do not try to defeat it.
 
 `avg_usd` is always a **750ml** price. `value()` scales it by `format_ml`, so
 a magnum counts double and a half-bottle counts half.
+
+The worldwide average runs above US retail — Lynch-Bages averages $166 against
+a US listing median near $117. The cellar total is a cross-market replacement
+value, not a US shelf price.
 
 ## The dashboard has no JavaScript, and that is deliberate
 
@@ -169,8 +183,8 @@ Work happens on `claude/loving-shannon-3b2a6l`.
 
 ## Open
 
-- 33 of 35 labels still need a real Wine-Searcher average. `PRICES.md` lists
-  them worst-first by how much each moves the cellar total.
+- Most labels still need a real Wine-Searcher average. `PRICES.md` is
+  generated and lists them worst-first by how much each moves the total.
 - Bottle 30 (Château Canon 2000) is flagged for bottle variation.
 - Non-vintage windows are soft — without a disgorgement date there is nothing
   to anchor them to. Bottles 12, 20 and 34.
