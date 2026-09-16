@@ -174,7 +174,10 @@ them together.
 
 - `held(wines)` — those with a bottle left. A finished wine keeps its entry, its
   notes and its place in the log; only its holding goes to zero.
-- `drunk(d)` — out-events newest first, each joined back to its wine.
+- `drunk(d)` — out-events newest first, each joined back to its wine. The date
+  orders the list and is required on every out-event, but is **deliberately not
+  rendered**: the record is worth keeping, the calendar is not worth reading.
+  Don't add it back to the page.
 - `date: null` means an opening balance: already in the cellar when it was first
   catalogued. Acquisition dates were never recorded and inventing them would be
   worse than admitting the gap. Only an `in` event may have one, and check.py

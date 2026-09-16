@@ -173,10 +173,10 @@ h1{font-size:21px;font-weight:700;letter-spacing:-.012em;margin:0;text-wrap:bala
 .empty{display:none;color:var(--ink-2);margin-top:20px}
 
 /* Flags and method notes. */
+/* Newest first. The date orders this list and stays in the event log; it is
+   deliberately not printed — the record matters, the calendar does not. */
 .drunk{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:5px;
   font-size:13.5px}
-.drunk li{display:grid;grid-template-columns:96px minmax(0,1fr);gap:0 10px}
-.drunk .dt{color:var(--ink-3);font-size:12.5px}
 .flags{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:14px}
 .flags b{font-weight:600}
 .flags p{color:var(--ink-2);font-size:13.5px;margin-top:2px;max-width:700px}
@@ -424,9 +424,7 @@ def render(d):
             w = e["wine"]
             note = f'<span class="q"> — {esc(e["note"])}</span>' if e.get("note") else ""
             n = f' <span class="qty">×{e["qty"]}</span>' if e["qty"] > 1 else ""
-            A(f'<li><span class="dt">{esc(e["date"] or "—")}</span>'
-              f'<span><b>{esc(vintage(w))}</b> {esc(w["display"])}{n}'
-              f'{note}</span></li>')
+            A(f'<li><b>{esc(vintage(w))}</b> {esc(w["display"])}{n}{note}</li>')
         A("</ul>")
 
     A('<div class="method">')
