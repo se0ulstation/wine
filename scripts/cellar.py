@@ -49,11 +49,37 @@ REGIONS = [
 
 
 def load():
-    return json.loads((ROOT / "data" / "cellar.json").read_text())
+    """Parse the cellar and derive each wine's holding from the event log.
+
+    Nothing stores a count. `_qty` is computed here, once, the same way `_rg`
+    and `_ap` are — so the number on the page and the drink log are two readings
+    of one fact and cannot drift apart.
+    """
+    d = json.loads((ROOT / "data" / "cellar.json").read_text())
+    held = {}
+    for e in d.get("events", []):
+        held[e["wine"]] = held.get(e["wine"], 0) + e["qty"] * (1 if e["type"] == "in" else -1)
+    for w in d["wines"]:
+        w["_qty"] = held.get(w["id"], 0)
+    return d
 
 
-def qty(b):
-    return b.get("qty", 1)
+def qty(w):
+    return w.get("_qty", 0)
+
+
+def held(wines):
+    """The wines actually in the cellar. A finished one stays in the catalogue —
+    its notes and its place in the log outlive the last bottle."""
+    return [w for w in wines if qty(w) > 0]
+
+
+def drunk(d):
+    """The drink log, newest first, each entry joined back to its wine."""
+    by_id = {w["id"]: w for w in d["wines"]}
+    out = [dict(e, wine=by_id[e["wine"]]) for e in d.get("events", [])
+           if e["type"] == "out"]
+    return sorted(out, key=lambda e: (e["date"] or "", e["wine"]["id"]), reverse=True)
 
 
 def value(b):

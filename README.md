@@ -5,6 +5,11 @@ A personal cellar: what is in it, when to drink it, and what it is worth.
 `data/cellar.json` is the only file edited by hand. Everything else is generated,
 so the numbers in the Markdown and in the dashboard can never drift apart.
 
+Inside it, `wines[]` is the catalogue and `events[]` is what happened to it. No
+count is stored: a holding is the fold of its own in and out events, the same
+way status is derived from the drinking window. Drinking a bottle is one
+appended event, and the drink log is just the out-events read back.
+
 ```
 python3 scripts/build.py    # validate, then regenerate everything
 ```
@@ -35,12 +40,12 @@ self-hosting as a webfont, and not on Google Fonts.
 
 | Field | |
 |---|---|
-| `id` | Bottle number |
+| `id` | Wine number, referenced by `events[]` |
 | `producer` / `wine` / `vintage` | `vintage: null` means NV — set `vintage_label` |
 | `country` / `region` / `classification` | Origin and rank |
 | `type` | `red` / `white` / `sparkling` |
 | `grapes` | Varieties, most important first |
-| `qty` | How many bottles |
+| — | Holdings are derived from `events[]`, never stored |
 | `format_ml` | Bottle size; omit for 750 |
 | `drink_from` / `drink_to` | Drinking window, in years |
 | `display` / `short` / `category` | Name and one-line note for the tables |

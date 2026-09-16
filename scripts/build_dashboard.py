@@ -16,8 +16,8 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from cellar import (CLS, LABEL, NOW, ROOT, STATUS, appellations, load, qty,
-                    regions, status, usd, value, vintage)
+from cellar import (CLS, LABEL, NOW, ROOT, STATUS, appellations, drunk, held,
+                    load, qty, regions, status, usd, value, vintage)
 
 BASIS = {"verified": "confirmed", "estimate": "estimated", "unverified": "unverified"}
 
@@ -206,7 +206,7 @@ h1{font-size:21px;font-weight:700;letter-spacing:-.012em;margin:0;text-wrap:bala
 
 
 def render(d):
-    B = sorted(d["bottles"], key=lambda b: b["id"])
+    B = sorted(held(d["wines"]), key=lambda b: b["id"])
     total = sum(qty(b) for b in B)
     worth = sum(value(b) for b in B)
     yrs = [b["vintage"] for b in B if b.get("vintage")]
@@ -386,9 +386,9 @@ def render(d):
             src += f' · {e["n_listings"]} listings {usd(e["low"])}–{usd(e["high"])}'
             if e.get("ws_snippet"):
                 src += f' · WS snippet {usd(e["ws_snippet"])}'
-        held = (f'{qty(b)} bottles, {usd(value(b))} in total · '
-                if qty(b) > 1 else "")
-        A(f'<dt>Price</dt><dd>{usd(pr["avg_usd"])} per 750ml · {held}'
+        holding = (f'{qty(b)} bottles, {usd(value(b))} in total · '
+                   if qty(b) > 1 else "")
+        A(f'<dt>Price</dt><dd>{usd(pr["avg_usd"])} per 750ml · {holding}'
           f'<span class="q">{BASIS[pr["confidence"]]} — {src}</span></dd>')
         meta = [f'#{b["id"]:02d}', esc(b["producer"])]
         if b.get("classification"):
@@ -417,12 +417,15 @@ def render(d):
               f'{esc(f["title"])}</b><p>{esc(f["text"])}</p></li>')
         A("</ul>")
 
-    if d.get("drunk"):
+    log = drunk(d)
+    if log:
         A('<h2 class="sec">Drunk</h2><ul class="drunk">')
-        for x in sorted(d["drunk"], key=lambda x: x["date"], reverse=True):
-            note = f'<span class="q"> — {esc(x["note"])}</span>' if x.get("note") else ""
-            A(f'<li><span class="dt">{esc(x["date"])}</span>'
-              f'<span><b>{esc(x.get("vintage") or "NV")}</b> {esc(x["display"])}'
+        for e in log:
+            w = e["wine"]
+            note = f'<span class="q"> — {esc(e["note"])}</span>' if e.get("note") else ""
+            n = f' <span class="qty">×{e["qty"]}</span>' if e["qty"] > 1 else ""
+            A(f'<li><span class="dt">{esc(e["date"] or "—")}</span>'
+              f'<span><b>{esc(vintage(w))}</b> {esc(w["display"])}{n}'
               f'{note}</span></li>')
         A("</ul>")
 
@@ -465,7 +468,7 @@ __BODY__
 def main():
     d = load()
     body = render(d)
-    n = sum(qty(b) for b in d["bottles"])
+    n = sum(qty(w) for w in held(d["wines"]))
 
     out = ROOT / "web" / "dashboard.html"        # Artifact: host wraps it
     out.write_text(body)
@@ -487,7 +490,7 @@ def main():
         '<body><p><a href="docs/index.html">CellarOS</a></p></body>\n</html>\n')
 
     for f in (out, page):
-        print(f"{f.relative_to(ROOT)}: {n} bottles · {len(d['bottles'])} labels · "
+        print(f"{f.relative_to(ROOT)}: {n} bottles · {len(held(d['wines']))} labels · "
               f"{f.stat().st_size / 1024:.0f} KB")
 
 

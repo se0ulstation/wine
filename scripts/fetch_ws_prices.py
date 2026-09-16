@@ -76,7 +76,7 @@ def main():
         sys.exit("WS_API_KEY is not set. Run with WS_API_KEY=... or use --dry-run.")
 
     d = json.loads(SRC.read_text())
-    bottles = [b for b in d["bottles"] if not a.only or b["id"] in a.only]
+    bottles = [b for b in d["wines"] if not a.only or b["id"] in a.only]
 
     if a.dry_run:
         for b in bottles:

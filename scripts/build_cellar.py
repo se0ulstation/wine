@@ -8,8 +8,8 @@ from collections import Counter
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from cellar import (LABEL, ROOT, STATUS, load, qty, regions, status, usd,
-                    value, vintage)
+from cellar import (LABEL, ROOT, STATUS, held, load, qty, regions, status,
+                    usd, value, vintage)
 
 OUT = ROOT / "CELLAR.md"
 
@@ -31,7 +31,7 @@ def table(rows, header):
 
 def main():
     d = load()
-    bs = sorted(d["bottles"], key=lambda b: b["id"])
+    bs = sorted(held(d["wines"]), key=lambda b: b["id"])
     total = sum(qty(b) for b in bs)
     worth = sum(value(b) for b in bs)
     groups, order = regions(bs)

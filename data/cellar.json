@@ -2,7 +2,20 @@
  "owner": "jungyoonkim96",
  "updated": "2026-09-15",
  "notes": "Where quantity is unconfirmed, qty=1 is assumed. Purchase price, source and date of arrival to be added later.",
- "bottles": [
+ "flags": [
+  {
+   "id": 30,
+   "title": "Possible bottle variation",
+   "text": "Canon struggled with TCA contamination in the cellar's woodwork through the 1990s and rebuilt the cellars after Chanel bought the estate in 1996. Quality got back on track in the mid-to-late 2000s, so the 2000 vintage falls in the transition. Don't put it up alone at an important dinner."
+  }
+ ],
+ "storage": {
+  "temp_c": 10,
+  "note": "Cellar held at a steady 10°C. Safe for long-term storage, and slightly below the ideal band (12–14°C), so ageing runs a little slower — the far end of each drinking window can be taken as having more room than the figures show. Reds serve at 16–18°C, though, so take them out of the cellar 40–60 minutes before opening."
+ },
+ "price_note": "Prices target the Wine-Searcher worldwide average. Automated access is blocked by a CAPTCHA, so they are graded by how they were obtained. Confirmed means the figure was read directly off the Wine-Searcher page. Estimated means a median of actual retailer listings for the matching vintage, outliers removed. Unverified means it was never read off the page — all six have since been corroborated by a second vintage-pinned search and agree within a few per cent, so none is a repeat of the Château Canon error, where a snippet gave $603 against an actual $220 by scraping an all-vintage page. Worth knowing when reading the total: the worldwide average runs above US retail. Lynch-Bages averages $166 worldwide against a US listing median near $117, and Alter Ego $122 against $103. This is a replacement value across markets, not a US shelf price. PRICES.md lists what is still outstanding, worst first.",
+ "vintage_note": "Vintage ratings describe the growing season in that region and year, not this particular bottle — a great estate makes good wine in a poor year and the reverse happens too. They are reputations gathered from general knowledge, not measurements, and where one is shaky the note says so.",
+ "wines": [
   {
    "id": 1,
    "producer": "Orin Swift",
@@ -14,7 +27,6 @@
    "grapes": [
     "Cabernet Sauvignon"
    ],
-   "qty": 1,
    "drink_from": 2024,
    "drink_to": 2035,
    "status": "drink_or_hold",
@@ -71,7 +83,6 @@
    "grapes": [
     "Cabernet Sauvignon"
    ],
-   "qty": 1,
    "drink_from": 2027,
    "drink_to": 2042,
    "status": "hold",
@@ -127,7 +138,6 @@
    "grapes": [
     "Cabernet Sauvignon"
    ],
-   "qty": 1,
    "drink_from": 2023,
    "drink_to": 2030,
    "status": "drink_now",
@@ -186,7 +196,6 @@
     "Merlot",
     "Cabernet Franc"
    ],
-   "qty": 1,
    "drink_from": 2024,
    "drink_to": 2048,
    "status": "hold",
@@ -242,7 +251,6 @@
    "grapes": [
     "Cabernet Sauvignon"
    ],
-   "qty": 1,
    "drink_from": 2027,
    "drink_to": 2038,
    "status": "hold",
@@ -300,7 +308,6 @@
     "Cabernet Sauvignon",
     "Cabernet Franc"
    ],
-   "qty": 1,
    "drink_from": 2026,
    "drink_to": 2038,
    "status": "drink_or_hold",
@@ -360,7 +367,6 @@
     "Merlot",
     "Cabernet Franc"
    ],
-   "qty": 1,
    "drink_from": 2020,
    "drink_to": 2040,
    "status": "peak",
@@ -418,7 +424,6 @@
     "Cabernet Sauvignon",
     "Merlot"
    ],
-   "qty": 1,
    "drink_from": 2020,
    "drink_to": 2028,
    "status": "drink_now",
@@ -477,7 +482,6 @@
     "Cabernet Sauvignon",
     "Petit Verdot"
    ],
-   "qty": 1,
    "drink_from": 2024,
    "drink_to": 2045,
    "status": "drink_or_hold",
@@ -536,7 +540,6 @@
     "Cabernet Sauvignon",
     "Merlot"
    ],
-   "qty": 1,
    "drink_from": 2015,
    "drink_to": 2032,
    "status": "peak",
@@ -595,7 +598,6 @@
     "Petit Verdot",
     "Cabernet Franc"
    ],
-   "qty": 2,
    "drink_from": 2020,
    "drink_to": 2038,
    "status": "peak",
@@ -652,7 +654,6 @@
    "grapes": [
     "Cabernet Sauvignon"
    ],
-   "qty": 2,
    "drink_from": 2023,
    "drink_to": 2029,
    "status": "drink_now",
@@ -710,7 +711,6 @@
     "Merlot",
     "Cabernet Franc"
    ],
-   "qty": 1,
    "drink_from": 2005,
    "drink_to": 2028,
    "status": "urgent",
@@ -769,7 +769,6 @@
     "Merlot",
     "Cabernet Franc"
    ],
-   "qty": 1,
    "drink_from": 2015,
    "drink_to": 2045,
    "status": "peak",
@@ -825,7 +824,6 @@
    "grapes": [
     "Cabernet Sauvignon"
    ],
-   "qty": 1,
    "drink_from": 2001,
    "drink_to": 2027,
    "status": "urgent",
@@ -882,7 +880,6 @@
     "Cabernet Sauvignon",
     "Cabernet Franc"
    ],
-   "qty": 1,
    "drink_from": 2027,
    "drink_to": 2048,
    "status": "hold",
@@ -939,7 +936,6 @@
     "Chardonnay",
     "Pinot Noir"
    ],
-   "qty": 1,
    "drink_from": 2020,
    "drink_to": 2032,
    "status": "peak",
@@ -996,7 +992,6 @@
     "Chardonnay",
     "Pinot Noir"
    ],
-   "qty": 1,
    "drink_from": 2023,
    "drink_to": 2036,
    "status": "drink_or_hold",
@@ -1054,7 +1049,6 @@
     "Chardonnay",
     "Pinot Noir"
    ],
-   "qty": 1,
    "drink_from": 2027,
    "drink_to": 2040,
    "status": "hold",
@@ -1111,7 +1105,6 @@
    "grapes": [
     "Pinot Noir"
    ],
-   "qty": 1,
    "drink_from": 2024,
    "drink_to": 2029,
    "status": "drink_now",
@@ -1171,7 +1164,6 @@
     "Pinot Noir",
     "Chardonnay"
    ],
-   "qty": 1,
    "drink_from": 2028,
    "drink_to": 2048,
    "status": "hold",
@@ -1228,7 +1220,6 @@
     "Chardonnay",
     "Pinot Noir"
    ],
-   "qty": 1,
    "drink_from": 2016,
    "drink_to": 2032,
    "status": "peak",
@@ -1284,7 +1275,6 @@
    "grapes": [
     "Chardonnay"
    ],
-   "qty": 1,
    "drink_from": 2024,
    "drink_to": 2028,
    "status": "drink_now",
@@ -1344,7 +1334,6 @@
     "Chardonnay",
     "Pinot Meunier"
    ],
-   "qty": 1,
    "drink_from": 2020,
    "drink_to": 2050,
    "status": "peak",
@@ -1402,7 +1391,6 @@
     "Sangiovese",
     "Cabernet Franc"
    ],
-   "qty": 1,
    "drink_from": 2029,
    "drink_to": 2050,
    "status": "hold",
@@ -1461,7 +1449,6 @@
     "Cabernet Franc"
    ],
    "abv": 12.5,
-   "qty": 1,
    "drink_from": 2004,
    "drink_to": 2027,
    "status": "urgent",
@@ -1513,7 +1500,6 @@
     "Cabernet Sauvignon",
     "Petit Verdot"
    ],
-   "qty": 1,
    "drink_from": 2026,
    "drink_to": 2040,
    "status": "drink_or_hold",
@@ -1566,7 +1552,6 @@
     "Cabernet Franc",
     "Petit Verdot"
    ],
-   "qty": 1,
    "drink_from": 2021,
    "drink_to": 2035,
    "status": "peak",
@@ -1614,7 +1599,6 @@
    "grapes": [
     "Sauvignon Blanc"
    ],
-   "qty": 1,
    "drink_from": 2025,
    "drink_to": 2027,
    "status": "drink_now",
@@ -1664,7 +1648,6 @@
     "Merlot",
     "Cabernet Franc"
    ],
-   "qty": 1,
    "drink_from": 2012,
    "drink_to": 2032,
    "status": "peak",
@@ -1715,7 +1698,6 @@
     "Sauvignon Blanc",
     "Muscadelle"
    ],
-   "qty": 1,
    "format_ml": 375,
    "drink_from": 2010,
    "drink_to": 2035,
@@ -1764,7 +1746,6 @@
    "grapes": [
     "Chenin Blanc"
    ],
-   "qty": 1,
    "drink_from": 1995,
    "drink_to": 2045,
    "status": "peak",
@@ -1815,7 +1796,6 @@
     "Chardonnay",
     "Parellada"
    ],
-   "qty": 3,
    "format_ml": 750,
    "drink_from": 2024,
    "drink_to": 2028,
@@ -1869,7 +1849,6 @@
     "Macabeo",
     "Parellada"
    ],
-   "qty": 1,
    "format_ml": 750,
    "drink_from": 2024,
    "drink_to": 2029,
@@ -1919,7 +1898,6 @@
    "grapes": [
     "Sauvignon Blanc"
    ],
-   "qty": 1,
    "format_ml": 1500,
    "drink_from": 2024,
    "drink_to": 2029,
@@ -1957,68 +1935,222 @@
    }
   }
  ],
- "summary": "Full-bodied Cabernet and prestige Champagne are the two axes. Recent additions of Loire white and sweet wines and a Right Bank Bordeaux have improved the balance. Burgundy Pinot Noir and the Rhône are still gaps.",
- "flags": [
+ "events": [
   {
-   "id": 30,
-   "title": "Possible bottle variation",
-   "text": "Canon struggled with TCA contamination in the cellar's woodwork through the 1990s and rebuilt the cellars after Chanel bought the estate in 1996. Quality got back on track in the mid-to-late 2000s, so the 2000 vintage falls in the transition. Don't put it up alone at an important dinner."
-  }
- ],
- "storage": {
-  "temp_c": 10,
-  "note": "Cellar held at a steady 10°C. Safe for long-term storage, and slightly below the ideal band (12–14°C), so ageing runs a little slower — the far end of each drinking window can be taken as having more room than the figures show. Reds serve at 16–18°C, though, so take them out of the cellar 40–60 minutes before opening."
- },
- "price_note": "Prices target the Wine-Searcher worldwide average. Automated access is blocked by a CAPTCHA, so they are graded by how they were obtained. Confirmed means the figure was read directly off the Wine-Searcher page. Estimated means a median of actual retailer listings for the matching vintage, outliers removed. Unverified means it was never read off the page — all six have since been corroborated by a second vintage-pinned search and agree within a few per cent, so none is a repeat of the Château Canon error, where a snippet gave $603 against an actual $220 by scraping an all-vintage page. Worth knowing when reading the total: the worldwide average runs above US retail. Lynch-Bages averages $166 worldwide against a US listing median near $117, and Alter Ego $122 against $103. This is a replacement value across markets, not a US shelf price. PRICES.md lists what is still outstanding, worst first.",
- "gaps": [
-  {
-   "title": "Burgundy Pinot Noir",
-   "severity": "high",
-   "why": "All 21 reds in the cellar are based on Cabernet, Merlot or Sangiovese. There is nothing to open when the occasion calls for something light and aromatic, and it is missed most with mushrooms, duck, salmon or soy-based Korean food. As it stands, those meals get a full-bodied Cabernet too.",
-   "picks": [
-    "Gevrey-Chambertin village (domaine level) · $80~120",
-    "Volnay 1er Cru · $120~200",
-    "Nuits-Saint-Georges · $100~160"
-   ]
+   "date": null,
+   "wine": 1,
+   "type": "in",
+   "qty": 1
   },
   {
-   "title": "Northern Rhône Syrah",
-   "severity": "high",
-   "why": "There is no savoury axis at all — pepper, olive, smoke. It is the furthest direction from Cabernet, so a single bottle adds more range to the cellar than anything else.",
-   "picks": [
-    "Crozes-Hermitage · $40~70",
-    "Cornas · $80~140",
-    "Côte-Rôtie · $120~250"
-   ]
+   "date": null,
+   "wine": 2,
+   "type": "in",
+   "qty": 1
   },
   {
-   "title": "Age-worthy dry white",
-   "severity": "medium",
-   "why": "The only whites are the Pouilly-Fumé 2024 and the village white Burgundy 2022, and both need drinking within three years. There is no white to lay down in the cellar.",
-   "picks": [
-    "Chablis 1er Cru · $50~90",
-    "Alsace Riesling Grand Cru · $50~100",
-    "Meursault / Puligny 1er Cru · $150~250"
-   ]
+   "date": null,
+   "wine": 3,
+   "type": "in",
+   "qty": 1
   },
   {
-   "title": "Weeknight red",
-   "severity": "medium",
-   "why": "Only one bottle under $70, the Austin Hope. With nothing easy to open, you end up opening a bottle you meant to save, and that is the most common reason a cellar empties faster than planned.",
-   "picks": [
-    "Côtes du Rhône Villages · $20~35",
-    "Chianti Classico · $25~40",
-    "Bourgogne Rouge · $35~55"
-   ]
-  }
- ],
- "vintage_note": "Vintage ratings describe the growing season in that region and year, not this particular bottle — a great estate makes good wine in a poor year and the reverse happens too. They are reputations gathered from general knowledge, not measurements, and where one is shaky the note says so.",
- "drunk": [
+   "date": null,
+   "wine": 4,
+   "type": "in",
+   "qty": 1
+  },
+  {
+   "date": null,
+   "wine": 5,
+   "type": "in",
+   "qty": 1
+  },
+  {
+   "date": null,
+   "wine": 6,
+   "type": "in",
+   "qty": 1
+  },
+  {
+   "date": null,
+   "wine": 7,
+   "type": "in",
+   "qty": 1
+  },
+  {
+   "date": null,
+   "wine": 8,
+   "type": "in",
+   "qty": 1
+  },
+  {
+   "date": null,
+   "wine": 9,
+   "type": "in",
+   "qty": 1
+  },
+  {
+   "date": null,
+   "wine": 10,
+   "type": "in",
+   "qty": 1
+  },
+  {
+   "date": null,
+   "wine": 11,
+   "type": "in",
+   "qty": 2
+  },
+  {
+   "date": null,
+   "wine": 12,
+   "type": "in",
+   "qty": 2
+  },
+  {
+   "date": null,
+   "wine": 13,
+   "type": "in",
+   "qty": 1
+  },
+  {
+   "date": null,
+   "wine": 14,
+   "type": "in",
+   "qty": 1
+  },
+  {
+   "date": null,
+   "wine": 15,
+   "type": "in",
+   "qty": 1
+  },
+  {
+   "date": null,
+   "wine": 16,
+   "type": "in",
+   "qty": 1
+  },
+  {
+   "date": null,
+   "wine": 17,
+   "type": "in",
+   "qty": 1
+  },
+  {
+   "date": null,
+   "wine": 18,
+   "type": "in",
+   "qty": 1
+  },
+  {
+   "date": null,
+   "wine": 19,
+   "type": "in",
+   "qty": 1
+  },
+  {
+   "date": null,
+   "wine": 20,
+   "type": "in",
+   "qty": 1
+  },
+  {
+   "date": null,
+   "wine": 21,
+   "type": "in",
+   "qty": 1
+  },
+  {
+   "date": null,
+   "wine": 22,
+   "type": "in",
+   "qty": 1
+  },
+  {
+   "date": null,
+   "wine": 23,
+   "type": "in",
+   "qty": 1
+  },
+  {
+   "date": null,
+   "wine": 24,
+   "type": "in",
+   "qty": 1
+  },
+  {
+   "date": null,
+   "wine": 25,
+   "type": "in",
+   "qty": 1
+  },
+  {
+   "date": null,
+   "wine": 26,
+   "type": "in",
+   "qty": 1
+  },
+  {
+   "date": null,
+   "wine": 27,
+   "type": "in",
+   "qty": 1
+  },
+  {
+   "date": null,
+   "wine": 28,
+   "type": "in",
+   "qty": 1
+  },
+  {
+   "date": null,
+   "wine": 29,
+   "type": "in",
+   "qty": 1
+  },
+  {
+   "date": null,
+   "wine": 30,
+   "type": "in",
+   "qty": 1
+  },
+  {
+   "date": null,
+   "wine": 31,
+   "type": "in",
+   "qty": 1
+  },
+  {
+   "date": null,
+   "wine": 32,
+   "type": "in",
+   "qty": 1
+  },
+  {
+   "date": null,
+   "wine": 33,
+   "type": "in",
+   "qty": 4
+  },
+  {
+   "date": null,
+   "wine": 34,
+   "type": "in",
+   "qty": 1
+  },
+  {
+   "date": null,
+   "wine": 35,
+   "type": "in",
+   "qty": 1
+  },
   {
    "date": "2026-09-15",
-   "display": "Naveran Dama de Naveran Extra Brut Cava",
-   "vintage": 2022,
-   "note": ""
+   "wine": 33,
+   "type": "out",
+   "qty": 1
   }
  ]
 }

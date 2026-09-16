@@ -8,8 +8,8 @@ prints the current ones.
 
 ## The one rule
 
-`data/cellar.json` is the only file edited by hand. `CELLAR.md`, `PRICES.md`
-and `web/dashboard.html` are all generated from it. Never edit a generated
+`data/cellar.json` is the only file edited by hand — `wines[]` and `events[]`.
+`CELLAR.md`, `PRICES.md` and `web/dashboard.html` are all generated from it. Never edit a generated
 file — the change is gone at the next build, and the two documents drift apart,
 which is the failure this layout exists to prevent.
 
@@ -33,7 +33,8 @@ a commit. Add a rule to it whenever a new class of mistake turns up.
 `scripts/cellar.py::status()` computes it from the drinking window at build
 time. There is no `status` field to trust; a stored one is wrong within a year.
 
-`NOW` is the **system year**, not a constant — a pinned one would break that
+Holdings work the same way, from `events[]` — see below. `NOW` is the
+**system year**, not a constant — a pinned one would break that
 same promise every January, which it silently did until it was caught. Set
 `CELLAR_YEAR=2034` to ask what the cellar looks like later; that is also how
 `post peak`, currently an empty state, was confirmed to work.
@@ -155,18 +156,33 @@ Two errors worth not repeating, both from assuming the common case:
 Check colour, grape and what part of the name is the producer before writing a
 profile. The prose is long and confident, which makes a wrong premise expensive.
 
-## The drunk log
+## Nothing stores a count
 
-`drunk[]` at the top level: `{date, display, vintage, note}`, newest first on
-the page. Deliberately **denormalised** rather than pointing at a bottle id —
-the log has to outlive the bottle. When the last one of something is drunk, its
-entry leaves `bottles` entirely and this is all that remains, so an id would
-dangle. `note` is optional and usually empty; fill it only if the bottle
-actually said something.
+`wines[]` is the catalogue — identity, profile, price, one entry per label,
+**never deleted**. `events[]` is what actually happened:
 
-Logging one is two edits in the same commit: decrement `qty`, append to
-`drunk`. Check the wine's own `notes` and `short` for a count written into the
-prose — the Naveran said "four bottles" in two places.
+```json
+{"date": null,         "wine": 33, "type": "in",  "qty": 4}
+{"date": "2026-09-15", "wine": 33, "type": "out", "qty": 1}
+```
+
+`load()` folds the log into `_qty` on each wine and `qty()` reads that. There is
+no `qty` field, the same way there is no `status` field. The holding on the page
+and the drink log are two readings of one fact, so they cannot disagree — the
+previous model mutated a count and appended a log separately, and nothing tied
+them together.
+
+- `held(wines)` — those with a bottle left. A finished wine keeps its entry, its
+  notes and its place in the log; only its holding goes to zero.
+- `drunk(d)` — out-events newest first, each joined back to its wine.
+- `date: null` means an opening balance: already in the cellar when it was first
+  catalogued. Acquisition dates were never recorded and inventing them would be
+  worse than admitting the gap. Only an `in` event may have one, and check.py
+  enforces that.
+
+**Logging a drink is one append**, and nothing else — no count to decrement.
+Still check the wine's own `notes` and `short` for a number written into the
+prose; the Naveran said "four bottles" in two places and both went stale.
 
 ## Conventions
 

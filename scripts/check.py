@@ -13,10 +13,11 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from cellar import STATUS, appellations, load, qty, regions, status, value, vintage
+from cellar import (STATUS, appellations, drunk, held, load, qty, regions,
+                    status, value, vintage)
 
 REQUIRED = ("producer", "wine", "display", "short", "country", "region", "type",
-            "grapes", "qty", "drink_from", "drink_to", "notes", "profile", "price",
+            "grapes", "drink_from", "drink_to", "notes", "profile", "price",
             "ws_url", "vintage_note")
 PROFILE = ("style", "tasting", "story", "serve", "pair")
 TIERS = ("verified", "estimate", "unverified")
@@ -29,7 +30,7 @@ WHITES = {"Chardonnay", "Sauvignon Blanc", "Sémillon", "Chenin Blanc", "Rieslin
 
 def main():
     d = load()
-    B = sorted(d["bottles"], key=lambda b: b["id"])
+    B = sorted(d["wines"], key=lambda b: b["id"])
     bad = []
 
     def need(b, ok, msg):
@@ -50,7 +51,7 @@ def main():
             need(b, lo - v <= 20, f"window opens {lo - v} years after the vintage")
         need(b, b.get("format_ml", 750) in (375, 750, 1500),
              f'format {b.get("format_ml")} is not a size we stock')
-        need(b, qty(b) >= 1, f"qty {b.get('qty')}")
+        need(b, qty(b) >= 0, f"holding went negative: {qty(b)}")
         if b.get("abv"):
             need(b, 5 < b["abv"] < 20, f'abv {b["abv"]}')
 
@@ -96,23 +97,33 @@ def main():
         need(b, b["_rg"] in groups and b["_ap"] in aps, "does not map to a region")
         need(b, status(b) in dict((k, t) for k, t, _ in STATUS), "status does not resolve")
 
-    # The log is denormalised so it can outlive the bottle; check it stands alone.
-    for i, x in enumerate(d.get("drunk", [])):
-        where = f'drunk[{i}] {x.get("display", "?")[:32]}'
-        for k in ("date", "display"):
-            if not x.get(k):
-                bad.append(f'{where:<44} missing {k}')
-        if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", x.get("date", "")):
-            bad.append(f'{where:<44} date is not YYYY-MM-DD')
+    # The event log is the only source of a count, so it carries its own rules.
+    ids = {b["id"] for b in B}
+    for i, e in enumerate(d.get("events", [])):
+        where = f"events[{i}]"
+        if e.get("wine") not in ids:
+            bad.append(f'{where:<44} references no wine: {e.get("wine")}')
+        if e.get("type") not in ("in", "out"):
+            bad.append(f'{where:<44} type {e.get("type")!r}')
+        if not isinstance(e.get("qty"), int) or e["qty"] < 1:
+            bad.append(f'{where:<44} qty {e.get("qty")!r}')
+        # An opening balance has no date on purpose; anything else must carry one.
+        if e.get("type") == "out" and not re.fullmatch(r"\d{4}-\d{2}-\d{2}", e.get("date") or ""):
+            bad.append(f'{where:<44} out-event date is not YYYY-MM-DD')
+        if e.get("date") is None and e.get("type") != "in":
+            bad.append(f'{where:<44} only an opening balance may have a null date')
 
-    total = sum(qty(x) for x in B)
-    worth = sum(value(x) for x in B)
+    total = sum(qty(x) for x in held(B))
+    worth = sum(value(x) for x in held(B))
     if bad:
         print(f"{len(bad)} problem(s):\n")
         print("\n".join(bad))
         return 1
-    print(f"ok — {len(B)} labels, {total} bottles, ${worth:,.0f}, "
-          f"{len(order)} regions, {len(aps)} appellations")
+    gone = len(B) - len(held(B))
+    finished = f", {gone} finished" if gone else ""
+    print(f"ok — {len(held(B))} labels{finished}, {total} bottles, ${worth:,.0f}, "
+          f"{len(order)} regions, {len(aps)} appellations, "
+          f"{len(d.get('events', []))} events, {len(drunk(d))} drunk")
     return 0
 
 

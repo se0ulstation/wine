@@ -9,7 +9,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from cellar import ROOT, load, qty, usd, value, vintage
+from cellar import ROOT, held, load, qty, usd, value, vintage
 
 OUT = ROOT / "PRICES.md"
 TIER = {"verified": "confirmed", "estimate": "estimated", "unverified": "unverified"}
@@ -17,7 +17,7 @@ TIER = {"verified": "confirmed", "estimate": "estimated", "unverified": "unverif
 
 def main():
     d = load()
-    bs = sorted(d["bottles"], key=lambda b: b["id"])
+    bs = sorted(held(d["wines"]), key=lambda b: b["id"])
     todo = [b for b in bs if b["price"]["confidence"] != "verified"]
     todo.sort(key=value, reverse=True)
 
