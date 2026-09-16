@@ -2012,5 +2012,13 @@
    ]
   }
  ],
- "vintage_note": "Vintage ratings describe the growing season in that region and year, not this particular bottle — a great estate makes good wine in a poor year and the reverse happens too. They are reputations gathered from general knowledge, not measurements, and where one is shaky the note says so."
+ "vintage_note": "Vintage ratings describe the growing season in that region and year, not this particular bottle — a great estate makes good wine in a poor year and the reverse happens too. They are reputations gathered from general knowledge, not measurements, and where one is shaky the note says so.",
+ "drunk": [
+  {
+   "date": "2026-09-15",
+   "display": "Naveran Dama de Naveran Extra Brut Cava",
+   "vintage": 2022,
+   "note": ""
+  }
+ ]
 }

@@ -96,6 +96,15 @@ def main():
         need(b, b["_rg"] in groups and b["_ap"] in aps, "does not map to a region")
         need(b, status(b) in dict((k, t) for k, t, _ in STATUS), "status does not resolve")
 
+    # The log is denormalised so it can outlive the bottle; check it stands alone.
+    for i, x in enumerate(d.get("drunk", [])):
+        where = f'drunk[{i}] {x.get("display", "?")[:32]}'
+        for k in ("date", "display"):
+            if not x.get(k):
+                bad.append(f'{where:<44} missing {k}')
+        if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", x.get("date", "")):
+            bad.append(f'{where:<44} date is not YYYY-MM-DD')
+
     total = sum(qty(x) for x in B)
     worth = sum(value(x) for x in B)
     if bad:

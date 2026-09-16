@@ -173,6 +173,10 @@ h1{font-size:21px;font-weight:700;letter-spacing:-.012em;margin:0;text-wrap:bala
 .empty{display:none;color:var(--ink-2);margin-top:20px}
 
 /* Flags and method notes. */
+.drunk{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:5px;
+  font-size:13.5px}
+.drunk li{display:grid;grid-template-columns:96px minmax(0,1fr);gap:0 10px}
+.drunk .dt{color:var(--ink-3);font-size:12.5px}
 .flags{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:14px}
 .flags b{font-weight:600}
 .flags p{color:var(--ink-2);font-size:13.5px;margin-top:2px;max-width:700px}
@@ -411,6 +415,15 @@ def render(d):
             fb = byid[f["id"]]
             A(f'<li><b>{esc(fb["display"])} {vintage(fb)} — '
               f'{esc(f["title"])}</b><p>{esc(f["text"])}</p></li>')
+        A("</ul>")
+
+    if d.get("drunk"):
+        A('<h2 class="sec">Drunk</h2><ul class="drunk">')
+        for x in sorted(d["drunk"], key=lambda x: x["date"], reverse=True):
+            note = f'<span class="q"> — {esc(x["note"])}</span>' if x.get("note") else ""
+            A(f'<li><span class="dt">{esc(x["date"])}</span>'
+              f'<span><b>{esc(x.get("vintage") or "NV")}</b> {esc(x["display"])}'
+              f'{note}</span></li>')
         A("</ul>")
 
     A('<div class="method">')

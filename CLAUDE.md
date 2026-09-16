@@ -155,6 +155,19 @@ Two errors worth not repeating, both from assuming the common case:
 Check colour, grape and what part of the name is the producer before writing a
 profile. The prose is long and confident, which makes a wrong premise expensive.
 
+## The drunk log
+
+`drunk[]` at the top level: `{date, display, vintage, note}`, newest first on
+the page. Deliberately **denormalised** rather than pointing at a bottle id —
+the log has to outlive the bottle. When the last one of something is drunk, its
+entry leaves `bottles` entirely and this is all that remains, so an id would
+dangle. `note` is optional and usually empty; fill it only if the bottle
+actually said something.
+
+Logging one is two edits in the same commit: decrement `qty`, append to
+`drunk`. Check the wine's own `notes` and `short` for a count written into the
+prose — the Naveran said "four bottles" in two places.
+
 ## Conventions
 
 - **English throughout** — code, comments, data, output. No Korean anywhere.
