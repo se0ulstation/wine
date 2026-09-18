@@ -204,8 +204,15 @@ Never let those diverge: both come from `render()` in the same build.
 - **Artifact** — republish `web/dashboard.html` and the URL stays the same:
   https://claude.ai/code/artifact/aeb0a766-9914-40bd-a841-1d7f055d955e
   Changing that file's path would create a *new* artifact and orphan the link.
-- **GitHub Pages** — https://se0ulstation.github.io/wine/ , served from `/docs`
-  on the default branch. Every push republishes it.
+- **GitHub Pages** — https://se0ulstation.github.io/wine/ , every push
+  republishes it. **Source is currently the branch root, not `/docs`**, which
+  means the whole repository is served as a website: `data/cellar.json`,
+  `CLAUDE.md` and the scripts all return 200, and so does `web/dashboard.html`
+  — the Artifact body, which renders in quirks mode with no viewport and is the
+  file that once looked broken on a phone. The root URL is only a `<meta
+  refresh>` stub pointing at `docs/index.html`. Switching the Pages source to
+  `/docs` in repository settings fixes all of that at once and is a one-time
+  manual change; until someone does it, do not describe this as serving `/docs`.
 
 The repository is **public**, so the cellar and its valuations are readable by
 anyone. That is a deliberate choice, not an oversight — if it changes, Pages on
