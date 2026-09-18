@@ -2,15 +2,15 @@
 
 # Cellar
 
-As of 2026-09-15 · 39 bottles / 35 labels · est. $8,024 · stored at 10°C
+As of 2026-09-18 · 36 bottles / 32 labels · est. $7,480 · stored at 10°C
 
 ## By region
 
 | Region | Bottles | Value |
 |---|---|---|
-| Bordeaux | 11 | $2,427 |
-| Champagne | 7 | $2,081 |
-| Napa Valley | 7 | $1,818 |
+| Bordeaux | 10 | $2,305 |
+| Champagne | 6 | $1,812 |
+| Napa Valley | 6 | $1,665 |
 | Penedès | 4 | $109 |
 | Tuscany | 4 | $1,172 |
 | Loire | 2 | $82 |
@@ -20,16 +20,15 @@ As of 2026-09-15 · 39 bottles / 35 labels · est. $8,024 · stored at 10°C
 | Paso Robles | 1 | $50 |
 
 
-## Urgent (4)
+## Urgent (3)
 
 | # | Wine | Vintage | Window | Note |
 |---|---|---|---|---|
 | 8 | Le Petit Mouton de Mouton Rothschild | 2013 | 2020-2028 | Weak vintage, no reason to wait |
 | 13 | Ornellaia | 1996 | 2005-2028 | 30 years old, end of the drinking window |
-| 15 | Silver Oak Napa Valley Cabernet Sauvignon | 1996 | 2001-2027 | Early-drinking style plus 30 years of age |
 | 26 | Château du Domaine de l'Église | 1996 | 2004-2027 | 30 years old plus a vintage that hurt the Right Bank, no ageing left |
 
-## Drink now (6)
+## Drink now (5)
 
 | # | Wine | Vintage | Window | Note |
 |---|---|---|---|---|
@@ -38,7 +37,6 @@ As of 2026-09-15 · 39 bottles / 35 labels · est. $8,024 · stored at 10°C
 | 6 | Antinori Tignanello | 2020 | 2026-2038 | Decant 2 hours if opening now, better after 2028 |
 | 9 | Château Palmer | 2008 | 2024-2045 | Underrated vintage, but Palmer is exceptionally good |
 | 18 | Dom Pérignon | 2013 | 2023-2036 | High acidity and tension, good now and good for longer |
-| 27 | Alter Ego de Palmer | 2019 | 2026-2040 | Strong 2019 vintage, drinkable now but it hits its stride after 2029 |
 
 ## Peak (23)
 
@@ -64,14 +62,13 @@ As of 2026-09-15 · 39 bottles / 35 labels · est. $8,024 · stored at 10°C
 | 34 | Bohigas Cava Brut Reserva | NV | 2024-2029 | Classic Penedès trio, Xarel·lo-led. |
 | 35 | Cloudy Bay Sauvignon Blanc (1500ml) | 2023 | 2024-2029 | Magnum. The only large format in the cellar. |
 
-## Hold (6)
+## Hold (5)
 
 | # | Wine | Vintage | Window | Note |
 |---|---|---|---|---|
 | 2 | Hardys Thomas Hardy Cabernet Sauvignon | 2017 | 2027-2042 | Still young, another two or three years at least |
 | 5 | Shafer One Point Five Cabernet Sauvignon | 2021 | 2027-2038 | Very strong 2021 Napa, a waste to open now |
 | 16 | Sassicaia | 2019 | 2027-2048 | All-time vintage, a loss to open now |
-| 19 | Dom Pérignon | 2017 | 2027-2040 | The youngest DP |
 | 21 | Louis Roederer Cristal | 2016 | 2028-2048 | The longest keeper among the cellar's Champagnes |
 | 25 | Antinori Solaia | 2021 | 2029-2050 | Core window 2032–2045 |
 
@@ -95,11 +92,9 @@ As of 2026-09-15 · 39 bottles / 35 labels · est. $8,024 · stored at 10°C
 | 12 | NV | Opus One Overture x2 | Napa Valley | Peak | 2023-2029 | $400 |
 | 13 | 1996 | Ornellaia | Bolgheri Superiore DOC | Urgent | 2005-2028 | $277 |
 | 14 | 1996 | Château Haut-Brion | Pessac-Léognan, Bordeaux | Peak | 2015-2045 | $613 |
-| 15 | 1996 | Silver Oak Napa Valley Cabernet Sauvignon | Napa Valley | Urgent | 2001-2027 | $153 |
 | 16 | 2019 | Sassicaia | Bolgheri Sassicaia DOC | Hold | 2027-2048 | $333 |
 | 17 | 2010 | Dom Pérignon | Champagne | Peak | 2020-2032 | $295 |
 | 18 | 2013 | Dom Pérignon | Champagne | Drink now | 2023-2036 | $275 |
-| 19 | 2017 | Dom Pérignon | Champagne | Hold | 2027-2040 | $269 |
 | 20 | NV | Monial Libera Me Brut (Blanc de Noirs) | Colombé-le-Sec, Côte des Bar (Aube), Champagne | Peak | 2024-2029 | $33 |
 | 21 | 2016 | Louis Roederer Cristal | Champagne | Hold | 2028-2048 | $330 |
 | 22 | 2006 | Pommery Cuvée Louise | Champagne | Peak | 2016-2032 | $310 |
@@ -107,7 +102,6 @@ As of 2026-09-15 · 39 bottles / 35 labels · est. $8,024 · stored at 10°C
 | 24 | 2002 | Krug Vintage | Champagne | Peak | 2020-2050 | $569 |
 | 25 | 2021 | Antinori Solaia | Toscana IGT | Hold | 2029-2050 | $400 |
 | 26 | 1996 | Château du Domaine de l'Église | Pomerol, Bordeaux | Urgent | 2004-2027 | $102 |
-| 27 | 2019 | Alter Ego de Palmer | Margaux, Bordeaux | Drink now | 2026-2040 | $122 |
 | 28 | 2011 | Château Lynch-Bages | Pauillac, Bordeaux | Peak | 2021-2035 | $166 |
 | 29 | 2024 | Jean Pabiot Domaine des Fines Caillottes | Pouilly-Fumé, Loire | Peak | 2025-2027 | $32 |
 | 30 | 2000 | Château Canon | Saint-Émilion, Bordeaux | Peak | 2012-2032 | $220 |
