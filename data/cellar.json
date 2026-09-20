@@ -1,6 +1,6 @@
 {
  "owner": "jungyoonkim96",
- "updated": "2026-09-18",
+ "updated": "2026-09-20",
  "notes": "Where quantity is unconfirmed, qty=1 is assumed. Purchase price, source and date of arrival to be added later.",
  "flags": [
   {
@@ -2167,6 +2167,18 @@
   {
    "date": "2026-09-18",
    "wine": 27,
+   "type": "out",
+   "qty": 1
+  },
+  {
+   "date": "2026-09-20",
+   "wine": 33,
+   "type": "out",
+   "qty": 1
+  },
+  {
+   "date": "2026-09-20",
+   "wine": 23,
    "type": "out",
    "qty": 1
   }

@@ -2,7 +2,7 @@
 
 # Cellar
 
-As of 2026-09-18 · 36 bottles / 32 labels · est. $7,480 · stored at 10°C
+As of 2026-09-20 · 34 bottles / 31 labels · est. $7,324 · stored at 10°C
 
 ## By region
 
@@ -11,11 +11,10 @@ As of 2026-09-18 · 36 bottles / 32 labels · est. $7,480 · stored at 10°C
 | Bordeaux | 10 | $2,305 |
 | Champagne | 6 | $1,812 |
 | Napa Valley | 6 | $1,665 |
-| Penedès | 4 | $109 |
 | Tuscany | 4 | $1,172 |
+| Penedès | 3 | $79 |
 | Loire | 2 | $82 |
 | Australia | 1 | $93 |
-| Burgundy | 1 | $126 |
 | Marlborough | 1 | $66 |
 | Paso Robles | 1 | $50 |
 
@@ -38,7 +37,7 @@ As of 2026-09-18 · 36 bottles / 32 labels · est. $7,480 · stored at 10°C
 | 9 | Château Palmer | 2008 | 2024-2045 | Underrated vintage, but Palmer is exceptionally good |
 | 18 | Dom Pérignon | 2013 | 2023-2036 | High acidity and tension, good now and good for longer |
 
-## Peak (23)
+## Peak (21)
 
 | # | Wine | Vintage | Window | Note |
 |---|---|---|---|---|
@@ -51,14 +50,13 @@ As of 2026-09-18 · 36 bottles / 32 labels · est. $7,480 · stored at 10°C
 | 17 | Dom Pérignon | 2010 | 2020-2032 | Open this first of the three DPs |
 | 20 | Monial Libera Me Brut (Blanc de Noirs) | NV | 2024-2029 | Non-vintage grower Champagne, nothing to gain by keeping it |
 | 22 | Pommery Cuvée Louise | 2006 | 2016-2032 | Prestige cuvée at 20 years |
-| 23 | Charles Noëllat Chassagne-Montrachet | 2022 | 2024-2028 | Négociant village level plus a low-acid vintage, not for keeping |
 | 24 | Krug Vintage | 2002 | 2020-2050 | One of the century's best Champagne vintages. The highlight of the cellar |
 | 28 | Château Lynch-Bages | 2011 | 2021-2035 | Middling vintage so it opened early, a good window now |
 | 29 | Jean Pabiot Domaine des Fines Caillottes | 2024 | 2025-2027 | Sauvignon Blanc, freshness is the whole point. Drink within a year |
 | 30 | Château Canon | 2000 | 2012-2032 | At peak, but watch for bottle variation — see below |
 | 31 | Château Coutet (375ml) | 2002 | 2010-2035 | A half bottle, so it ages fast; good now |
 | 32 | Moulin Touchais Coteaux du Layon | 1981 | 1995-2045 | 45 years old but within normal range. The longest-lived bottle in the cellar |
-| 33 | Naveran Dama de Naveran Extra Brut Cava x3 | 2022 | 2024-2028 | Three bottles left. The everyday pour. |
+| 33 | Naveran Dama de Naveran Extra Brut Cava x2 | 2022 | 2024-2028 | Three bottles left. The everyday pour. |
 | 34 | Bohigas Cava Brut Reserva | NV | 2024-2029 | Classic Penedès trio, Xarel·lo-led. |
 | 35 | Cloudy Bay Sauvignon Blanc (1500ml) | 2023 | 2024-2029 | Magnum. The only large format in the cellar. |
 
@@ -98,7 +96,6 @@ As of 2026-09-18 · 36 bottles / 32 labels · est. $7,480 · stored at 10°C
 | 20 | NV | Monial Libera Me Brut (Blanc de Noirs) | Colombé-le-Sec, Côte des Bar (Aube), Champagne | Peak | 2024-2029 | $33 |
 | 21 | 2016 | Louis Roederer Cristal | Champagne | Hold | 2028-2048 | $330 |
 | 22 | 2006 | Pommery Cuvée Louise | Champagne | Peak | 2016-2032 | $310 |
-| 23 | 2022 | Charles Noëllat Chassagne-Montrachet | Chassagne-Montrachet, Côte de Beaune, Burgundy | Peak | 2024-2028 | $126 |
 | 24 | 2002 | Krug Vintage | Champagne | Peak | 2020-2050 | $569 |
 | 25 | 2021 | Antinori Solaia | Toscana IGT | Hold | 2029-2050 | $400 |
 | 26 | 1996 | Château du Domaine de l'Église | Pomerol, Bordeaux | Urgent | 2004-2027 | $102 |
@@ -107,7 +104,7 @@ As of 2026-09-18 · 36 bottles / 32 labels · est. $7,480 · stored at 10°C
 | 30 | 2000 | Château Canon | Saint-Émilion, Bordeaux | Peak | 2012-2032 | $220 |
 | 31 | 2002 | Château Coutet (375ml) | Barsac, Sauternes, Bordeaux | Peak | 2010-2035 | $25 |
 | 32 | 1981 | Moulin Touchais Coteaux du Layon | Coteaux du Layon, Anjou, Loire | Peak | 1995-2045 | $50 |
-| 33 | 2022 | Naveran Dama de Naveran Extra Brut Cava x3 | Penedès, Catalonia | Peak | 2024-2028 | $90 |
+| 33 | 2022 | Naveran Dama de Naveran Extra Brut Cava x2 | Penedès, Catalonia | Peak | 2024-2028 | $60 |
 | 34 | NV | Bohigas Cava Brut Reserva | Penedès, Catalonia | Peak | 2024-2029 | $19 |
 | 35 | 2023 | Cloudy Bay Sauvignon Blanc (1500ml) | Marlborough | Peak | 2024-2029 | $66 |
 
