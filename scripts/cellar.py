@@ -59,8 +59,16 @@ def load():
     held = {}
     for e in d.get("events", []):
         held[e["wine"]] = held.get(e["wine"], 0) + e["qty"] * (1 if e["type"] == "in" else -1)
+    first_in = {}
+    for e in d.get("events", []):
+        if e["type"] == "in" and e.get("date"):
+            k = e["wine"]
+            first_in[k] = min(first_in[k], e["date"]) if k in first_in else e["date"]
     for w in d["wines"]:
         w["_qty"] = held.get(w["id"], 0)
+        # When the wine entered the cellar, or None for an opening balance —
+        # the 35 wines already here when it was first catalogued.
+        w["_added"] = first_in.get(w["id"])
     return d
 
 

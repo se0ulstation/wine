@@ -178,6 +178,11 @@ them together.
   orders the list and is required on every out-event, but is **deliberately not
   rendered**: the record is worth keeping, the calendar is not worth reading.
   Don't add it back to the page.
+- `_added` is the earliest dated `in` event, or None for an opening balance. It
+  drives the **Added** sort, which falls back to catalogue order while every
+  wine is undated. **Stamp `date` on every new `in` event from now on** — each
+  one you record makes that sort more real, and it is the only way the gap ever
+  closes.
 - `date: null` means an opening balance: already in the cellar when it was first
   catalogued. Acquisition dates were never recorded and inventing them would be
   worse than admitting the gap. Only an `in` event may have one, and check.py

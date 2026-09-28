@@ -30,7 +30,10 @@ SORTS = [
     ("window", "Window", lambda b, g: (b["drink_to"], b["drink_from"], b["id"])),
     ("region", "Region", lambda b, g: (g[b["_rg"]]["name"], b["display"].lower())),
     ("name", "Name", lambda b, g: (b["display"].lower(), b.get("vintage") or 0)),
-    ("catalogued", "Catalogued", lambda b, g: b["id"]),
+    # Undated wines are the opening balance, so they sort as the oldest and
+    # descending puts the newest arrival on top. Today every wine is undated and
+    # this is catalogue order; it becomes a real date sort as soon as one is.
+    ("added", "Added", lambda b, g: (b.get("_added") or "", b["id"])),
 ]
 DEFAULT_SORT = SORTS[0][0]
 
