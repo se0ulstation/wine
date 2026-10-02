@@ -32,10 +32,10 @@ Wine-Searcher blocks automated access, so these averages cannot be fetched. Open
 | 20 | 05 | Shafer One Point Five Cabernet Sauvignon | 2021 | $125 | estimated | [open](https://www.wine-searcher.com/find/shafer+one+point+five+cab+sauv+stags+leap+district+napa+valley+county+north+coast+california+usa/2021) |
 | 21 | 02 | Hardys Thomas Hardy Cabernet Sauvignon | 2017 | $93 | estimated | [open](https://www.wine-searcher.com/find/hardys+thomas+hardy+cabernet+sauvignon+australia/2017) |
 | 22 | 35 | Cloudy Bay Sauvignon Blanc | 2023 | $33 | unverified | [open](https://www.wine-searcher.com/find/cloudy+bay+sauvignon+blanc+marlborough+new+zealand/2023) |
-| 23 | 33 | Naveran Dama de Naveran Extra Brut Cava | 2022 | $30 | estimated | [open](https://www.wine-searcher.com/find/naveran+dama+naveran+extra+brut+cava+penedes+spain/2022) |
-| 24 | 03 | Austin Hope Cabernet Sauvignon | 2020 | $50 | estimated | [open](https://www.wine-searcher.com/find/austinhope+cab+sauv+paso+robles+st+luis+obispo+county+central+coast+california+usa/2020) |
-| 25 | 32 | Moulin Touchais Coteaux du Layon | 1981 | $50 | unverified | [open](https://www.wine-searcher.com/find/moulin+touchais+coteaux+du+layon+anjou+loire+france/1981) |
-| 26 | 20 | Monial Libera Me Brut (Blanc de Noirs) | NV | $33 | estimated | [open](https://www.wine-searcher.com/find/mondiale+libera+mer+brut+champagne+france) |
+| 23 | 03 | Austin Hope Cabernet Sauvignon | 2020 | $50 | estimated | [open](https://www.wine-searcher.com/find/austinhope+cab+sauv+paso+robles+st+luis+obispo+county+central+coast+california+usa/2020) |
+| 24 | 32 | Moulin Touchais Coteaux du Layon | 1981 | $50 | unverified | [open](https://www.wine-searcher.com/find/moulin+touchais+coteaux+du+layon+anjou+loire+france/1981) |
+| 25 | 20 | Monial Libera Me Brut (Blanc de Noirs) | NV | $33 | estimated | [open](https://www.wine-searcher.com/find/mondiale+libera+mer+brut+champagne+france) |
+| 26 | 33 | Naveran Dama de Naveran Extra Brut Cava | 2022 | $30 | estimated | [open](https://www.wine-searcher.com/find/naveran+dama+naveran+extra+brut+cava+penedes+spain/2022) |
 | 27 | 31 | Château Coutet | 2002 | $50 | unverified | [open](https://www.wine-searcher.com/find/coutet+barsac+sauternes+bordeaux+france/2002) |
 | 28 | 34 | Bohigas Cava Brut Reserva | NV | $19 | estimated | [open](https://www.wine-searcher.com/find/bohigas+cava+brut+reserva+penedes+spain) |
 

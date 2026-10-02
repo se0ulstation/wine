@@ -2,7 +2,7 @@
 
 # Cellar
 
-As of 2026-10-02 · 33 bottles / 30 labels · est. $7,292 · stored at 10°C
+As of 2026-10-02 · 32 bottles / 30 labels · est. $7,262 · stored at 10°C
 
 ## By region
 
@@ -12,7 +12,7 @@ As of 2026-10-02 · 33 bottles / 30 labels · est. $7,292 · stored at 10°C
 | Champagne | 6 | $1,812 |
 | Napa Valley | 6 | $1,665 |
 | Tuscany | 4 | $1,172 |
-| Penedès | 3 | $79 |
+| Penedès | 2 | $49 |
 | Australia | 1 | $93 |
 | Loire | 1 | $50 |
 | Marlborough | 1 | $66 |
@@ -37,7 +37,7 @@ As of 2026-10-02 · 33 bottles / 30 labels · est. $7,292 · stored at 10°C
 | 9 | Château Palmer | 2008 | 2024-2045 | Underrated vintage, but Palmer is exceptionally good |
 | 18 | Dom Pérignon | 2013 | 2023-2036 | High acidity and tension, good now and good for longer |
 
-## Peak (20)
+## Peak (19)
 
 | # | Wine | Vintage | Window | Note |
 |---|---|---|---|---|
@@ -55,7 +55,7 @@ As of 2026-10-02 · 33 bottles / 30 labels · est. $7,292 · stored at 10°C
 | 30 | Château Canon | 2000 | 2012-2032 | At peak, but watch for bottle variation — see below |
 | 31 | Château Coutet (375ml) | 2002 | 2010-2035 | A half bottle, so it ages fast; good now |
 | 32 | Moulin Touchais Coteaux du Layon | 1981 | 1995-2045 | 45 years old but within normal range. The longest-lived bottle in the cellar |
-| 33 | Naveran Dama de Naveran Extra Brut Cava x2 | 2022 | 2024-2028 | Three bottles left. The everyday pour. |
+| 33 | Naveran Dama de Naveran Extra Brut Cava | 2022 | 2024-2028 | Three bottles left. The everyday pour. |
 | 34 | Bohigas Cava Brut Reserva | NV | 2024-2029 | Classic Penedès trio, Xarel·lo-led. |
 | 35 | Cloudy Bay Sauvignon Blanc (1500ml) | 2023 | 2024-2029 | Magnum. The only large format in the cellar. |
 
@@ -102,7 +102,7 @@ As of 2026-10-02 · 33 bottles / 30 labels · est. $7,292 · stored at 10°C
 | 30 | 2000 | Château Canon | Saint-Émilion, Bordeaux | Peak | 2012-2032 | $220 |
 | 31 | 2002 | Château Coutet (375ml) | Barsac, Sauternes, Bordeaux | Peak | 2010-2035 | $25 |
 | 32 | 1981 | Moulin Touchais Coteaux du Layon | Coteaux du Layon, Anjou, Loire | Peak | 1995-2045 | $50 |
-| 33 | 2022 | Naveran Dama de Naveran Extra Brut Cava x2 | Penedès, Catalonia | Peak | 2024-2028 | $60 |
+| 33 | 2022 | Naveran Dama de Naveran Extra Brut Cava | Penedès, Catalonia | Peak | 2024-2028 | $30 |
 | 34 | NV | Bohigas Cava Brut Reserva | Penedès, Catalonia | Peak | 2024-2029 | $19 |
 | 35 | 2023 | Cloudy Bay Sauvignon Blanc (1500ml) | Marlborough | Peak | 2024-2029 | $66 |
 
