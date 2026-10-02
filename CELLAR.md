@@ -2,7 +2,7 @@
 
 # Cellar
 
-As of 2026-09-20 · 34 bottles / 31 labels · est. $7,324 · stored at 10°C
+As of 2026-10-02 · 33 bottles / 30 labels · est. $7,292 · stored at 10°C
 
 ## By region
 
@@ -13,8 +13,8 @@ As of 2026-09-20 · 34 bottles / 31 labels · est. $7,324 · stored at 10°C
 | Napa Valley | 6 | $1,665 |
 | Tuscany | 4 | $1,172 |
 | Penedès | 3 | $79 |
-| Loire | 2 | $82 |
 | Australia | 1 | $93 |
+| Loire | 1 | $50 |
 | Marlborough | 1 | $66 |
 | Paso Robles | 1 | $50 |
 
@@ -37,7 +37,7 @@ As of 2026-09-20 · 34 bottles / 31 labels · est. $7,324 · stored at 10°C
 | 9 | Château Palmer | 2008 | 2024-2045 | Underrated vintage, but Palmer is exceptionally good |
 | 18 | Dom Pérignon | 2013 | 2023-2036 | High acidity and tension, good now and good for longer |
 
-## Peak (21)
+## Peak (20)
 
 | # | Wine | Vintage | Window | Note |
 |---|---|---|---|---|
@@ -52,7 +52,6 @@ As of 2026-09-20 · 34 bottles / 31 labels · est. $7,324 · stored at 10°C
 | 22 | Pommery Cuvée Louise | 2006 | 2016-2032 | Prestige cuvée at 20 years |
 | 24 | Krug Vintage | 2002 | 2020-2050 | One of the century's best Champagne vintages. The highlight of the cellar |
 | 28 | Château Lynch-Bages | 2011 | 2021-2035 | Middling vintage so it opened early, a good window now |
-| 29 | Jean Pabiot Domaine des Fines Caillottes | 2024 | 2025-2027 | Sauvignon Blanc, freshness is the whole point. Drink within a year |
 | 30 | Château Canon | 2000 | 2012-2032 | At peak, but watch for bottle variation — see below |
 | 31 | Château Coutet (375ml) | 2002 | 2010-2035 | A half bottle, so it ages fast; good now |
 | 32 | Moulin Touchais Coteaux du Layon | 1981 | 1995-2045 | 45 years old but within normal range. The longest-lived bottle in the cellar |
@@ -100,7 +99,6 @@ As of 2026-09-20 · 34 bottles / 31 labels · est. $7,324 · stored at 10°C
 | 25 | 2021 | Antinori Solaia | Toscana IGT | Hold | 2029-2050 | $400 |
 | 26 | 1996 | Château du Domaine de l'Église | Pomerol, Bordeaux | Urgent | 2004-2027 | $102 |
 | 28 | 2011 | Château Lynch-Bages | Pauillac, Bordeaux | Peak | 2021-2035 | $166 |
-| 29 | 2024 | Jean Pabiot Domaine des Fines Caillottes | Pouilly-Fumé, Loire | Peak | 2025-2027 | $32 |
 | 30 | 2000 | Château Canon | Saint-Émilion, Bordeaux | Peak | 2012-2032 | $220 |
 | 31 | 2002 | Château Coutet (375ml) | Barsac, Sauternes, Bordeaux | Peak | 2010-2035 | $25 |
 | 32 | 1981 | Moulin Touchais Coteaux du Layon | Coteaux du Layon, Anjou, Loire | Peak | 1995-2045 | $50 |

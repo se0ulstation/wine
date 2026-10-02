@@ -6,7 +6,7 @@ Wine-Searcher blocks automated access, so these averages cannot be fetched. Open
 
 > If the page's location filter is set to a country, you are reading that country's average. Leave it on All for the worldwide average.
 
-29 of 31 labels still need confirming, ordered by how much each one moves the cellar total.
+28 of 30 labels still need confirming, ordered by how much each one moves the cellar total.
 
 | | # | Wine | Vintage | Recorded | Basis | Link |
 |---|---|---|---|---|---|---|
@@ -36,9 +36,8 @@ Wine-Searcher blocks automated access, so these averages cannot be fetched. Open
 | 24 | 03 | Austin Hope Cabernet Sauvignon | 2020 | $50 | estimated | [open](https://www.wine-searcher.com/find/austinhope+cab+sauv+paso+robles+st+luis+obispo+county+central+coast+california+usa/2020) |
 | 25 | 32 | Moulin Touchais Coteaux du Layon | 1981 | $50 | unverified | [open](https://www.wine-searcher.com/find/moulin+touchais+coteaux+du+layon+anjou+loire+france/1981) |
 | 26 | 20 | Monial Libera Me Brut (Blanc de Noirs) | NV | $33 | estimated | [open](https://www.wine-searcher.com/find/mondiale+libera+mer+brut+champagne+france) |
-| 27 | 29 | Jean Pabiot Domaine des Fines Caillottes | 2024 | $32 | unverified | [open](https://www.wine-searcher.com/find/jean+pabiot+dom+de+fines+caillottes+pouilly+fume+upper+loire+france/2024) |
-| 28 | 31 | Château Coutet | 2002 | $50 | unverified | [open](https://www.wine-searcher.com/find/coutet+barsac+sauternes+bordeaux+france/2002) |
-| 29 | 34 | Bohigas Cava Brut Reserva | NV | $19 | estimated | [open](https://www.wine-searcher.com/find/bohigas+cava+brut+reserva+penedes+spain) |
+| 27 | 31 | Château Coutet | 2002 | $50 | unverified | [open](https://www.wine-searcher.com/find/coutet+barsac+sauternes+bordeaux+france/2002) |
+| 28 | 34 | Bohigas Cava Brut Reserva | NV | $19 | estimated | [open](https://www.wine-searcher.com/find/bohigas+cava+brut+reserva+penedes+spain) |
 
 ## Confirmed
 
