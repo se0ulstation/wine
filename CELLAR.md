@@ -55,7 +55,7 @@ As of 2026-10-02 · 32 bottles / 30 labels · est. $7,262 · stored at 10°C
 | 30 | Château Canon | 2000 | 2012-2032 | At peak, but watch for bottle variation — see below |
 | 31 | Château Coutet (375ml) | 2002 | 2010-2035 | A half bottle, so it ages fast; good now |
 | 32 | Moulin Touchais Coteaux du Layon | 1981 | 1995-2045 | 45 years old but within normal range. The longest-lived bottle in the cellar |
-| 33 | Naveran Dama de Naveran Extra Brut Cava | 2022 | 2024-2028 | Three bottles left. The everyday pour. |
+| 33 | Naveran Dama de Naveran Extra Brut Cava | 2022 | 2024-2028 | The everyday pour, and it is nearly gone. |
 | 34 | Bohigas Cava Brut Reserva | NV | 2024-2029 | Classic Penedès trio, Xarel·lo-led. |
 | 35 | Cloudy Bay Sauvignon Blanc (1500ml) | 2023 | 2024-2029 | Magnum. The only large format in the cellar. |
 

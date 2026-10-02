@@ -189,8 +189,13 @@ them together.
   enforces that.
 
 **Logging a drink is one append**, and nothing else — no count to decrement.
-Still check the wine's own `notes` and `short` for a number written into the
-prose; the Naveran said "four bottles" in two places and both went stale.
+
+A count written into `short` or `notes` goes stale the moment a bottle is
+drunk, and the Naveran did it twice: "four bottles", corrected to "three",
+stale again a week later. `check.py` now refuses any cardinal directly
+modifying "bottle" in those fields, so write the prose without one — the
+holding is derived and already sits on the row. The rule leaves "one of the
+best bottles in the cellar" alone, since the number has to modify the noun.
 
 ## Conventions
 

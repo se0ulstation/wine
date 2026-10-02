@@ -71,6 +71,15 @@ def main():
                  f'price {p["avg_usd"]} outside its listings {e["low"]}-{e["high"]}')
             need(b, e["n_listings"] >= 2, f'"estimate" from {e["n_listings"]} listing')
 
+        # A count written into prose goes stale the moment a bottle is drunk; it
+        # has happened twice. Requires the number to modify "bottle" directly, so
+        # "one of the best bottles in the cellar" is left alone.
+        for f in ("short", "notes"):
+            m = re.search(r"\b(one|two|three|four|five|six|seven|eight|nine|ten|\d+)\s+"
+                          r"bottles?\b", b[f], re.I)
+            if m:
+                need(b, False, f'{f} hard-codes a count: "{m.group(0)}" — it is derived')
+
         vn = b["vintage_note"]
         need(b, vn.get("rating") in RATINGS, f'rating {vn.get("rating")}')
         need(b, (vn.get("rating") == "n/a") == (not v),
